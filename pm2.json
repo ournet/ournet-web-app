@@ -1,0 +1,5 @@
+{
+    "script": "./lib/index.js",
+    "max_memory_restart": "600M",
+    "name": "ournet-web-app"
+}

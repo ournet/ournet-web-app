@@ -1,0 +1,60 @@
+{
+  "name": "ournet-web-app",
+  "version": "0.1.0",
+  "description": "Ournet web application",
+  "main": "./lib/index.js",
+  "scripts": {
+    "dev": "npm run tsc && npm run start",
+    "start": "node ./lib/index.js",
+    "pretest": "npm run clean && npm run tsc",
+    "test": "ava --no-cache --verbose lib/**/*.test.js",
+    "posttest": "npm run clean-test-code",
+    "tsc": "tsc",
+    "tscw": "tsc -w",
+    "build": "npm run clean && npm run tsc",
+    "preversion": "npm run tsc",
+    "postversion": "git push --follow-tags",
+    "prepublishOnly": "npm run tsc && npm run clean-test-code",
+    "clean": "rimraf ./lib",
+    "clean-test-code": "rimraf ./lib/**/*.test.js",
+    "watch": "npm-watch start"
+  },
+  "watch": {
+    "start": {
+      "patterns": [
+        "lib",
+        "config",
+        "locales"
+      ],
+      "extensions": "js,json",
+      "quiet": true,
+      "legacyWatch": true,
+      "delay": 2000
+    }
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ournet/ournet-web-app.git"
+  },
+  "keywords": [
+    "ournet",
+    "web-app",
+    "web",
+    "app"
+  ],
+  "author": "Dumitru Cantea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ournet/ournet-web-app/issues"
+  },
+  "homepage": "https://github.com/ournet/ournet-web-app#readme",
+  "devDependencies": {
+    "@types/node": "latest",
+    "ava": "^0.25.0",
+    "rimraf": "^2.6.2",
+    "typescript": "latest"
+  }
+}
