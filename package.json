@@ -52,9 +52,14 @@
   },
   "homepage": "https://github.com/ournet/ournet-web-app#readme",
   "devDependencies": {
+    "@types/boom": "^7.2.1",
     "@types/node": "latest",
     "ava": "^0.25.0",
     "rimraf": "^2.6.2",
     "typescript": "latest"
+  },
+  "dependencies": {
+    "boom": "^7.2.0",
+    "roddeh-i18n": "^1.1.1"
   }
 }
