@@ -1,0 +1,22 @@
+
+.u-hide-mobile {
+    @include mq($until: tablet) {
+        display: none !important;
+    }
+}
+
+.u-hide-tablet {
+    @include mq($until: desktop) {
+        display: none !important;
+    }
+}
+
+.u-mobile-only {
+    @include mq($from: tablet) {
+        display: none !important;
+    }
+}
+
+.u-tr {
+    text-align: right;
+}

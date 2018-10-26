@@ -15,8 +15,8 @@ const assets: { [project: string]: { css: { [key: string]: string }, js: { [key:
 function getAssetName(project: string, type: 'css' | 'js', key: string) {
     if (!assets[project]) {
         assets[project] = {
-            css: require(`../public/static/${project}/css/rev-manifest.json`),
-            js: require(`../public/static/${project}/js/rev-manifest.json`),
+            css: require(`../public/static/css/${project}/rev-manifest.json`),
+            js: require(`../public/static/js/${project}/rev-manifest.json`),
         }
     }
     return assets[project][type][key];

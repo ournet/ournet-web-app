@@ -1,0 +1,30 @@
+
+html {
+    font-family: $global-font-family;
+    background-color: $bg-color;
+    color: $text-color;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $global-h-font-family;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    &:hover {
+        color: darken($link-color, 10%);
+        text-decoration: underline;
+    }
+}
+
+hr {
+    background: darken($bg-color, 3%);
+    height: 1px;
+    margin: $global-spacing-unit-tiny 0px;
+    border: none;
+}
