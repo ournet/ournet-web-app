@@ -1,4 +1,4 @@
-import { OurnetProjectName } from "./app-api";
+import { OurnetProjectName } from "./app-data";
 
 const roddehI18n = require('roddeh-i18n');
 

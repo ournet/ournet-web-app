@@ -1,14 +1,14 @@
 import { Request, Response } from "./types";
 import { IRoute } from "./route";
 import { notFound } from "boom";
-import { IAppApi } from "./app-api";
+import { IAppData } from "./app-data";
 
-export abstract class App<API extends IAppApi> {
+export abstract class App<DATA extends IAppData> {
 
-    protected readonly api: API
+    protected readonly data: DATA
 
     constructor(private routes: IRoute[]) {
-        this.api = this.createApi();
+        this.data = this.createData();
     }
 
     async route(req: Request, res: Response): Promise<void> {
@@ -17,7 +17,7 @@ export abstract class App<API extends IAppApi> {
 
             if (handler) {
                 try {
-                    return await handler.handle(this.api);
+                    return await handler.handle(this.data);
                 } catch (e) {
                     return this.handleError(req, res, e);
                 }
@@ -29,5 +29,5 @@ export abstract class App<API extends IAppApi> {
 
     protected abstract handleError(req: Request, res: Response, error: Error): Promise<void>
 
-    protected abstract createApi(): API
+    protected abstract createData(): DATA
 }

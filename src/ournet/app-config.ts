@@ -1,4 +1,4 @@
-import { OurnetProjectName } from "./app-api";
+import { OurnetProjectName } from "./app-data";
 
 export interface IOurnetAppConfig {
     readonly email: string
