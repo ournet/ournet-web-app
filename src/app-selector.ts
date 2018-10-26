@@ -1,7 +1,7 @@
 import { IncomingMessage } from "http";
 import * as url from 'url';
 import { getHostInfo } from "./hosts";
-import { OurnetProjectName } from "./ournet/app-data";
+import { OurnetProjectName } from "./ournet/data";
 import { NewsOurnetApp } from "./news/app";
 import env from "./env";
 

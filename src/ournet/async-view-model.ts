@@ -1,11 +1,10 @@
 
 import { OurnetQueryApi } from "@ournet/api-client";
-import { OurnetViewModel, OurnetViewModelBuilder } from "./view-model";
-import { IOurnetAppConfig } from "./app-config";
-import { ViewModelInput } from "../base/view-model";
-import { IOurnetAppData } from "./app-data";
+import { OurnetViewModel, OurnetViewModelBuilder, OurnetViewModelInput } from "./view-model";
+import { IOurnetAppConfig } from "./config";
+import { IOurnetAppData } from "./data";
 
-export abstract class AsyncViewModelBuilder<DATA extends IOurnetAppData, CONFIG extends IOurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends ViewModelInput>
+export abstract class AsyncViewModelBuilder<DATA extends IOurnetAppData, CONFIG extends IOurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends OurnetViewModelInput>
     extends OurnetViewModelBuilder<DATA, CONFIG, T, I> {
 
     protected apiClient: OurnetQueryApi<T>;

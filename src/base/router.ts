@@ -1,11 +1,15 @@
+
+const debug = require('debug')('ournet:web-app');
+
 import { Request, Response } from "./types";
 import { IHandler } from "./handler";
+import { parse } from "url";
 
-export interface IRoute {
-    hander(req: Request, res: Response): IHandler | undefined
+export interface IRouter {
+    hander(req: Request, res: Response): IHandler<any> | undefined
 }
 
-export abstract class Route<DATA=void> implements IRoute {
+export abstract class Router<DATA=void> implements IRouter {
     constructor(private pattern: IRoutePattern<DATA>) {
     }
 
@@ -23,7 +27,12 @@ export abstract class Route<DATA=void> implements IRoute {
         return data as DATA;
     }
 
-    protected abstract createHander(req: Request, res: Response, data?: DATA): IHandler
+    protected parseUrl(urlOrRequest: string | Request) {
+        const url = typeof urlOrRequest === 'string' ? urlOrRequest : urlOrRequest.url || '';
+        return parse(url, true);
+    }
+
+    protected abstract createHander(req: Request, res: Response, data?: DATA): IHandler<any>
 }
 
 export interface IRoutePattern<T=void> {
@@ -37,8 +46,11 @@ export class RegExpRoutePattern<T=void> implements IRoutePattern<T>{
     test(url: string) {
         const result = this.regexp.exec(url);
         if (!result) {
+            debug(`Route NOT pass: ${this.regexp}, ${url}`);
             return false;
         }
+
+        debug(`Route pass: ${this.regexp}, ${url}`);
 
         if (this.names) {
             let params: any = {};

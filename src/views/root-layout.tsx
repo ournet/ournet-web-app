@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { PageViewModel } from '../ournet/page-view-model';
-import { IOurnetAppConfig } from '../ournet/app-config';
+import { IOurnetAppConfig } from '../ournet/config';
 import { PageHead } from './components/page-head';
 
 export default class RootLayout extends React.Component<PageViewModel<IOurnetAppConfig>, any> {

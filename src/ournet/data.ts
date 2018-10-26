@@ -33,6 +33,7 @@ export interface IOurnetAppData extends IAppData {
     readonly createQueryApiClient: typeof createQueryApiClient
     readonly createMutationApiClient: typeof createMutationApiClient
     readonly executeApiClient: typeof executeApiClient
+    readonly version: string
 }
 
 
@@ -43,6 +44,7 @@ export function createOurnetAppData<T extends IOurnetAppData>
         createQueryApiClient: createQueryApiClient,
         createMutationApiClient: createMutationApiClient,
         executeApiClient: executeApiClient,
+        version: require('../../package.json').version,
     } as T;
 
     return data;

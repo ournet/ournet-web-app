@@ -1,14 +1,12 @@
 import { Request, Response } from "./types";
-import { IRoute } from "./route";
+import { IRouter } from "./router";
 import { notFound, boomify } from "boom";
 import { IAppData } from "./app-data";
 
 export abstract class App<DATA extends IAppData> {
 
-    protected readonly data: DATA
-
-    constructor(private routes: IRoute[]) {
-        this.data = this.createData();
+    constructor(private routes: IRouter[], protected readonly data: DATA) {
+        
     }
 
     async route(req: Request, res: Response): Promise<void> {
@@ -28,12 +26,12 @@ export abstract class App<DATA extends IAppData> {
     }
 
     protected async handleError(_req: Request, res: Response, error: Error): Promise<void> {
+        // logger.error(error);
+        console.trace(error);
         const boomError = boomify(error);
 
         res.writeHead(boomError.output.statusCode, boomError.output.headers);
         res.write(JSON.stringify(boomError.output.payload));
         res.end();
     }
-
-    protected abstract createData(): DATA
 }

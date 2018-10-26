@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Sitemap, getSchema, getHost } from 'ournet.links';
 import { Place, HourlyForecastDataPoint } from '@ournet/api-client';
 import { ForecastIcon } from './forecast-icon';
-import { OurnetProjectName } from '../../../ournet/app-data';
+import { OurnetProjectName } from '../../../ournet/data';
 import { ForecastTemp } from './forecast-temp';
 import { getPlaceName } from '../../../helpers';
 

@@ -10,6 +10,7 @@ const server = micro(async (req, res) => {
         const app = selectApp(req);
         await app.route(req, res);
     } catch (e) {
+        console.log(e);
         res.statusCode = 500;
         res.write(JSON.stringify(e));
         res.end();

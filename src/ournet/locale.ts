@@ -1,4 +1,4 @@
-import { OurnetProjectName } from "./app-data";
+import { OurnetProjectName } from "./data";
 
 const roddehI18n = require('roddeh-i18n');
 
@@ -17,7 +17,7 @@ export function createAppLocale(project: OurnetProjectName, lang: string) {
     const key = `${project}-${lang}`;
 
     if (!LOCALE_CACHE[key]) {
-        const data = require(`../../data/locales/${project}/${lang}.json`);
+        const data = require(`../../locales/${project}/${lang}.json`);
         LOCALE_CACHE[key] = roddehI18n.create(data);
     }
 

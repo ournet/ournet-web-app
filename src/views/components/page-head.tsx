@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IOurnetAppConfig } from '../../ournet/app-config';
+import { IOurnetAppConfig } from '../../ournet/config';
 import { PageViewModel } from '../../ournet/page-view-model';
 import env from '../../env';
 import { getAssetUrl } from '../../assets';

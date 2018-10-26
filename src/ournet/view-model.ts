@@ -1,50 +1,53 @@
 import { ViewModelInput, ViewModelBuilder, ViewModel } from "../base/view-model";
-import { IOurnetAppConfig, createAppConfig } from "./app-config";
+import { IOurnetAppConfig, createAppConfig } from "./config";
 import { Sitemap, sitemap } from "ournet.links";
-import { OurnetProjectName, IOurnetAppData } from "./app-data";
-import { ITranslateFunction, createAppLocale, Locale } from "./app-locale";
+import { OurnetProjectName, IOurnetAppData } from "./data";
+import { ITranslateFunction, createAppLocale } from "./locale";
+import { UrlWithParsedQuery } from "url";
 
 
-export abstract class OurnetViewModelBuilder<DATA extends IOurnetAppData, CONFIG extends IOurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends ViewModelInput>
+export abstract class OurnetViewModelBuilder<DATA extends IOurnetAppData, CONFIG extends IOurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends OurnetViewModelInput>
     extends ViewModelBuilder<T, I> {
+    protected readonly data: DATA
 
-    constructor(input: I, protected readonly data: DATA) {
+    constructor(input: I, data: DATA) {
         super(input);
-    }
+        this.data = data;
+        
+        const model = this.model;
 
-    protected initModel() {
-        const model = super.initModel();
+        model.project = data.project;
+        model.version = data.version;
+        model.country = this.input.country;
 
-        model.project = this.data.project;
+        model.config = this.createAppConfig(model.project, model.country);
 
-        const locale = this.getLocale();
-        model.locale = locale;
-        model.country = locale.country;
-        model.lang = locale.lang;
-
-        model.config = this.createAppConfig(locale.country);
+        model.lang = this.getLanguage(model.config);
 
         model.links = sitemap(model.config.languages[0]);
 
-        model.translate = createAppLocale(this.data.project, locale.lang);
-
-        return model;
+        model.translate = createAppLocale(data.project, model.lang);
     }
 
-    protected abstract getLocale(): Locale
+    protected abstract getLanguage(config: CONFIG): string
 
-    protected createAppConfig(country: string) {
-        return createAppConfig<CONFIG>(this.data.project, country);
+    protected createAppConfig(project: OurnetProjectName, country: string) {
+        return createAppConfig<CONFIG>(project, country);
     }
+}
+
+export interface OurnetViewModelInput extends ViewModelInput {
+    url: UrlWithParsedQuery
+    host: string
+    country: string
 }
 
 export interface OurnetViewModel<CONFIG extends IOurnetAppConfig> extends ViewModel {
     config: CONFIG
     links: Sitemap
     translate: ITranslateFunction
-    locale: Locale
     country: string
     lang: string
-
+    version: string
     project: OurnetProjectName
 }
