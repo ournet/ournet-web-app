@@ -6,10 +6,12 @@ import { NewsLocaleNames } from '../../locale';
 import { EventListItem } from '../components/event-list-item';
 import { HoroscopeSvg } from '../../../views/components/horoscope/horoscope-svg';
 import { HoroscopeCard } from '../../../views/components/horoscope/horoscope-card';
+import { QuoteListItem } from '../components/quote-list-item';
+import { GroupHeader } from '../../../views/components/group-header';
 
 export default class IndexPage extends React.Component<IndexViewModel> {
     render() {
-        const { lang, head, translate, links, currentDate, latestEvents, country } = this.props;
+        const { lang, head, translate, links, currentDate, latestEvents, country, latestQuotes, config } = this.props;
 
         head.elements.push(<link key='events-rss' rel="alternate" type="application/rss+xml" title={translate(NewsLocaleNames.events)} href={links.news.rss.stories({ ul: lang })}></link>);
         head.elements.push(<link key='imortant-rss' rel="alternate" type="application/rss+xml" title={translate(NewsLocaleNames.important_news)} href={links.news.rss.stories.important({ ul: lang })}></link>);
@@ -41,7 +43,7 @@ export default class IndexPage extends React.Component<IndexViewModel> {
                     </div>
                     <div className='o-layout'>
                         <div className='o-layout__item u-1/4@tablet u-1/2@mobile'>
-                            {links.horoscope && HoroscopeCard({links, lang, country, title:translate(NewsLocaleNames.horoscope)})}
+                            {links.horoscope && HoroscopeCard({ links, lang, country, title: translate(NewsLocaleNames.horoscope) })}
                         </div>
                         <div className='o-layout__item u-1/4@tablet u-1/2@mobile'>
                             {EventListItem({ root: this.props, view: 'card', item: restEvents[2] })}
@@ -51,16 +53,16 @@ export default class IndexPage extends React.Component<IndexViewModel> {
 
                     </div>
                     <div className='c-group'>
-                        {/* <GroupHeader name={__(LocalesNames.latest_quotes)} link={links.news.quotes({ ul: lang })} type='important' /> */}
+                        {GroupHeader({ name: translate(NewsLocaleNames.latest_quotes), link: links.news.quotes({ ul: lang }), type: 'important' })}
                         <div className='o-layout'>
-                            {/* {latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'><QuoteListItem root={this.props} item={item} view='card' /></div>)} */}
+                            {latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item })}</div>)}
                         </div>
                     </div>
                     <div className='o-layout'>
                         {restEvents.slice(5).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ root: this.props, view: 'card', item })}</div>)}
                     </div>
                 </main>
-            </CommonLayout >
+            </CommonLayout>
         )
     }
 }
