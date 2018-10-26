@@ -1,6 +1,6 @@
 import { Request, Response } from "./types";
 import { IRoute } from "./route";
-import { notFound } from "boom";
+import { notFound, boomify } from "boom";
 import { IAppData } from "./app-data";
 
 export abstract class App<DATA extends IAppData> {
@@ -27,7 +27,13 @@ export abstract class App<DATA extends IAppData> {
         return this.handleError(req, res, notFound());
     }
 
-    protected abstract handleError(req: Request, res: Response, error: Error): Promise<void>
+    protected async handleError(_req: Request, res: Response, error: Error): Promise<void> {
+        const boomError = boomify(error);
+
+        res.writeHead(boomError.output.statusCode, boomError.output.headers);
+        res.write(JSON.stringify(boomError.output.payload));
+        res.end();
+    }
 
     protected abstract createData(): DATA
 }

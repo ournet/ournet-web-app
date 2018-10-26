@@ -53,14 +53,18 @@
   "homepage": "https://github.com/ournet/ournet-web-app#readme",
   "devDependencies": {
     "@types/boom": "^7.2.1",
+    "@types/micro": "^7.3.3",
     "@types/node": "latest",
     "@types/react": "^16.4.18",
     "ava": "^0.25.0",
+    "npm-watch": "^0.4.0",
     "rimraf": "^2.6.2",
     "typescript": "latest"
   },
   "dependencies": {
     "boom": "^7.2.0",
+    "dotenv": "^6.1.0",
+    "micro": "^9.3.3",
     "react": "^16.6.0",
     "roddeh-i18n": "^1.1.1"
   }
