@@ -2,7 +2,7 @@
 import { OurnetQueryApi } from "@ournet/api-client";
 import { OurnetViewModel, OurnetViewModelBuilder } from "./view-model";
 import { IOurnetAppConfig } from "./app-config";
-import { ViewModelInput } from "../app/view-model";
+import { ViewModelInput } from "../base/view-model";
 import { IOurnetAppData } from "./app-data";
 
 export abstract class AsyncViewModelBuilder<DATA extends IOurnetAppData, CONFIG extends IOurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends ViewModelInput>

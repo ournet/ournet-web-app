@@ -1,5 +1,4 @@
-import { IAppData } from "../app/app-data";
-import { getHost, getSchema } from 'ournet.links';
+import { IAppData } from "../base/app-data";
 import { GraphQLQueryExecutor, OurnetQueryApi, OurnetMutationApi } from '@ournet/api-client';
 import { badImplementation } from "boom";
 
@@ -31,8 +30,6 @@ export enum OurnetProjectName {
 
 export interface IOurnetAppData extends IAppData {
     readonly project: OurnetProjectName
-    readonly getSchema: typeof getSchema
-    readonly getHost: typeof getHost
     readonly createQueryApiClient: typeof createQueryApiClient
     readonly createMutationApiClient: typeof createMutationApiClient
     readonly executeApiClient: typeof executeApiClient
@@ -43,8 +40,6 @@ export function createOurnetAppData<T extends IOurnetAppData>
     (project: OurnetProjectName) {
     const data = {
         project,
-        getSchema: getSchema,
-        getHost: getHost,
         createQueryApiClient: createQueryApiClient,
         createMutationApiClient: createMutationApiClient,
         executeApiClient: executeApiClient,

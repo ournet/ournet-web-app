@@ -1,6 +1,6 @@
-import { ViewModelInput, ViewModelBuilder, ViewModel } from "../app/view-model";
+import { ViewModelInput, ViewModelBuilder, ViewModel } from "../base/view-model";
 import { IOurnetAppConfig, createAppConfig } from "./app-config";
-import { Sitemap, sitemap, getSchema, getHost } from "ournet.links";
+import { Sitemap, sitemap } from "ournet.links";
 import { OurnetProjectName, IOurnetAppData } from "./app-data";
 import { ITranslateFunction, createAppLocale, Locale } from "./app-locale";
 
@@ -16,11 +16,11 @@ export abstract class OurnetViewModelBuilder<DATA extends IOurnetAppData, CONFIG
         const model = super.initModel();
 
         model.project = this.data.project;
-        model.getHost = this.data.getHost;
-        model.getSchema = this.data.getSchema;
 
         const locale = this.getLocale();
         model.locale = locale;
+        model.country = locale.country;
+        model.lang = locale.lang;
 
         model.config = this.createAppConfig(locale.country);
 
@@ -43,8 +43,8 @@ export interface OurnetViewModel<CONFIG extends IOurnetAppConfig> extends ViewMo
     links: Sitemap
     translate: ITranslateFunction
     locale: Locale
+    country: string
+    lang: string
 
     project: OurnetProjectName
-    getSchema: typeof getSchema
-    getHost: typeof getHost
 }

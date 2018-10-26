@@ -2,6 +2,7 @@ import { OurnetProjectName } from "./app-data";
 
 export interface IOurnetAppConfig {
     readonly email: string
+    readonly domain: string
     readonly languages: string[]
     readonly googleAnalyticsId: string
     readonly timezone: string

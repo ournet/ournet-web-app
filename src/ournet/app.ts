@@ -1,6 +1,6 @@
 import { IOurnetAppData, OurnetProjectName, createOurnetAppData } from "./app-data";
-import { IRoute } from "../app/route";
-import { App } from "../app/app";
+import { IRoute } from "../base/route";
+import { App } from "../base/app";
 
 export abstract class OurnetApp<DATA extends IOurnetAppData> extends App<DATA> {
 
