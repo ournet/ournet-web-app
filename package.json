@@ -59,6 +59,7 @@
   "devDependencies": {
     "@fancyapps/fancybox": "^3.5.2",
     "@types/boom": "^7.2.1",
+    "@types/chroma-js": "^1.4.0",
     "@types/micro": "^7.3.3",
     "@types/moment-timezone": "^0.5.9",
     "@types/node": "latest",
@@ -91,7 +92,10 @@
   },
   "dependencies": {
     "boom": "^7.2.0",
+    "chroma-js": "^1.4.0",
     "dotenv": "^6.1.0",
+    "ellipsize": "^0.1.0",
+    "entipic.url": "^0.1.0",
     "micro": "^9.3.3",
     "moment-timezone": "^0.5.21",
     "react": "^16.6.0",
