@@ -9,7 +9,7 @@ interface TopicRouterData extends NewsBaseRouterData {
 
 export class TopicRouter extends NewsBaseRouter<TopicRouterData> {
     constructor() {
-        super('/topic/([^\\s]+)', ['slug'])
+        super('/topic/([^/]+)', ['slug'])
     }
 
     protected createHander(req: Request, res: Response, data: TopicRouterData) {

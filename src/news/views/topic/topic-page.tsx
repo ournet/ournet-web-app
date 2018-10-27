@@ -55,12 +55,12 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                             {AdCenter()}
                         </div>
                         <div className='o-layout__item u-2/5@tablet'>
-                            {byQuotes.length > 0 ? <div>
+                            {byQuotes && byQuotes.length > 0 ? <div>
                                 {SectionHeader({ name: translate(NewsLocaleNames.quotes_by_author, { name: topic.abbr || commonName }), h: "h4" })}
                                 {byQuotes.map(item => QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item }))}
                             </div> : null}
                             {/* {adAside()} */}
-                            {aboutQuotes.length > 0 ? <div>
+                            {aboutQuotes && aboutQuotes.length > 0 ? <div>
                                 {SectionHeader({ name: translate(NewsLocaleNames.quotes_about, { name: topic.abbr || commonName }), h: "h4" })}
                                 {aboutQuotes.map(item => QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item }))}
                             </div> : null}
