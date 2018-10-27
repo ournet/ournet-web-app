@@ -8,7 +8,7 @@ import { GroupHeader } from '../../../views/components/group-header';
 import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { AdCenter } from '../../../views/components/ads/ad-center';
-import { QuotesViewModel } from '../../view-models/quotes-model';
+import { QuotesViewModel } from '../../view-models/quotes-view-model';
 
 export default class QuotesPage extends React.Component<QuotesViewModel> {
     render() {

@@ -51,7 +51,7 @@ export class RegExpRoutePattern<T=void> implements IRoutePattern<T>{
             return false;
         }
 
-        debug(`Route pass: ${this.regexp}, ${url}`);
+        debug(`Route pass: ${this.regexp}, ${url}, ${result}`);
 
         if (this.names) {
             let params: any = {};
