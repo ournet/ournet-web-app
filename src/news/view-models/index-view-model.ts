@@ -2,6 +2,8 @@
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
 import { NewsEventStringFields, QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
+import { NewsLocaleNames } from "../locale";
+import { LocaleHelpers } from "../../ournet/locale";
 
 
 export class IndexViewModelBuilder<T extends IndexViewModel, I extends OurnetViewModelInput>
@@ -9,10 +11,10 @@ export class IndexViewModelBuilder<T extends IndexViewModel, I extends OurnetVie
 
     build() {
 
-        const { lang, links, country } = this.model;
+        const { lang, links, country, translate, head } = this.model;
 
-        // head.title = translate(LocalesNames.site_title), LocalesHelper.getCountryName(__, country));
-        // head.description = translate(LocalesNames.site_description), LocalesHelper.getInCountryName(__, country));
+        head.title = translate(NewsLocaleNames.site_title, { country: LocaleHelpers.getCountryName(translate, country) });
+        head.description = translate(NewsLocaleNames.site_description, { country: LocaleHelpers.getInCountryName(translate, country) });
 
         this.setCanonical(links.news.home({ ul: lang }));
 

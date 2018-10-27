@@ -2,7 +2,7 @@ import { ViewModelInput, ViewModelBuilder, ViewModel } from "../base/view-model"
 import { IOurnetAppConfig, createAppConfig } from "./config";
 import { Sitemap, sitemap } from "ournet.links";
 import { OurnetProjectName, IOurnetAppData } from "./data";
-import { ITranslateFunction, createAppLocale } from "./locale";
+import { TranslateFunction, createAppLocale } from "./locale";
 import { UrlWithParsedQuery } from "url";
 
 
@@ -45,7 +45,7 @@ export interface OurnetViewModelInput extends ViewModelInput {
 export interface OurnetViewModel<CONFIG extends IOurnetAppConfig> extends ViewModel {
     config: CONFIG
     links: Sitemap
-    translate: ITranslateFunction
+    translate: TranslateFunction
     country: string
     lang: string
     version: string

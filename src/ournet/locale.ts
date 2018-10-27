@@ -7,11 +7,11 @@ export type Locale = {
     country: string
 }
 
-export interface ITranslateFunction {
+export interface TranslateFunction {
     (key: string, ...params: any[]): string
 }
 
-const LOCALE_CACHE: { [key: string]: ITranslateFunction } = {}
+const LOCALE_CACHE: { [key: string]: TranslateFunction } = {}
 
 export function createAppLocale(project: OurnetProjectName, lang: string) {
     const key = `${project}-${lang}`;
@@ -22,4 +22,22 @@ export function createAppLocale(project: OurnetProjectName, lang: string) {
     }
 
     return LOCALE_CACHE[key];
+}
+
+export class LocaleHelpers {
+    static getCountryName(translate: TranslateFunction, countryCode: string) {
+        return translate(`country_${countryCode}`);
+    }
+
+    static getInCountryName(translate: TranslateFunction, countryCode: string) {
+        return translate(`in_country_${countryCode}`);
+    }
+
+    static getLanguageName(translate: TranslateFunction, languageCode: string) {
+        return translate(`language_${languageCode}`);
+    }
+
+    static getProjectName(translate: TranslateFunction, project: string) {
+        return translate(project);
+    }
 }
