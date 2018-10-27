@@ -1,5 +1,5 @@
 import { Request, Response } from "../../base/types";
-import { NewsBaseRouter } from "./router";
+import { NewsBaseRouter } from "../router";
 import { RegExpRoutePattern } from "../../base/router";
 import { ImportantHandler } from "../handlers/important-handler";
 

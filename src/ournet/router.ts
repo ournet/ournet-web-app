@@ -13,4 +13,11 @@ export abstract class OurnetRouter<DATA=void> extends Router<DATA> {
 
         return input as INPUT;
     }
+
+    static formatRouteRegExp(path: string) {
+        if (path[path.length - 1] !== '/') {
+            path += '/?';
+        }
+        return new RegExp(`^${path.replace(/\//g, '\/')}$`);
+    }
 }
