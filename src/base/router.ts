@@ -14,7 +14,8 @@ export abstract class Router<DATA=void> implements IRouter {
     }
 
     hander(req: Request, res: Response) {
-        const data = this.pattern.test(req.url || '');
+        const url = parse(req.url || '');
+        const data = this.pattern.test(url.pathname || '');
 
         if (data === false) {
             return;

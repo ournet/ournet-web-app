@@ -60,7 +60,7 @@ export class NewsViewModelBuilder<T extends NewsViewModel, I extends OurnetViewM
     }
 
     protected getLanguage(config: INewsAppConfig) {
-        const regResult = /^\/([a-z]{2})\//.exec(this.input.url.path || '');
+        const regResult = /^\/([a-z]{2})\//.exec(this.input.url.pathname || '');
         let lang = this.input.url.query['ul'] as string;
         if (regResult) {
             lang = regResult[1];
