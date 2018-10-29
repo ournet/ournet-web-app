@@ -10,6 +10,10 @@ export class ViewItemHandler extends NewsBaseHandler<ItemViewModelInput>{
 
         await apiClient.execute();
 
+        const res = this.input.res;
+
+        this.setCacheControl(res, 0);
+
         return this.sendPixel();
     }
 

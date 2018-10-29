@@ -10,6 +10,10 @@ export class ViewEventHandler extends NewsBaseHandler<EventViewModelInput>{
 
         await apiClient.execute();
 
+        const res = this.input.res;
+
+        this.setCacheControl(res, 0);
+
         return this.sendPixel();
     }
 

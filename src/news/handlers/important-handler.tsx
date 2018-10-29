@@ -8,6 +8,9 @@ import ImportantPage from '../views/important/important-page';
 export class ImportantHandler extends NewsBaseHandler {
     async handle(data: INewsAppData) {
         const viewData = await new ImportantViewModelBuilder(this.input, data).build();
-        return this.render(this.input.res, <ImportantPage {...viewData} />);
+        const res = this.input.res;
+
+        this.setCacheControl(res, 60);
+        return this.render(res, <ImportantPage {...viewData} />);
     }
 }

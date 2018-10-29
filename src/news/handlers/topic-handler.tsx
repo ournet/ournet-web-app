@@ -8,6 +8,9 @@ import TopicPage from '../views/topic/topic-page';
 export class TopicHandler extends NewsBaseHandler<TopicViewModelInput>{
     async handle(data: INewsAppData) {
         const viewData = await new TopicViewModelBuilder(this.input, data).build();
-        return this.render(this.input.res, <TopicPage {...viewData} />);
+        const res = this.input.res;
+
+        this.setCacheControl(res, 15);
+        return this.render(res, <TopicPage {...viewData} />);
     }
 }

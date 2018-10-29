@@ -2,6 +2,7 @@ import { Request, Response } from "./types";
 import { IAppData } from "./app-data";
 import { renderToStaticMarkup } from 'react-dom/server';
 import { send } from "micro";
+import env from "../env";
 
 export interface IHandler<DATA extends IAppData> {
     handle(data: DATA): Promise<void>
@@ -40,4 +41,18 @@ export abstract class Handler<DATA extends IAppData, INPUT extends HandlerInput>
 
         return this.send(res, null, code, headers);
     }
+
+    /**
+     * Set response Cache-Control
+     * @maxage integet in minutes
+     */
+    setCacheControl(res: Response, maxage: number) {
+        // maxage = 0;
+        let cache = 'private, max-age=0, no-cache';
+        if (env.isProduction && maxage > 0) {
+            cache = 'public, max-age=' + (maxage * 60);
+        }
+        res.setHeader('Cache-Control', cache);
+    }
+
 }

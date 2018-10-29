@@ -8,10 +8,15 @@ import { ItemViewModelBuilder, ItemViewModelInput } from '../view-models/item-vi
 export class ItemHandler extends NewsBaseHandler<ItemViewModelInput>{
     async handle(data: INewsAppData) {
         const viewData = await new ItemViewModelBuilder(this.input, data).build();
+        const res = this.input.res;
+
+        this.setCacheControl(res, 30);
 
         if (viewData.event && viewData.event.source.id === viewData.item.id) {
 
             const url = viewData.links.news.story(viewData.event.slug, viewData.event.id, { ul: viewData.lang });
+
+            this.setCacheControl(res, 60 * 12);
 
             return this.redirect(this.input.res, url, 301);
         }

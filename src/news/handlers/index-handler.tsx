@@ -8,6 +8,9 @@ import IndexPage from "../views/index/index-page";
 export class IndexHandler extends NewsBaseHandler {
     async handle(data: INewsAppData) {
         const viewData = await new IndexViewModelBuilder(this.input, data).build();
-        return this.render(this.input.res, <IndexPage {...viewData} />);
+        const res = this.input.res;
+
+        this.setCacheControl(res, 5);
+        return this.render(res, <IndexPage {...viewData} />);
     }
 }
