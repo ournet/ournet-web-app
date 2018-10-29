@@ -5,7 +5,7 @@ import { NewsLocaleNames } from '../../locale';
 import { EventListItem } from '../components/event-list-item';
 import { QuoteListItem } from '../components/quote-list-item';
 import { GroupHeader } from '../../../views/components/group-header';
-import { ImportantViewModel } from '../../view-models/important.view-model';
+import { ImportantViewModel } from '../../view-models/important-view-model';
 import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { AdCenter } from '../components/ads/ad-center';

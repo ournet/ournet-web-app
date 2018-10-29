@@ -1,6 +1,8 @@
-import { Place } from "@ournet/api-client";
+import { Place, NewsEvent } from "@ournet/api-client";
 import { PlaceHelper } from '@ournet/places-domain';
 import { Dictionary } from "@ournet/domain";
+import { Sitemap } from "ournet.links";
+import { ImageStorageHelper } from "@ournet/images-domain";
 const standard = require('standard-text');
 const ellipsize = require('ellipsize');
 const entipicUrlFn = require('entipic.url');
@@ -51,4 +53,21 @@ export function getAppIconUrl(domain: string, filename: string) {
     name = ['click', 'zborg', 'diez'].indexOf(name) > -1 ? name : 'ournet';
 
     return 'https://assets.ournetcdn.net/ournet/img/icons/' + name + '/' + filename;
+}
+
+export function createStoryFeedItem(links: Sitemap, story: NewsEvent, lang: string, schema: string, host: string) {
+    const url = schema + '//' + host + links.news.story(story.slug, story.id, { ul: lang, utm_source: 'rss', utm_medium: 'link', utm_campaign: 'rss' });
+
+    const item = {
+        title: story.title,
+        description: truncateAt(story.summary, 250),
+        url: url,
+        guid: 'event-' + story.id,
+        date: story.createdAt,
+        enclosure: {
+            url: ImageStorageHelper.eventUrl(story.imageId, 'large')
+        }
+    };
+
+    return item;
 }

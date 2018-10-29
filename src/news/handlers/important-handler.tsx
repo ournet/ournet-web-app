@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { NewsBaseHandler } from "./handler";
 import { INewsAppData } from "../data";
-import { ImportantViewModelBuilder } from '../view-models/important.view-model';
+import { ImportantViewModelBuilder } from '../view-models/important-view-model';
 import ImportantPage from '../views/important/important-page';
 
 export class ImportantHandler extends NewsBaseHandler {
