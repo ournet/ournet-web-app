@@ -51,9 +51,9 @@ export class ImportantViewModelBuilder extends NewsViewModelBuilder<ImportantVie
         return mostPopularIds;
     }
 
-    protected formatModel(data: ImportantViewModel) {
+    protected formatModelData(data: ImportantViewModel) {
 
-        const model = super.formatModel(data);
+        const model = super.formatModelData(data);
 
         model.importantEvents = (data.importantEvents || []).sort((a, b) => {
             const aDate = a.createdAt.substr(0, 10);

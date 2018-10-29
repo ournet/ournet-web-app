@@ -16,10 +16,10 @@ export abstract class AsyncViewModelBuilder<DATA extends IOurnetAppData, CONFIG 
 
     async build() {
         const data = await this.executeApiClient(this.apiClient);
-        return this.formatModel(data);
+        return this.formatModelData(data);
     }
 
-    protected formatModel(data: T): T {
+    protected formatModelData(data: T): T {
         const anyData = data as any;
         const anyModel = this.model as any;
         for (const key in anyData) {
@@ -27,7 +27,6 @@ export abstract class AsyncViewModelBuilder<DATA extends IOurnetAppData, CONFIG 
         }
 
         return this.model;
-        // return { ...this.model as any, ...data as any };
     }
 
     protected async executeApiClient<APIT>(api: OurnetQueryApi<APIT>) {

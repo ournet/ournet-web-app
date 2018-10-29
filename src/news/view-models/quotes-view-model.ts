@@ -11,12 +11,13 @@ export class QuotesViewModelBuilder<T extends QuotesViewModel, I extends OurnetV
 
     build() {
 
-        const { lang, links, translate, head, country } = this.model;
+        const model = this.model;
+        const { lang, links, translate, head, country } = model;
 
         head.title = translate(NewsLocaleNames.latest_quotes_in_media);
         head.description = translate(NewsLocaleNames.latest_quotes_in_media_country_format, { country: LocaleHelpers.getCountryName(translate, country) });
 
-        this.model.title = translate(NewsLocaleNames.latest_quotes);
+        model.title = translate(NewsLocaleNames.latest_quotes);
 
         this.setCanonical(links.news.quotes({ ul: lang }));
 

@@ -11,10 +11,11 @@ export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicView
     extends NewsViewModelBuilder<T, I> {
 
     async build() {
+        const model = this.model;
 
-        const { lang, country, translate, head, links } = this.model;
+        const { lang, country, translate, head, links } = model;
         let { slug } = this.input;
-        this.model.slug = slug = slug.trim().toLowerCase();
+        model.slug = slug = slug.trim().toLowerCase();
         const id = TopicHelper.formatIdFromSlug(slug, { lang, country });
 
         const localeApi = this.data.createQueryApiClient<{ topic: Topic }>();
@@ -26,10 +27,10 @@ export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicView
             throw notFound(`Not found topic id=${id}`);
         }
 
-        const topic = this.model.topic = apiResult.topic;
+        const topic = model.topic = apiResult.topic;
         const commonName = topic.commonName || topic.name;
 
-        const displayName = this.model.displayName = commonName + (topic.abbr && topic.abbr.length < 10 ? ` (${topic.abbr})` : '');
+        const displayName = model.displayName = commonName + (topic.abbr && topic.abbr.length < 10 ? ` (${topic.abbr})` : '');
 
         head.title = translate(NewsLocaleNames.page_topic_title, { name: displayName });
         head.description = translate(NewsLocaleNames.topic_description, { name: topic.name });

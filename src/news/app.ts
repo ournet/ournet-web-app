@@ -6,6 +6,8 @@ import { QuotesRouter } from "./routes/quotes-router";
 import { TopicRouter } from "./routes/topic-router";
 import { EventRouter } from "./routes/event-router";
 import { ViewEventRouter } from "./routes/view-event-router";
+import { ItemRouter } from "./routes/item-router";
+import { ViewItemRouter } from "./routes/view-item-router";
 
 export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -16,7 +18,9 @@ export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
             new QuotesRouter(),
             new TopicRouter(),
             new EventRouter(),
+            new ItemRouter(),
             new ViewEventRouter(),
+            new ViewItemRouter(),
         ], OurnetProjectName.NEWS);
     }
 }

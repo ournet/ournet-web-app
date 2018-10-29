@@ -15,8 +15,6 @@ export class ViewEventHandler extends NewsBaseHandler<EventViewModelInput>{
 
     sendPixel() {
         const img = new Buffer('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64');
-        this.input.res.setHeader('Content-Type', 'image/gif');
-        this.input.res.setHeader('Content-Length', img.length.toString());
-        this.send(this.input.res, img);
+        this.send(this.input.res, img, 200, { 'Content-Type': 'image/gif', 'Content-Length': img.length.toString() });
     }
 }

@@ -39,7 +39,23 @@
         "page_topic_events_title": "%{name} - Evenimente",
         "more_quotes": "Mai multe declatații",
         "quotes_by_author": "Declarații de %{name}",
-        "news_count": "%d știri",
+        "news_count": [
+            [
+                0,
+                0,
+                "%n știri"
+            ],
+            [
+                1,
+                1,
+                "o știre"
+            ],
+            [
+                2,
+                null,
+                "%n știri"
+            ]
+        ],
         "video": "Video",
         "category_title": "%{name} - ultimele stiri",
         "news_sources": "Surse de stiri",
@@ -63,7 +79,23 @@
         "important_news_in_last_7days": "Știri importante în ultimele 7 zile",
         "most_important_news_in_last_7days_country": "Cele mai importante știri din presa din %{country} pentru ultimele 7 zile",
         "foto_video_from_event_format": "Foto și Video: %{name}",
-        "count_views_format": "%d vizualizări",
+        "count_views_format": [
+            [
+                0,
+                0,
+                "%n vizualizări"
+            ],
+            [
+                1,
+                1,
+                "o vizualizare"
+            ],
+            [
+                2,
+                null,
+                "%n vizualizări"
+            ]
+        ],
         "error": "Eroare",
         "error_404_info": "Pagina nu a fost găsită",
         "error_500_info": "Eroare necunoscută"

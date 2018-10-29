@@ -32,8 +32,10 @@ export class EventViewModelBuilder extends NewsViewModelBuilder<EventViewModel, 
         if (!apiResult.event) {
             throw notFound(`Not found event id=${id}`);
         }
-        const event = this.model.event = apiResult.event;
-        const { lang, links, head, country } = this.model;
+        const model = this.model;
+
+        const event = model.event = apiResult.event;
+        const { lang, links, head, country } = model;
 
         head.title = event.title;
         head.description = event.summary;
