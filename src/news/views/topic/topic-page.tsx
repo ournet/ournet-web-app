@@ -8,9 +8,9 @@ import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { SectionHeader } from '../../../views/components/section-header';
 import { EventListItem } from '../components/event-list-item';
-import { AdCenter } from '../../../views/components/ads/ad-center';
 import { QuoteListItem } from '../components/quote-list-item';
 import { NewsItemListItem } from '../components/item-list-item';
+import { AdCenter } from '../components/ads/ad-center';
 
 export default class TopicPage extends React.Component<TopicViewModel> {
     render() {
@@ -47,7 +47,7 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                                 <div className='c-section'>
                                     {SectionHeader({ name: (topic.abbr || commonName) + ' - ' + translate(NewsLocaleNames.latest_events), h: "h4" })}
                                     <div className='o-layout'>
-                                        {topicEvents.map(item => <div key={item.id} className='o-layout__item u-1/2'>{EventListItem({ root: this.props, view: 'card', item })}</div>)}
+                                        {topicEvents.map(item => <div key={item.id} className='o-layout__item u-1/2'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
                                     </div>
                                 </div>
                                 : null
@@ -70,7 +70,7 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                     <div className='c-section'>
                         {SectionHeader({ name: translate(NewsLocaleNames.latest_events) })}
                         <div className='o-layout'>
-                            {latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ root: this.props, view: 'card', item })}</div>)}
+                            {latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
                         </div>
                     </div>
 

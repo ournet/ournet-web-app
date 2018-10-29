@@ -1,5 +1,7 @@
 
 export enum NewsLocaleNames {
+    app_name = "app_name",
+    short_app_name = "short_app_name",
     site_title = "site_title",
     site_description = "site_description",
     language_ro = "language_ro",

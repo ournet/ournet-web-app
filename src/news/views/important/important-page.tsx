@@ -8,7 +8,7 @@ import { GroupHeader } from '../../../views/components/group-header';
 import { ImportantViewModel } from '../../view-models/important.view-model';
 import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
-import { AdCenter } from '../../../views/components/ads/ad-center';
+import { AdCenter } from '../components/ads/ad-center';
 
 export default class ImportantPage extends React.Component<ImportantViewModel> {
     render() {
@@ -26,11 +26,11 @@ export default class ImportantPage extends React.Component<ImportantViewModel> {
                     {PageTitle({ title: (title || head.title), subTitle: (subTitle || head.description) })}
 
                     <div className='o-layout'>
-                        {list1.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/3@desktop'>{EventListItem({ root: this.props, item, view: 'card', imageSize: 'large' })}</div>)}
+                        {list1.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/3@desktop'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', imageSize: 'large' })}</div>)}
                     </div>
                     {AdCenter()}
                     <div className='o-layout'>
-                        {list2.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/3@desktop'>{EventListItem({ root: this.props, item, view: 'card', imageSize: 'large' })}</div>)}
+                        {list2.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/3@desktop'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', imageSize: 'large' })}</div>)}
                     </div>
 
                     <div className='c-group'>

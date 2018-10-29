@@ -7,10 +7,13 @@ import chroma = require('chroma-js');
 import { Locale } from '../../../ournet/locale';
 import { filterIrrelevantTopics } from '../../irrelevant-topics';
 import { getImageColorFromId, truncateAt } from '../../../helpers';
-import { NewsViewModel } from '../../view-models/news-view-model';
+import { Sitemap } from 'ournet.links';
 
 export type EventListItemProps = {
-    root: NewsViewModel
+    links: Sitemap
+    lang: string
+    country: string
+    timezone: string
     view: EventListItemViewName
     item: NewsEvent
     imageSize?: ImageSizeName
@@ -18,7 +21,7 @@ export type EventListItemProps = {
 
 export type EventListItemViewName = 'card' | 'media-left' | 'media-right' | 'card-wide';
 
-export function EventListItem(props: EventListItemProps){
+export function EventListItem(props: EventListItemProps) {
     switch (props.view) {
         case 'media-left':
         case 'media-right': return mediaItemView(props);
@@ -28,12 +31,11 @@ export function EventListItem(props: EventListItemProps){
     return null;
 }
 
-function mediaItemView(props: EventListItemProps) {
-    const { item, root, imageSize, view } = props;
-    const { links, lang, country, config } = root;
+function mediaItemView({ item, imageSize, view, links, lang, country, timezone }: EventListItemProps) {
+
     const mainTopic = getMainTopic({ lang, country }, item.topics);
     const link = links.news.story(item.slug, item.id, { ul: lang });
-    const createdAt = moment(item.createdAt).tz(config.timezone).locale(lang);
+    const createdAt = moment(item.createdAt).tz(timezone).locale(lang);
 
     return (
         <div className={'c-event-it c-event-it--media o-media o-media--small' + (view === 'media-right' ? ' o-media--reverse' : '')}>
@@ -56,19 +58,18 @@ function getMainTopic(locale: Locale, topics: NewsTopic[]) {
     return relevantTopics.length > 0 ? relevantTopics[0] : topics[0];
 }
 
-function cardItemView(props: EventListItemProps) {
-    const { item, root, imageSize } = props;
-    const { links, lang, config, country } = root;
+function cardItemView({ item, imageSize, view, links, lang, country, timezone }: EventListItemProps) {
+
     const mainTopic = getMainTopic({ lang, country }, item.topics);
-    const createdAt = moment(item.createdAt).tz(config.timezone).locale(lang);
+    const createdAt = moment(item.createdAt).tz(timezone).locale(lang);
 
     const color = chroma('#' + getImageColorFromId(item.imageId));
     const luminance = color.luminance();
     const colorClass = luminance > 0.30 ? ' c-event-it__black' : '';
-    const orientation = props.view === 'card-wide' ? 'to left' : 'to bottom';
+    const orientation = view === 'card-wide' ? 'to left' : 'to bottom';
 
     return (
-        <div className={'c-event-it c-event-it--card' + colorClass + (props.view === 'card-wide' ? ' c-event-it--card-wide' : '')} style={{ backgroundColor: color.hex() }}>
+        <div className={'c-event-it c-event-it--card' + colorClass + (view === 'card-wide' ? ' c-event-it--card-wide' : '')} style={{ backgroundColor: color.hex() }}>
             <div className='c-event-it__media'>
                 <div className='c-event-it__img o-lazy' data-src={ImageStorageHelper.eventUrl(item.imageId, imageSize || 'medium')}></div>
                 <div className='c-event-it__img-mask' style={{ backgroundImage: `linear-gradient(${orientation},rgba(0,0,0,0),rgba(${color.rgb()},.7),rgb(${color.rgb()}));` }}></div>

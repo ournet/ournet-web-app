@@ -34,6 +34,13 @@ export function getCountryName(country: string, lang: string) {
     return COUNTRY_NAMES[country][lang];
 }
 
-export function getImageColorFromId(imageId: string){
+export function getImageColorFromId(imageId: string) {
     return imageId.split(/-/g)[1];
+}
+
+export function startWithUpperCase(text: string) {
+    if (text) {
+        text = text[0].toUpperCase() + text.substr(1);
+    }
+    return text;
 }

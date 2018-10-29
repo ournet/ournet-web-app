@@ -7,8 +7,8 @@ import { QuoteListItem } from '../components/quote-list-item';
 import { GroupHeader } from '../../../views/components/group-header';
 import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
-import { AdCenter } from '../../../views/components/ads/ad-center';
 import { QuotesViewModel } from '../../view-models/quotes-view-model';
+import { AdCenter } from '../components/ads/ad-center';
 
 export default class QuotesPage extends React.Component<QuotesViewModel> {
     render() {
@@ -34,7 +34,7 @@ export default class QuotesPage extends React.Component<QuotesViewModel> {
                     <div className='c-group'>
                         {GroupHeader({ name: translate(NewsLocaleNames.latest_events), link: links.news.home({ ul: lang }), type: 'new' })}
                         <div className='o-layout'>
-                            {latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2 u-1/4@tablet'>{EventListItem({ root: this.props, item, view: 'card' })}</div>)}
+                            {latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2 u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
                         </div>
                     </div>
                 </main>
