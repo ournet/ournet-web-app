@@ -45,8 +45,7 @@ export function startWithUpperCase(text: string) {
     return text;
 }
 
-export function getFaviconUrl(domain: string, filename?: string) {
-    filename = filename || 'favicon.ico';
+export function getAppIconUrl(domain: string, filename: string) {
 
     var name = domain.split('.')[0];
     name = ['click', 'zborg', 'diez'].indexOf(name) > -1 ? name : 'ournet';

@@ -4,7 +4,7 @@ import { Handler } from "../../base/handler";
 import { IOurnetAppData } from "../data";
 import { OurnetViewModelInput } from "../view-model";
 import { createAppConfig } from "../config";
-import { getFaviconUrl } from "../../helpers";
+import { getAppIconUrl } from "../../helpers";
 
 
 export class FaviconRouter extends OurnetRouter {
@@ -24,7 +24,7 @@ class FaviconHandler extends Handler<IOurnetAppData, OurnetViewModelInput> {
 
         const data = createAppConfig(this.input.project, this.input.country);
 
-        const url = getFaviconUrl(data.domain);
+        const url = getAppIconUrl(data.domain, 'favicon.ico');
 
         return this.redirect(res, url, 301);
     }

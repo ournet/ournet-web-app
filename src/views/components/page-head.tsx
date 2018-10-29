@@ -3,11 +3,9 @@ import { IOurnetAppConfig } from '../../ournet/config';
 import { PageViewModel } from '../../ournet/page-view-model';
 import env from '../../env';
 import { getAssetUrl } from '../../assets';
+import { getAppIconUrl } from '../../helpers';
 
 export function PageHead({ config, head, lang, country, project }: PageViewModel<IOurnetAppConfig>) {
-
-    let shortDomainName = config.domain.split('.')[0]
-    shortDomainName = ['click', 'zborg', 'diez'].indexOf(shortDomainName) > -1 ? shortDomainName : 'ournet';
 
     return (
         <head>
@@ -16,8 +14,8 @@ export function PageHead({ config, head, lang, country, project }: PageViewModel
             <title>{head.title}</title>
             {head.description && <meta name="description" content={head.description} />}
             {head.canonical && <link rel="canonical" href={head.canonical} />}
-            <link rel='shortcut icon' href={`//assets.ournetcdn.net/ournet/img/icons/${shortDomainName}/favicon.ico`} type='image/x-icon' />
-            <link rel='apple-touch-icon' href={`//assets.ournetcdn.net/ournet/img/icons/${shortDomainName}/apple-touch-icon.png`} />
+            <link rel='shortcut icon' href={getAppIconUrl(config.domain, 'favicon.ico')} type='image/x-icon' />
+            <link rel='apple-touch-icon' href={getAppIconUrl(config.domain, 'apple-touch-icon.png')} />
             <link key='1' type="text/css" rel="stylesheet" href={getAssetUrl(project, 'css', 'main', env.isProduction)} />
             {head.elements}
             <link rel="dns-prefetch" href="//assets.ournetcdn.net" />

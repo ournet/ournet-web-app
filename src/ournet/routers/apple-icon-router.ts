@@ -4,7 +4,7 @@ import { Handler } from "../../base/handler";
 import { IOurnetAppData } from "../data";
 import { OurnetViewModelInput } from "../view-model";
 import { createAppConfig } from "../config";
-import { getFaviconUrl } from "../../helpers";
+import { getAppIconUrl } from "../../helpers";
 
 
 export class AppleIconRouter extends OurnetRouter {
@@ -24,7 +24,7 @@ class AppleIconHandler extends Handler<IOurnetAppData, OurnetViewModelInput> {
 
         const data = createAppConfig(this.input.project, this.input.country);
 
-        const url = getFaviconUrl(data.domain, 'apple-touch-icon.png');
+        const url = getAppIconUrl(data.domain, 'apple-touch-icon.png');
 
         return this.redirect(res, url, 301);
     }
