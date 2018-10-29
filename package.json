@@ -5,7 +5,7 @@
   "private": true,
   "main": "./lib/index.js",
   "scripts": {
-    "dev": "npm-run-all --parallel web:watch assets:watch assets:serv",
+    "dev": "npm-run-all --parallel tscw web:watch assets:watch assets:serv",
     "start": "node ./lib/index.js",
     "pretest": "npm-run-all clean tsc",
     "test": "ava --no-cache --verbose lib/**/*.test.js",
