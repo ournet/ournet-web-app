@@ -12,6 +12,7 @@ import { UrlRouter } from "./routes/url-router";
 import { AppleIconRouter } from "../ournet/routers/apple-icon-router";
 import { FaviconRouter } from "../ournet/routers/favicon-router";
 import { AdsenseAdsRouter } from "../ournet/routers/adsense-ads-router";
+import { ManifestRouter } from "./routes/manifest-router";
 
 export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -30,6 +31,7 @@ export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
             new FaviconRouter(),
             new AppleIconRouter(),
             new AdsenseAdsRouter(),
+            new ManifestRouter(),
         ], OurnetProjectName.NEWS);
     }
 }

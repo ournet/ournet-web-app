@@ -1,6 +1,8 @@
 import { OurnetProjectName } from "./data";
 
 export interface IOurnetAppConfig {
+    readonly background_color: string
+    readonly theme_color: string
     readonly email: string
     readonly domain: string
     readonly languages: string[]
