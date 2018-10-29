@@ -21,7 +21,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
 
         let imageLargeUrl: string | null = null;
         if (item.imagesIds) {
-            imageLargeUrl = ImageStorageHelper.newsUrl(item.imagesIds[0], 'large');
+            imageLargeUrl = ImageStorageHelper.newsUrl(item.imagesIds[0], 'large', 'jpg');
         }
 
         head.elements.push(<meta key='og_type' property="og:type" content="article" />);

@@ -27,8 +27,8 @@ export function EventMedia({ translate, event, image }: EventMediaProps) {
 
     image = image || {
         id: event.imageId,
-        masterUrl: ImageStorageHelper.eventUrl(event.imageId, 'master'),
-        largeUrl: ImageStorageHelper.eventUrl(event.imageId, 'large'),
+        masterUrl: ImageStorageHelper.eventUrl(event.imageId, 'master', 'jpg'),
+        largeUrl: ImageStorageHelper.eventUrl(event.imageId, 'large', 'jpg'),
         host: event.imageHost,
     };
 

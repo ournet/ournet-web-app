@@ -25,19 +25,19 @@ export function createMediaGalleryModel({ event, item }: { event?: NewsEvent, it
         model.items = (event.imagesIds || []).map(id => ({
             type: 'image',
             id,
-            url: ImageStorageHelper.newsUrl(id, 'master'),
+            url: ImageStorageHelper.newsUrl(id, 'master', 'jpg'),
         } as MediaGalleryModelItem));
 
         model.startId = event.imageId;
 
         const startItem = model.items.find(item => item.id === event.imageId);
         if (startItem) {
-            startItem.url = ImageStorageHelper.eventUrl(startItem.id, 'master');
+            startItem.url = ImageStorageHelper.eventUrl(startItem.id, 'master', 'jpg');
         } else {
             model.items.unshift({
                 type: 'image',
                 id: event.imageId,
-                url: ImageStorageHelper.eventUrl(event.imageId, 'master'),
+                url: ImageStorageHelper.eventUrl(event.imageId, 'master', 'jpg'),
             });
         }
     }
@@ -46,7 +46,7 @@ export function createMediaGalleryModel({ event, item }: { event?: NewsEvent, it
         model.items = model.items.concat((item.imagesIds || []).map(id => ({
             type: 'image',
             id,
-            url: ImageStorageHelper.newsUrl(id, 'master'),
+            url: ImageStorageHelper.newsUrl(id, 'master', 'jpg'),
         } as MediaGalleryModelItem)));
 
         model.startId = item.imagesIds[0];

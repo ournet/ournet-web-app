@@ -21,7 +21,7 @@ export default class EventPage extends React.Component<EventViewModel> {
     render() {
         const { lang, head, translate, links, latestEvents, event, config, eventContent, eventQuotes, similarEvents, country } = this.props;
 
-        const imageLargeUrl = ImageStorageHelper.eventUrl(event.imageId, 'large');
+        const imageLargeUrl = ImageStorageHelper.eventUrl(event.imageId, 'large', 'jpg');
 
         head.elements.push(<meta key='og_type' property="og:type" content="article" />);
         head.elements.push(<meta key='og_image' property="og:image" content={imageLargeUrl} />);

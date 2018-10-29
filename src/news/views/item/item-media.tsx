@@ -28,8 +28,8 @@ export function ItemMedia({ item, event, translate }: ItemMediaProps) {
     let image: EventMediaPropsImage | undefined;
     if (item.imagesIds && item.imagesIds.length) {
         const imageId = item.imagesIds[0];
-        const imageMasterUrl = ImageStorageHelper.newsUrl(imageId, 'master');
-        const imageLargeUrl = ImageStorageHelper.newsUrl(imageId, 'large');
+        const imageMasterUrl = ImageStorageHelper.newsUrl(imageId, 'master', 'jpg');
+        const imageLargeUrl = ImageStorageHelper.newsUrl(imageId, 'large', 'jpg');
         image = {
             id: imageId,
             host: item.urlHost,

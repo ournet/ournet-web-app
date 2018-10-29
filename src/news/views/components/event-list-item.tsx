@@ -40,7 +40,7 @@ function mediaItemView({ item, imageSize, view, links, lang, country, timezone }
     return (
         <div className={'c-event-it c-event-it--media o-media o-media--small' + (view === 'media-right' ? ' o-media--reverse' : '')}>
             <div className='o-media__img'>
-                <span className='c-event-it__img o-lazy' data-src={ImageStorageHelper.eventUrl(item.imageId, imageSize || 'square')}></span>
+                <span className='c-event-it__img o-lazy' data-src={ImageStorageHelper.eventUrl(item.imageId, imageSize || 'square', 'jpg')}></span>
             </div>
             <div className='c-event-it__info o-media__body'>
                 <a className='c-event-it__title' href={link} title={item.title}>{truncateAt(item.title, 80)}</a>
@@ -71,7 +71,7 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone }:
     return (
         <div className={'c-event-it c-event-it--card' + colorClass + (view === 'card-wide' ? ' c-event-it--card-wide' : '')} style={{ backgroundColor: color.hex() }}>
             <div className='c-event-it__media'>
-                <div className='c-event-it__img o-lazy' data-src={ImageStorageHelper.eventUrl(item.imageId, imageSize || 'medium')}></div>
+                <div className='c-event-it__img o-lazy' data-src={ImageStorageHelper.eventUrl(item.imageId, imageSize || 'medium', 'jpg')}></div>
                 <div className='c-event-it__img-mask' style={{ backgroundImage: `linear-gradient(${orientation},rgba(0,0,0,0),rgba(${color.rgb()},.7),rgb(${color.rgb()}));` }}></div>
             </div>
             <div className='c-event-it__hover'></div>
