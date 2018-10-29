@@ -8,7 +8,10 @@ import { EventRouter } from "./routes/event-router";
 import { ViewEventRouter } from "./routes/view-event-router";
 import { ItemRouter } from "./routes/item-router";
 import { ViewItemRouter } from "./routes/view-item-router";
-import { UrlRouter } from "./routes/url-router";
+import { UrlRouter } from "./routes/redirects/url-router";
+import { FaviconRouter } from "./routes/redirects/favicon-router";
+import { AppleIconRouter } from "./routes/redirects/apple-icon-router";
+import { AdsenseAdsRouter } from "./routes/redirects/adsense-ads-router";
 
 export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -22,7 +25,11 @@ export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
             new ItemRouter(),
             new ViewEventRouter(),
             new ViewItemRouter(),
+            
             new UrlRouter(),
+            new FaviconRouter(),
+            new AppleIconRouter(),
+            new AdsenseAdsRouter(),
         ], OurnetProjectName.NEWS);
     }
 }

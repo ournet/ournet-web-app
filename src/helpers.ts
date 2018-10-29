@@ -44,3 +44,12 @@ export function startWithUpperCase(text: string) {
     }
     return text;
 }
+
+export function getFaviconUrl(domain: string, filename?: string) {
+    filename = filename || 'favicon.ico';
+
+    var name = domain.split('.')[0];
+    name = ['click', 'zborg', 'diez'].indexOf(name) > -1 ? name : 'ournet';
+
+    return 'https://assets.ournetcdn.net/ournet/img/icons/' + name + '/' + filename;
+}

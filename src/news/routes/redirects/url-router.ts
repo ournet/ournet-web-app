@@ -1,6 +1,6 @@
-import { NewsBaseRouter } from "../router";
-import { Request, Response } from "../../base/types";
-import { NewsBaseHandler } from "../handlers/handler";
+import { NewsBaseRouter } from "../../router";
+import { Request, Response } from "../../../base/types";
+import { NewsBaseHandler } from "../../handlers/handler";
 
 export class UrlRouter extends NewsBaseRouter {
     constructor() {
