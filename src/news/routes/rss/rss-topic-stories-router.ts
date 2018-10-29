@@ -38,7 +38,7 @@ class RssHandler extends NewsBaseHandler<RssTopicStoriesViewModelInput> {
             throw notFound(`Not found topic slug=${this.input.slug}`);
         }
 
-        this.setCacheControl(res, 60 * 3);
+        this.setCacheControl(res, 15);
 
         const title = translate(NewsLocaleNames.topic_latest_news, { name: topic.name });
 
@@ -51,7 +51,7 @@ class RssHandler extends NewsBaseHandler<RssTopicStoriesViewModelInput> {
             site_url: schema + '//' + host,
             language: lang,
             pubDate: new Date(),
-            ttl: 3 * 60,
+            ttl: 15,
             generator: translate(NewsLocaleNames.app_name),
         });
 

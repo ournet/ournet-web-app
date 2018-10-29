@@ -31,7 +31,7 @@ class RssHandler extends NewsBaseHandler {
         const { translate, country, project, links, lang } = viewData;
         const res = this.input.res;
 
-        this.setCacheControl(res, 60 * 3);
+        this.setCacheControl(res, 15);
 
         const title = translate(NewsLocaleNames.site_title, { country: LocaleHelpers.getCountryName(translate, country) });
         const description = translate(NewsLocaleNames.site_description, { country: LocaleHelpers.getCountryName(translate, country) });
@@ -46,7 +46,7 @@ class RssHandler extends NewsBaseHandler {
             site_url: schema + '//' + host,
             language: lang,
             pubDate: new Date(),
-            ttl: 3 * 60,
+            ttl: 15,
             generator: translate(NewsLocaleNames.app_name),
         });
 
