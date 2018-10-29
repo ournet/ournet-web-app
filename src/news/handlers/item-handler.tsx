@@ -18,9 +18,9 @@ export class ItemHandler extends NewsBaseHandler<ItemViewModelInput>{
 
             this.setCacheControl(res, 60 * 12);
 
-            return this.redirect(this.input.res, url, 301);
+            return this.redirect(res, url, 301);
         }
 
-        return this.render(this.input.res, <ItemPage {...viewData} />);
+        return this.render(res, <ItemPage {...viewData} />);
     }
 }

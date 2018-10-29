@@ -1,7 +1,8 @@
 import env from "./env";
+import { OurnetProjectName } from "./ournet/data";
 
 export type HostInfo = {
-    project: string
+    project: OurnetProjectName
     country: string
 }
 
@@ -26,7 +27,7 @@ export function getHostInfo(host: string): HostInfo {
     }
 
     return {
-        project: env.PROJECT,
+        project: env.PROJECT as OurnetProjectName,
         country: env.COUNTRY,
     }
 }

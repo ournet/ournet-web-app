@@ -40,6 +40,7 @@ export interface OurnetViewModelInput extends ViewModelInput {
     url: UrlWithParsedQuery
     host: string
     country: string
+    project: OurnetProjectName
 }
 
 export interface OurnetViewModel<CONFIG extends IOurnetAppConfig> extends ViewModel {
