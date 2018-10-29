@@ -10,7 +10,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
-
     .c-event-it--media & {
         display: inline-block;
         height: 70px;
@@ -57,7 +56,6 @@ h4.c-event-it__title {
         font-weight: 400;
     }
 }
-
 
 .c-event-it--card {
     height: 320px;
@@ -126,10 +124,9 @@ h4.c-event-it__title {
         overflow: hidden;
         font-weight: 700;
         font-size: 20px;
-        line-height: 24px;
-        // font-family: $global-font-family;
+        line-height: 24px; // font-family: $global-font-family;
         margin-bottom: 0px;
-        text-shadow: 1px 1px 1px rgba(10,10,10,.3);
+        text-shadow: 1px 1px 1px rgba(10, 10, 10, .3);
     }
     .c-event-it__summary {
         height: 59px;
@@ -169,7 +166,7 @@ h4.c-event-it__title {
         display: inline-block;
         text-decoration: none;
         letter-spacing: 1px;
-        text-shadow: 1px 1px 1px rgba(10,10,10,.3);
+        text-shadow: 1px 1px 1px rgba(10, 10, 10, .3);
     }
 }
 
@@ -185,16 +182,17 @@ h4.c-event-it__title {
         color: #111;
         .c-event-it__topic {
             color: #111;
-            text-shadow: 1px 1px 1px rgba(255,255,255,.3);
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, .3);
         }
     }
     .c-event-it__doc {
         color: #111;
     }
     .c-event-it__title {
-        text-shadow: 1px 1px 1px rgba(255,255,255,.3);
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, .3);
     }
 }
+
 .c-event-it--card.c-event-it--card-wide {
     .c-event-it__inner {
         padding-top: 60px;
@@ -203,7 +201,6 @@ h4.c-event-it__title {
     .c-event-it__stats {
         padding-right: 50%;
     }
-
     .c-event-it__media {
         height: 100%;
         width: 60%;
