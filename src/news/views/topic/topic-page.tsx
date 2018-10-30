@@ -4,7 +4,7 @@ import CommonLayout from '../common-layout';
 import { TopicViewModel } from '../../view-models/topic-view-model';
 import { NewsLocaleNames } from '../../locale';
 import { entipicUrl } from '../../../helpers';
-import { Share } from '../../../views/components/share';
+// import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { SectionHeader } from '../../../views/components/section-header';
 import { EventListItem } from '../components/event-list-item';
@@ -33,7 +33,7 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                                     <img className='c-topic-h__img' src={entipicUrl(topic.name, 'b', lang, country)} alt={topic.name} />
                                 </div>
                                 <div className='o-media__body'>
-                                    {Share({ lang, url: head.canonical, align: 'right', services: config.shareServices })}
+                                    {/* {Share({ lang, url: head.canonical, align: 'right', services: config.shareServices })} */}
                                     {PageTitle({ title: (title || head.title), subTitle: head.description })}
                                     {/* <div className='c-topic_h__about'>{topic.description || topic.about && truncateAt(topic.about, 100)}</div> */}
                                 </div>

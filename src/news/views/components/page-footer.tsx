@@ -4,8 +4,9 @@ import { NewsViewModel } from '../../view-models/news-view-model';
 import { NewsLocaleNames } from '../../locale';
 import { getSchema, getHost } from 'ournet.links';
 import { getCountryName } from '../../../helpers';
+import { Share } from '../../../views/components/share';
 
-export function PageFooter({ project, links, translate, lang, config, country, version }: NewsViewModel) {
+export function PageFooter({ project, links, translate, lang, config, country, version, head }: NewsViewModel) {
 
     return (
         <footer className='c-footer'>
@@ -14,7 +15,8 @@ export function PageFooter({ project, links, translate, lang, config, country, v
                     <div className='o-layout__item u-1/3@tablet o-footer-info'>
                         <h4>{translate(NewsLocaleNames.info)}</h4>
                         <div>{translate(NewsLocaleNames.contact)} <a href={'mailto:' + config.email}>{config.email}</a></div>
-                        <div>Version: {version}</div>
+                        <p>Version: {version}</p>
+                        <div>{Share({ url: head.canonical, lang, services: config.shareServices })}</div>
                         {/* <div>{__(LocalesNames.weather_cright)}</div> */}
                     </div>
                     <div className='o-layout__item u-1/3@tablet o-footer-sites'>
