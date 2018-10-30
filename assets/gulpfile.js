@@ -20,6 +20,7 @@ const uglify = require('gulp-uglify');
 const tap = require('gulp-tap');
 
 const rename = require('gulp-rename');
+const gzip = require('gulp-gzip');
 
 const awspublish = require("gulp-awspublish");
 var s3Publisher = awspublish.create(
@@ -88,6 +89,19 @@ gulp.task('sass:watch', function () {
     gulp.watch('./scss/**/*.scss', ['sass']);
 });
 
+gulp.task('upload:css', () =>
+    gulp.src(cssDist + '**')
+        .pipe(rename(function (p) {
+            p.dirname = path.join('ournet', 'css', p.dirname);
+        }))
+        .pipe(gzip({
+            append: false
+        }))
+        .pipe(s3Publisher.publish({ CacheControl: 'public,max-age=' + (86400 * 14) + ',immutable', ContentEncoding: 'gzip' }))
+        // .pipe(publisher.cache())
+        .pipe(awspublish.reporter())
+);
+
 // --------- JS -------------
 
 const jsDist = '../public/static/js';
@@ -121,6 +135,20 @@ gulp.task('js:watch', function () {
     gulp.watch('./js/**/*.js', ['js']);
 });
 
+
+gulp.task('upload:js', () =>
+    gulp.src(jsDist + '**')
+        .pipe(rename(function (p) {
+            p.dirname = path.join('ournet', 'js', p.dirname);
+        }))
+        .pipe(gzip({
+            append: false
+        }))
+        .pipe(s3Publisher.publish({ CacheControl: 'public,max-age=' + (86400 * 14) + ',immutable', ContentEncoding: 'gzip' }))
+        // .pipe(publisher.cache())
+        .pipe(awspublish.reporter())
+);
+
 gulp.task('connect', function () {
     connect.server({
         root: '../public/static',
@@ -132,3 +160,4 @@ gulp.task('connect', function () {
 gulp.task('watch', ['sass:watch', 'js:watch']);
 gulp.task('serv', ['watch', 'connect']);
 gulp.task('default', ['img', 'sass', 'js']);
+gulp.task('upload', ['upload:img', 'upload:css', 'upload:js']);
