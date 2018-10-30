@@ -10,6 +10,7 @@ import logger from "../logger";
 import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
+import { PlacesDailyForecastRouter } from "./routes/places-daily-forecast-router";
 
 export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -20,11 +21,15 @@ export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
             new AppleIconRouter(),
             new AdsenseAdsRouter(),
             new ManifestRouter(),
+
+            new PlacesDailyForecastRouter(),
         ], OurnetProjectName.WEATHER);
     }
 
     protected handleError(req: Request, res: Response, error: Error): Promise<void> {
         logger.error(error);
+
+        console.trace(error)
 
         const url = parse(req.url || '', true);
         const host = url.hostname || '';
