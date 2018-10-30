@@ -1,7 +1,10 @@
 'use strict';
 
-require('dotenv').config();
+require('dotenv').config({ path: '../.env' });
 
+process.env.PORT = 8080;
+
+const path = require('path');
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
 const imagemin = require('gulp-imagemin');
@@ -16,17 +19,46 @@ const browserify = require('browserify');
 const uglify = require('gulp-uglify');
 const tap = require('gulp-tap');
 
+const rename = require('gulp-rename');
+
+const awspublish = require("gulp-awspublish");
+var s3Publisher = awspublish.create(
+    {
+        // region: "your-region-id",
+        params: {
+            Bucket: process.env.ASSETS_AWS_BUCKET || 'assets.ournetcdn.net',
+            ACL: 'public-read',
+        }
+    }
+);
+
 const isProduction = process.env.NODE_ENV === 'production';
 
 // --------- IMAGES ------------
 
+const imgDest = '../public/static/img/';
+
 gulp.task('imagemin', () =>
     gulp.src('./img/**')
-        .pipe(imagemin())
-        .pipe(gulp.dest('../../dest/ournet/img/'))
+        .pipe(imagemin([
+            imagemin.gifsicle({ interlaced: true }),
+            imagemin.jpegtran({ progressive: true }),
+            imagemin.optipng({ optimizationLevel: 7 }),
+        ]))
+        .pipe(gulp.dest(imgDest))
 );
 
 gulp.task('img', ['imagemin']);
+
+gulp.task('upload:img', () =>
+    gulp.src(imgDest + '**')
+        .pipe(rename(function (p) {
+            p.dirname = path.join('ournet', 'img', p.dirname);
+        }))
+        .pipe(s3Publisher.publish({ CacheControl: 'public,max-age=' + (86400 * 14) }))
+        // .pipe(publisher.cache())
+        .pipe(awspublish.reporter())
+);
 
 // --------- CSS -------------
 

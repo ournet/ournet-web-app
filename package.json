@@ -5,7 +5,7 @@
   "private": true,
   "main": "./lib/index.js",
   "scripts": {
-    "dev": "npm-run-all --parallel tscw web:watch assets:watch assets:serv",
+    "dev": "npm-run-all --parallel tscw web:watch assets:watch",
     "start": "node ./lib/index.js",
     "pretest": "npm-run-all clean tsc",
     "test": "ava --no-cache --verbose lib/**/*.test.js",
@@ -22,7 +22,8 @@
     "assets:build": "gulp --gulpfile ./assets/gulpfile.js",
     "assets:prod": "set NODE_ENV=production&& gulp --gulpfile ./assets/gulpfile.js",
     "assets:serv": "gulp --gulpfile ./assets/gulpfile.js serv",
-    "assets:watch": "gulp --gulpfile ./assets/gulpfile.js watch"
+    "assets:watch": "gulp --gulpfile ./assets/gulpfile.js watch",
+    "assets:upload:img": "gulp --gulpfile ./assets/gulpfile.js upload:img"
   },
   "watch": {
     "start": {
@@ -73,11 +74,13 @@
     "cash-dom": "^2.3.9",
     "debug": "^4.1.0",
     "gulp": "^3.9.1",
+    "gulp-awspublish": "^3.4.0",
     "gulp-buffer": "^0.0.2",
     "gulp-clean-css": "^3.10.0",
     "gulp-connect": "^5.6.1",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
+    "gulp-rename": "^1.4.0",
     "gulp-rev-all": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-tap": "^1.0.1",
