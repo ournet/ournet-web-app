@@ -13,7 +13,7 @@ import { QuoteListItem } from '../../../news/views/components/quote-list-item';
 
 export default class IndexPage extends React.Component<IndexViewModel> {
     render() {
-        const { lang, head, translate, links, currentDate, latestEvents, country, latestQuotes, config } = this.props;
+        const { lang, head, translate, links, currentDate, latestEvents, country, latestQuotes, config, project } = this.props;
 
         const newsSchema = getSchema(OurnetProjectName.NEWS, country);
         const newsHost = getHost(OurnetProjectName.NEWS, country);
@@ -40,11 +40,11 @@ export default class IndexPage extends React.Component<IndexViewModel> {
                 <main>
                     <div className='o-layout'>
                         <div className='o-layout__item u-2/4@tablet'>
-                            {EventListItem({ lang, country, links, timezone: config.timezone, imageSize: 'large', view: 'card-wide', item: mainEvent })}
+                            {EventListItem({ lang, country, links, timezone: config.timezone, imageSize: 'large', view: 'card-wide', item: mainEvent, project })}
                         </div>
                         <div className='o-layout__item u-2/4@tablet'>
                             <div className='o-layout'>
-                                {restEvents.slice(0, 2).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                                {restEvents.slice(0, 2).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', project })}</div>)}
                             </div>
                         </div>
                     </div>
@@ -56,17 +56,17 @@ export default class IndexPage extends React.Component<IndexViewModel> {
                             {EventListItem({ lang, country, links, timezone: config.timezone, view: 'card', item: restEvents[2] })}
                         </div>
 
-                        {restEvents.slice(3, 5).map(item => <div key={item.id} className='o-layout__item u-1/4@tablet u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                        {restEvents.slice(3, 5).map(item => <div key={item.id} className='o-layout__item u-1/4@tablet u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', project })}</div>)}
 
                     </div>
                     <div className='c-group'>
                         {GroupHeader({ name: translate(PortalLocaleNames.latest_quotes), link: newsUrl + links.news.quotes({ ul: lang }), type: 'important' })}
                         <div className='o-layout'>
-                            {latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item })}</div>)}
+                            {latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item, project })}</div>)}
                         </div>
                     </div>
                     <div className='o-layout'>
-                        {restEvents.slice(5).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                        {restEvents.slice(5).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', project })}</div>)}
                     </div>
                 </main>
             </CommonLayout>

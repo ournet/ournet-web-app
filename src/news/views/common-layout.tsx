@@ -7,10 +7,10 @@ import { TrendingTopicsMenu } from './components/trending-topics-menu';
 
 export default class CommonLayout extends React.Component<NewsViewModel> {
     render() {
-        const { project, children, lang, links, trendingTopics } = this.props;
+        const { project, children, lang, links, trendingTopics, country } = this.props;
         return (
             <Layout {...this.props}>
-                {TrendingTopicsMenu({ lang, links, topics: trendingTopics })}
+                {TrendingTopicsMenu({ lang, links, topics: trendingTopics, country })}
                 {children}
                 <script async={true} src={getAssetUrl(project, 'js', 'main', env.isProduction)} />
             </Layout>

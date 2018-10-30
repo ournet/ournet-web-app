@@ -7,7 +7,8 @@ import chroma = require('chroma-js');
 import { Locale } from '../../../ournet/locale';
 import { filterIrrelevantTopics } from '../../irrelevant-topics';
 import { getImageColorFromId, truncateAt } from '../../../helpers';
-import { Sitemap } from 'ournet.links';
+import { Sitemap, getSchema, getHost } from 'ournet.links';
+import { OurnetProjectName } from '../../../ournet/data';
 
 export type EventListItemProps = {
     links: Sitemap
@@ -17,6 +18,7 @@ export type EventListItemProps = {
     view: EventListItemViewName
     item: NewsEvent
     imageSize?: ImageSizeName
+    project?: OurnetProjectName
 }
 
 export type EventListItemViewName = 'card' | 'media-left' | 'media-right' | 'card-wide';
@@ -58,7 +60,7 @@ function getMainTopic(locale: Locale, topics: NewsTopic[]) {
     return relevantTopics.length > 0 ? relevantTopics[0] : topics[0];
 }
 
-function cardItemView({ item, imageSize, view, links, lang, country, timezone }: EventListItemProps) {
+function cardItemView({ item, imageSize, view, links, lang, country, timezone, project }: EventListItemProps) {
 
     const mainTopic = getMainTopic({ lang, country }, item.topics);
     const createdAt = moment(item.createdAt).tz(timezone).locale(lang);
@@ -68,6 +70,10 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone }:
     const colorClass = luminance > 0.30 ? ' c-event-it__black' : '';
     const orientation = view === 'card-wide' ? 'to left' : 'to bottom';
 
+    const urlPrefix = project && project !== OurnetProjectName.NEWS
+        ? (getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country))
+        : '';
+
     return (
         <div className={'c-event-it c-event-it--card' + colorClass + (view === 'card-wide' ? ' c-event-it--card-wide' : '')} style={{ backgroundColor: color.hex() }}>
             <div className='c-event-it__media'>
@@ -76,7 +82,7 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone }:
             </div>
             <div className='c-event-it__hover'></div>
 
-            <a className='c-event-it__doc' title={item.title} href={links.news.story(item.slug, item.id, { ul: lang })}>
+            <a className='c-event-it__doc' title={item.title} href={urlPrefix + links.news.story(item.slug, item.id, { ul: lang })}>
                 <div className='c-event-it__inner'>
                     <h3 className='c-event-it__title'>{truncateAt(item.title, 80)}</h3>
                     <div className='c-event-it__summary'>{truncateAt(item.summary, 120)}</div>
@@ -84,7 +90,7 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone }:
             </a>
             <div className='c-event-it__stats'>
                 <time dateTime={item.createdAt}>{createdAt.fromNow(true)}</time>
-                <a className='c-event-it__topic' title={mainTopic.name} href={links.news.topic(mainTopic.slug, { ul: lang })}>{mainTopic.abbr || truncateAt(mainTopic.name, 30)}</a>
+                <a className='c-event-it__topic' title={mainTopic.name} href={urlPrefix + links.news.topic(mainTopic.slug, { ul: lang })}>{mainTopic.abbr || truncateAt(mainTopic.name, 30)}</a>
             </div>
         </div>
     )
