@@ -16,6 +16,11 @@ import { ManifestRouter } from "./routes/manifest-router";
 import { RssImportantRouter } from "./routes/rss/rss-important-stories-router";
 import { RssStoriesRouter } from "./routes/rss/rss-stories-router";
 import { RssTopicStoriesRouter } from "./routes/rss/rss-topic-stories-router";
+import { Request, Response } from "../base/types";
+import logger from "../logger";
+import { ErrorHandler } from "./handlers/error-handler";
+import { parse } from "url";
+import { getHostInfo } from "../hosts";
 
 export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -40,5 +45,16 @@ export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
             new RssStoriesRouter(),
             new RssTopicStoriesRouter(),
         ], OurnetProjectName.NEWS);
+    }
+
+    protected handleError(req: Request, res: Response, error: Error): Promise<void> {
+        logger.error(error);
+
+        const url = parse(req.url || '', true);
+        const host = url.hostname || '';
+        const hostInfo = getHostInfo(host);
+
+        return new ErrorHandler({ req, res, error, url, host, project: hostInfo.project, country: hostInfo.country })
+            .handle(this.data);
     }
 }
