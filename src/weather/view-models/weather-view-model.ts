@@ -1,0 +1,77 @@
+
+import { WeatherAppConfig } from "../config";
+import { PageViewModelBuilder, PageViewModel } from "../../ournet/page-view-model";
+import { WeatherAppData, PlaceNoAdmin1Fields } from "../data";
+import moment = require("moment-timezone");
+import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, NewsEvent } from "@ournet/api-client";
+import logger from "../../logger";
+import { OurnetViewModelInput } from "../../ournet/view-model";
+
+
+export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends OurnetViewModelInput>
+    extends PageViewModelBuilder<WeatherAppData, WeatherAppConfig, T, I> {
+
+    constructor(input: I, data: WeatherAppData) {
+        super(input, data);
+
+        const model = this.model;
+
+        model.currentDate = moment().tz(model.config.timezone).locale(model.lang);
+    }
+
+    async build() {
+        const localApiClient = this.data.createQueryApiClient<{ capital: Place }>();
+
+        const model = this.model;
+
+        const { country, lang } = model;
+
+        const result = await localApiClient
+            .placesPlaceById('capital', { fields: 'id name names longitude latitude timezone' },
+                { id: model.config.capitalId })
+            .execute();
+
+        if (result.errors && result.errors.length) {
+            logger.error(result.errors[0]);
+        }
+
+        if (result.data) {
+            if (result.data.capital) {
+                model.capital = result.data.capital;
+
+                const { longitude,
+                    latitude,
+                    timezone, } = model.capital;
+
+                this.apiClient.weatherNowPlaceForecast('capitalForecast', { fields: HourlyForecastDataPointStringFields },
+                    { place: { longitude, latitude, timezone } });
+            }
+        }
+
+        this.apiClient.placesMainPlaces('mainPlaces', { fields: PlaceNoAdmin1Fields }, { country, limit: 20 })
+            .newsEventsLatest('latestNews', { fields: 'id title slug imageId createdAt' }, { params: { country, lang, limit: 4 } });
+
+        return super.build();
+    }
+
+    protected getLanguage(config: WeatherAppConfig) {
+        let lang = this.input.url.query['ul'] as string;
+        if (lang && config.languages.includes(lang)) {
+            return lang;
+        }
+
+        return config.languages[0];
+    }
+}
+
+export interface WeatherViewModel extends PageViewModel<WeatherAppConfig> {
+    currentDate: moment.Moment
+    capital: Place
+    capitalForecast: HourlyForecastDataPoint
+    mainPlaces: Place[]
+    latestNews: NewsEvent[]
+
+    title: string
+    subTitle: string
+}
+

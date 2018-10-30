@@ -1,0 +1,109 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "ro"
+    ],
+    "timezone": "Europe/Bucharest",
+    "domain": "ournet.ro",
+    "host": "meteo.ournet.ro",
+    "email": "info@ournet.ro",
+    "googleAnalyticsId": "UA-1490399-11",
+    "projects": [
+        "horoscope",
+        "news",
+        "weather",
+        "exchange"
+    ],
+    "shareServices": [
+        "facebook",
+        "gplus",
+        "twitter"
+    ],
+    "internationalIds": [
+        "md",
+        "cz",
+        "it",
+        "bg",
+        "hu",
+        "ru",
+        "pl",
+        "al",
+        "in",
+        "tr"
+    ],
+    "capitalId": 683506,
+    "facebookId": "120256281349646",
+    "placesCount": 18000,
+    "lists": [
+        {
+            "id": "vremea-la-munte",
+            "name": {
+                "ro": "Vremea la munte"
+            },
+            "title": {
+                "ro": "Vremea la munte în România"
+            },
+            "description": {
+                "ro": "Vremea la cele mai importante stațiuni turistice montane din România"
+            },
+            "image": "https://c2.staticflickr.com/8/7642/16993770149_919c401fdf_c.jpg",
+            "ids": [
+                "686167",
+                "686003",
+                "683890",
+                "683844",
+                "683760",
+                "683179",
+                "681862",
+                "682219",
+                "681005",
+                "678499",
+                "6693026",
+                "669704",
+                "668828",
+                "667091",
+                "672907",
+                "671818",
+                "663100"
+            ]
+        },
+        {
+            "id": "vremea-la-mare",
+            "name": {
+                "ro": "Vremea la mare"
+            },
+            "title": {
+                "ro": "Vremea la mare în România"
+            },
+            "description": {
+                "ro": "Vremea la cele mai importante stațiuni turistice la mare în România"
+            },
+            "image": "https://c1.staticflickr.com/5/4319/35978891245_2a0c09a48d_c.jpg",
+            "ids": [
+                "679035",
+                "686626",
+                "680963",
+                "680546",
+                "678589",
+                "678588",
+                "675135",
+                "673957",
+                "673921",
+                "673334",
+                "672486",
+                "7287702",
+                "7287703",
+                "7283137",
+                "667305",
+                "665790",
+                "663216",
+                "7283138"
+            ]
+        }
+    ],
+    "oneSignal": {
+        "appId": "2dcf3c29-b621-452f-88e9-f2ffbcbe7b81",
+        "safari_web_id": "web.onesignal.auto.37a647a2-1bdc-46a8-a505-4f4cc6400a46"
+    }
+}
