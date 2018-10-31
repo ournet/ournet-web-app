@@ -12,6 +12,7 @@ import { parse } from "url";
 import { getHostInfo } from "../hosts";
 import { PlacesDailyForecastRouter } from "./routes/places-daily-forecast-router";
 import { ListRouter } from "./routes/list-router";
+import { PlaceRouter } from "./routes/place-router";
 
 export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -25,6 +26,7 @@ export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
 
             new PlacesDailyForecastRouter(),
             new ListRouter(),
+            new PlaceRouter(),
         ], OurnetProjectName.WEATHER);
     }
 

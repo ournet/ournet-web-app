@@ -90,6 +90,12 @@ h4.c-event-it__title {
     .c-event-it__img {
         height: 100%;
         width: 100%;
+        opacity: 0.2;
+        -webkit-transition: opacity 0.3 ease-in-out;
+        transition: opacity 0.3s ease-in-out;
+        &.c-event-it__img.initial{
+            opacity: 1;
+        }
     }
     .c-event-it__img-mask {
         position: absolute;

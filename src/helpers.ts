@@ -111,3 +111,9 @@ export function toBeaufort(ms: number) {
     }
     return 12;
 }
+
+export function unixTime(date?: Date) {
+    date = date || new Date();
+
+    return Math.floor(date.getTime() / 1000);
+}
