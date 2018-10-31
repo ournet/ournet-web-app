@@ -11,6 +11,7 @@ import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
 import { PlacesDailyForecastRouter } from "./routes/places-daily-forecast-router";
+import { ListRouter } from "./routes/list-router";
 
 export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -23,6 +24,7 @@ export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
             new ManifestRouter(),
 
             new PlacesDailyForecastRouter(),
+            new ListRouter(),
         ], OurnetProjectName.WEATHER);
     }
 

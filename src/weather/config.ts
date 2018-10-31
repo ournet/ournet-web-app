@@ -1,7 +1,15 @@
-import { IOurnetAppConfig } from "../ournet/config";
-import { Dictionary } from "@ournet/domain";
+import { IOurnetAppConfig, createAppConfig } from "../ournet/config";
+import { Dictionary, uniq } from "@ournet/domain";
+import { OurnetProjectName } from "../ournet/data";
 
-// export const WEATHER_LOCALE_ROUTE_PREFIX = '(ru)';
+function getSupportedCountries() {
+    return ['ro']//['md', 'ro', 'ru', 'bg', 'hu', 'in', 'cz', 'it', 'al', 'tr']
+}
+
+export const WEATHER_GLOBAL_CONFIG_LIST_IDS = uniq(getSupportedCountries()
+    .map(country => createAppConfig<WeatherAppConfig>(OurnetProjectName.WEATHER, country))
+    .map(config => config.lists || [])
+    .reduce<string[]>((ids, list) => ids.concat(list.map(item => item.id)), []));
 
 export interface WeatherAppConfig extends IOurnetAppConfig {
     placesCount: number
