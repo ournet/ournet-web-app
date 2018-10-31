@@ -117,3 +117,7 @@ export function unixTime(date?: Date) {
 
     return Math.floor(date.getTime() / 1000);
 }
+
+export function isNullOrEmpty(val?: string) {
+    return [null, undefined, ''].includes(val);
+}

@@ -81,37 +81,37 @@ export class WeatherPlaceHelper {
     static isPopulatedPlace(place: Place) {
         return place.featureClass === 'P';
     }
-    static inCountryName(countryName: string, lang: string) {
-        switch (lang) {
-            case 'ru':
-                if (countryName[countryName.length - 1] === 'я') {
-                    return countryName.substring(0, countryName.length - 1) + 'и';
-                }
-                if (countryName === 'Молдова') {
-                    return 'Молдове';
-                }
-                if (countryName === 'Украина') {
-                    return 'Украине';
-                }
-                if (countryName === 'Беларусь') {
-                    return 'Беларуси';
-                }
-                break;
-            case 'uk':
-                if (countryName === 'Україна') {
-                    return 'Україні';
-                }
-                break;
-            case 'cs':
-                return 'ČR';
-            case 'pl':
-                if (countryName === 'Polska') {
-                    return 'Polsce';
-                }
-                break;
-        }
-        return countryName;
-    }
+    // static inCountryName(countryName: string, lang: string) {
+    //     switch (lang) {
+    //         case 'ru':
+    //             if (countryName[countryName.length - 1] === 'я') {
+    //                 return countryName.substring(0, countryName.length - 1) + 'и';
+    //             }
+    //             if (countryName === 'Молдова') {
+    //                 return 'Молдове';
+    //             }
+    //             if (countryName === 'Украина') {
+    //                 return 'Украине';
+    //             }
+    //             if (countryName === 'Беларусь') {
+    //                 return 'Беларуси';
+    //             }
+    //             break;
+    //         case 'uk':
+    //             if (countryName === 'Україна') {
+    //                 return 'Україні';
+    //             }
+    //             break;
+    //         case 'cs':
+    //             return 'ČR';
+    //         case 'pl':
+    //             if (countryName === 'Polska') {
+    //                 return 'Polsce';
+    //             }
+    //             break;
+    //     }
+    //     return countryName;
+    // }
 
     static inPlaceName(place: Place, lang: string) {
         const name = getPlaceName(place, lang);

@@ -15,6 +15,7 @@ export function PageFooter({ project, links, translate, lang, config, country, v
                     <div className='o-layout__item u-1/3@tablet o-footer-info'>
                         <h4>{translate(WeatherLocaleNames.info)}</h4>
                         <div>{translate(WeatherLocaleNames.contact)} <a href={'mailto:' + config.email}>{config.email}</a></div>
+                        <div>{translate(WeatherLocaleNames.weather_cright)}</div>
                         <p>Version: {version}</p>
                         <div>{Share({ url: head.canonical, lang, services: config.shareServices })}</div>
                         {/* <div>{__(LocalesNames.weather_cright)}</div> */}
@@ -25,6 +26,7 @@ export function PageFooter({ project, links, translate, lang, config, country, v
                     </div>
                     <div className='o-layout__item u-1/3@tablet o-footer-useful'>
                         <h4>{translate(WeatherLocaleNames.useful)}</h4>
+                        <div><a href={links.weather.widget({ ul: lang })}>{translate(WeatherLocaleNames.weather_on_your_site)}</a></div>
                         {config.projects.map(item => <div key={item}><a href={getSchema(item, country) + '//' + getHost(item, country)}>{translate(item)}</a></div>)}
                     </div>
                 </div>

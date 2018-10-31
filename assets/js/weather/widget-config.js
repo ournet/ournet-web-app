@@ -1,6 +1,6 @@
 
 
-var autocomplete = require('autocompleter').default;
+var autocomplete = require('autocompleter');
 var CONSTANTS = require('../base/constants').CONSTANTS;
 var $ = require('cash-dom');
 var xhr = require("xhr");
@@ -112,7 +112,7 @@ function getConfigData() {
 }
 
 function searchPlaces(q, cb) {
-    var URL_FORMAT = '/controls/findplace/?q=__Q__&ul=__LANG__';
+    var URL_FORMAT = '/json/find_place?q=__Q__&ul=__LANG__';
     var url = URL_FORMAT
         .replace('__Q__', encodeURIComponent(q))
         .replace('__LANG__', CONSTANTS.lang);

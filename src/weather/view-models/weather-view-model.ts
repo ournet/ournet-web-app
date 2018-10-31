@@ -8,7 +8,7 @@ import logger from "../../logger";
 import { OurnetViewModelInput, getLanguageFromQueryString } from "../../ournet/view-model";
 
 
-export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends OurnetViewModelInput>
+export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends OurnetViewModelInput=OurnetViewModelInput>
     extends PageViewModelBuilder<WeatherAppData, WeatherAppConfig, T, I> {
 
     constructor(input: I, data: WeatherAppData) {
