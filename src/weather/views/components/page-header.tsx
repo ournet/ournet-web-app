@@ -16,13 +16,13 @@ export function PageHeader({ capital, capitalForecast, links, translate, lang, c
 
     return (
         <header className='c-header o-layout o-layout--small'>
-            <div className='o-layout__item u-2/6 u-1/6@tablet'>
+            <div className='o-layout__item u-2/6 u-1/5@tablet u-1/6@desktop'>
                 {HeaderLogo({ url: getSchema(OurnetProjectName.PORTAL, country) + '//' + getHost(OurnetProjectName.PORTAL, country) + links.portal.home({ ul: lang }), title: translate(WeatherLocaleNames.app_name) })}
             </div>
-            <div className='o-layout__item u-4/6 u-3/6@tablet'>
+            <div className='o-layout__item u-4/6 u-2/5@tablet'>
                 {HeaderSearch({ lang, translate, links })}
             </div>
-            <div className='o-layout__item u-2/6@tablet u-hide-mobile u-tr'>
+            <div className='o-layout__item u-2/5@tablet u-hide-mobile u-tr'>
                 {placeForecast}
             </div>
         </header>
