@@ -153,12 +153,14 @@ h4.c-event-it__title {
         height: 24px;
         padding: 0px 23px 0px 24px;
         time {
-            float: right;
             font-size: 14px;
             display: block;
             max-width: 30%;
             overflow: hidden;
             white-space: nowrap;
+            position: absolute;
+            bottom: 0;
+            right: 0;
         }
     }
     .c-event-it__topic {
@@ -205,7 +207,7 @@ h4.c-event-it__title {
         padding-right: 50%;
     }
     .c-event-it__stats {
-        padding-right: 50%;
+        width: 50%;
     }
     .c-event-it__media {
         height: 100%;
@@ -243,15 +245,15 @@ h4.c-event-it__title {
     margin-bottom: $global-spacing-unit-small;
     .c-event-it__inner {
         padding-top: 10px;
-        padding-right: 50%;
+        padding-right: 40%;
     }
     .c-event-it__stats {
-        padding-right: 50%;
+        width: 60%;
         bottom: 6px;
     }
     .c-event-it__media {
         height: 100%;
-        width: 60%;
+        width: 40%;
         position: absolute;
         top: 0;
         right: 0;
