@@ -3,7 +3,7 @@ import { WeatherAppConfig } from "../config";
 import { PageViewModelBuilder, PageViewModel } from "../../ournet/page-view-model";
 import { WeatherAppData, PlaceNoAdmin1Fields } from "../data";
 import moment = require("moment-timezone");
-import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, NewsEvent } from "@ournet/api-client";
+import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, NewsEvent, NewsEventStringFields } from "@ournet/api-client";
 import logger from "../../logger";
 import { OurnetViewModelInput } from "../../ournet/view-model";
 
@@ -49,7 +49,7 @@ export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends Ourne
         }
 
         this.apiClient.placesMainPlaces('mainPlaces', { fields: PlaceNoAdmin1Fields }, { country, limit: 20 })
-            .newsEventsLatest('latestNews', { fields: 'id title slug imageId createdAt' }, { params: { country, lang, limit: 4 } });
+            .newsEventsLatest('latestNews', { fields: NewsEventStringFields }, { params: { country, lang, limit: 4 } });
 
         return super.build();
     }

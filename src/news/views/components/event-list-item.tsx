@@ -21,13 +21,14 @@ export type EventListItemProps = {
     project?: OurnetProjectName
 }
 
-export type EventListItemViewName = 'card' | 'media-left' | 'media-right' | 'card-wide';
+export type EventListItemViewName = 'card' | 'media-left' | 'media-right' | 'card-wide' | 'card-bare';
 
 export function EventListItem(props: EventListItemProps) {
     switch (props.view) {
         case 'media-left':
         case 'media-right': return mediaItemView(props);
         case 'card':
+        case 'card-bare':
         case 'card-wide': return cardItemView(props);
     }
     return null;
@@ -68,14 +69,16 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone, p
     const color = chroma('#' + getImageColorFromId(item.imageId));
     const luminance = color.luminance();
     const colorClass = luminance > 0.30 ? ' c-event-it__black' : '';
-    const orientation = view === 'card-wide' ? 'to left' : 'to bottom';
+    const orientation = ['card-wide', 'card-bare'].includes(view) ? 'to left' : 'to bottom';
+
+    const showSummary = view !== 'card-bare';
 
     const urlPrefix = project && project !== OurnetProjectName.NEWS
         ? (getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country))
         : '';
 
     return (
-        <div className={'c-event-it c-event-it--card' + colorClass + (view === 'card-wide' ? ' c-event-it--card-wide' : '')} style={{ backgroundColor: color.hex() }}>
+        <div className={'c-event-it v--card' + colorClass + (view !== 'card' ? ' v--' + view : '')} style={{ backgroundColor: color.hex() }}>
             <div className='c-event-it__media'>
                 <div className='c-event-it__img o-lazy' data-src={ImageStorageHelper.eventUrl(item.imageId, imageSize || 'medium', 'jpg')}></div>
                 <div className='c-event-it__img-mask' style={{ backgroundImage: `linear-gradient(${orientation},rgba(0,0,0,0),rgba(${color.rgb()},.7),rgb(${color.rgb()}));` }}></div>
@@ -85,7 +88,7 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone, p
             <a className='c-event-it__doc' title={item.title} href={urlPrefix + links.news.story(item.slug, item.id, { ul: lang })}>
                 <div className='c-event-it__inner'>
                     <h3 className='c-event-it__title'>{truncateAt(item.title, 80)}</h3>
-                    <div className='c-event-it__summary'>{truncateAt(item.summary, 120)}</div>
+                    {showSummary && <div className='c-event-it__summary'>{truncateAt(item.summary, 120)}</div>}
                 </div>
             </a>
             <div className='c-event-it__stats'>

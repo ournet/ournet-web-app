@@ -57,7 +57,7 @@ h4.c-event-it__title {
     }
 }
 
-.c-event-it--card {
+.c-event-it.v--card {
     height: 320px;
     width: 100%;
     margin-bottom: $global-spacing-unit;
@@ -170,7 +170,7 @@ h4.c-event-it__title {
     }
 }
 
-.c-event-it--card.c-event-it__black {
+.c-event-it.v--card.c-event-it__black {
     &:hover,
     &:focus,
     &:active {
@@ -193,7 +193,7 @@ h4.c-event-it__title {
     }
 }
 
-.c-event-it--card.c-event-it--card-wide {
+.c-event-it.v--card.v--card-wide {
     .c-event-it__inner {
         padding-top: 60px;
         padding-right: 50%;
@@ -229,5 +229,42 @@ h4.c-event-it__title {
         height: 80px;
         font-size: 24px;
         line-height: 26px;
+    }
+}
+
+.c-event-it.v--card.v--card-bare {
+    height: 100px;
+    margin-bottom: $global-spacing-unit-small;
+    .c-event-it__inner {
+        padding-top: 10px;
+        padding-right: 50%;
+    }
+    .c-event-it__stats {
+        padding-right: 50%;
+        bottom: 6px;
+    }
+    .c-event-it__media {
+        height: 100%;
+        width: 60%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: auto;
+    }
+    .c-event-it__img-mask {
+        position: absolute;
+        width: 30%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: auto;
+        height: 100%;
+    }
+    .c-event-it__title {
+        height: 56px;
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 500;
     }
 }

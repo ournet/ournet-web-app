@@ -1,4 +1,4 @@
 
-require('../base/mobile-menu');
+require('../news/lazy');
 require('./forecast-browser');
 require('./widget-config');
