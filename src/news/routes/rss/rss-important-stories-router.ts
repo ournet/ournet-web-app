@@ -27,9 +27,8 @@ class RssHandler extends NewsBaseHandler {
     async handle(data: INewsAppData) {
         const viewData = await new RssImportantViewModelBuilder(this.input, data).build();
         const { translate, country, project, links, lang } = viewData;
-        const res = this.input.res;
 
-        this.setCacheControl(res, 60 * 3);
+        this.setCacheControl(60 * 3);
 
         const title = translate(NewsLocaleNames.important_news);
         const description = translate(NewsLocaleNames.most_important_news_in_last_7days_country, { country: LocaleHelpers.getCountryName(translate, country) });
@@ -54,7 +53,7 @@ class RssHandler extends NewsBaseHandler {
             feed.item(createStoryFeedItem(links, story, lang, schema, host));
         });
 
-        return this.send(res, feed.xml(), 200, { 'Content-Type': 'application/rss+xml; charset=utf-8' });
+        return this.send(feed.xml(), 200, { 'Content-Type': 'application/rss+xml; charset=utf-8' });
     }
 }
 

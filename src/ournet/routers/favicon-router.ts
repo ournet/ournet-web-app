@@ -18,14 +18,12 @@ export class FaviconRouter extends OurnetRouter {
 
 class FaviconHandler extends Handler<IOurnetAppData, OurnetViewModelInput> {
     handle() {
-        const res = this.input.res;
-
-        this.setCacheControl(res, 60 * 24 * 30);
+        this.setCacheControl(60 * 24 * 30);
 
         const data = createAppConfig(this.input.project, this.input.country);
 
         const url = getAppIconUrl(data.domain, 'favicon.ico');
 
-        return this.redirect(res, url, 301);
+        return this.redirect(url, 301);
     }
 }

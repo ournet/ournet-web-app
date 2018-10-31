@@ -72,10 +72,8 @@ class ManifestHandler extends NewsBaseHandler {
             ],
         }
 
-        const res = this.input.res;
+        this.setCacheControl(60 * 24 * 30);
 
-        this.setCacheControl(res, 60 * 24 * 30);
-
-        return this.send(res, manifest, 200);
+        return this.send(manifest, 200);
     }
 }

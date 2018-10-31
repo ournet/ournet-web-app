@@ -8,10 +8,9 @@ import ErrorPage from '../views/error-page';
 export class ErrorHandler extends NewsBaseHandler<ErrorViewModelInput>{
     async handle(data: INewsAppData) {
         const viewData = await new ErrorViewModelBuilder(this.input, data).build();
-        const res = this.input.res;
 
-        this.setCacheControl(res, 2);
+        this.setCacheControl(2);
 
-        return this.render(res, <ErrorPage {...viewData} />);
+        return this.render(<ErrorPage {...viewData} />);
     }
 }

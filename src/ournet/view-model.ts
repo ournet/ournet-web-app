@@ -4,6 +4,7 @@ import { Sitemap, sitemap } from "ournet.links";
 import { OurnetProjectName, IOurnetAppData } from "./data";
 import { TranslateFunction, createAppLocale } from "./locale";
 import { UrlWithParsedQuery } from "url";
+import { ParsedUrlQuery } from "querystring";
 
 
 export abstract class OurnetViewModelBuilder<DATA extends IOurnetAppData, CONFIG extends IOurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends OurnetViewModelInput>
@@ -13,7 +14,7 @@ export abstract class OurnetViewModelBuilder<DATA extends IOurnetAppData, CONFIG
     constructor(input: I, data: DATA) {
         super(input);
         this.data = data;
-        
+
         const model = this.model;
 
         model.project = data.project;
@@ -51,4 +52,15 @@ export interface OurnetViewModel<CONFIG extends IOurnetAppConfig> extends ViewMo
     lang: string
     version: string
     project: OurnetProjectName
+}
+
+export function getLanguageFromQueryString(config: IOurnetAppConfig, query: ParsedUrlQuery) {
+    let lang = query['ul'] as string;
+    lang = lang && lang.trim().toLowerCase();
+
+    if (lang && config.languages.includes(lang)) {
+        return lang;
+    }
+
+    return config.languages[0];
 }

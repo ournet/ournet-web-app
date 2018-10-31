@@ -8,9 +8,8 @@ import { ListViewModelInput, ListViewModelBuilder } from '../view-models/list-vi
 export class ListHandler extends WeatherBaseHandler<ListViewModelInput> {
     async handle(data: WeatherAppData) {
         const viewData = await new ListViewModelBuilder(this.input, data).build();
-        const res = this.input.res;
 
-        this.setCacheControl(res, 5);
-        return this.render(res, <IndexPage {...viewData} />);
+        this.setCacheControl(5);
+        return this.render(<IndexPage {...viewData} />);
     }
 }

@@ -32,13 +32,12 @@ class RssHandler extends NewsBaseHandler<RssTopicStoriesViewModelInput> {
     async handle(data: INewsAppData) {
         const viewData = await new RssTopicViewModelBuilder(this.input, data).build();
         const { translate, country, project, links, lang, topic } = viewData;
-        const res = this.input.res;
 
         if (!topic) {
             throw notFound(`Not found topic slug=${this.input.slug}`);
         }
 
-        this.setCacheControl(res, 15);
+        this.setCacheControl(15);
 
         const title = translate(NewsLocaleNames.topic_latest_news, { name: topic.name });
 
@@ -61,7 +60,7 @@ class RssHandler extends NewsBaseHandler<RssTopicStoriesViewModelInput> {
             feed.item(createStoryFeedItem(links, story, lang, schema, host));
         });
 
-        return this.send(res, feed.xml(), 200, { 'Content-Type': 'application/rss+xml; charset=utf-8' });
+        return this.send(feed.xml(), 200, { 'Content-Type': 'application/rss+xml; charset=utf-8' });
     }
 }
 

@@ -14,6 +14,7 @@ import { PlacesDailyForecastRouter } from "./routes/places-daily-forecast-router
 import { ListRouter } from "./routes/list-router";
 import { PlaceRouter } from "./routes/place-router";
 import { PlacesAdmin1Router, PlacesRouter } from "./routes/places-router";
+import { Widget2RedirectRouter, Place10DaysRedirectRouter, PrefixPlaceRedirectRouter, PrefixPlacesAdminRedirectRouter, PrefixPlacesRedirectRouter } from "./routes/redirect-handler";
 
 export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -30,6 +31,13 @@ export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
             new PlaceRouter(),
             new PlacesRouter(),
             new PlacesAdmin1Router(),
+
+            new Widget2RedirectRouter(),
+            new Place10DaysRedirectRouter(),
+            new PrefixPlaceRedirectRouter(),
+            new PrefixPlacesAdminRedirectRouter(),
+            new PrefixPlacesRedirectRouter(),
+            
         ], OurnetProjectName.WEATHER);
     }
 

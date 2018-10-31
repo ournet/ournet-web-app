@@ -19,40 +19,40 @@ export abstract class Handler<DATA extends IAppData, INPUT extends HandlerInput>
 
     abstract handle(data: DATA): Promise<void>
 
-    protected render(res: Response, page: JSX.Element, statusCode?: number, headers?: { [name: string]: string }) {
+    protected render(page: JSX.Element, statusCode?: number, headers?: { [name: string]: string }) {
         statusCode = statusCode || 200;
 
         const text = '<!DOCTYPE html>' + renderToStaticMarkup(page);
-        return this.send(res, text, statusCode, headers);
+        return this.send(text, statusCode, headers);
     }
 
-    protected send(res: Response, data: any, code: number, headers?: { [name: string]: string }) {
+    protected send(data: any, code: number, headers?: { [name: string]: string }) {
         if (headers) {
             for (var prop in headers) {
-                res.setHeader(prop, headers[prop]);
+                this.input.res.setHeader(prop, headers[prop]);
             }
         }
-        return send(res, code, data);
+        return send(this.input.res, code, data);
     }
 
-    protected redirect(res: Response, location: string, code: number, headers?: { [name: string]: string }) {
+    protected redirect(location: string, code: number, headers?: { [name: string]: string }) {
         headers = headers || {};
         headers['location'] = location;
 
-        return this.send(res, null, code, headers);
+        return this.send(null, code, headers);
     }
 
     /**
      * Set response Cache-Control
      * @maxage integet in minutes
      */
-    setCacheControl(res: Response, maxage: number) {
+    setCacheControl(maxage: number) {
         // maxage = 0;
         let cache = 'private, max-age=0, no-cache';
         if (env.isProduction && maxage > 0) {
             cache = 'public, max-age=' + (maxage * 60);
         }
-        res.setHeader('Cache-Control', cache);
+        this.input.res.setHeader('Cache-Control', cache);
     }
 
 }

@@ -7,9 +7,8 @@ import { PlacePage } from "../views/place/place-page";
 export class PlaceHandler extends WeatherBaseHandler<PlaceViewModelInput> {
     async handle(data: WeatherAppData) {
         const viewData = await new PlaceViewModelBuilder(this.input, data).build();
-        const res = this.input.res;
 
-        this.setCacheControl(res, 60);
-        return this.render(res, PlacePage(viewData));
+        this.setCacheControl(60);
+        return this.render(PlacePage(viewData));
     }
 }

@@ -16,10 +16,9 @@ export class AdsenseAdsRouter extends OurnetRouter {
 
 class AdsenseAdsHandler extends Handler<IOurnetAppData, OurnetViewModelInput> {
     handle() {
-        const res = this.input.res;
 
-        this.setCacheControl(res, 60 * 24 * 30);
+        this.setCacheControl(60 * 24 * 30);
 
-        return this.redirect(res, 'https://assets.ournetcdn.net/backup-ads/index.html', 301);
+        return this.redirect('https://assets.ournetcdn.net/backup-ads/index.html', 301);
     }
 }

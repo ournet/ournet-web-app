@@ -23,10 +23,8 @@ class UrlHandler extends NewsBaseHandler {
             url = 'http://' + url;
         }
 
-        const res = this.input.res;
+        this.setCacheControl(60 * 24 * 30);
 
-        this.setCacheControl(res, 60 * 24 * 30);
-
-        return this.redirect(res, url, 301);
+        return this.redirect(url, 301);
     }
 }

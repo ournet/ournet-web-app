@@ -5,7 +5,7 @@ import { WeatherAppData, PlaceNoAdmin1Fields } from "../data";
 import moment = require("moment-timezone");
 import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, NewsEvent, NewsEventStringFields } from "@ournet/api-client";
 import logger from "../../logger";
-import { OurnetViewModelInput } from "../../ournet/view-model";
+import { OurnetViewModelInput, getLanguageFromQueryString } from "../../ournet/view-model";
 
 
 export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends OurnetViewModelInput>
@@ -55,12 +55,7 @@ export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends Ourne
     }
 
     protected getLanguage(config: WeatherAppConfig) {
-        let lang = this.input.url.query['ul'] as string;
-        if (lang && config.languages.includes(lang)) {
-            return lang;
-        }
-
-        return config.languages[0];
+        return getLanguageFromQueryString(config, this.input.url.query);
     }
 }
 
