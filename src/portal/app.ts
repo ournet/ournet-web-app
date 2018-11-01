@@ -6,7 +6,6 @@ import { FaviconRouter } from "../ournet/routers/favicon-router";
 import { AdsenseAdsRouter } from "../ournet/routers/adsense-ads-router";
 import { ManifestRouter } from "./routes/manifest-router";
 import { Request, Response } from "../base/types";
-import logger from "../logger";
 import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
@@ -24,7 +23,7 @@ export class PortalOurnetApp extends OurnetApp<IOurnetAppData> {
     }
 
     protected handleError(req: Request, res: Response, error: Error): Promise<void> {
-        logger.error(error);
+        this.logError(error, req);
 
         const url = parse(req.url || '', true);
         const host = url.hostname || '';

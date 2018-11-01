@@ -17,7 +17,6 @@ import { RssImportantRouter } from "./routes/rss/rss-important-stories-router";
 import { RssStoriesRouter } from "./routes/rss/rss-stories-router";
 import { RssTopicStoriesRouter } from "./routes/rss/rss-topic-stories-router";
 import { Request, Response } from "../base/types";
-import logger from "../logger";
 import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
@@ -48,7 +47,7 @@ export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
     }
 
     protected handleError(req: Request, res: Response, error: Error): Promise<void> {
-        logger.error(error);
+        this.logError(error, req);
 
         const url = parse(req.url || '', true);
         const host = url.hostname || '';

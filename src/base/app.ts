@@ -2,11 +2,12 @@ import { Request, Response } from "./types";
 import { IRouter } from "./router";
 import { notFound, boomify } from "boom";
 import { IAppData } from "./app-data";
+import env from "../env";
 
 export abstract class App<DATA extends IAppData> {
 
     constructor(private routes: IRouter[], protected readonly data: DATA) {
-        
+
     }
 
     async route(req: Request, res: Response): Promise<void> {
@@ -26,12 +27,15 @@ export abstract class App<DATA extends IAppData> {
     }
 
     protected async handleError(_req: Request, res: Response, error: Error): Promise<void> {
-        // logger.error(error);
-        console.trace(error);
-        const boomError = boomify(error);
 
+        const boomError = boomify(error);
         res.writeHead(boomError.output.statusCode, boomError.output.headers);
-        res.write(JSON.stringify(boomError.output.payload));
+
+        if (!env.isProduction) {
+            console.trace(error);
+            res.write(JSON.stringify(boomError.output.payload));
+        }
+
         res.end();
     }
 }

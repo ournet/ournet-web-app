@@ -1,5 +1,5 @@
 
-const debug = require('debug')('ournet:web-app');
+// const debug = require('debug')('ournet:web-app');
 
 import { Request, Response } from "./types";
 import { IHandler } from "./handler";
@@ -45,13 +45,15 @@ export class RegExpRoutePattern<T=void> implements IRoutePattern<T>{
     }
 
     test(url: string) {
+        url = url.replace(/\/{2,}/g, '/');
+
         const result = this.regexp.exec(url);
         if (!result) {
-            debug(`Route NOT pass: ${this.regexp}, ${url}`);
+            // debug(`Route NOT pass: ${this.regexp}, ${url}`);
             return false;
         }
 
-        debug(`Route pass: ${this.regexp}, ${url}, ${result}`);
+        // debug(`Route pass: ${this.regexp}, ${url}, ${result}`);
 
         if (this.names) {
             let params: any = {};
