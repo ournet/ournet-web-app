@@ -10,6 +10,7 @@ import logger from "../logger";
 import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
+import { SignRouter } from "./routes/sign-router";
 
 export class HoroscopeOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -20,6 +21,7 @@ export class HoroscopeOurnetApp extends OurnetApp<IOurnetAppData> {
             new AppleIconRouter(),
             new AdsenseAdsRouter(),
             new ManifestRouter(),
+            new SignRouter(),
         ], OurnetProjectName.HOROSCOPE);
     }
 

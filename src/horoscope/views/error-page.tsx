@@ -5,11 +5,10 @@ import { ErrorViewModel } from '../view-models/error-view-model';
 import { HoroscopeLocaleNames } from '../locale';
 import CommonLayout from './common-layout';
 import env from '../../env';
-import { EventListItem } from '../../news/views/components/event-list-item';
 
 export default class ErrorPage extends React.Component<ErrorViewModel> {
     render() {
-        const { translate, error, latestEvents, head, lang, country, config, links } = this.props;
+        const { translate, error, head } = this.props;
 
         const boomError = boomify(error);
         const errorCode = boomError.isServer ? 500 : 404;
@@ -24,12 +23,6 @@ export default class ErrorPage extends React.Component<ErrorViewModel> {
                         <h1>{translate(HoroscopeLocaleNames.error)}: <span>{errorCode}</span></h1>
                         <h4>{title}</h4>
                         {!env.isProduction && <p>{JSON.stringify(boomError.output)}</p>}
-                    </div>
-
-                    <div className='c-section'>
-                        <div className='o-layout'>
-                            {latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ lang, country, links, timezone: config.timezone, item, view: 'card' })}</div>)}
-                        </div>
                     </div>
                 </main>
             </CommonLayout >

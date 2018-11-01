@@ -12,6 +12,12 @@ export interface IOurnetAppConfig {
     readonly capitalId: string
     readonly shareServices: string[]
     readonly internationalIds: string[]
+    readonly facebookId?: string
+
+    readonly oneSignal?: {
+        appId: string
+        safari_web_id: string
+    }
 }
 
 export function createAppConfig<T extends IOurnetAppConfig>(project: OurnetProjectName, country: string) {
