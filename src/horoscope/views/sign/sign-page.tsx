@@ -7,6 +7,7 @@ import { PageTitle } from '../../../views/components/page-title';
 import { HoroscopeDayReport } from '../components/horoscope-day-report';
 import { AdBottom } from '../components/ads/ad-bottom';
 import { FacebookScript } from '../../../views/components/facebook-script';
+import { HoroscopeSignsLine } from '../../../views/components/horoscope/horoscope-signs-line';
 
 export function SignPage(props: SignViewModel) {
 
@@ -21,6 +22,7 @@ export function SignPage(props: SignViewModel) {
                 </div>
                 {HoroscopeDayReport({ lang, report, date: currentDayPeriodText, footer: true, links, translate })}
                 <div className='u-report-margin'>
+                {HoroscopeSignsLine({lang, country, links})}
                     <br />
                     {AdBottom()}
                     <br />
