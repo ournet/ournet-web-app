@@ -121,3 +121,8 @@ export function unixTime(date?: Date) {
 export function isNullOrEmpty(val?: string) {
     return [null, undefined, ''].includes(val);
 }
+
+export function encodeHTML(str: string) {
+    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}

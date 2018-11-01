@@ -30,7 +30,9 @@ export abstract class OurnetViewModelBuilder<DATA extends IOurnetAppData, CONFIG
         model.translate = createAppLocale(data.project, model.lang);
     }
 
-    protected abstract getLanguage(config: CONFIG): string
+    protected getLanguage(config: CONFIG) {
+        return getLanguageFromQueryString(config, this.input.url.query);
+    }
 
     protected createAppConfig(project: OurnetProjectName, country: string) {
         return createAppConfig<CONFIG>(project, country);

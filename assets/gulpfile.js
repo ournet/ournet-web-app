@@ -114,6 +114,7 @@ gulp.task('js', function () {
         './js/news/main.js',
         './js/news/gallery.js',
         './js/portal/main.js',
+        './js/horoscope/main.js',
     ], { read: false, base: './js' }) // no need of reading file because browserify does.
         // transform file objects using gulp-tap plugin
         .pipe(tap(function (file) {
