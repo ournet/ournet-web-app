@@ -11,6 +11,7 @@ import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
 import { SignRouter } from "./routes/sign-router";
+import { ApiRouter } from "./routes/api-router";
 
 export class HoroscopeOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -21,6 +22,8 @@ export class HoroscopeOurnetApp extends OurnetApp<IOurnetAppData> {
             new AppleIconRouter(),
             new AdsenseAdsRouter(),
             new ManifestRouter(),
+
+            new ApiRouter(),
             new SignRouter(),
         ], OurnetProjectName.HOROSCOPE);
     }

@@ -9,7 +9,7 @@ import { OurnetViewModelInput } from "../../ournet/view-model";
 import { HoroscopeLocaleNames } from "../locale";
 
 
-export class HoroscopeViewModelBuilder<T extends HoroscopeViewModel, I extends OurnetViewModelInput>
+export class HoroscopeViewModelBuilder<T extends HoroscopeViewModel, I extends OurnetViewModelInput=OurnetViewModelInput>
     extends PageViewModelBuilder<HoroscopeAppData, HoroscopeAppConfig, T, I> {
 
     constructor(input: I, data: HoroscopeAppData) {
