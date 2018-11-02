@@ -12,6 +12,7 @@ import { getHostInfo } from "../hosts";
 import { SignRouter } from "./routes/sign-router";
 import { ApiRouter } from "./routes/api-router";
 import { ApiReportsRouter } from "./routes/api-resports-router";
+import { RobotsRouter, OneSignalSDKWorkerRouter, OneSignalSDKUpdaterWorkerRouter } from "./routes/static-router";
 
 export class HoroscopeOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -22,6 +23,10 @@ export class HoroscopeOurnetApp extends OurnetApp<IOurnetAppData> {
             new AppleIconRouter(),
             new AdsenseAdsRouter(),
             new ManifestRouter(),
+
+            new RobotsRouter(),
+            new OneSignalSDKWorkerRouter(),
+            new OneSignalSDKUpdaterWorkerRouter(),
 
             new ApiRouter(),
             new ApiReportsRouter(),
