@@ -16,11 +16,16 @@ import { PlacesAdmin1Router, PlacesRouter } from "./routes/places-router";
 import { Widget2RedirectRouter, Place10DaysRedirectRouter, PrefixPlaceRedirectRouter, PrefixPlacesAdminRedirectRouter, PrefixPlacesRedirectRouter } from "./routes/redirect-handler";
 import { WidgetRouter, Widget1HtmlScriptRouter, Widget1FrameRouter, Widget2FrameRouter, Widget2HtmlScriptRouter } from "./routes/widget-router";
 import { JsonFindPlaceRouter } from "./routes/json-find-place-router";
+import { RobotsRouter, OneSignalSDKWorkerRouter, OneSignalSDKUpdaterWorkerRouter } from "./routes/static-router";
 
 export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
 
     constructor() {
         super([
+            new RobotsRouter(),
+            new OneSignalSDKWorkerRouter(),
+            new OneSignalSDKUpdaterWorkerRouter(),
+
             new IndexRouter(),
             new FaviconRouter(),
             new AppleIconRouter(),
@@ -38,13 +43,13 @@ export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
             new PrefixPlaceRedirectRouter(),
             new PrefixPlacesAdminRedirectRouter(),
             new PrefixPlacesRedirectRouter(),
-            
+
             new WidgetRouter(),
             new Widget1FrameRouter(),
             new Widget1HtmlScriptRouter(),
             new Widget2FrameRouter(),
             new Widget2HtmlScriptRouter(),
-            
+
             new JsonFindPlaceRouter(),
         ], OurnetProjectName.WEATHER);
     }

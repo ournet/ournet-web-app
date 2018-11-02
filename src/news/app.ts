@@ -20,11 +20,14 @@ import { Request, Response } from "../base/types";
 import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
+import { RobotsRouter } from "./routes/static-router";
 
 export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
 
     constructor() {
         super([
+            new RobotsRouter(),
+
             new IndexRouter(),
             new ImportantRouter(),
             new QuotesRouter(),

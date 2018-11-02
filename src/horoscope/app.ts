@@ -18,15 +18,15 @@ export class HoroscopeOurnetApp extends OurnetApp<IOurnetAppData> {
 
     constructor() {
         super([
+            new RobotsRouter(),
+            new OneSignalSDKWorkerRouter(),
+            new OneSignalSDKUpdaterWorkerRouter(),
+            
             new IndexRouter(),
             new FaviconRouter(),
             new AppleIconRouter(),
             new AdsenseAdsRouter(),
             new ManifestRouter(),
-
-            new RobotsRouter(),
-            new OneSignalSDKWorkerRouter(),
-            new OneSignalSDKUpdaterWorkerRouter(),
 
             new ApiRouter(),
             new ApiReportsRouter(),
