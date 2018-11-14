@@ -14,6 +14,7 @@ export const WEATHER_GLOBAL_CONFIG_LIST_IDS = uniq(getSupportedCountries()
 export interface WeatherAppConfig extends IOurnetAppConfig {
     placesCount: number
     lists?: ConfigPlaceList[]
+    readonly widgetGoogleAnalyticsId: string
 
     oneSignal?: {
         appId: string

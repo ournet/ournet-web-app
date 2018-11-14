@@ -9,7 +9,7 @@ import * as util from 'util';
 export function Widget1Frame(props: Widget1ViewModel) {
 
 
-    const { lang, textcolor, lcolor } = props;
+    const { lang, textcolor, lcolor, config } = props;
 
     const widget = formatWidget(props);
 
@@ -49,6 +49,12 @@ td{overflow:hidden}
 .w-icon.wi-13 {background-position: -384px 0;}
 .w-icon.wi-14 {background-position: -416px 0;}
 .w-icon.wi-15 {background-position: -448px 0;}`}}></style>
+<script dangerouslySetInnerHTML={{ __html: `(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', '${config.widgetGoogleAnalyticsId}');
+ga('send', 'pageview');`}}></script>
             </head>
             <body dangerouslySetInnerHTML={{ __html: widget }}></body>
         </html >
