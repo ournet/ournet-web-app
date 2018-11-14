@@ -23,7 +23,7 @@ export function getHostInfo(host: string): HostInfo {
         return data;
     }
     if (!env.COUNTRY || !env.PROJECT) {
-        throw new Error(`DEFAULT_COUNTRY & DEFAULT_PROJECT required!`)
+        throw new Error(`DEFAULT_COUNTRY & DEFAULT_PROJECT required! ${host}`)
     }
 
     return {
