@@ -4,11 +4,13 @@ import * as moment from 'moment-timezone';
 import { Widget2ViewModel } from '../../view-models/widget2-view-model';
 import { getPlaceName } from '../../../helpers';
 import { WeatherLocaleNames } from '../../locale';
+import { getHost } from 'ournet.links';
 
 export function Widget2Frame(props: Widget2ViewModel) {
 
-    const { lang, widget: info, config } = props;
+    const { lang, widget: info, config, project, country } = props;
 
+    const host = getHost(project, country);
     const widget = formatWidget(props);
 
     return (
@@ -129,7 +131,7 @@ ul ul li{ overflow: hidden;}
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', '${config.widgetGoogleAnalyticsId}');
+ga('create', '${config.widgetGoogleAnalyticsId}', '${host}');
 ga('send', 'pageview');`}}></script>
             </head>
             <body dangerouslySetInnerHTML={{ __html: widget }}></body>

@@ -5,12 +5,14 @@ import * as moment from 'moment-timezone';
 import { WeatherLocaleNames } from '../../locale';
 import { getPlaceName } from '../../../helpers';
 import * as util from 'util';
+import { getHost } from 'ournet.links';
 
 export function Widget1Frame(props: Widget1ViewModel) {
 
 
-    const { lang, textcolor, lcolor, config } = props;
+    const { lang, textcolor, lcolor, config, project, country } = props;
 
+    const host = getHost(project, country);
     const widget = formatWidget(props);
 
     return (
@@ -53,7 +55,7 @@ td{overflow:hidden}
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', '${config.widgetGoogleAnalyticsId}');
+ga('create', '${config.widgetGoogleAnalyticsId}', '${host}');
 ga('send', 'pageview');`}}></script>
             </head>
             <body dangerouslySetInnerHTML={{ __html: widget }}></body>
