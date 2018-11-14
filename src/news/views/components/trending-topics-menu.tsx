@@ -15,6 +15,10 @@ export type TrendingTopicsMenuPorps = {
 
 export function TrendingTopicsMenu({ topics, links, lang, project, country }: TrendingTopicsMenuPorps) {
 
+    if (!topics) {
+        return null;
+    }
+
     const urlPrefix = project && project !== OurnetProjectName.NEWS
         ? (getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country))
         : '';
