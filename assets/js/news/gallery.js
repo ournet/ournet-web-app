@@ -3,8 +3,7 @@ var $ = global.jQuery = require('../base/jquery-3.2.1.slim');
 require('@fancyapps/fancybox/dist/jquery.fancybox');
 
 function getGalleryItems(el) {
-    var dataGallery = el.data('gallery');
-    var model = typeof dataGallery === 'string' ? JSON.parse(dataGallery) : dataGallery;
+    var model = JSON.parse(el.attr('data-gallery'));
     var list = model.items;
     if (model.startId) {
         var index = 0;
