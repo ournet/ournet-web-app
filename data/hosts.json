@@ -2,5 +2,17 @@
     "meteo.ournet.ro": {
         "project": "weather",
         "country": "ro"
+    },
+    "www.ournet.ro": {
+        "project": "portal",
+        "country": "ro"
+    },
+    "news.ournet.ro": {
+        "project": "news",
+        "country": "ro"
+    },
+    "horoscop.ournet.ro": {
+        "project": "horoscope",
+        "country": "ro"
     }
 }
