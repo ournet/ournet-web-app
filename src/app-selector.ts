@@ -19,8 +19,6 @@ export function selectApp(req: IncomingMessage) {
     const host = req.headers.host || url.parse(req.url || '').hostname || '';
     const info = getHostInfo(host);
 
-    console.log(req.headers)
-
     if (!env.PROJECTS.includes(info.project)) {
         throw new Error(`Unsupported project: ${info.project}`)
     }
