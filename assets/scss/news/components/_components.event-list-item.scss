@@ -93,7 +93,7 @@ h4.c-event-it__title {
         opacity: 0.2;
         -webkit-transition: opacity 0.3 ease-in-out;
         transition: opacity 0.3s ease-in-out;
-        &.c-event-it__img.initial{
+        &.c-event-it__img.initial,&.c-event-it__img[data-was-processed]{
             opacity: 1;
         }
     }
@@ -151,7 +151,7 @@ h4.c-event-it__title {
         left: 0;
         right: 0;
         height: 24px;
-        padding: 0px 23px 0px 24px;
+        padding: 0px 0px 0px 24px;
         time {
             font-size: 14px;
             display: block;
@@ -160,7 +160,7 @@ h4.c-event-it__title {
             white-space: nowrap;
             position: absolute;
             bottom: 0;
-            right: 0;
+            right: 23px;
         }
     }
     .c-event-it__topic {

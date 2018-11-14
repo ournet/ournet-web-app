@@ -7,4 +7,12 @@ node_modules
 lib
 types
 package-lock.json
-public/
+public/static/img
+
+!public/static/js/
+public/static/js/*
+!public/static/js/rev-manifest.json
+
+!public/static/css/
+public/static/css/*
+!public/static/css/rev-manifest.json

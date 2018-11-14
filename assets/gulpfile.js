@@ -63,7 +63,7 @@ gulp.task('upload:img', () =>
 
 // --------- CSS -------------
 
-const cssDist = '../public/static/css';
+const cssDist = '../public/static/css/';
 
 gulp.task('sass', function () {
     return gulp.src([
@@ -105,7 +105,7 @@ gulp.task('upload:css', () =>
 
 // --------- JS -------------
 
-const jsDist = '../public/static/js';
+const jsDist = '../public/static/js/';
 
 gulp.task('js', function () {
     return gulp.src([
@@ -129,7 +129,7 @@ gulp.task('js', function () {
         .pipe(gulpif(isProduction, buffer()))
         .pipe(gulpif(isProduction, uglify()))
         .pipe(gulpif(isProduction, rev.revision()))
-        .pipe(gulpif(isProduction, gulp.dest(cssDist)))
+        .pipe(gulpif(isProduction, gulp.dest(jsDist)))
         .pipe(gulpif(isProduction, rev.manifestFile()))
         .pipe(gulpif(isProduction, gulp.dest(jsDist)));
 });

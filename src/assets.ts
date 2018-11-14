@@ -10,23 +10,24 @@
 //     }
 // }
 
-const assets: { [project: string]: { css: { [key: string]: string }, js: { [key: string]: string } } } = {};
+const assets: { [type: string]: { [key: string]: string } } = {};
 
 function getAssetName(project: string, type: 'css' | 'js', key: string) {
-    if (!assets[project]) {
-        assets[project] = {
-            css: require(`../public/static/css/${project}/rev-manifest.json`),
-            js: require(`../public/static/js/${project}/rev-manifest.json`),
-        }
+    if (!assets[type]) {
+        const data = require(`../public/static/${type}/rev-manifest.json`);
+        assets[type] = Object.keys(data).reduce<any>((obj, key) => {
+            obj[key] = (/\.([a-z0-9-_]+)\./.exec(data[key]) as string[])[1];
+            return obj;
+        }, {});
     }
-    return assets[project][type][key];
+    return assets[type][project + '/' + key + '.' + type];
 }
 
 export function getAssetUrl(project: string, type: 'css' | 'js', key: string, production: boolean) {
     if (production) {
         const name = getAssetName(project, type, key);
 
-        return `//assets.ournetcdn.net/ournet/${type}/${project}/${key}-${name}.${type}`;
+        return `//assets.ournetcdn.net/ournet/${type}/${project}/${key}.${name}.${type}`;
     }
 
     return `http://localhost:8080/${type}/${project}/${key}.${type}`;
