@@ -70,7 +70,7 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                     <div className='c-section'>
                         {SectionHeader({ name: translate(NewsLocaleNames.latest_events) })}
                         <div className='o-layout'>
-                            {latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                            {latestEvents && latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
                         </div>
                     </div>
 

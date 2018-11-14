@@ -87,7 +87,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                             <div className='c-section'>
                                 {SectionHeader({ name: translate(NewsLocaleNames.latest_events), link: links.news.home({ ul: lang }) })}
                                 <ul className='o-list-bare'>
-                                    {latestEvents.map(item => <li key={item.id} className='o-list-bare__item'>{EventListItem({ item, lang, links, country, timezone: config.timezone, view: 'media-left' })}</li>)}
+                                    {latestEvents && latestEvents.map(item => <li key={item.id} className='o-list-bare__item'>{EventListItem({ item, lang, links, country, timezone: config.timezone, view: 'media-left' })}</li>)}
                                 </ul>
                             </div>
                         </div>
