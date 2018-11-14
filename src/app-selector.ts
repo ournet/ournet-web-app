@@ -16,7 +16,7 @@ const apps = {
 };
 
 export function selectApp(req: IncomingMessage) {
-    const host = url.parse(req.url || '').hostname || '';
+    const host = req.headers.host || url.parse(req.url || '').hostname || '';
     const info = getHostInfo(host);
 
     if (!env.PROJECTS.includes(info.project)) {
