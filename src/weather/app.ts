@@ -58,7 +58,7 @@ export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
         this.logError(error, req);
 
         const url = parse(req.url || '', true);
-        const host = url.hostname || '';
+        const host = req.headers.host || ''
         const hostInfo = getHostInfo(host);
 
         return new ErrorHandler({ req, res, error, url, host, project: hostInfo.project, country: hostInfo.country })

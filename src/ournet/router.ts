@@ -10,7 +10,7 @@ export abstract class OurnetRouter<DATA=void> extends Router<DATA> {
 
     formatInput<INPUT extends OurnetViewModelInput>(req: Request, res: Response) {
         const url = this.parseUrl(req);
-        const host = url.hostname || '';
+        const host = req.headers.host || ''
         const hostInfo = getHostInfo(host);
 
         const input: OurnetViewModelInput = { req, res, host, url, country: hostInfo.country, project: hostInfo.project };

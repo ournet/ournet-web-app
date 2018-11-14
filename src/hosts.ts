@@ -17,11 +17,8 @@ const hosts: { [host: string]: HostInfo } = require('../data/hosts.json');
 //     }, []);
 // }
 
-console.log('hosts', hosts)
-
 export function getHostInfo(host: string): HostInfo {
     const data = hosts[host];
-    console.log('data for host: '+host, data)
     if (data) {
         return data;
     }

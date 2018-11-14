@@ -1,5 +1,4 @@
 import { IncomingMessage } from "http";
-import * as url from 'url';
 import { getHostInfo } from "./hosts";
 import { OurnetProjectName } from "./ournet/data";
 import { NewsOurnetApp } from "./news/app";
@@ -16,7 +15,7 @@ const apps = {
 };
 
 export function selectApp(req: IncomingMessage) {
-    const host = req.headers.host || url.parse(req.url || '').hostname || '';
+    const host = req.headers.host || '';
     const info = getHostInfo(host);
 
     if (!env.PROJECTS.includes(info.project)) {
