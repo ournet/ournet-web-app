@@ -18,6 +18,8 @@ export abstract class PageViewModelBuilder<DATA extends IOurnetAppData, CONFIG e
             title: 'Ournet',
             elements: [],
         }
+
+        model.showGoogleAds = true;
     }
 
     protected setCanonical(link: string) {
@@ -30,6 +32,7 @@ export abstract class PageViewModelBuilder<DATA extends IOurnetAppData, CONFIG e
 export interface PageViewModel<CONFIG extends IOurnetAppConfig> extends OurnetViewModel<CONFIG> {
     head: PageHeadViewData
     currentLink: string
+    showGoogleAds: boolean
 }
 
 export interface PageHeadViewData {

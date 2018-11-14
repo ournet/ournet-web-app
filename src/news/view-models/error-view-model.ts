@@ -15,6 +15,7 @@ export interface ErrorViewModel extends NewsViewModel {
 export class ErrorViewModelBuilder extends NewsViewModelBuilder<ErrorViewModel, ErrorViewModelInput> {
     async build() {
         this.model.error = this.input.error;
+        // this.model.showGoogleAds = false;
         const { lang, country } = this.model;
 
         this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 4 } });

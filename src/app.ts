@@ -4,6 +4,7 @@ require('dotenv').config();
 import micro from 'micro';
 import env from './env';
 import { selectApp } from './app-selector';
+import logger from './logger';
 
 const server = micro(async (req, res) => {
     try {
@@ -11,8 +12,9 @@ const server = micro(async (req, res) => {
         await app.route(req, res);
     } catch (e) {
         console.log(e);
+        logger.error(e);
         res.statusCode = 500;
-        res.write(JSON.stringify(e));
+        res.write('500');
         res.end();
     }
 });

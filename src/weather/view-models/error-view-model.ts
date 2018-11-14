@@ -13,6 +13,7 @@ export interface ErrorViewModel extends WeatherViewModel {
 export class ErrorViewModelBuilder extends WeatherViewModelBuilder<ErrorViewModel, ErrorViewModelInput> {
     async build() {
         this.model.error = this.input.error;
+        this.model.showGoogleAds = false;
 
         try {
             return await super.build();

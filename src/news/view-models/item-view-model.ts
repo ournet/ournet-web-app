@@ -44,9 +44,9 @@ export class ItemViewModelBuilder extends NewsViewModelBuilder<ItemViewModel, It
 
         const relevaltTopicsIds = newsItem.topics && filterIrrelevantTopics({ lang, country }, newsItem.topics).map(item => item.id) || [];
 
-        this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 3 } });
+        this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 4 } });
         if (relevaltTopicsIds.length) {
-            this.apiClient.newsSimilarEventsByTopics('similarEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 3, topicIds: relevaltTopicsIds.slice(0, 2), exceptId: newsItem.id } });
+            this.apiClient.newsSimilarEventsByTopics('similarEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 2, topicIds: relevaltTopicsIds.slice(0, 2), exceptId: newsItem.id } });
         }
 
         if (newsItem.hasContent) {

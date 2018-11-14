@@ -208,6 +208,9 @@ h4.c-event-it__title {
     }
     .c-event-it__stats {
         width: 50%;
+        time {
+            right: 0;
+        }
     }
     .c-event-it__media {
         height: 100%;
@@ -250,6 +253,9 @@ h4.c-event-it__title {
     .c-event-it__stats {
         width: 60%;
         bottom: 6px;
+        time {
+            right: 0;
+        }
     }
     .c-event-it__media {
         height: 100%;

@@ -44,8 +44,8 @@ export class EventViewModelBuilder extends NewsViewModelBuilder<EventViewModel, 
 
         const relevaltTopicsIds = filterIrrelevantTopics({ lang, country }, event.topics).map(item => item.id);
 
-        this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 3 } })
-            .newsSimilarEventsByTopics('similarEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 3, topicIds: relevaltTopicsIds.slice(0, 2), exceptId: event.id } });
+        this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 4 } })
+            .newsSimilarEventsByTopics('similarEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 2, topicIds: relevaltTopicsIds.slice(0, 2), exceptId: event.id } });
 
         if (event.hasContent) {
             this.apiClient.newsArticleContentById('eventContent', { fields: ArticleContentStringFields }, { id: ArticleContentBuilder.createId({ refId: id, refType: 'EVENT' }) });
