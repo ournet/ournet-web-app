@@ -13,7 +13,7 @@ import { PlacesDailyForecastRouter } from "./routes/places-daily-forecast-router
 import { ListRouter } from "./routes/list-router";
 import { PlaceRouter } from "./routes/place-router";
 import { PlacesAdmin1Router, PlacesRouter } from "./routes/places-router";
-import { Widget2RedirectRouter, Place10DaysRedirectRouter, PrefixPlaceRedirectRouter, PrefixPlacesAdminRedirectRouter, PrefixPlacesRedirectRouter } from "./routes/redirect-handler";
+import { Widget2RedirectRouter, Place10DaysRedirectRouter, PrefixPlaceRedirectRouter, PrefixPlacesAdminRedirectRouter, PrefixPlacesRedirectRouter, PrefixOldWidgetRedirectRouter } from "./routes/redirect-handler";
 import { WidgetRouter, Widget1HtmlScriptRouter, Widget1FrameRouter, Widget2FrameRouter, Widget2HtmlScriptRouter } from "./routes/widget-router";
 import { JsonFindPlaceRouter } from "./routes/json-find-place-router";
 import { RobotsRouter, OneSignalSDKWorkerRouter, OneSignalSDKUpdaterWorkerRouter } from "./routes/static-router";
@@ -49,6 +49,8 @@ export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
             new Widget1HtmlScriptRouter(),
             new Widget2FrameRouter(),
             new Widget2HtmlScriptRouter(),
+
+            new PrefixOldWidgetRedirectRouter(),
 
             new JsonFindPlaceRouter(),
         ], OurnetProjectName.WEATHER);
