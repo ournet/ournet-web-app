@@ -111,6 +111,27 @@ export class Place10DaysRedirectRouter extends OurnetRouter<PrefixPlaceRedirectR
     }
 }
 
+export class OldWidgetRedirectRouter extends OurnetRouter {
+    constructor() {
+        super(`/widget/widgetframe`)
+    }
+    protected createHander(req: Request, res: Response) {
+        const input = this.formatInput(req, res);
+
+        const handler = new WidgetOldPlaceHandler({
+            country: input.country,
+            host: input.host,
+            id: parseInt(input.url.query.id as string),
+            project: input.project,
+            url: input.url, req, res
+        });
+
+        handler.setCacheControl(60 * 24);
+
+        return handler;
+    }
+}
+
 export class PrefixOldWidgetRedirectRouter extends OurnetRouter {
     constructor() {
         super(`/${ROUTE_PREFIX}/widget/widgetframe`)
