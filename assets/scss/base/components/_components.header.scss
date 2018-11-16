@@ -2,16 +2,17 @@
 $header-height: 60px !default;
 
 .c-header {
-    padding: 16px 0px;
-    margin-bottom: 16px;
-
-    .c-logo {
-        margin-top: $header-height / 4 - 3;
+    padding: 20px 0px;
+    >div.o-layout__item{
+        height: 40px;
     }
     .c-cap {
-        margin-top: $header-height / 4 - 4;
+        margin-top: 4px;
     }
     .c-menu {
-        margin-top: $header-height / 4 - 4;
+        margin-top: 4px;
+    }
+    .c-search {
+        margin-top: 4px;
     }
 }
