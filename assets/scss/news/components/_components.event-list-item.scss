@@ -42,9 +42,6 @@ h4.c-event-it__title {
     color: $mute-color;
     .c-event-it--media & {
         font-size: 80%;
-        time {
-            float: right;
-        }
     }
 }
 
@@ -150,17 +147,16 @@ h4.c-event-it__title {
         bottom: 10px;
         left: 0;
         right: 0;
-        height: 24px;
-        padding: 0px 0px 0px 24px;
+        height: 20px;
+        margin: 0px 23px 0px 24px;
         time {
             font-size: 14px;
             display: block;
             max-width: 30%;
             overflow: hidden;
             white-space: nowrap;
-            position: absolute;
-            bottom: 0;
-            right: 23px;
+            text-align: right;
+            float: right;
         }
     }
     .c-event-it__topic {
@@ -204,17 +200,15 @@ h4.c-event-it__title {
 .c-event-it.v--card.v--card-wide {
     .c-event-it__inner {
         padding-top: 60px;
-        padding-right: 50%;
+        padding-right: 40%;
     }
     .c-event-it__stats {
-        width: 50%;
-        time {
-            right: 0;
-        }
+        width: 40%;
+        margin-right: 0px;
     }
     .c-event-it__media {
         height: 100%;
-        width: 60%;
+        width: 45%;
         position: absolute;
         top: 0;
         right: 0;
@@ -253,9 +247,7 @@ h4.c-event-it__title {
     .c-event-it__stats {
         width: 60%;
         bottom: 6px;
-        time {
-            right: 0;
-        }
+        margin-right: 0px;
     }
     .c-event-it__media {
         height: 100%;

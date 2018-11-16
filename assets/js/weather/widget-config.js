@@ -4,6 +4,7 @@ var autocomplete = require('autocompleter');
 var CONSTANTS = require('../base/constants').CONSTANTS;
 var $ = require('cash-dom');
 var xhr = require("xhr");
+var ga = require('../base/ga').ga;
 
 
 var widget;
@@ -81,17 +82,19 @@ function generateScript() {
         timeout: 1000 * 3,
     }, function (error, res, body) {
         if (error) {
-            console.error(error);
+            // console.error(error);
             return;
         }
         if (res.statusCode >= 400) {
-            console.error(res.statusCode);
+            // console.error(res.statusCode);
             return;
         }
 
         $(previewSelector).html(body);
         $(scriptSelector).val(body);
     });
+
+    ga('send', 'event', 'weather-widget', 'generate-script', url);
 }
 
 function getConfigData() {
@@ -123,11 +126,11 @@ function searchPlaces(q, cb) {
         json: true,
     }, function (error, res, body) {
         if (error) {
-            console.error(error);
+            // console.error(error);
             return cb([]);
         }
         if (res.statusCode >= 400) {
-            console.error(res.statusCode);
+            // console.error(res.statusCode);
             return cb([]);
         }
 

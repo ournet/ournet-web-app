@@ -40,6 +40,8 @@ function openGallery() {
         var el = $(this);
         var items = getGalleryItems(el);
         $.fancybox.open(items);
+
+        ga('send', 'event', 'news-gallery', 'open-media-dialog');
     })
 }
 

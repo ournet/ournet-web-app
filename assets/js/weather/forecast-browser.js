@@ -2,6 +2,7 @@
 var CONSTANTS = require('../base/constants').CONSTANTS;
 var $ = require('cash-dom');
 var xhr = require("xhr");
+var ga = require('../base/ga').ga;
 var URL_FORMAT = '/controls/places-daily-forecast/__DATE__/__IDS__?ul=__LANG__';
 
 function getData(element, date, ids) {
@@ -15,11 +16,11 @@ function getData(element, date, ids) {
         timeout: 1000 * 8,
     }, function (error, res, body) {
         if (error) {
-            console.error(error);
+            // console.error(error);
             return;
         }
         if (res.statusCode >= 400) {
-            console.error(res.statusCode);
+            // console.error(res.statusCode);
             return;
         }
 
@@ -37,7 +38,9 @@ $(function () {
             var li = $(this);
             lis.each(function () { $(this).removeClass('c-forbro__tabs--selected') });
             li.addClass('c-forbro__tabs--selected');
-            getData(element, li.data('date'), ids);
+            var idate = li.data('date');
+            getData(element, idate, ids);
+            ga('send', 'event', 'weather-nav', 'places-by-date', idate);
         });
     });
 });

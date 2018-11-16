@@ -130,10 +130,10 @@ OneSignal.push(function() {
         OneSignal.push(["getNotificationPermission", function(permission) {
             initNotifications(permission);
         }]);
-        ga('send', 'event', category, 'supported');
+        //ga('send', 'event', category, 'supported');
     } else {
         hideSubscribe();
-        ga('send', 'event', category, 'not-supported');
+        //ga('send', 'event', category, 'not-supported');
     }
 });`}}></script>
                 </div>}

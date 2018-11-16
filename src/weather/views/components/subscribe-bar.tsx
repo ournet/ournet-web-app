@@ -90,10 +90,10 @@ OneSignal.push(function() {
     $('.c-subscribe-bar').click(function(event) {
       event.preventDefault();
       event.stopPropagation();
-      //ga('send', 'event', category, 'click-subscribe-btn');
+      ga('send', 'event', category, 'click-subscribe-btn');
       if(permission === 'granted') {
         setPlaceId();
-        //ga('send', 'event', category, 'changed-place-id', placeId);
+        ga('send', 'event', category, 'changed-place-id', placeId);
         hideSubscribe();
       } else {
         subscribeToNotifications();
@@ -106,7 +106,7 @@ OneSignal.push(function() {
       if (currentPermission === 'granted') {
         setPlaceId();
       }
-      //ga('send', 'event', category, currentPermission);
+      ga('send', 'event', category, currentPermission);
     });
     // Occurs when the user's subscription changes to a new value.
     OneSignal.on('subscriptionChange', function (isSubscribed) {
