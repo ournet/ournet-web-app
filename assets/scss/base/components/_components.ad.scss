@@ -1,6 +1,11 @@
 .c-ad {
     text-align: center;
     display: block;
+    margin-bottom: $global-spacing-unit;
+}
+
+.c-ad--small {
+    margin-bottom: $global-spacing-unit-small;
 }
 
 .c-ad--wide {
