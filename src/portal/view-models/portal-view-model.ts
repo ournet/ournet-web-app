@@ -58,19 +58,6 @@ export class PortalViewModelBuilder<T extends PortalViewModel, I extends OurnetV
 
         return super.build();
     }
-
-    protected getLanguage(config: IPortalAppConfig) {
-        const regResult = /^\/([a-z]{2})\//.exec(this.input.url.pathname || '');
-        let lang = this.input.url.query['ul'] as string;
-        if (regResult) {
-            lang = regResult[1];
-        }
-        if (lang && config.languages.includes(lang)) {
-            return lang;
-        }
-
-        return config.languages[0];
-    }
 }
 
 export interface PortalViewModel extends PageViewModel<IPortalAppConfig> {

@@ -34,7 +34,7 @@
         "weather_item_head_title_format": "Vremea in %{name1}, prognoza meteo in %{name2}",
         "weather_item_head_title_format_10days": "Vremea in %{name1}, prognoza meteo in %{name2}, 10 zile",
         "weather_item_head_description_format": "Prognoza meteo in %{name1}, vremea in %{name2} - azi, maine, pentru 10 zile",
-        "place_weather_details_info": "Prognoza meteo in %{name1}, vremea la %{name2}, azi, maine, poimaine, 3 zile, 7 zile, 10 zile, urmatoarele zile. Starea vremii in %s.",
+        "place_weather_details_info": "Prognoza meteo in %{name1}, vremea la %{name2}, azi, maine, poimaine, 3 zile, 7 zile, 10 zile, urmatoarele zile. Starea vremii in %{name1}.",
         "weather_title_format": "Vremea în %{name}",
         "weather_in_format": "Vremea în %{name}",
         "weather2": "Meteo",

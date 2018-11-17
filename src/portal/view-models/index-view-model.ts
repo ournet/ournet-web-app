@@ -16,7 +16,7 @@ export class IndexViewModelBuilder<T extends IndexViewModel, I extends OurnetVie
         head.title = translate(PortalLocaleNames.site_title, { country: LocaleHelpers.getCountryName(translate, country) });
         head.description = translate(PortalLocaleNames.site_description, { country: LocaleHelpers.getInCountryName(translate, country) });
 
-        this.setCanonical(links.news.home({ ul: lang }));
+        this.setCanonical(links.portal.home({ ul: lang }));
 
         this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 14 } })
             .quotesLatest('latestQuotes', { fields: QuoteStringFields }, { params: { lang, country, limit: 6 } });
