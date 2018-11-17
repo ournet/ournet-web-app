@@ -6,8 +6,10 @@ function init() {
     var placeId = $('.c-subscribe-bar').data('place-id');
     var admin1Code = $('.c-subscribe-bar').data('admin1-code');
     if (!placeId || !admin1Code) {
+        console.log('no data')
         return;
     }
+
     var category = 'notifications-weather';
 
 
@@ -85,11 +87,14 @@ function init() {
         }
 
         OneSignal.push(["isPushNotificationsSupported", function (supported) {
+            console.log('supported', supported);
             if (supported) {
+                console.log('suppoted')
                 OneSignal.push(["getNotificationPermission", function (permission) {
                     initNotifications(permission);
                 }]);
             } else {
+                console.log('hotsupported')
                 hideSubscribe();
             }
         }]);
