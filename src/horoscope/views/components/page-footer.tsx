@@ -24,7 +24,7 @@ export function PageFooter({ project, links, translate, lang, config, country, v
                     </div>
                     <div className='o-layout__item u-1/3@tablet o-footer-useful'>
                         <h4>{translate(HoroscopeLocaleNames.useful)}</h4>
-                        <div><a href={links.horoscope.sign('api', { ul: lang })}>{translate(HoroscopeLocaleNames.export_horoscope)}</a></div>
+                        {/* <div><a href={links.horoscope.sign('api', { ul: lang })}>{translate(HoroscopeLocaleNames.export_horoscope)}</a></div> */}
                         {config.projects.map(item => <div key={item}><a href={getSchema(item, country) + '//' + getHost(item, country)}>{translate(item)}</a></div>)}
                     </div>
                 </div>

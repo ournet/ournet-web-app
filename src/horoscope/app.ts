@@ -10,7 +10,6 @@ import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
 import { SignRouter } from "./routes/sign-router";
-import { ApiRouter } from "./routes/api-router";
 import { ApiReportsRouter } from "./routes/api-resports-router";
 import { RobotsRouter, OneSignalSDKWorkerRouter, OneSignalSDKUpdaterWorkerRouter } from "./routes/static-router";
 
@@ -28,7 +27,7 @@ export class HoroscopeOurnetApp extends OurnetApp<IOurnetAppData> {
             new AdsenseAdsRouter(),
             new ManifestRouter(),
 
-            new ApiRouter(),
+            // new ApiRouter(),
             new ApiReportsRouter(),
             new SignRouter(),
         ], OurnetProjectName.HOROSCOPE);
