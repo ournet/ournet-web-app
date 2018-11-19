@@ -53,7 +53,7 @@ export default class IndexPage extends React.Component<IndexViewModel> {
                             {links.horoscope && HoroscopeCard({ links, lang, country, title: translate(PortalLocaleNames.horoscope) })}
                         </div>
                         <div className='o-layout__item u-1/4@tablet u-1/2@mobile'>
-                            {restEvents[2] && EventListItem({ lang, country, links, timezone: config.timezone, view: 'card', item: restEvents[2] })}
+                            {restEvents[2] && EventListItem({ lang, country, links, timezone: config.timezone, view: 'card', item: restEvents[2], project })}
                         </div>
 
                         {restEvents.slice(3, 5).map(item => <div key={item.id} className='o-layout__item u-1/4@tablet u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', project })}</div>)}
