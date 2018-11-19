@@ -10,6 +10,7 @@ import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
 import { RobotsRouter } from "./routes/static-router";
+import { PrefixOldWidgetRedirectRouter } from "./routes/redirect-router";
 
 export class PortalOurnetApp extends OurnetApp<IOurnetAppData> {
 
@@ -21,6 +22,7 @@ export class PortalOurnetApp extends OurnetApp<IOurnetAppData> {
             new AppleIconRouter(),
             new AdsenseAdsRouter(),
             new ManifestRouter(),
+            new PrefixOldWidgetRedirectRouter()
         ], OurnetProjectName.PORTAL);
     }
 
