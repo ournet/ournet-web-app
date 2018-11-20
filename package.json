@@ -24,17 +24,26 @@
     "assets:serv": "gulp --gulpfile ./assets/gulpfile.js serv",
     "assets:watch": "gulp --gulpfile ./assets/gulpfile.js watch",
     "assets:upload:img": "gulp --gulpfile ./assets/gulpfile.js upload:img",
-    "assets:upload": "gulp --gulpfile ./assets/gulpfile.js upload"
+    "assets:upload": "gulp --gulpfile ./assets/gulpfile.js upload",
+    "generate-locale": "node ./generate-locale.js"
   },
   "watch": {
     "start": {
       "patterns": [
         "lib",
         "config",
-        "locales",
         "data"
       ],
       "extensions": "js,json",
+      "quiet": true,
+      "legacyWatch": true,
+      "delay": 2000
+    },
+    "generate-locale": {
+      "patterns": [
+        "locales"
+      ],
+      "extensions": "json",
       "quiet": true,
       "legacyWatch": true,
       "delay": 2000
@@ -110,6 +119,7 @@
     "dotenv": "^6.1.0",
     "ellipsize": "^0.1.0",
     "entipic.url": "^0.1.0",
+    "lang-text": "^0.0.4",
     "micro": "^9.3.3",
     "moment-timezone": "^0.5.23",
     "ournet.links": "^0.4.6",

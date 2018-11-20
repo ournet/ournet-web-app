@@ -5036,6 +5036,14 @@ labeled-stream-splicer@^2.0.0:
     isarray "^2.0.4"
     stream-splicer "^2.0.0"
 
+lang-text@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/lang-text/-/lang-text-0.0.4.tgz#05caff383f9da6d6de9dda576a36569378e56418"
+  integrity sha512-Tc4OI3+k0CVkCJ4OPNZ1eGpuRt3XOEgsy1me4kYWuDLovaRgXOYIHZTjssTnpN0kE3DOvZCwlUvUIIfBrhNUWA==
+  dependencies:
+    sprintf-js "^1.1.1"
+    sprintf-ts "^0.1.0"
+
 last-line-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/last-line-stream/-/last-line-stream-1.0.0.tgz#d1b64d69f86ff24af2d04883a2ceee14520a5600"
@@ -7737,10 +7745,20 @@ split@^1.0.1:
   dependencies:
     through "2"
 
+sprintf-js@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.1.tgz#36be78320afe5801f6cea3ee78b6e5aab940ea0c"
+  integrity sha1-Nr54Mgr+WAH2zqPueLblqrlA6gw=
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
+
+sprintf-ts@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/sprintf-ts/-/sprintf-ts-0.1.0.tgz#7ed0a0848574f649ea7b00af452f4540668d163b"
+  integrity sha512-Yv65oNMYoZjQ7cA+f3LdyDNiwiPbbqhEEYHC7zBTPtXI9prJW6dl0qbdnVY0q3RnJRC7+rrMw6I3SElsIBQo5Q==
 
 squeak@^1.0.0:
   version "1.3.0"
