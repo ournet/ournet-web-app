@@ -11,9 +11,9 @@
     "email": "info@click.md",
     "googleAnalyticsId": "UA-1490399-23",
     "projects": [
-        "news",
         "weather",
         "horoscope",
+        "news",
         "exchange"
     ],
     "shareServices": [

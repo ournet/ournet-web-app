@@ -6240,10 +6240,10 @@ osenv@0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-ournet.links@^0.4.6:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.6.tgz#2d6d78132379a733a8d0a78fc003dfe2cedf0cd9"
-  integrity sha512-rRPfh+JLBUoIsV8ptBYxy6+jiUO2H+fjXntHdRTh9m/eXWFb6zmcqKtWe6WOpgPaWPv1DZNCRuxcYXR0u8FfiA==
+ournet.links@^0.4.7:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.7.tgz#0a1a93fe0e2c7f429304a49737d1f6edac554472"
+  integrity sha512-bhvWnhU2LDI5/txorWG9Zg3CgJTphw6YUsWNHlL7dK+krBYQewhvYOphMB+edG4acSTXVQilEYvwhX3YsBZgiw==
   dependencies:
     urlset "^0.6.1"
 
