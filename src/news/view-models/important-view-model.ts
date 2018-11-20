@@ -2,8 +2,6 @@
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
 import { NewsEventStringFields, QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
-import { NewsLocaleNames } from "../locale";
-import { LocaleHelpers } from "../../ournet/locale";
 import { Moment } from "moment-timezone";
 import { Dictionary, uniq } from "@ournet/domain";
 
@@ -12,10 +10,10 @@ export class ImportantViewModelBuilder extends NewsViewModelBuilder<ImportantVie
 
     async build() {
 
-        const { lang, links, translate, head, country, currentDate } = this.model;
+        const { lang, links, locales, head, country, currentDate } = this.model;
 
-        head.title = translate(NewsLocaleNames.important_news);
-        head.description = translate(NewsLocaleNames.most_important_news_in_last_7days_country, { country: LocaleHelpers.getCountryName(translate, country) });
+        head.title = locales.important_news();
+        head.description = locales.most_important_news_in_last_7days_country_format({ country: locales.getCountryName(country) });
 
         this.setCanonical(links.news.important({ ul: lang }));
 

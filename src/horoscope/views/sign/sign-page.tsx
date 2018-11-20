@@ -11,7 +11,7 @@ import { HoroscopeSignsLine } from '../../../views/components/horoscope/horoscop
 
 export function SignPage(props: SignViewModel) {
 
-    const { lang, country, head, translate, links, config, title, subTitle, report, currentDayPeriodText } = props;
+    const { lang, country, head, locales, links, config, title, subTitle, report, currentDayPeriodText } = props;
 
     return (
         <CommonLayout {...props}>
@@ -20,7 +20,7 @@ export function SignPage(props: SignViewModel) {
                     {Share({ services: config.shareServices, lang, align: 'right', url: head.canonical })}
                     {PageTitle({ title: title || head.title, subTitle: subTitle || head.description })}
                 </div>
-                {HoroscopeDayReport({ lang, report, date: currentDayPeriodText, footer: true, links, translate })}
+                {HoroscopeDayReport({ lang, report, date: currentDayPeriodText, footer: true, links, locales })}
                 <div className='u-report-margin'>
                 {HoroscopeSignsLine({lang, country, links})}
                     <br />

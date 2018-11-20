@@ -1,5 +1,5 @@
 import { OurnetApp } from "../ournet/app";
-import { IOurnetAppData, OurnetProjectName } from "../ournet/data";
+import { OurnetAppData, OurnetProjectName } from "../ournet/data";
 import { IndexRouter } from "./routes/index-router";
 import { AppleIconRouter } from "../ournet/routers/apple-icon-router";
 import { FaviconRouter } from "../ournet/routers/favicon-router";
@@ -18,7 +18,7 @@ import { WidgetRouter, Widget1HtmlScriptRouter, Widget1FrameRouter, Widget2Frame
 import { JsonFindPlaceRouter } from "./routes/json-find-place-router";
 import { RobotsRouter, OneSignalSDKWorkerRouter, OneSignalSDKUpdaterWorkerRouter } from "./routes/static-router";
 
-export class WeatherOurnetApp extends OurnetApp<IOurnetAppData> {
+export class WeatherOurnetApp extends OurnetApp<OurnetAppData> {
 
     constructor() {
         super([

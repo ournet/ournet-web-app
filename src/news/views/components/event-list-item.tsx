@@ -4,11 +4,11 @@ import { NewsEvent, NewsTopic } from '@ournet/api-client';
 import { ImageStorageHelper, ImageSizeName } from '@ournet/images-domain';
 import moment = require('moment-timezone');
 import chroma = require('chroma-js');
-import { Locale } from '../../../ournet/locale';
 import { filterIrrelevantTopics } from '../../irrelevant-topics';
 import { getImageColorFromId, truncateAt } from '../../../helpers';
 import { Sitemap, getSchema, getHost } from 'ournet.links';
 import { OurnetProjectName } from '../../../ournet/data';
+import { Locale } from '../../../locales';
 
 export type EventListItemProps = {
     links: Sitemap

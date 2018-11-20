@@ -1,5 +1,5 @@
-import { IOurnetAppData } from "../ournet/data";
+import { OurnetAppData } from "../ournet/data";
 
-export interface INewsAppData extends IOurnetAppData {
+export interface INewsAppData extends OurnetAppData {
     
 }

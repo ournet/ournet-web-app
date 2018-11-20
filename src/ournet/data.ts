@@ -28,7 +28,7 @@ export enum OurnetProjectName {
     EXCHANGE = 'exchange',
 }
 
-export interface IOurnetAppData extends IAppData {
+export interface OurnetAppData extends IAppData {
     readonly project: OurnetProjectName
     readonly createQueryApiClient: typeof createQueryApiClient
     readonly createMutationApiClient: typeof createMutationApiClient
@@ -37,7 +37,7 @@ export interface IOurnetAppData extends IAppData {
 }
 
 
-export function createOurnetAppData<T extends IOurnetAppData>
+export function createOurnetAppData<T extends OurnetAppData>
     (project: OurnetProjectName) {
     const data = {
         project,

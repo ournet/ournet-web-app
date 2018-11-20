@@ -4,7 +4,6 @@ import { PlaceViewModel } from '../../view-models/place-view-model';
 import { getPlaceName } from '../../../helpers';
 import { PageTitle } from '../../../views/components/page-title';
 import { Share } from '../../../views/components/share';
-import { WeatherLocaleNames } from '../../locale';
 import { PlaceDailyReport } from '../components/forecast/place-daily-report';
 import CommonLayout from '../common-layout';
 import { BreadcrumbData, Breadcrumb } from '../../../views/components/breadcrumb';
@@ -12,13 +11,13 @@ import { BreadcrumbData, Breadcrumb } from '../../../views/components/breadcrumb
 
 export function PlacePage(props: PlaceViewModel) {
 
-    const { translate, lang, links, place, placeForecast, holidays, title, subTitle, description, config, head } = props;
+    const { locales, lang, links, place, placeForecast, holidays, title, subTitle, description, config, head } = props;
 
     const localeParams = { ul: lang };
 
     const breadcrumbData: BreadcrumbData = {
         items: [
-            { text: translate(WeatherLocaleNames.weather), url: links.weather.home(localeParams) },
+            { text: locales.weather(), url: links.weather.home(localeParams) },
         ]
     };
 
@@ -37,7 +36,7 @@ export function PlacePage(props: PlaceViewModel) {
                 {Breadcrumb(breadcrumbData)}
                 {PageTitle({ title, subTitle })}
 
-                {PlaceDailyReport({ holidays, report: placeForecast && placeForecast.details, place, lang, config, translate })}
+                {PlaceDailyReport({ holidays, report: placeForecast && placeForecast.details, place, lang, config, locales })}
                 <p className='c-seo-mute'>{description}</p>
             </main>
         </CommonLayout>

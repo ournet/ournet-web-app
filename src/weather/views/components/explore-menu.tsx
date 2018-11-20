@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Place } from '@ournet/api-client';
 import { WeatherAppConfig } from '../../config';
-import { TranslateFunction, LocaleHelpers } from '../../../ournet/locale';
 import { Sitemap } from 'ournet.links';
 import { getPlaceName } from '../../../helpers';
-import { WeatherLocaleNames } from '../../locale';
+import { OurnetLocales } from '../../../locales';
 
 export type ExploreMenuProps = {
     canonical?: string
@@ -12,18 +11,18 @@ export type ExploreMenuProps = {
     country: string
     lang: string
     config: WeatherAppConfig
-    translate: TranslateFunction
+    locales: OurnetLocales
     links: Sitemap
 }
 
-export function ExploreMenu({lang, country, links, config,translate, places}:ExploreMenuProps){
+export function ExploreMenu({lang, country, links, config,locales, places}:ExploreMenuProps){
     const ulParam = { ul: lang };
 
     return (
         <div className="c-exp">
             <h4 className="c-exp__title">
                 <a href={links.weather.home({ ul: lang })}>
-                    {LocaleHelpers.getCountryName(translate, country)}
+                    {locales.getCountryName(country)}
                 </a>
             </h4>
             <ul className="c-exp-list">
@@ -33,7 +32,7 @@ export function ExploreMenu({lang, country, links, config,translate, places}:Exp
                 })}
                 <li key='places-count'>
                     <a href={links.weather.places(ulParam)}>
-                        {translate(WeatherLocaleNames.other_n_places_format, config.placesCount)}
+                        {locales.count_places_format(config.placesCount)}
                     </a>
                 </li>
             </ul>

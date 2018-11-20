@@ -1,7 +1,6 @@
 
 import * as React from 'react';
 import CommonLayout from '../common-layout';
-import { NewsLocaleNames } from '../../locale';
 import { EventListItem } from '../components/event-list-item';
 import { QuoteListItem } from '../components/quote-list-item';
 import { GroupHeader } from '../../../views/components/group-header';
@@ -12,7 +11,7 @@ import { AdCenter } from '../components/ads/ad-center';
 
 export default class QuotesPage extends React.Component<QuotesViewModel> {
     render() {
-        const { lang, head, translate, links, latestEvents, latestQuotes, config, title, subTitle, country } = this.props;
+        const { lang, head, locales, links, latestEvents, latestQuotes, config, title, subTitle, country } = this.props;
 
         const list1 = latestQuotes.slice(0, latestQuotes.length / 2);
         const list2 = latestQuotes.slice(latestQuotes.length / 2);
@@ -32,7 +31,7 @@ export default class QuotesPage extends React.Component<QuotesViewModel> {
                     </div>
 
                     <div className='c-group'>
-                        {GroupHeader({ name: translate(NewsLocaleNames.latest_events), link: links.news.home({ ul: lang }), type: 'new' })}
+                        {GroupHeader({ name: locales.latest_events(), link: links.news.home({ ul: lang }), type: 'new' })}
                         <div className='o-layout'>
                             {latestEvents && latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2 u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
                         </div>

@@ -4,7 +4,6 @@ import { HoroscopeReport, HoroscopeReportStringFields } from "@ournet/api-client
 import { HoroscopesHelper, HoroscopeSign } from "@ournet/horoscopes-domain";
 import { notFound } from "boom";
 import { OurnetViewModelInput } from "../../ournet/view-model";
-import { HoroscopeLocaleNames } from "../locale";
 
 export interface SignViewModelInput extends OurnetViewModelInput {
     slug: string
@@ -18,12 +17,12 @@ export class SignViewModelBuilder extends HoroscopeViewModelBuilder<SignViewMode
 
     build() {
 
-        const { lang, links, translate, head, currentDayPeriodText, currentDayPeriod } = this.model;
+        const { lang, links, locales, head, currentDayPeriodText, currentDayPeriod } = this.model;
 
         const sign = getSignBySlug(this.input.slug, lang);
 
-        head.title = translate(HoroscopeLocaleNames.sign_daily_title_format, { name: sign.name });
-        head.description = translate(HoroscopeLocaleNames.sign_daily_details_format, { name1: sign.name, name2: currentDayPeriodText });
+        head.title = locales.horo_sign_daily_title_format({ sign: sign.name });
+        head.description = locales.horo_sign_daily_details_format({ sign: sign.name, date: currentDayPeriodText });
 
         this.setCanonical(links.horoscope.sign(sign.slug, { ul: lang }));
 

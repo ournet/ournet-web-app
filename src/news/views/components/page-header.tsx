@@ -2,10 +2,9 @@
 import * as React from 'react';
 import { NewsViewModel } from '../../view-models/news-view-model';
 import { HeaderPlaceForecast } from '../../../views/components/weather/header-place-forecast';
-import { NewsLocaleNames } from '../../locale';
 import { HeaderLogo } from '../../../views/components/header-logo';
 
-export function PageHeader({ capital, capitalForecast, links, translate, lang, head, country }: NewsViewModel) {
+export function PageHeader({ capital, capitalForecast, links, locales, lang, head, country }: NewsViewModel) {
 
     const placeForecast = capital && capitalForecast
         ? (HeaderPlaceForecast({ links, lang, country, place: capital, forecast: capitalForecast }))
@@ -14,14 +13,14 @@ export function PageHeader({ capital, capitalForecast, links, translate, lang, h
 
     const menuitems = [
         {
-            name: translate(NewsLocaleNames.news),
+            name: locales.news(),
             link: links.news.home({ ul: lang }),
             className: '',
         }, {
-            name: translate(NewsLocaleNames.important),
+            name: locales.important(),
             link: links.news.important({ ul: lang }),
         }, {
-            name: translate(NewsLocaleNames.quotes),
+            name: locales.quotes(),
             link: links.news.quotes({ ul: lang }),
         },
     ];

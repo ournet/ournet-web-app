@@ -1,12 +1,12 @@
 
-import { IOurnetAppConfig } from "./config";
-import { IOurnetAppData } from "./data";
+import { OurnetAppConfig } from "./config";
+import { OurnetAppData } from "./data";
 import { OurnetViewModel, OurnetViewModelInput } from "./view-model";
 import { AsyncViewModelBuilder } from "./async-view-model";
 import { getSchema, getHost } from "ournet.links";
 
 
-export abstract class PageViewModelBuilder<DATA extends IOurnetAppData, CONFIG extends IOurnetAppConfig, T extends PageViewModel<CONFIG>, I extends OurnetViewModelInput>
+export abstract class PageViewModelBuilder<DATA extends OurnetAppData, CONFIG extends OurnetAppConfig, T extends PageViewModel<CONFIG>, I extends OurnetViewModelInput>
     extends AsyncViewModelBuilder<DATA, CONFIG, T, I> {
 
     constructor(input: I, data: DATA) {
@@ -29,7 +29,7 @@ export abstract class PageViewModelBuilder<DATA extends IOurnetAppData, CONFIG e
     }
 }
 
-export interface PageViewModel<CONFIG extends IOurnetAppConfig> extends OurnetViewModel<CONFIG> {
+export interface PageViewModel<CONFIG extends OurnetAppConfig> extends OurnetViewModel<CONFIG> {
     head: PageHeadViewData
     currentLink: string
     showGoogleAds: boolean

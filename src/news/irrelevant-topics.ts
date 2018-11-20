@@ -1,5 +1,5 @@
 import { Dictionary, BaseEntity } from "@ournet/domain";
-import { Locale } from "../ournet/locale";
+import { Locale } from "../locales";
 
 const DATA: Dictionary<string[]> = require('../../data/irrelevant-topic-ids.json');
 

@@ -8,7 +8,7 @@ import { HoroscopeDayReport } from '../components/horoscope-day-report';
 
 export function IndexPage(props: IndexViewModel) {
 
-    const { lang, head, translate, config, title, subTitle, reports, links } = props;
+    const { lang, head, locales, config, title, subTitle, reports, links } = props;
 
     return (
         <CommonLayout {...props}>
@@ -17,7 +17,7 @@ export function IndexPage(props: IndexViewModel) {
                     {Share({ services: config.shareServices, lang, align: 'right', url: head.canonical })}
                     {PageTitle({ title: title || head.title, subTitle: subTitle || head.description })}
                 </div>
-                {reports.map(report => HoroscopeDayReport({ lang, translate, report, links }))}
+                {reports.map(report => HoroscopeDayReport({ lang, locales, report, links }))}
             </main>
         </CommonLayout>
     )

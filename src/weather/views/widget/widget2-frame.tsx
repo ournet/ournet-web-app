@@ -3,7 +3,6 @@ import { ForecastHelper } from '@ournet/weather-domain';
 import * as moment from 'moment-timezone';
 import { Widget2ViewModel } from '../../view-models/widget2-view-model';
 import { getPlaceName } from '../../../helpers';
-import { WeatherLocaleNames } from '../../locale';
 import { getHost } from 'ournet.links';
 
 export function Widget2Frame(props: Widget2ViewModel) {
@@ -140,11 +139,11 @@ ga('send', 'pageview');`}}></script>
 }
 
 function formatWidget(props: Widget2ViewModel) {
-    const { place, lang, links, translate, report } = props;
+    const { place, lang, links, locales, report } = props;
     const { pos, w, header, showInfo, days } = props.widget;
     const id = place.id;
     const placename = getPlaceName(place, lang);
-    const longtitle = translate(WeatherLocaleNames.weather_in_format, { name: placename });
+    const longtitle = locales.weather_in_format( { name: placename });
     let title = longtitle;
 
     const url = links.weather.place(id, {
@@ -178,7 +177,7 @@ function formatWidget(props: Widget2ViewModel) {
         body.push('<li class="item" onclick="window.open(\'' + url + '\', \'_blank\');">');
         body.push('<ul class="in-table"><li class="date"><div class="inner"><span class="day-name">' + date.format('ddd') + '</span><span class="day-date">' + date.format('D MMM') + '</span></div></li>');
         body.push('<li class="image"><div class="inner"><span class="w-icon wi-' + day.icon + '" title="' + symbolName + '"></span></div></li>');
-        body.push('<li class="temp"><div class="inner"><div class="max">' + translate(WeatherLocaleNames.max) + ' ' + Math.round(day.temperatureHigh || day.temperature) + '&deg;</div><div class="min">' + translate(WeatherLocaleNames.min) + ' ' + Math.round(day.temperatureLow || day.temperature) + '&deg;</div></div></li>');
+        body.push('<li class="temp"><div class="inner"><div class="max">' + locales.max() + ' ' + Math.round(day.temperatureHigh || day.temperature) + '&deg;</div><div class="min">' + locales.min() + ' ' + Math.round(day.temperatureLow || day.temperature) + '&deg;</div></div></li>');
         if (showInfo) {
             body.push('<li class="info"><div class="inner">' + symbolName + '</div></li>');
         }

@@ -1,7 +1,7 @@
 import { OurnetRouter } from "../router";
 import { Request, Response } from "../../base/types";
 import { Handler } from "../../base/handler";
-import { IOurnetAppData } from "../data";
+import { OurnetAppData } from "../data";
 import { OurnetViewModelInput } from "../view-model";
 
 
@@ -14,7 +14,7 @@ export class AdsenseAdsRouter extends OurnetRouter {
     }
 }
 
-class AdsenseAdsHandler extends Handler<IOurnetAppData, OurnetViewModelInput> {
+class AdsenseAdsHandler extends Handler<OurnetAppData, OurnetViewModelInput> {
     handle() {
 
         this.setCacheControl(60 * 24 * 30);

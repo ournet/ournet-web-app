@@ -1,13 +1,13 @@
 import { ViewModelInput, ViewModelBuilder, ViewModel } from "../base/view-model";
-import { IOurnetAppConfig, createAppConfig } from "./config";
+import { OurnetAppConfig, createAppConfig } from "./config";
 import { Sitemap, sitemap } from "ournet.links";
-import { OurnetProjectName, IOurnetAppData } from "./data";
-import { TranslateFunction, createAppLocale } from "./locale";
+import { OurnetProjectName, OurnetAppData } from "./data";
 import { UrlWithParsedQuery } from "url";
 import { ParsedUrlQuery } from "querystring";
+import { OurnetLocales, OURNET_TRANSLATOR } from "../locales";
 
 
-export abstract class OurnetViewModelBuilder<DATA extends IOurnetAppData, CONFIG extends IOurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends OurnetViewModelInput>
+export abstract class OurnetViewModelBuilder<DATA extends OurnetAppData, CONFIG extends OurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends OurnetViewModelInput>
     extends ViewModelBuilder<T, I> {
     protected readonly data: DATA
 
@@ -27,7 +27,7 @@ export abstract class OurnetViewModelBuilder<DATA extends IOurnetAppData, CONFIG
 
         model.links = sitemap(model.config.languages[0]);
 
-        model.translate = createAppLocale(data.project, model.lang);
+        model.locales = OURNET_TRANSLATOR.locales(model.lang);
     }
 
     protected getLanguage(config: CONFIG) {
@@ -46,17 +46,17 @@ export interface OurnetViewModelInput extends ViewModelInput {
     project: OurnetProjectName
 }
 
-export interface OurnetViewModel<CONFIG extends IOurnetAppConfig> extends ViewModel {
+export interface OurnetViewModel<CONFIG extends OurnetAppConfig> extends ViewModel {
     config: CONFIG
     links: Sitemap
-    translate: TranslateFunction
+    locales: OurnetLocales
     country: string
     lang: string
     version: string
     project: OurnetProjectName
 }
 
-export function getLanguageFromQueryString(config: IOurnetAppConfig, query: ParsedUrlQuery) {
+export function getLanguageFromQueryString(config: OurnetAppConfig, query: ParsedUrlQuery) {
     let lang = query['ul'] as string;
     lang = lang && lang.trim().toLowerCase();
 

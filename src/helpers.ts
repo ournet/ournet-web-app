@@ -1,6 +1,5 @@
 import { Place, NewsEvent } from "@ournet/api-client";
 import { PlaceHelper } from '@ournet/places-domain';
-import { Dictionary } from "@ournet/domain";
 import { Sitemap } from "ournet.links";
 import { ImageStorageHelper } from "@ournet/images-domain";
 const standard = require('standard-text');
@@ -15,8 +14,6 @@ export function truncateAt(text: string, maxLength: number): string {
     return ellipsize(text, maxLength, { truncate: false });
 }
 
-const COUNTRY_NAMES = require('../data/country-names.json') as Dictionary<Dictionary<string>>;
-
 export function getPlaceName(place: Place, lang: string): string {
     const key = '_name_' + lang;
     const anyPlace = place as any;
@@ -30,10 +27,6 @@ export function getPlaceName(place: Place, lang: string): string {
         return anyPlace[key] = standard(name.name, lang);
     }
     return anyPlace[key] = standard(place.name, lang);
-}
-
-export function getCountryName(country: string, lang: string) {
-    return COUNTRY_NAMES[country][lang];
 }
 
 export function getImageColorFromId(imageId: string) {

@@ -2,8 +2,6 @@
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
 import { NewsEventStringFields, QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
-import { NewsLocaleNames } from "../locale";
-import { LocaleHelpers } from "../../ournet/locale";
 
 
 export class QuotesViewModelBuilder<T extends QuotesViewModel, I extends OurnetViewModelInput>
@@ -12,12 +10,12 @@ export class QuotesViewModelBuilder<T extends QuotesViewModel, I extends OurnetV
     build() {
 
         const model = this.model;
-        const { lang, links, translate, head, country } = model;
+        const { lang, links, locales, head, country } = model;
 
-        head.title = translate(NewsLocaleNames.latest_quotes_in_media);
-        head.description = translate(NewsLocaleNames.latest_quotes_in_media_country_format, { country: LocaleHelpers.getCountryName(translate, country) });
+        head.title = locales.latest_quotes_in_media();
+        head.description = locales.latest_quotes_in_media_country_format({ country: locales.getCountryName(country) });
 
-        model.title = translate(NewsLocaleNames.latest_quotes);
+        model.title = locales.latest_quotes();
 
         this.setCanonical(links.news.quotes({ ul: lang }));
 

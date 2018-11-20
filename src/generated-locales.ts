@@ -1,32 +1,32 @@
 
-import { Provider, Translator, ProviderOptions, DirectoryProviderOptions, parseDirectory } from 'lang-text';
+import { Locales, Translator, TranslatorOptions, DirectoryTranslatorOptions, parseDirectory } from 'lang-text';
 
-export class TranslatorProvider<T extends GeneratedTranslator = GeneratedTranslator> {
-    private provider: Provider
-    private translators: { [lang: string]: T } = {}
+export class LocalesProvider<T extends GeneratedLocales = GeneratedLocales> {
+    private translator: Translator
+    private localesMap: { [lang: string]: T } = {}
 
-    constructor(options: ProviderOptions, private createTranslator?: (t: Translator) => T) {
-        this.provider = new Provider(options);
+    constructor(options: TranslatorOptions, private createLocales?: (t: Locales) => T) {
+        this.translator = new Translator(options);
     }
 
-    translator(lang: string) {
-        if (!this.translators[lang]) {
-            if (this.createTranslator) {
-                this.translators[lang] = this.createTranslator(this.provider.translator(lang));
+    locales(lang: string) {
+        if (!this.localesMap[lang]) {
+            if (this.createLocales) {
+                this.localesMap[lang] = this.createLocales(this.translator.locales(lang));
             } else {
-                this.translators[lang] = new GeneratedTranslator(this.provider.translator(lang)) as T;
+                this.localesMap[lang] = new GeneratedLocales(this.translator.locales(lang)) as T;
             }
         }
 
-        return this.translators[lang];
+        return this.localesMap[lang];
     }
 
-    static createFromDirectory(options: DirectoryProviderOptions) {
+    static createFromDirectory(options: DirectoryTranslatorOptions) {
         const { directory, defaultLanguage, throwUndefinedKey, languages } = options;
 
         const data = parseDirectory({ directory, languages });
 
-        return new TranslatorProvider({
+        return new LocalesProvider({
             defaultLanguage,
             throwUndefinedKey,
             data,
@@ -34,51 +34,51 @@ export class TranslatorProvider<T extends GeneratedTranslator = GeneratedTransla
     }
 }
 
-export class GeneratedTranslator {
-    private __translator: Translator
-    constructor(translator: Translator) {
-        this.__translator = translator;
+export class GeneratedLocales {
+    protected __locales: Locales
+    constructor(locales: Locales) {
+        this.__locales = locales;
     }
 
-    s(key: TranslatorKey, ...args: any[]) {
+    s(key: LocalesKey, ...args: any[]) {
         return this.v(key, args);
     }
 
-    v(key: TranslatorKey, args?: any[]) {
-        return this.__translator.t(key, args);
+    v(key: LocalesKey, args?: any[]) {
+        return this.__locales.t(key, args);
     }
     
 
     $24_hrs() {
-        return this.v('24_hrs', Array.from(arguments));
+        return this.v('24_hrs');
     }
 
     accept_notifications() {
-        return this.v('accept_notifications', Array.from(arguments));
+        return this.v('accept_notifications');
     }
 
     ads() {
-        return this.v('ads', Array.from(arguments));
+        return this.v('ads');
     }
 
     back_color() {
-        return this.v('back_color', Array.from(arguments));
+        return this.v('back_color');
     }
 
     base_color() {
-        return this.v('base_color', Array.from(arguments));
+        return this.v('base_color');
     }
 
     border_color() {
-        return this.v('border_color', Array.from(arguments));
+        return this.v('border_color');
     }
 
     configuration() {
-        return this.v('configuration', Array.from(arguments));
+        return this.v('configuration');
     }
 
     contact() {
-        return this.v('contact', Array.from(arguments));
+        return this.v('contact');
     }
 
     count_news_format(_p1: number) {
@@ -93,12 +93,56 @@ export class GeneratedTranslator {
         return this.v('count_views_format', Array.from(arguments));
     }
 
+    country_al() {
+        return this.v('country_al');
+    }
+
+    country_bg() {
+        return this.v('country_bg');
+    }
+
+    country_cz() {
+        return this.v('country_cz');
+    }
+
+    country_hu() {
+        return this.v('country_hu');
+    }
+
+    country_in() {
+        return this.v('country_in');
+    }
+
+    country_it() {
+        return this.v('country_it');
+    }
+
+    country_md() {
+        return this.v('country_md');
+    }
+
+    country_pl() {
+        return this.v('country_pl');
+    }
+
+    country_ro() {
+        return this.v('country_ro');
+    }
+
+    country_ru() {
+        return this.v('country_ru');
+    }
+
+    country_tr() {
+        return this.v('country_tr');
+    }
+
     daily_horoscope_details_format(_p1: { name: string }) {
         return this.v('daily_horoscope_details_format', Array.from(arguments));
     }
 
     daily_horoscope_details() {
-        return this.v('daily_horoscope_details', Array.from(arguments));
+        return this.v('daily_horoscope_details');
     }
 
     daily_horoscope_format(_p1: { name: string }) {
@@ -106,43 +150,43 @@ export class GeneratedTranslator {
     }
 
     daily_horoscope() {
-        return this.v('daily_horoscope', Array.from(arguments));
+        return this.v('daily_horoscope');
     }
 
     daily() {
-        return this.v('daily', Array.from(arguments));
+        return this.v('daily');
     }
 
     date_format() {
-        return this.v('date_format', Array.from(arguments));
+        return this.v('date_format');
     }
 
     day_format() {
-        return this.v('day_format', Array.from(arguments));
+        return this.v('day_format');
     }
 
     days() {
-        return this.v('days', Array.from(arguments));
+        return this.v('days');
     }
 
     detailed_horoscope() {
-        return this.v('detailed_horoscope', Array.from(arguments));
+        return this.v('detailed_horoscope');
     }
 
     error_404_info() {
-        return this.v('error_404_info', Array.from(arguments));
+        return this.v('error_404_info');
     }
 
     error_500_info() {
-        return this.v('error_500_info', Array.from(arguments));
+        return this.v('error_500_info');
     }
 
     error_description() {
-        return this.v('error_description', Array.from(arguments));
+        return this.v('error_description');
     }
 
     error() {
-        return this.v('error', Array.from(arguments));
+        return this.v('error');
     }
 
     events_from_country_format(_p1: { name: string }) {
@@ -150,23 +194,23 @@ export class GeneratedTranslator {
     }
 
     events() {
-        return this.v('events', Array.from(arguments));
+        return this.v('events');
     }
 
     exchange_rates() {
-        return this.v('exchange_rates', Array.from(arguments));
+        return this.v('exchange_rates');
     }
 
     exchange() {
-        return this.v('exchange', Array.from(arguments));
+        return this.v('exchange');
     }
 
     export_horoscope() {
-        return this.v('export_horoscope', Array.from(arguments));
+        return this.v('export_horoscope');
     }
 
     forecast_no_data() {
-        return this.v('forecast_no_data', Array.from(arguments));
+        return this.v('forecast_no_data');
     }
 
     forecast_on_email_place_format(_p1: { name: string }) {
@@ -178,39 +222,51 @@ export class GeneratedTranslator {
     }
 
     generate() {
-        return this.v('generate', Array.from(arguments));
+        return this.v('generate');
     }
 
     head_back_color() {
-        return this.v('head_back_color', Array.from(arguments));
+        return this.v('head_back_color');
     }
 
     head_text_color() {
-        return this.v('head_text_color', Array.from(arguments));
+        return this.v('head_text_color');
     }
 
     heigth() {
-        return this.v('heigth', Array.from(arguments));
+        return this.v('heigth');
     }
 
     home() {
-        return this.v('home', Array.from(arguments));
+        return this.v('home');
     }
 
     horizontal() {
-        return this.v('horizontal', Array.from(arguments));
+        return this.v('horizontal');
+    }
+
+    horo_api_title() {
+        return this.v('horo_api_title');
     }
 
     horo_app_name() {
-        return this.v('horo_app_name', Array.from(arguments));
+        return this.v('horo_app_name');
     }
 
     horo_notifications_subscribe_for_sign_format(_p1: { name: string }) {
         return this.v('horo_notifications_subscribe_for_sign_format', Array.from(arguments));
     }
 
+    horo_on_your_site_info() {
+        return this.v('horo_on_your_site_info');
+    }
+
+    horo_on_your_site() {
+        return this.v('horo_on_your_site');
+    }
+
     horo_short_app_name() {
-        return this.v('horo_short_app_name', Array.from(arguments));
+        return this.v('horo_short_app_name');
     }
 
     horo_sign_daily_details_format(_p1: { sign: string; date: string }) {
@@ -222,7 +278,7 @@ export class GeneratedTranslator {
     }
 
     horo_sign_date_format() {
-        return this.v('horo_sign_date_format', Array.from(arguments));
+        return this.v('horo_sign_date_format');
     }
 
     horo_sign_weekly_details_format(_p1: { sign: string; date: string }) {
@@ -233,108 +289,88 @@ export class GeneratedTranslator {
         return this.v('horo_sign_weekly_title_format', Array.from(arguments));
     }
 
-    horo_api_body_format() {
-        return this.v('horo_api_body_format', Array.from(arguments));
-    }
-
-    horo_api_subtitle_format(_p1: { name: string }) {
-        return this.v('horo_api_subtitle_format', Array.from(arguments));
-    }
-
-    horo_api_title() {
-        return this.v('horo_api_title', Array.from(arguments));
-    }
-
-    horo_on_your_site_info() {
-        return this.v('horo_on_your_site_info', Array.from(arguments));
-    }
-
-    horo_on_your_site() {
-        return this.v('horo_on_your_site', Array.from(arguments));
-    }
-
     horoscope() {
-        return this.v('horoscope', Array.from(arguments));
+        return this.v('horoscope');
     }
 
     hour() {
-        return this.v('hour', Array.from(arguments));
+        return this.v('hour');
     }
 
     html_code() {
-        return this.v('html_code', Array.from(arguments));
+        return this.v('html_code');
     }
 
     humidity() {
-        return this.v('humidity', Array.from(arguments));
+        return this.v('humidity');
     }
 
     icon_color() {
-        return this.v('icon_color', Array.from(arguments));
+        return this.v('icon_color');
     }
 
     images() {
-        return this.v('images', Array.from(arguments));
+        return this.v('images');
     }
 
     important_news_in_last_7days() {
-        return this.v('important_news_in_last_7days', Array.from(arguments));
+        return this.v('important_news_in_last_7days');
     }
 
     important_news() {
-        return this.v('important_news', Array.from(arguments));
+        return this.v('important_news');
     }
 
     important() {
-        return this.v('important', Array.from(arguments));
+        return this.v('important');
     }
 
     in_country_md() {
-        return this.v('in_country_md', Array.from(arguments));
+        return this.v('in_country_md');
     }
 
     in_country_ro() {
-        return this.v('in_country_ro', Array.from(arguments));
+        return this.v('in_country_ro');
     }
 
     info() {
-        return this.v('info', Array.from(arguments));
+        return this.v('info');
     }
 
     international() {
-        return this.v('international', Array.from(arguments));
+        return this.v('international');
     }
 
     invalid_email() {
-        return this.v('invalid_email', Array.from(arguments));
+        return this.v('invalid_email');
     }
 
     item_color() {
-        return this.v('item_color', Array.from(arguments));
+        return this.v('item_color');
     }
 
     item_conditions() {
-        return this.v('item_conditions', Array.from(arguments));
+        return this.v('item_conditions');
     }
 
     item_pressure() {
-        return this.v('item_pressure', Array.from(arguments));
+        return this.v('item_pressure');
     }
 
     item_temperatire() {
-        return this.v('item_temperatire', Array.from(arguments));
+        return this.v('item_temperatire');
     }
 
     item_wind_dir() {
-        return this.v('item_wind_dir', Array.from(arguments));
+        return this.v('item_wind_dir');
     }
 
     item_wind_speed_ms() {
-        return this.v('item_wind_speed_ms', Array.from(arguments));
+        return this.v('item_wind_speed_ms');
     }
 
     item_wind_speed() {
-        return this.v('item_wind_speed', Array.from(arguments));
+        return this.v('item_wind_speed');
     }
 
     latest_events_from_country_format(_p1: { name: string }) {
@@ -342,11 +378,11 @@ export class GeneratedTranslator {
     }
 
     latest_events() {
-        return this.v('latest_events', Array.from(arguments));
+        return this.v('latest_events');
     }
 
     latest_news() {
-        return this.v('latest_news', Array.from(arguments));
+        return this.v('latest_news');
     }
 
     latest_quotes_in_media_country_format(_p1: { country: string }) {
@@ -354,47 +390,47 @@ export class GeneratedTranslator {
     }
 
     latest_quotes_in_media() {
-        return this.v('latest_quotes_in_media', Array.from(arguments));
+        return this.v('latest_quotes_in_media');
     }
 
     latest_quotes() {
-        return this.v('latest_quotes', Array.from(arguments));
+        return this.v('latest_quotes');
     }
 
     line_color() {
-        return this.v('line_color', Array.from(arguments));
+        return this.v('line_color');
     }
 
     load_more_places() {
-        return this.v('load_more_places', Array.from(arguments));
+        return this.v('load_more_places');
     }
 
     lucky_numbers() {
-        return this.v('lucky_numbers', Array.from(arguments));
+        return this.v('lucky_numbers');
     }
 
     max() {
-        return this.v('max', Array.from(arguments));
+        return this.v('max');
     }
 
     min() {
-        return this.v('min', Array.from(arguments));
+        return this.v('min');
     }
 
     mm() {
-        return this.v('mm', Array.from(arguments));
+        return this.v('mm');
     }
 
     more_events() {
-        return this.v('more_events', Array.from(arguments));
+        return this.v('more_events');
     }
 
     more_quotes() {
-        return this.v('more_quotes', Array.from(arguments));
+        return this.v('more_quotes');
     }
 
     more() {
-        return this.v('more', Array.from(arguments));
+        return this.v('more');
     }
 
     most_important_news_in_last_7days_country_format(_p1: { country: string }) {
@@ -402,11 +438,11 @@ export class GeneratedTranslator {
     }
 
     news_app_name() {
-        return this.v('news_app_name', Array.from(arguments));
+        return this.v('news_app_name');
     }
 
     news_short_app_name() {
-        return this.v('news_short_app_name', Array.from(arguments));
+        return this.v('news_short_app_name');
     }
 
     news_site_description_format(_p1: { country: string }) {
@@ -418,7 +454,7 @@ export class GeneratedTranslator {
     }
 
     news_sources() {
-        return this.v('news_sources', Array.from(arguments));
+        return this.v('news_sources');
     }
 
     news_topic_description_format(_p1: { name: string }) {
@@ -430,59 +466,67 @@ export class GeneratedTranslator {
     }
 
     news() {
-        return this.v('news', Array.from(arguments));
+        return this.v('news');
     }
 
     no_days() {
-        return this.v('no_days', Array.from(arguments));
+        return this.v('no_days');
     }
 
     no_thanks() {
-        return this.v('no_thanks', Array.from(arguments));
+        return this.v('no_thanks');
     }
 
     not_found_places() {
-        return this.v('not_found_places', Array.from(arguments));
+        return this.v('not_found_places');
     }
 
     opinia() {
-        return this.v('opinia', Array.from(arguments));
+        return this.v('opinia');
     }
 
     photo() {
-        return this.v('photo', Array.from(arguments));
+        return this.v('photo');
     }
 
     place() {
-        return this.v('place', Array.from(arguments));
+        return this.v('place');
     }
 
     places() {
-        return this.v('places', Array.from(arguments));
+        return this.v('places');
     }
 
     popular_news() {
-        return this.v('popular_news', Array.from(arguments));
+        return this.v('popular_news');
     }
 
     popular() {
-        return this.v('popular', Array.from(arguments));
+        return this.v('popular');
     }
 
     portal_app_name() {
-        return this.v('portal_app_name', Array.from(arguments));
+        return this.v('portal_app_name');
     }
 
     portal_short_app_name() {
-        return this.v('portal_short_app_name', Array.from(arguments));
+        return this.v('portal_short_app_name');
+    }
+
+    portal_site_description_format(_p1: { country: string }) {
+        return this.v('portal_site_description_format', Array.from(arguments));
+    }
+
+    portal_site_title_format(_p1: { country: string }) {
+        return this.v('portal_site_title_format', Array.from(arguments));
     }
 
     position() {
-        return this.v('position', Array.from(arguments));
+        return this.v('position');
     }
 
     preview() {
-        return this.v('preview', Array.from(arguments));
+        return this.v('preview');
     }
 
     quotes_about_format(_p1: { name: string }) {
@@ -494,7 +538,7 @@ export class GeneratedTranslator {
     }
 
     quotes() {
-        return this.v('quotes', Array.from(arguments));
+        return this.v('quotes');
     }
 
     read_more_on_source_format(_p1: { name: string }) {
@@ -502,11 +546,11 @@ export class GeneratedTranslator {
     }
 
     recent_search() {
-        return this.v('recent_search', Array.from(arguments));
+        return this.v('recent_search');
     }
 
     related_news() {
-        return this.v('related_news', Array.from(arguments));
+        return this.v('related_news');
     }
 
     search_place_format(_p1: { name: string }) {
@@ -522,7 +566,7 @@ export class GeneratedTranslator {
     }
 
     search_place() {
-        return this.v('search_place', Array.from(arguments));
+        return this.v('search_place');
     }
 
     search_result_format(_p1: { name: string }) {
@@ -534,35 +578,35 @@ export class GeneratedTranslator {
     }
 
     share_with_your_friends() {
-        return this.v('share_with_your_friends', Array.from(arguments));
+        return this.v('share_with_your_friends');
     }
 
     show_header() {
-        return this.v('show_header', Array.from(arguments));
+        return this.v('show_header');
     }
 
     subscribe_to_daily_notifications() {
-        return this.v('subscribe_to_daily_notifications', Array.from(arguments));
+        return this.v('subscribe_to_daily_notifications');
     }
 
     subscribe() {
-        return this.v('subscribe', Array.from(arguments));
+        return this.v('subscribe');
     }
 
     temperature() {
-        return this.v('temperature', Array.from(arguments));
+        return this.v('temperature');
     }
 
     text_color() {
-        return this.v('text_color', Array.from(arguments));
+        return this.v('text_color');
     }
 
     today() {
-        return this.v('today', Array.from(arguments));
+        return this.v('today');
     }
 
     tomorrow() {
-        return this.v('tomorrow', Array.from(arguments));
+        return this.v('tomorrow');
     }
 
     topic_events_title_format(_p1: { name: string }) {
@@ -586,39 +630,39 @@ export class GeneratedTranslator {
     }
 
     trending() {
-        return this.v('trending', Array.from(arguments));
+        return this.v('trending');
     }
 
     useful() {
-        return this.v('useful', Array.from(arguments));
+        return this.v('useful');
     }
 
     vertical() {
-        return this.v('vertical', Array.from(arguments));
+        return this.v('vertical');
     }
 
     video_news() {
-        return this.v('video_news', Array.from(arguments));
+        return this.v('video_news');
     }
 
     video() {
-        return this.v('video', Array.from(arguments));
+        return this.v('video');
     }
 
     views() {
-        return this.v('views', Array.from(arguments));
+        return this.v('views');
     }
 
     weather_app_name() {
-        return this.v('weather_app_name', Array.from(arguments));
+        return this.v('weather_app_name');
     }
 
     weather_cright() {
-        return this.v('weather_cright', Array.from(arguments));
+        return this.v('weather_cright');
     }
 
     weather_for_10days() {
-        return this.v('weather_for_10days', Array.from(arguments));
+        return this.v('weather_for_10days');
     }
 
     weather_home_title_format(_p1: { name: string }) {
@@ -642,15 +686,15 @@ export class GeneratedTranslator {
     }
 
     weather_on_your_site() {
-        return this.v('weather_on_your_site', Array.from(arguments));
+        return this.v('weather_on_your_site');
     }
 
     weather_place_description_format(_p1: { name1: string; name2: string }) {
         return this.v('weather_place_description_format', Array.from(arguments));
     }
 
-    weather_place_details_info(_p1: { name1: string; name2: string }) {
-        return this.v('weather_place_details_info', Array.from(arguments));
+    weather_place_details_info_format(_p1: { name1: string; name2: string; name3: string }) {
+        return this.v('weather_place_details_info_format', Array.from(arguments));
     }
 
     weather_place_title_format_10days_format(_p1: { name1: string; name2: string }) {
@@ -662,15 +706,15 @@ export class GeneratedTranslator {
     }
 
     weather_short_app_name() {
-        return this.v('weather_short_app_name', Array.from(arguments));
+        return this.v('weather_short_app_name');
     }
 
     weather() {
-        return this.v('weather', Array.from(arguments));
+        return this.v('weather');
     }
 
     weather2() {
-        return this.v('weather2', Array.from(arguments));
+        return this.v('weather2');
     }
 
     weekly_horoscope_details_format(_p1: { date: string }) {
@@ -678,7 +722,7 @@ export class GeneratedTranslator {
     }
 
     weekly_horoscope_details() {
-        return this.v('weekly_horoscope_details', Array.from(arguments));
+        return this.v('weekly_horoscope_details');
     }
 
     weekly_horoscope_format(_p1: { date: string }) {
@@ -686,23 +730,23 @@ export class GeneratedTranslator {
     }
 
     weekly_horoscope() {
-        return this.v('weekly_horoscope', Array.from(arguments));
+        return this.v('weekly_horoscope');
     }
 
     weekly() {
-        return this.v('weekly', Array.from(arguments));
+        return this.v('weekly');
     }
 
     width() {
-        return this.v('width', Array.from(arguments));
+        return this.v('width');
     }
 
     wind() {
-        return this.v('wind', Array.from(arguments));
+        return this.v('wind');
     }
 }
 
-export type TranslatorKey = '24_hrs'
+export type LocalesKey = '24_hrs'
     | 'accept_notifications'
     | 'ads'
     | 'back_color'
@@ -713,6 +757,17 @@ export type TranslatorKey = '24_hrs'
     | 'count_news_format'
     | 'count_places_format'
     | 'count_views_format'
+    | 'country_al'
+    | 'country_bg'
+    | 'country_cz'
+    | 'country_hu'
+    | 'country_in'
+    | 'country_it'
+    | 'country_md'
+    | 'country_pl'
+    | 'country_ro'
+    | 'country_ru'
+    | 'country_tr'
     | 'daily_horoscope_details_format'
     | 'daily_horoscope_details'
     | 'daily_horoscope_format'
@@ -740,19 +795,17 @@ export type TranslatorKey = '24_hrs'
     | 'heigth'
     | 'home'
     | 'horizontal'
+    | 'horo_api_title'
     | 'horo_app_name'
     | 'horo_notifications_subscribe_for_sign_format'
+    | 'horo_on_your_site_info'
+    | 'horo_on_your_site'
     | 'horo_short_app_name'
     | 'horo_sign_daily_details_format'
     | 'horo_sign_daily_title_format'
     | 'horo_sign_date_format'
     | 'horo_sign_weekly_details_format'
     | 'horo_sign_weekly_title_format'
-    | 'horo_api_body_format'
-    | 'horo_api_subtitle_format'
-    | 'horo_api_title'
-    | 'horo_on_your_site_info'
-    | 'horo_on_your_site'
     | 'horoscope'
     | 'hour'
     | 'html_code'
@@ -809,6 +862,8 @@ export type TranslatorKey = '24_hrs'
     | 'popular'
     | 'portal_app_name'
     | 'portal_short_app_name'
+    | 'portal_site_description_format'
+    | 'portal_site_title_format'
     | 'position'
     | 'preview'
     | 'quotes_about_format'
@@ -852,7 +907,7 @@ export type TranslatorKey = '24_hrs'
     | 'weather_on_your_site_info_format'
     | 'weather_on_your_site'
     | 'weather_place_description_format'
-    | 'weather_place_details_info'
+    | 'weather_place_details_info_format'
     | 'weather_place_title_format_10days_format'
     | 'weather_place_title_format'
     | 'weather_short_app_name'

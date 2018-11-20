@@ -3,7 +3,6 @@ import { Request, Response } from "../../base/types";
 import { WeatherBaseHandler } from "../handlers/handler";
 import { WeatherAppData } from "../data";
 import { WeatherViewModelBuilder } from "../view-models/weather-view-model";
-import { WeatherLocaleNames } from "../locale";
 import { getAppIconUrl } from "../../helpers";
 
 export class ManifestRouter extends WeatherBaseRouter {
@@ -19,11 +18,11 @@ class ManifestHandler extends WeatherBaseHandler {
     async handle(appData: WeatherAppData) {
 
         const model = await new WeatherViewModelBuilder(this.input, appData).build();
-        const { translate, config } = model;
+        const { locales, config } = model;
 
         const manifest = {
-            name: translate(WeatherLocaleNames.app_name),
-            short_name: translate(WeatherLocaleNames.short_app_name),
+            name: locales.weather_app_name(),
+            short_name: locales.weather_short_app_name(),
             display: 'standalone',
             gcm_sender_id: '482941778795',
             background_color: config.background_color,

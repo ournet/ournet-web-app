@@ -25,7 +25,7 @@
     "assets:watch": "gulp --gulpfile ./assets/gulpfile.js watch",
     "assets:upload:img": "gulp --gulpfile ./assets/gulpfile.js upload:img",
     "assets:upload": "gulp --gulpfile ./assets/gulpfile.js upload",
-    "generate-locale": "node ./generate-locale.js"
+    "generate-locales": "node ./generate-locales.js"
   },
   "watch": {
     "start": {
@@ -39,7 +39,7 @@
       "legacyWatch": true,
       "delay": 2000
     },
-    "generate-locale": {
+    "generate-locales": {
       "patterns": [
         "locales"
       ],
@@ -119,14 +119,13 @@
     "dotenv": "^6.1.0",
     "ellipsize": "^0.1.0",
     "entipic.url": "^0.1.0",
-    "lang-text": "^0.0.4",
+    "lang-text": "^0.1.0",
     "micro": "^9.3.3",
     "moment-timezone": "^0.5.23",
     "ournet.links": "^0.4.6",
     "ournet.logger": "^0.1.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "roddeh-i18n": "^1.1.1",
     "rss": "^1.2.2",
     "standard-text": "^0.1.1"
   }

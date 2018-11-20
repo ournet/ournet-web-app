@@ -3,7 +3,6 @@ import { Request, Response } from "../../base/types";
 import { HoroscopeBaseHandler } from "../handlers/handler";
 import { HoroscopeAppData } from "../data";
 import { HoroscopeViewModelBuilder } from "../view-models/horoscope-view-model";
-import { HoroscopeLocaleNames } from "../locale";
 import { getAppIconUrl } from "../../helpers";
 
 export class ManifestRouter extends HoroscopeBaseRouter {
@@ -19,11 +18,11 @@ class ManifestHandler extends HoroscopeBaseHandler {
     async handle(appData: HoroscopeAppData) {
 
         const model = await new HoroscopeViewModelBuilder(this.input, appData).build();
-        const { translate, config } = model;
+        const { locales, config } = model;
 
         const manifest = {
-            name: translate(HoroscopeLocaleNames.app_name),
-            short_name: translate(HoroscopeLocaleNames.short_app_name),
+            name: locales.horo_app_name(),
+            short_name: locales.horo_short_app_name(),
             display: 'standalone',
             gcm_sender_id: '482941778795',
             background_color: config.background_color,

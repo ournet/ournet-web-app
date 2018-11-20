@@ -2,12 +2,11 @@
 import * as React from 'react';
 import { HoroscopeViewModel } from '../../view-models/horoscope-view-model';
 import { HeaderPlaceForecast } from '../../../views/components/weather/header-place-forecast';
-import { HoroscopeLocaleNames } from '../../locale';
 import { HeaderLogo } from '../../../views/components/header-logo';
 import { getSchema, getHost } from 'ournet.links';
 import { OurnetProjectName } from '../../../ournet/data';
 
-export function PageHeader({ capital, capitalForecast, links, translate, lang, country }: HoroscopeViewModel) {
+export function PageHeader({ capital, capitalForecast, links, locales, lang, country }: HoroscopeViewModel) {
 
     const placeForecast = capital && capitalForecast
         ? (HeaderPlaceForecast({ links, lang, country, place: capital, forecast: capitalForecast }))
@@ -16,15 +15,15 @@ export function PageHeader({ capital, capitalForecast, links, translate, lang, c
 
     const menuitems = [
         {
-            name: translate(HoroscopeLocaleNames.horoscope),
+            name: locales.horoscope(),
             link: links.horoscope.home({ ul: lang }),
             cssClass: 'c-menu--selected'
         },
         {
-            name: translate(HoroscopeLocaleNames.news),
+            name: locales.news(),
             link: getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country) + links.news.home({ ul: lang }),
         }, {
-            name: translate(HoroscopeLocaleNames.weather),
+            name: locales.weather(),
             link: getSchema(OurnetProjectName.WEATHER, country) + '//' + getHost(OurnetProjectName.WEATHER, country) + links.weather.home({ ul: lang }),
         },
     ];
@@ -34,7 +33,7 @@ export function PageHeader({ capital, capitalForecast, links, translate, lang, c
             <div className='o-layout__item u-2/6 u-1/6@tablet'>
                 {HeaderLogo({
                     url: getSchema(OurnetProjectName.PORTAL, country) + '//' + getHost(OurnetProjectName.PORTAL, country) + links.portal.home({ ul: lang }),
-                    title: translate(HoroscopeLocaleNames.app_name)
+                    title: locales.horo_app_name()
                 })}
             </div>
             <div className='o-layout__item u-4/6 u-3/6@tablet'>

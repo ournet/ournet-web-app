@@ -1,30 +1,29 @@
 import * as React from 'react';
 import { Place, HoursForecastDataBlock, HoursForecastDataPoint, PublicHoliday } from '@ournet/api-client';
 import * as moment from 'moment-timezone';
-import { TranslateFunction } from '../../../../ournet/locale';
 import { WeatherAppConfig } from '../../../config';
-import { WeatherLocaleNames } from '../../../locale';
 import { PlaceDayReport } from './place-day-report';
 import { AdTop } from '../ads/ad-top';
 import { SubscribeBar } from '../subscribe-bar';
 import { AdCenter } from '../ads/ad-center';
+import { OurnetLocales } from '../../../../locales';
 
 export type PlaceDailyReportPorps = {
     lang: string
-    translate: TranslateFunction
+    locales: OurnetLocales
     config: WeatherAppConfig
     place: Place
     report?: HoursForecastDataBlock
     holidays: PublicHoliday[]
 }
 
-export function PlaceDailyReport({ place, report, translate, lang, config, holidays }: PlaceDailyReportPorps) {
+export function PlaceDailyReport({ place, report, locales, lang, config, holidays }: PlaceDailyReportPorps) {
 
     const daysData: HoursForecastDataPoint[][] = []
 
 
     if (!report || !report.data) {
-        return <div className='c-nodata'>{translate(WeatherLocaleNames.forecast_no_data)}</div>
+        return <div className='c-nodata'>{locales.forecast_no_data()}</div>
     }
 
     const timezone = place.timezone;
@@ -48,12 +47,12 @@ export function PlaceDailyReport({ place, report, translate, lang, config, holid
             items.push(AdTop())
         }
         else if (index === 2) {
-            items.push(SubscribeBar({ translate, config, lang, place }))
+            items.push(SubscribeBar({ locales, config, lang, place }))
         }
         else if (index === 5) {
             items.push(AdCenter())
         }
-        items.push(PlaceDayReport({ lang, translate, holidays, filter: index === 0, place, report: { icon: 0, data: dayData } }));
+        items.push(PlaceDayReport({ lang, locales, holidays, filter: index === 0, place, report: { icon: 0, data: dayData } }));
     })
 
     return (

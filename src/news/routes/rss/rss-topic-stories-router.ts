@@ -4,7 +4,6 @@ import { NewsEventStringFields, NewsEvent, Topic, TopicStringFields } from "@our
 import { NewsBaseHandler } from "../../handlers/handler";
 import { INewsAppData } from "../../data";
 import * as Rss from 'rss';
-import { NewsLocaleNames } from "../../locale";
 import { getSchema, getHost } from "ournet.links";
 import { createStoryFeedItem } from "../../../helpers";
 import { OurnetViewModelInput } from "../../../ournet/view-model";
@@ -31,7 +30,7 @@ export class RssTopicStoriesRouter extends NewsBaseRouter<RssTopicStoriesRouterD
 class RssHandler extends NewsBaseHandler<RssTopicStoriesViewModelInput> {
     async handle(data: INewsAppData) {
         const viewData = await new RssTopicViewModelBuilder(this.input, data).build();
-        const { translate, country, project, links, lang, topic } = viewData;
+        const { locales, country, project, links, lang, topic } = viewData;
 
         if (!topic) {
             throw notFound(`Not found topic slug=${this.input.slug}`);
@@ -39,7 +38,7 @@ class RssHandler extends NewsBaseHandler<RssTopicStoriesViewModelInput> {
 
         this.setCacheControl(15);
 
-        const title = translate(NewsLocaleNames.topic_latest_news, { name: topic.name });
+        const title = locales.topic_latest_news_format({ name: topic.name });
 
         const schema = getSchema(project, country);
         const host = getHost(project, country);
@@ -51,7 +50,7 @@ class RssHandler extends NewsBaseHandler<RssTopicStoriesViewModelInput> {
             language: lang,
             pubDate: new Date(),
             ttl: 15,
-            generator: translate(NewsLocaleNames.app_name),
+            generator: locales.news_app_name(),
         });
 
         const events = viewData.events || [];

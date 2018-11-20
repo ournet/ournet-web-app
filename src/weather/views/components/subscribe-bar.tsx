@@ -1,19 +1,18 @@
 
 import * as React from 'react';
 import { Place } from '@ournet/api-client';
-import { TranslateFunction } from '../../../ournet/locale';
 import { WeatherAppConfig } from '../../config';
-import { WeatherLocaleNames } from '../../locale';
 import { getPlaceName } from '../../../helpers';
+import { OurnetLocales } from '../../../locales';
 
 export type SubscribeBarProps = {
-  translate: TranslateFunction
+  locales: OurnetLocales
   place: Place
   config: WeatherAppConfig
   lang: string
 }
 
-export function SubscribeBar({ translate, config, lang, place }: SubscribeBarProps) {
+export function SubscribeBar({ locales, config, lang, place }: SubscribeBarProps) {
 
   if (!config.oneSignal) {
     return null;
@@ -22,7 +21,7 @@ export function SubscribeBar({ translate, config, lang, place }: SubscribeBarPro
   return (
     <div>
       <div className="c-subscribe-bar u-hidden" data-place-id={place.id} data-admin1-code={place.admin1Code}>
-        <div className="c-subscribe-bar__btn">{translate(WeatherLocaleNames.notifications_subscribe_for_place, { name: getPlaceName(place, lang) })}</div>
+        <div className="c-subscribe-bar__btn">{locales.weather_notifications_subscribe_for_place_format({ name: getPlaceName(place, lang) })}</div>
       </div>
       <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
       <script dangerouslySetInnerHTML={{

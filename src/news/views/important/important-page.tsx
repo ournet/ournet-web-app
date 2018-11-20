@@ -1,7 +1,6 @@
 
 import * as React from 'react';
 import CommonLayout from '../common-layout';
-import { NewsLocaleNames } from '../../locale';
 import { EventListItem } from '../components/event-list-item';
 import { QuoteListItem } from '../components/quote-list-item';
 import { GroupHeader } from '../../../views/components/group-header';
@@ -12,9 +11,9 @@ import { AdCenter } from '../components/ads/ad-center';
 
 export default class ImportantPage extends React.Component<ImportantViewModel> {
     render() {
-        const { lang, head, translate, links, importantEvents, latestQuotes, title, subTitle, config, country } = this.props;
+        const { lang, head, locales, links, importantEvents, latestQuotes, title, subTitle, config, country } = this.props;
 
-        head.elements.push(<link key='important-rss' rel="alternate" type="application/rss+xml" title={translate(NewsLocaleNames.important_news)} href={links.news.rss.stories.important({ ul: lang })}></link>);
+        head.elements.push(<link key='important-rss' rel="alternate" type="application/rss+xml" title={locales.important_news()} href={links.news.rss.stories.important({ ul: lang })}></link>);
 
         const list1 = importantEvents.slice(0, importantEvents.length / 2);
         const list2 = importantEvents.slice(importantEvents.length / 2);
@@ -34,7 +33,7 @@ export default class ImportantPage extends React.Component<ImportantViewModel> {
                     </div>
 
                     <div className='c-group'>
-                        {GroupHeader({ name: translate(NewsLocaleNames.latest_quotes), link: links.news.quotes({ ul: lang }), type: 'important' })}
+                        {GroupHeader({ name: locales.latest_quotes(), link: links.news.quotes({ ul: lang }), type: 'important' })}
                         <div className='o-layout'>
                             {latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ country, lang, links, timezone: config.timezone, item, view: 'card' })}</div>)}
                         </div>

@@ -1,5 +1,5 @@
 import { OurnetApp } from "../ournet/app";
-import { IOurnetAppData, OurnetProjectName } from "../ournet/data";
+import { OurnetAppData, OurnetProjectName } from "../ournet/data";
 import { IndexRouter } from "./routes/index-router";
 import { AppleIconRouter } from "../ournet/routers/apple-icon-router";
 import { FaviconRouter } from "../ournet/routers/favicon-router";
@@ -12,7 +12,7 @@ import { getHostInfo } from "../hosts";
 import { RobotsRouter } from "./routes/static-router";
 import { PrefixOldWidgetRedirectRouter } from "./routes/redirect-router";
 
-export class PortalOurnetApp extends OurnetApp<IOurnetAppData> {
+export class PortalOurnetApp extends OurnetApp<OurnetAppData> {
 
     constructor() {
         super([

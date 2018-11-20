@@ -6,14 +6,13 @@ import { PageTitle } from '../../../views/components/page-title';
 import { Widget1Config } from './components/widget1-config';
 import { Widget2Config } from './components/widget2-config';
 import { WidgetConfigs } from './components/widget-configs';
-import { WeatherLocaleNames } from '../../locale';
 import { getAssetUrl } from '../../../assets';
 import env from '../../../env';
 import Layout from '../layout';
 
 export function WidgetPage(props: WidgetViewModel) {
 
-    const { translate, lang, config, head, project } = props;
+    const { locales, lang, config, head, project } = props;
 
     return (
         <Layout {...props}>
@@ -34,11 +33,11 @@ export function WidgetPage(props: WidgetViewModel) {
                     </div>
                     <div className='o-layout__item u-3/5@tablet'>
                         <div id='widget-preview'>
-                            <h3>{translate(WeatherLocaleNames.preview)}</h3>
+                            <h3>{locales.preview()}</h3>
                             <br />
                             <div id='widget-iframe'></div>
                             <br />
-                            <h3>{translate(WeatherLocaleNames.html_code)}</h3>
+                            <h3>{locales.html_code()}</h3>
                             <textarea id="widget-script"></textarea>
                         </div>
                     </div>

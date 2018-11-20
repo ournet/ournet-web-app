@@ -3,15 +3,14 @@ import * as React from 'react';
 import { Place, HoursForecastDataBlock, PublicHoliday } from '@ournet/api-client';
 import * as moment from 'moment-timezone';
 import { ForecastHelper } from '@ournet/weather-domain';
-import { TranslateFunction } from '../../../../ournet/locale';
 import { ForecastIcon } from '../../../../views/components/weather/forecast-icon';
 import { ForecastTemp } from '../../../../views/components/weather/forecast-temp';
 import { toBeaufort, unixTime } from '../../../../helpers';
-import { WeatherLocaleNames } from '../../../locale';
+import { OurnetLocales } from '../../../../locales';
 
 
 export type PlaceDayReportProps = {
-    translate: TranslateFunction
+    locales: OurnetLocales
     lang: string
     place: Place
     report: HoursForecastDataBlock
@@ -19,7 +18,7 @@ export type PlaceDayReportProps = {
     holidays: PublicHoliday[]
 }
 
-export function PlaceDayReport({ place, report, lang, translate, filter, holidays }: PlaceDayReportProps) {
+export function PlaceDayReport({ place, report, lang, locales, filter, holidays }: PlaceDayReportProps) {
 
     const timezone = place.timezone;
     const dayDate = moment(report.data[report.data.length - 1].time * 1000).tz(timezone).locale(lang);
@@ -64,10 +63,10 @@ export function PlaceDayReport({ place, report, lang, translate, filter, holiday
                 </div>
             </div>
             <div className='dr-head'>
-                <div className='dr-h dr-h-date'>{translate(WeatherLocaleNames.report_hour)}</div>
-                <div className='dr-h dr-h-temp'>{translate(WeatherLocaleNames.temperature) + ' °C'}</div>
-                <div className='dr-h dr-h-wind'>{translate(WeatherLocaleNames.wind)}, {translate(WeatherLocaleNames.item_wind_speed_ms)}</div>
-                <div className='dr-h dr-h-hum'>{translate(WeatherLocaleNames.humidity)}</div>
+                <div className='dr-h dr-h-date'>{locales.hour()}</div>
+                <div className='dr-h dr-h-temp'>{locales.temperature() + ' °C'}</div>
+                <div className='dr-h dr-h-wind'>{locales.wind()}, {locales.item_wind_speed_ms()}</div>
+                <div className='dr-h dr-h-hum'>{locales.humidity()}</div>
             </div>
             <div className='dr-body'>
                 {items}

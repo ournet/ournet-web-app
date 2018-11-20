@@ -1,5 +1,5 @@
 
-import { INewsAppConfig } from "../config";
+import { NewsAppConfig } from "../config";
 import { PageViewModelBuilder, PageViewModel } from "../../ournet/page-view-model";
 import { INewsAppData } from "../data";
 import moment = require("moment-timezone");
@@ -10,7 +10,7 @@ import { OurnetViewModelInput } from "../../ournet/view-model";
 
 
 export class NewsViewModelBuilder<T extends NewsViewModel, I extends OurnetViewModelInput>
-    extends PageViewModelBuilder<INewsAppData, INewsAppConfig, T, I> {
+    extends PageViewModelBuilder<INewsAppData, NewsAppConfig, T, I> {
 
     constructor(input: I, data: INewsAppData) {
         super(input, data);
@@ -59,7 +59,7 @@ export class NewsViewModelBuilder<T extends NewsViewModel, I extends OurnetViewM
         return super.build();
     }
 
-    protected getLanguage(config: INewsAppConfig) {
+    protected getLanguage(config: NewsAppConfig) {
         const regResult = /^\/([a-z]{2})\//.exec(this.input.url.pathname || '');
         let lang = this.input.url.query['ul'] as string;
         if (regResult) {
@@ -73,7 +73,7 @@ export class NewsViewModelBuilder<T extends NewsViewModel, I extends OurnetViewM
     }
 }
 
-export interface NewsViewModel extends PageViewModel<INewsAppConfig> {
+export interface NewsViewModel extends PageViewModel<NewsAppConfig> {
     currentDate: moment.Moment
     capital: Place
     capitalForecast: HourlyForecastDataPoint

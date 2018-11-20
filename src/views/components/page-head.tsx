@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { IOurnetAppConfig } from '../../ournet/config';
+import { OurnetAppConfig } from '../../ournet/config';
 import { PageViewModel } from '../../ournet/page-view-model';
 import env from '../../env';
 import { getAssetUrl } from '../../assets';
 import { getAppIconUrl } from '../../helpers';
 
-export function PageHead({ config, head, lang, country, project }: PageViewModel<IOurnetAppConfig>) {
+export function PageHead({ config, head, lang, country, project }: PageViewModel<OurnetAppConfig>) {
 
     return (
         <head>

@@ -4,7 +4,6 @@ import { NewsEventStringFields, QuoteStringFields, NewsEvent, Quote, NewsItem, T
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { TopicHelper } from "@ournet/topics-domain";
 import { notFound } from "boom";
-import { NewsLocaleNames } from "../locale";
 
 
 export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicViewModelInput>
@@ -13,7 +12,7 @@ export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicView
     async build() {
         const model = this.model;
 
-        const { lang, country, translate, head, links } = model;
+        const { lang, country, locales, head, links } = model;
         let { slug } = this.input;
         model.slug = slug = slug.trim().toLowerCase();
         const id = TopicHelper.formatIdFromSlug(slug, { lang, country });
@@ -32,8 +31,8 @@ export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicView
 
         const displayName = model.displayName = commonName + (topic.abbr && topic.abbr.length < 10 ? ` (${topic.abbr})` : '');
 
-        head.title = translate(NewsLocaleNames.page_topic_title, { name: displayName });
-        head.description = translate(NewsLocaleNames.topic_description, { name: topic.name });
+        head.title = locales.news_topic_title_format({ name: displayName });
+        head.description = locales.news_topic_description_format({ name: topic.name });
 
         this.setCanonical(links.news.topic(slug, { ul: lang }));
 

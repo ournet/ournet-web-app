@@ -3,7 +3,6 @@ import { Request, Response } from "../../base/types";
 import { PortalBaseHandler } from "../handlers/handler";
 import { IPortalAppData } from "../data";
 import { PortalViewModelBuilder } from "../view-models/portal-view-model";
-import { PortalLocaleNames } from "../locale";
 import { getAppIconUrl } from "../../helpers";
 
 export class ManifestRouter extends PortalBaseRouter {
@@ -19,11 +18,11 @@ class ManifestHandler extends PortalBaseHandler {
     async handle(appData: IPortalAppData) {
 
         const model = await new PortalViewModelBuilder(this.input, appData).build();
-        const { translate, config } = model;
+        const { locales, config } = model;
 
         const manifest = {
-            name: translate(PortalLocaleNames.app_name),
-            short_name: translate(PortalLocaleNames.short_app_name),
+            name: locales.portal_app_name(),
+            short_name: locales.portal_short_app_name(),
             display: 'standalone',
             gcm_sender_id: '482941778795',
             background_color: config.background_color,

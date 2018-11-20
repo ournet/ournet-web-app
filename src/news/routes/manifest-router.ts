@@ -3,7 +3,6 @@ import { Request, Response } from "../../base/types";
 import { NewsBaseHandler } from "../handlers/handler";
 import { INewsAppData } from "../data";
 import { NewsViewModelBuilder } from "../view-models/news-view-model";
-import { NewsLocaleNames } from "../locale";
 import { getAppIconUrl } from "../../helpers";
 
 export class ManifestRouter extends NewsBaseRouter {
@@ -19,11 +18,11 @@ class ManifestHandler extends NewsBaseHandler {
     async handle(appData: INewsAppData) {
 
         const model = await new NewsViewModelBuilder(this.input, appData).build();
-        const { translate, config } = model;
+        const { locales, config } = model;
 
         const manifest = {
-            name: translate(NewsLocaleNames.app_name),
-            short_name: translate(NewsLocaleNames.short_app_name),
+            name: locales.news_app_name(),
+            short_name: locales.news_short_app_name(),
             display: 'standalone',
             gcm_sender_id: '482941778795',
             background_color: config.background_color,

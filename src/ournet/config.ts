@@ -1,6 +1,6 @@
 import { OurnetProjectName } from "./data";
 
-export interface IOurnetAppConfig {
+export interface OurnetAppConfig {
     readonly background_color: string
     readonly theme_color: string
     readonly email: string
@@ -20,7 +20,7 @@ export interface IOurnetAppConfig {
     }
 }
 
-export function createAppConfig<T extends IOurnetAppConfig>(project: OurnetProjectName, country: string) {
+export function createAppConfig<T extends OurnetAppConfig>(project: OurnetProjectName, country: string) {
     const config = require(`../../config/${project}/${country}.json`);
 
     return config as T;

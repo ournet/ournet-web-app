@@ -2,7 +2,6 @@
 import * as React from 'react';
 import CommonLayout from '../common-layout';
 import { TopicViewModel } from '../../view-models/topic-view-model';
-import { NewsLocaleNames } from '../../locale';
 import { entipicUrl } from '../../../helpers';
 // import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
@@ -14,10 +13,10 @@ import { AdCenter } from '../components/ads/ad-center';
 
 export default class TopicPage extends React.Component<TopicViewModel> {
     render() {
-        const { lang, head, country, translate, links, latestEvents, topic, slug, displayName, config, topicEvents, topicNews, aboutQuotes, byQuotes } = this.props;
+        const { lang, head, country, locales, links, latestEvents, topic, slug, displayName, config, topicEvents, topicNews, aboutQuotes, byQuotes } = this.props;
 
         const commonName = topic.commonName || topic.name;
-        const title = translate(NewsLocaleNames.topic_title, { name: displayName });
+        const title = locales.news_topic_title_format({ name: displayName });
 
         head.elements.push(<link key='topic-rss' rel="alternate" type="application/rss+xml" title={title} href={links.news.rss.stories.topic(slug, { ul: lang })}></link>);
 
@@ -45,7 +44,7 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                             </div> : null}
                             {topicEvents.length > 0 ?
                                 <div className='c-section'>
-                                    {SectionHeader({ name: (topic.abbr || commonName) + ' - ' + translate(NewsLocaleNames.latest_events), h: "h4" })}
+                                    {SectionHeader({ name: (topic.abbr || commonName) + ' - ' + locales.latest_events(), h: "h4" })}
                                     <div className='o-layout'>
                                         {topicEvents.map(item => <div key={item.id} className='o-layout__item u-1/2'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
                                     </div>
@@ -56,19 +55,19 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                         </div>
                         <div className='o-layout__item u-2/5@tablet'>
                             {byQuotes && byQuotes.length > 0 ? <div>
-                                {SectionHeader({ name: translate(NewsLocaleNames.quotes_by_author, { name: topic.abbr || commonName }), h: "h4" })}
+                                {SectionHeader({ name: locales.quotes_by_author_format({ name: topic.abbr || commonName }), h: "h4" })}
                                 {byQuotes.map(item => QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item }))}
                             </div> : null}
                             {/* {adAside()} */}
                             {aboutQuotes && aboutQuotes.length > 0 ? <div>
-                                {SectionHeader({ name: translate(NewsLocaleNames.quotes_about, { name: topic.abbr || commonName }), h: "h4" })}
+                                {SectionHeader({ name: locales.quotes_about_format({ name: topic.abbr || commonName }), h: "h4" })}
                                 {aboutQuotes.map(item => QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item }))}
                             </div> : null}
                         </div>
                     </div>
 
                     <div className='c-section'>
-                        {SectionHeader({ name: translate(NewsLocaleNames.latest_events) })}
+                        {SectionHeader({ name: locales.latest_events() })}
                         <div className='o-layout'>
                             {latestEvents && latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
                         </div>

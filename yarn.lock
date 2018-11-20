@@ -5036,10 +5036,10 @@ labeled-stream-splicer@^2.0.0:
     isarray "^2.0.4"
     stream-splicer "^2.0.0"
 
-lang-text@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/lang-text/-/lang-text-0.0.4.tgz#05caff383f9da6d6de9dda576a36569378e56418"
-  integrity sha512-Tc4OI3+k0CVkCJ4OPNZ1eGpuRt3XOEgsy1me4kYWuDLovaRgXOYIHZTjssTnpN0kE3DOvZCwlUvUIIfBrhNUWA==
+lang-text@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/lang-text/-/lang-text-0.1.0.tgz#79264616a8254fdb961f015f5492b9815a31e15a"
+  integrity sha512-MXcmBNuauXr8vecjRy3ZAEpwp5IrJlFI+RZql9MdF1JVmJBXJ46LXOX7YWhYOjUv+/Dfr0SV4vXGhI7zcxfHJQ==
   dependencies:
     sprintf-js "^1.1.1"
     sprintf-ts "^0.1.0"
@@ -7319,11 +7319,6 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
-
-roddeh-i18n@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/roddeh-i18n/-/roddeh-i18n-1.1.1.tgz#b04869eeffdf1c935c52f0ba102e1d41b90effae"
-  integrity sha512-lNC6f8CsbZZcgky0zbVMrVGnv0hcnHF5JPlCm2BICDCojYsP5t3DSx4H3G81JoPiU0Ps5LvEhS+gtNa24+FOlA==
 
 rss@^1.2.2:
   version "1.2.2"

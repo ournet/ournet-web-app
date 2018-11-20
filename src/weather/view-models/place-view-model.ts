@@ -5,9 +5,8 @@ import * as util from 'util';
 import { atonic } from "@ournet/domain";
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { unixTime, getPlaceName } from "../../helpers";
-import { TranslateFunction } from "../../ournet/locale";
-import { WeatherLocaleNames } from "../locale";
 import { WeatherPlaceHelper } from "../place-helper";
+import { OurnetLocales } from "../../locales";
 
 
 export interface PlaceViewModel extends WeatherViewModel {
@@ -26,7 +25,7 @@ export class PlaceViewModelBuilder extends WeatherViewModelBuilder<PlaceViewMode
     async build() {
         const id = this.input.id;
         const model = this.model;
-        const { country, lang, translate, links } = model;
+        const { country, lang, locales, links } = model;
 
         const localeApi = this.data.createQueryApiClient<{ place: Place }>();
         const result = await this.executeApiClient(localeApi.placesPlaceById('place', {
@@ -39,7 +38,7 @@ export class PlaceViewModelBuilder extends WeatherViewModelBuilder<PlaceViewMode
 
         const place = this.model.place = result.place;
 
-        const info = getPageInfo(place, translate, lang);
+        const info = getPageInfo(place, locales, lang);
 
         model.head.title = info.pageTitle;
         model.head.description = info.description;
@@ -66,7 +65,7 @@ export class PlaceViewModelBuilder extends WeatherViewModelBuilder<PlaceViewMode
     }
 }
 
-function getPageInfo(place: Place, translate: TranslateFunction, lang: string) {
+function getPageInfo(place: Place, locales: OurnetLocales, lang: string) {
 
     const name = getPlaceName(place, lang)
     const inname = WeatherPlaceHelper.inPlaceName(place, lang)
@@ -79,16 +78,13 @@ function getPageInfo(place: Place, translate: TranslateFunction, lang: string) {
 
     //if is adm1
     if (!adm1) {
-        pageTitle = translate(WeatherLocaleNames.weather_item_head_title_format,
-            { name1: inname, name2: name });
+        pageTitle = locales.weather_place_title_format({ name1: inname, name2: name });
 
-        description = translate(WeatherLocaleNames.weather_item_head_description_format,
-            { name1: inname + util.format(' (%s)', place.name), name2: place.asciiname });
+        description = locales.weather_place_description_format({ name1: inname + util.format(' (%s)', place.name), name2: place.asciiname });
 
-        title = translate(WeatherLocaleNames.weather_title_format, { name: inname });
+        title = locales.weather_in_format({ name: inname });
 
-        subTitle = translate(WeatherLocaleNames.place_weather_details_info,
-            { name1: name, name2: place.asciiname, name3: place.name });
+        subTitle = locales.weather_place_details_info_format({ name1: name, name2: place.asciiname, name3: place.name });
 
     } else {
 
@@ -103,21 +99,19 @@ function getPageInfo(place: Place, translate: TranslateFunction, lang: string) {
                 : longname;
         }
 
-        pageTitle = translate(WeatherLocaleNames.weather_item_head_title_format,
-            { name1: longname, name2: name });
+        pageTitle = locales.weather_place_title_format({ name1: longname, name2: name });
 
         if (pageTitle.length > 80) {
-            pageTitle = translate(WeatherLocaleNames.weather_item_head_title_format,
-                { name1: longname, name2: name });
+            pageTitle = locales.weather_place_title_format({ name1: longname, name2: name });
         }
 
-        description = translate(WeatherLocaleNames.weather_item_head_description_format,
+        description = locales.weather_place_description_format(
             { name1: longname + util.format(' (%s, %s)', place.asciiname, adm1.asciiname), name2: place.name });
 
-        subTitle = translate(WeatherLocaleNames.place_weather_details_info,
+        subTitle = locales.weather_place_details_info_format(
             { name1: longname, name2: util.format('%s, %s', place.asciiname, admname), name3: name });
 
-        title = translate(WeatherLocaleNames.weather_title_format, { name: longname });
+        title = locales.weather_in_format({ name: longname });
     }
 
     if (lang === 'ro') {

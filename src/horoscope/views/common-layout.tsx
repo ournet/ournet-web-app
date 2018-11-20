@@ -2,7 +2,6 @@ import * as React from 'react';
 import { HoroscopeViewModel } from '../view-models/horoscope-view-model';
 import Layout from './layout';
 import { AdAside } from './components/ads/ad-aside';
-import { HoroscopeLocaleNames } from '../locale';
 import { SectionHeader } from '../../views/components/section-header';
 import { getSchema, getHost } from 'ournet.links';
 import { OurnetProjectName } from '../../ournet/data';
@@ -12,7 +11,7 @@ import env from '../../env';
 
 export default class CommonLayout extends React.Component<HoroscopeViewModel> {
     render() {
-        const { project, children, latestNews, translate, country, links, lang, config } = this.props;
+        const { project, children, latestNews, locales, country, links, lang, config } = this.props;
         return (
             <Layout {...this.props}>
                 <div className="o-layout">
@@ -23,7 +22,7 @@ export default class CommonLayout extends React.Component<HoroscopeViewModel> {
                         {latestNews && latestNews.length > 0 &&
                             <div className='c-section'>
                                 {SectionHeader({
-                                    name: translate(HoroscopeLocaleNames.latest_news),
+                                    name: locales.latest_news(),
                                     link: getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country) + links.news.home({ ul: lang })
                                 })}
                                 <div className="o-layout o-layout--small">

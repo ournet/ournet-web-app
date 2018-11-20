@@ -3,23 +3,22 @@ import * as React from 'react';
 import { NewsItem, NewsEvent } from '@ournet/api-client';
 import { ImageStorageHelper } from '@ournet/images-domain';
 import { Sitemap } from 'ournet.links';
-import { TranslateFunction } from '../../../ournet/locale';
 import { EventMediaPropsImage, EventMedia } from '../event/event-media';
 import { truncateAt } from '../../../helpers';
-import { NewsLocaleNames } from '../../locale';
 import { createMediaGalleryModel } from '../../view-models/media-gallery-model';
 import GalleryResources from '../components/gallery-resources';
+import { OurnetLocales } from '../../../locales';
 
 export type ItemMediaProps = {
     item: NewsItem
     event?: NewsEvent
     links: Sitemap
-    translate: TranslateFunction
+    locales: OurnetLocales
 }
 
 
 
-export function ItemMedia({ item, event, translate }: ItemMediaProps) {
+export function ItemMedia({ item, event, locales }: ItemMediaProps) {
 
     if (!item.imagesIds && !event) {
         return null;
@@ -39,14 +38,14 @@ export function ItemMedia({ item, event, translate }: ItemMediaProps) {
     }
 
     if (event) {
-        return EventMedia({ event, image, translate });
+        return EventMedia({ event, image, locales });
     }
 
     if (!image) {
         return null;
     }
 
-    const mediaTitle = translate(NewsLocaleNames.foto_video_from_event_format, truncateAt(item.title, 70));
+    const mediaTitle = locales.foto_video_from_event_format({ name: truncateAt(item.title, 70) });
     const imageColor = image.id.split(/-/g)[1];
 
     const galleryModel = createMediaGalleryModel({ event, item });

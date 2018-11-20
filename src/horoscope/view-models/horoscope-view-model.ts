@@ -6,7 +6,6 @@ import moment = require("moment-timezone");
 import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, NewsEvent, NewsEventStringFields } from "@ournet/api-client";
 import logger from "../../logger";
 import { OurnetViewModelInput } from "../../ournet/view-model";
-import { HoroscopeLocaleNames } from "../locale";
 
 
 export class HoroscopeViewModelBuilder<T extends HoroscopeViewModel, I extends OurnetViewModelInput=OurnetViewModelInput>
@@ -16,7 +15,7 @@ export class HoroscopeViewModelBuilder<T extends HoroscopeViewModel, I extends O
         super(input, data);
 
         const model = this.model;
-        const { lang, translate } = model;
+        const { lang, locales } = model;
         const currentDate = model.currentDate = moment().tz(model.config.timezone).locale(lang);
 
         model.currentDayPeriod = 'D' + currentDate.format('YYYYMMDD');
@@ -25,7 +24,7 @@ export class HoroscopeViewModelBuilder<T extends HoroscopeViewModel, I extends O
         const weekStartDate = currentDate.clone().isoWeekday(1).locale(lang);
         const weekEndDate = currentDate.clone().isoWeekday(7).locale(lang);
 
-        model.currentDayPeriodText = currentDate.format(translate(HoroscopeLocaleNames.day_format));
+        model.currentDayPeriodText = currentDate.format(locales.day_format());
         model.currentWeekPeriodText = weekStartDate.format('D MMM') + ' - ' + weekEndDate.format('D MMMM YYYY');
     }
 

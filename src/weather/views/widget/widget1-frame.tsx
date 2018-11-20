@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Widget1ViewModel } from '../../view-models/widget1-view-model';
 import { ForecastHelper } from '@ournet/weather-domain';
 import * as moment from 'moment-timezone';
-import { WeatherLocaleNames } from '../../locale';
 import { getPlaceName } from '../../../helpers';
 import * as util from 'util';
 import { getHost } from 'ournet.links';
@@ -64,10 +63,10 @@ ga('send', 'pageview');`}}></script>
 }
 
 function formatWidget(props: Widget1ViewModel) {
-    const { place, lang, links, w, translate, days, htcolor, report, bcolor, bkcolor, hbkcolor } = props;
+    const { place, lang, links, w, locales, days, htcolor, report, bcolor, bkcolor, hbkcolor } = props;
     const id = place.id;
     const placename = getPlaceName(place, lang);
-    const longtitle = translate(WeatherLocaleNames.weather_in_format, { name: placename });
+    const longtitle = locales.weather_in_format( { name: placename });
     let title = longtitle;
 
     const url = links.weather.place(id, {

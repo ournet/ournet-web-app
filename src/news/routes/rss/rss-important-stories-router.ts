@@ -5,8 +5,6 @@ import { NewsEventStringFields } from "@ournet/api-client";
 import { NewsBaseHandler } from "../../handlers/handler";
 import { INewsAppData } from "../../data";
 import * as Rss from 'rss';
-import { NewsLocaleNames } from "../../locale";
-import { LocaleHelpers } from "../../../ournet/locale";
 import { getSchema, getHost } from "ournet.links";
 import { createStoryFeedItem } from "../../../helpers";
 
@@ -26,12 +24,12 @@ export class RssImportantRouter extends NewsBaseRouter {
 class RssHandler extends NewsBaseHandler {
     async handle(data: INewsAppData) {
         const viewData = await new RssImportantViewModelBuilder(this.input, data).build();
-        const { translate, country, project, links, lang } = viewData;
+        const { locales, country, project, links, lang } = viewData;
 
         this.setCacheControl(60 * 3);
 
-        const title = translate(NewsLocaleNames.important_news);
-        const description = translate(NewsLocaleNames.most_important_news_in_last_7days_country, { country: LocaleHelpers.getCountryName(translate, country) });
+        const title = locales.important_news();
+        const description = locales.most_important_news_in_last_7days_country_format({ country: locales.getCountryName(country) });
 
         const schema = getSchema(project, country);
         const host = getHost(project, country);
@@ -44,7 +42,7 @@ class RssHandler extends NewsBaseHandler {
             language: lang,
             pubDate: new Date(),
             ttl: 3 * 60,
-            generator: translate(NewsLocaleNames.app_name),
+            generator: locales.news_app_name(),
         });
 
         const events = viewData.importantEvents || [];

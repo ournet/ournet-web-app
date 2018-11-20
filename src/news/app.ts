@@ -1,5 +1,5 @@
 import { OurnetApp } from "../ournet/app";
-import { IOurnetAppData, OurnetProjectName } from "../ournet/data";
+import { OurnetAppData, OurnetProjectName } from "../ournet/data";
 import { IndexRouter } from "./routes/index-router";
 import { ImportantRouter } from "./routes/important-router";
 import { QuotesRouter } from "./routes/quotes-router";
@@ -22,7 +22,7 @@ import { parse } from "url";
 import { getHostInfo } from "../hosts";
 import { RobotsRouter } from "./routes/static-router";
 
-export class NewsOurnetApp extends OurnetApp<IOurnetAppData> {
+export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
 
     constructor() {
         super([

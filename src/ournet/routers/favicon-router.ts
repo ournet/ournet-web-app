@@ -1,7 +1,7 @@
 import { OurnetRouter } from "../router";
 import { Request, Response } from "../../base/types";
 import { Handler } from "../../base/handler";
-import { IOurnetAppData } from "../data";
+import { OurnetAppData } from "../data";
 import { OurnetViewModelInput } from "../view-model";
 import { createAppConfig } from "../config";
 import { getAppIconUrl } from "../../helpers";
@@ -16,7 +16,7 @@ export class FaviconRouter extends OurnetRouter {
     }
 }
 
-class FaviconHandler extends Handler<IOurnetAppData, OurnetViewModelInput> {
+class FaviconHandler extends Handler<OurnetAppData, OurnetViewModelInput> {
     handle() {
         this.setCacheControl(60 * 24 * 30);
 

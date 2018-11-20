@@ -3,7 +3,6 @@ import * as React from 'react';
 import CommonLayout from '../common-layout';
 import { ImageStorageHelper } from '@ournet/images-domain';
 import { ItemViewModel } from '../../view-models/item-view-model';
-import { NewsLocaleNames } from '../../locale';
 import { FormatArticleContent } from '../components/format-article-content';
 import * as moment from 'moment-timezone';
 import { ItemMedia } from './item-media';
@@ -17,7 +16,7 @@ import { AdAside } from '../components/ads/ad-aside';
 
 export default class ItemPage extends React.Component<ItemViewModel> {
     render() {
-        const { lang, country, head, translate, links, latestEvents, item, config, articleContent, similarEvents, event } = this.props;
+        const { lang, country, head, locales, links, latestEvents, item, config, articleContent, similarEvents, event } = this.props;
 
         let imageLargeUrl: string | null = null;
         if (item.imagesIds) {
@@ -29,7 +28,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
             head.elements.push(<meta key='og_image' property="og:image" content={imageLargeUrl} />);
         }
         head.elements.push(<meta key='published_time' property="article:published_time" content={item.createdAt} />);
-        head.elements.push(<meta key='publisher' property="article:publisher" content={translate(NewsLocaleNames.app_name)} />);
+        head.elements.push(<meta key='publisher' property="article:publisher" content={locales.news_app_name()} />);
         if (item.topics) {
             for (let tag of item.topics) {
                 head.elements.push(<meta key={`tag-${tag.id}`} property="article:tag" content={tag.name} />);
@@ -49,7 +48,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                     <div className='o-layout'>
                         <div className='o-layout__item u-4/6@desktop'>
                             <article className='c-event'>
-                                {ItemMedia({ event, item, translate, links })}
+                                {ItemMedia({ event, item, locales, links })}
                                 <div className='c-event__body'>
                                     <div className='o-layout o-layout--small'>
                                         <div className='o-layout__item u-1/6@tablet'>
@@ -59,12 +58,12 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                                             {Share({ url: head.canonical, align: 'right', services: config.shareServices, lang: lang })}
                                             <div className='c-event__stats'>
                                                 <time dateTime={item.createdAt}>{createdAt.format('lll') + ', '}</time>
-                                                {translate(NewsLocaleNames.count_views_format, item.countViews)}
+                                                {locales.count_views_format(item.countViews)}
                                             </div>
                                             <div className='c-event__text'>
                                                 {paragraphs}
                                             </div>
-                                            {OutReadMoreLink({ url: item.urlHost + item.urlPath, source: startWithUpperCase(item.sourceId), links, translate })}
+                                            {OutReadMoreLink({ url: item.urlHost + item.urlPath, source: startWithUpperCase(item.sourceId), links, locales })}
                                             <hr />
                                             <ul className='c-event__tags'>
                                                 {(item.topics || []).map(item => <li key={item.id}>{TopicListItem({ links, lang, item, view: 'tag' })}</li>)}
@@ -75,7 +74,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                             </article>
 
                             {similarEvents.length > 0 ?
-                                <div className='c-section'>{SectionHeader({ name: translate(NewsLocaleNames.related_news) })}
+                                <div className='c-section'>{SectionHeader({ name: locales.related_news() })}
                                     <div key='layout' className='o-layout'>
                                         {similarEvents.slice(0, 2).map(item => <div key={item.id} className='o-layout__item u-1/2@tablet'>{EventListItem({ item, lang, links, country, timezone: config.timezone, view: 'card' })}</div>)}
                                     </div>
@@ -85,7 +84,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                         <div className='o-layout__item u-2/6@desktop'>
                             {AdAside()}
                             <div className='c-section'>
-                                {SectionHeader({ name: translate(NewsLocaleNames.latest_events), link: links.news.home({ ul: lang }) })}
+                                {SectionHeader({ name: locales.latest_events(), link: links.news.home({ ul: lang }) })}
                                 <div className='o-layout o-layout--small'>
                                     {latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@tablet u-1/1@desktop'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card-bare' })}</div>)}
                                 </div>

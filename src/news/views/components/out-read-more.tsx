@@ -1,18 +1,17 @@
 
 import * as React from 'react';
 import { Sitemap } from 'ournet.links';
-import { TranslateFunction } from '../../../ournet/locale';
-import { NewsLocaleNames } from '../../locale';
+import { OurnetLocales } from '../../../locales';
 
 export type OutReadMoreProps = {
     url: string
     links: Sitemap
-    translate: TranslateFunction
+    locales: OurnetLocales
     source: string
 }
 
-export function OutReadMoreLink({ links, url, translate, source }: OutReadMoreProps) {
+export function OutReadMoreLink({ links, url, locales, source }: OutReadMoreProps) {
     return (
-        <div className='c-out'><a target='_blank' rel='nofollow noindex' href={links.news.url({ url })}>{translate(NewsLocaleNames.read_more_on_source, { name: source })} ›</a></div>
+        <div className='c-out'><a target='_blank' rel='nofollow noindex' href={links.news.url({ url })}>{locales.read_more_on_source_format({ name: source })} ›</a></div>
     )
 }

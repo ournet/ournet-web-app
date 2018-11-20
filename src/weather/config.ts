@@ -1,4 +1,4 @@
-import { IOurnetAppConfig, createAppConfig } from "../ournet/config";
+import { OurnetAppConfig, createAppConfig } from "../ournet/config";
 import { Dictionary, uniq } from "@ournet/domain";
 import { OurnetProjectName } from "../ournet/data";
 
@@ -11,7 +11,7 @@ export const WEATHER_GLOBAL_CONFIG_LIST_IDS = uniq(getSupportedCountries()
     .map(config => config.lists || [])
     .reduce<string[]>((ids, list) => ids.concat(list.map(item => item.id)), []));
 
-export interface WeatherAppConfig extends IOurnetAppConfig {
+export interface WeatherAppConfig extends OurnetAppConfig {
     placesCount: number
     lists?: ConfigPlaceList[]
     readonly widgetGoogleAnalyticsId: string
