@@ -14,5 +14,21 @@
     "horoscop.ournet.ro": {
         "project": "horoscope",
         "country": "ro"
+    },
+    "meteo.click.md": {
+        "project": "weather",
+        "country": "md"
+    },
+    "www.click.md": {
+        "project": "portal",
+        "country": "md"
+    },
+    "news.click.md": {
+        "project": "news",
+        "country": "md"
+    },
+    "horoscop.click.md": {
+        "project": "horoscope",
+        "country": "md"
     }
 }

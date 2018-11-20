@@ -1,0 +1,40 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "ro",
+        "ru"
+    ],
+    "timezone": "Europe/Bucharest",
+    "domain": "click.md",
+    "host": "meteo.click.md",
+    "email": "info@click.md",
+    "googleAnalyticsId": "UA-1490399-23",
+    "widgetGoogleAnalyticsId": "UA-1490399-49",
+    "projects": [
+        "horoscope",
+        "news",
+        "weather",
+        "exchange"
+    ],
+    "shareServices": [
+        "facebook",
+        "odnoklassniki",
+        "twitter"
+    ],
+    "internationalIds": [
+        "ro",
+        "cz",
+        "it",
+        "bg",
+        "hu",
+        "ru",
+        "pl",
+        "al",
+        "in",
+        "tr"
+    ],
+    "capitalId": "618426",
+    "facebookId": "111558655578824",
+    "placesCount": 1700
+}

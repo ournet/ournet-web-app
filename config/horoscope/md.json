@@ -1,0 +1,30 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "ro",
+        "ru"
+    ],
+    "timezone": "Europe/Bucharest",
+    "domain": "click.md",
+    "host": "horoscop.click.md",
+    "email": "info@click.md",
+    "googleAnalyticsId": "UA-1490399-23",
+    "projects": [
+        "horoscope",
+        "news",
+        "weather",
+        "exchange"
+    ],
+    "shareServices": [
+        "facebook",
+        "odnoklassniki",
+        "twitter"
+    ],
+    "internationalIds": [
+        "bg",
+        "ru"
+    ],
+    "capitalId": "618426",
+    "facebookId": "111558655578824"
+}

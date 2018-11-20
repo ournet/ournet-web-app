@@ -7,5 +7,15 @@
         "rorobritish-broadcasting-corporation",
         "rorothe-new-york-times",
         "roroagence-france-presse"
+    ],
+    "ro-md": [
+        "mdromoldova",
+        "mdrorepublica-moldova",
+        "mdromediafax",
+        "mdrofacebook",
+        "mdroagerpres",
+        "mdrobritish-broadcasting-corporation",
+        "mdrothe-new-york-times",
+        "mdroagence-france-presse"
     ]
 }
