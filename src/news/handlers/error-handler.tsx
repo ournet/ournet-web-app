@@ -1,12 +1,12 @@
 
 import * as React from 'react';
 import { NewsBaseHandler } from "./handler";
-import { INewsAppData } from "../data";
+import { NewsAppData } from "../data";
 import { ErrorViewModelInput, ErrorViewModelBuilder } from '../view-models/error-view-model';
 import ErrorPage from '../views/error-page';
 
 export class ErrorHandler extends NewsBaseHandler<ErrorViewModelInput>{
-    async handle(data: INewsAppData) {
+    async handle(data: NewsAppData) {
         const viewData = await new ErrorViewModelBuilder(this.input, data).build();
 
         this.setCacheControl(2);

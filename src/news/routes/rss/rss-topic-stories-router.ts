@@ -2,7 +2,7 @@ import { NewsBaseRouter, NewsBaseRouterData } from "../../router";
 import { Request, Response } from "../../../base/types";
 import { NewsEventStringFields, NewsEvent, Topic, TopicStringFields } from "@ournet/api-client";
 import { NewsBaseHandler } from "../../handlers/handler";
-import { INewsAppData } from "../../data";
+import { NewsAppData } from "../../data";
 import * as Rss from 'rss';
 import { getSchema, getHost } from "ournet.links";
 import { createStoryFeedItem } from "../../../helpers";
@@ -28,7 +28,7 @@ export class RssTopicStoriesRouter extends NewsBaseRouter<RssTopicStoriesRouterD
 }
 
 class RssHandler extends NewsBaseHandler<RssTopicStoriesViewModelInput> {
-    async handle(data: INewsAppData) {
+    async handle(data: NewsAppData) {
         const viewData = await new RssTopicViewModelBuilder(this.input, data).build();
         const { locales, country, project, links, lang, topic } = viewData;
 

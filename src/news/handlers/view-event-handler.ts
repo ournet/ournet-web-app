@@ -1,10 +1,10 @@
 
 import { NewsBaseHandler } from "./handler";
-import { INewsAppData } from "../data";
+import { NewsAppData } from "../data";
 import { EventViewModelInput } from '../view-models/event-view-model';
 
 export class ViewEventHandler extends NewsBaseHandler<EventViewModelInput>{
-    async handle(data: INewsAppData) {
+    async handle(data: NewsAppData) {
         const apiClient = data.createMutationApiClient<{ countViews: number }>()
         apiClient.newsViewNewsEvent('countViews', { id: this.input.id });
 

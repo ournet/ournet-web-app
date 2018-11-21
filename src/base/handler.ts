@@ -1,10 +1,10 @@
 import { Request, Response } from "./types";
-import { IAppData } from "./app-data";
+import { AppData } from "./app-data";
 import { renderToStaticMarkup } from 'react-dom/server';
 import { send } from "micro";
 import env from "../env";
 
-export interface IHandler<DATA extends IAppData> {
+export interface IHandler<DATA extends AppData> {
     handle(data: DATA): Promise<void>
 }
 
@@ -13,7 +13,7 @@ export interface HandlerInput {
     readonly res: Response
 }
 
-export abstract class Handler<DATA extends IAppData, INPUT extends HandlerInput> implements IHandler<DATA> {
+export abstract class Handler<DATA extends AppData, INPUT extends HandlerInput> implements IHandler<DATA> {
     constructor(protected input: INPUT) {
     }
 

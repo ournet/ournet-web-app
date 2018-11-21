@@ -1,7 +1,7 @@
 
 import { NewsAppConfig } from "../config";
 import { PageViewModelBuilder, PageViewModel } from "../../ournet/page-view-model";
-import { INewsAppData } from "../data";
+import { NewsAppData } from "../data";
 import moment = require("moment-timezone");
 import { Topic, Place, HourlyForecastDataPoint, NewsTopItem, NewsTopItemStringFields, HourlyForecastDataPointStringFields, TopicStringFields } from "@ournet/api-client";
 import logger from "../../logger";
@@ -10,9 +10,9 @@ import { OurnetViewModelInput } from "../../ournet/view-model";
 
 
 export class NewsViewModelBuilder<T extends NewsViewModel, I extends OurnetViewModelInput>
-    extends PageViewModelBuilder<INewsAppData, NewsAppConfig, T, I> {
+    extends PageViewModelBuilder<NewsAppData, NewsAppConfig, T, I> {
 
-    constructor(input: I, data: INewsAppData) {
+    constructor(input: I, data: NewsAppData) {
         super(input, data);
 
         const model = this.model;

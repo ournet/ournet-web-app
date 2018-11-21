@@ -1,5 +1,5 @@
 import { Handler, HandlerInput } from "./handler";
-import { IAppData } from "./app-data";
+import { AppData } from "./app-data";
 import { Dictionary } from "@ournet/domain";
 
 export interface RedirectHandlerInput extends HandlerInput {
@@ -8,7 +8,7 @@ export interface RedirectHandlerInput extends HandlerInput {
     headers?: Dictionary<string>
 }
 
-export class RedirectHandler<DATA extends IAppData=IAppData, INPUT extends RedirectHandlerInput=RedirectHandlerInput>
+export class RedirectHandler<DATA extends AppData=AppData, INPUT extends RedirectHandlerInput=RedirectHandlerInput>
     extends Handler<DATA, INPUT>{
     handle(_data: DATA): Promise<void> {
         return this.redirect(this.input.location, this.input.code, this.input.headers);

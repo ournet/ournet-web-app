@@ -1,10 +1,10 @@
 import { Request, Response } from "./types";
 import { IRouter } from "./router";
 import { notFound, boomify } from "boom";
-import { IAppData } from "./app-data";
+import { AppData } from "./app-data";
 import env from "../env";
 
-export abstract class App<DATA extends IAppData> {
+export abstract class App<DATA extends AppData> {
 
     constructor(private routes: IRouter[], protected readonly data: DATA) {
 

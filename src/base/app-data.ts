@@ -1,4 +1,4 @@
 
-export interface IAppData {
+export interface AppData {
     
 }

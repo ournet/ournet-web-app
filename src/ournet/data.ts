@@ -1,4 +1,4 @@
-import { IAppData } from "../base/app-data";
+import { AppData } from "../base/app-data";
 import { GraphQLQueryExecutor, OurnetQueryApi, OurnetMutationApi } from '@ournet/api-client';
 import { badImplementation } from "boom";
 
@@ -28,7 +28,7 @@ export enum OurnetProjectName {
     EXCHANGE = 'exchange',
 }
 
-export interface OurnetAppData extends IAppData {
+export interface OurnetAppData extends AppData {
     readonly project: OurnetProjectName
     readonly createQueryApiClient: typeof createQueryApiClient
     readonly createMutationApiClient: typeof createMutationApiClient

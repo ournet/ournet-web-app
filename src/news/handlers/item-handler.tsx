@@ -1,12 +1,12 @@
 
 import * as React from 'react';
 import { NewsBaseHandler } from "./handler";
-import { INewsAppData } from "../data";
+import { NewsAppData } from "../data";
 import ItemPage from '../views/item/item-page';
 import { ItemViewModelBuilder, ItemViewModelInput } from '../view-models/item-view-model';
 
 export class ItemHandler extends NewsBaseHandler<ItemViewModelInput>{
-    async handle(data: INewsAppData) {
+    async handle(data: NewsAppData) {
         const viewData = await new ItemViewModelBuilder(this.input, data).build();
 
         this.setCacheControl(30);
