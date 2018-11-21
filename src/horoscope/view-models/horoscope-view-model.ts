@@ -61,6 +61,19 @@ export class HoroscopeViewModelBuilder<T extends HoroscopeViewModel, I extends O
 
         return super.build();
     }
+
+    protected getLanguage(config: HoroscopeAppConfig) {
+        const regResult = /^\/([a-z]{2})\//.exec(this.input.url.pathname || '');
+        let lang = this.input.url.query['ul'] as string;
+        if (regResult) {
+            lang = regResult[1];
+        }
+        if (lang && config.languages.includes(lang)) {
+            return lang;
+        }
+
+        return config.languages[0];
+    }
 }
 
 export interface HoroscopeViewModel extends PageViewModel<HoroscopeAppConfig> {
