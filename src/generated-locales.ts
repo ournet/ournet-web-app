@@ -477,8 +477,8 @@ export class GeneratedLocales {
         return this.v('news_topic_description_format', Array.from(arguments));
     }
 
-    news_topic_title_format(_p1: { name: string }) {
-        return this.v('news_topic_title_format', Array.from(arguments));
+    news_topic_page_title_format(_p1: { name: string }) {
+        return this.v('news_topic_page_title_format', Array.from(arguments));
     }
 
     news() {
@@ -913,7 +913,7 @@ export type LocalesKey = '24_hrs'
     | 'news_site_title_format'
     | 'news_sources'
     | 'news_topic_description_format'
-    | 'news_topic_title_format'
+    | 'news_topic_page_title_format'
     | 'news'
     | 'no_days'
     | 'no_thanks'

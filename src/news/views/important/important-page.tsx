@@ -35,7 +35,7 @@ export default class ImportantPage extends React.Component<ImportantViewModel> {
                     <div className='c-group'>
                         {GroupHeader({ name: locales.latest_quotes(), link: links.news.quotes({ ul: lang }), type: 'important' })}
                         <div className='o-layout'>
-                            {latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ country, lang, links, timezone: config.timezone, item, view: 'card' })}</div>)}
+                            {latestQuotes && latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ country, lang, links, timezone: config.timezone, item, view: 'card' })}</div>)}
                         </div>
                     </div>
                 </main>

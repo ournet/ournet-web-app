@@ -19,8 +19,10 @@ export class ImportantViewModelBuilder extends NewsViewModelBuilder<ImportantVie
 
         const ids = await this.getImportantEventsIds({ limit: 12, lang, country, currentDate });
 
-        this.apiClient.newsEventsByIds('importantEvents', { fields: NewsEventStringFields }, { ids })
-            .quotesLatest('latestQuotes', { fields: QuoteStringFields }, { params: { lang, country, limit: 6 } });
+        if (ids.length) {
+            this.apiClient.newsEventsByIds('importantEvents', { fields: NewsEventStringFields }, { ids })
+                .quotesLatest('latestQuotes', { fields: QuoteStringFields }, { params: { lang, country, limit: 6 } });
+        }
 
         return super.build();
     }

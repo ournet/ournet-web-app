@@ -16,7 +16,7 @@ export default class TopicPage extends React.Component<TopicViewModel> {
         const { lang, head, country, locales, links, latestEvents, topic, slug, displayName, config, topicEvents, topicNews, aboutQuotes, byQuotes } = this.props;
 
         const commonName = topic.commonName || topic.name;
-        const title = locales.news_topic_title_format({ name: displayName });
+        const title = locales.topic_news_title_format({ name: displayName });
 
         head.elements.push(<link key='topic-rss' rel="alternate" type="application/rss+xml" title={title} href={links.news.rss.stories.topic(slug, { ul: lang })}></link>);
 

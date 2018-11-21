@@ -3,6 +3,8 @@ import * as React from 'react';
 import { NewsViewModel } from '../../view-models/news-view-model';
 import { HeaderPlaceForecast } from '../../../views/components/weather/header-place-forecast';
 import { HeaderLogo } from '../../../views/components/header-logo';
+import { getSchema, getHost } from 'ournet.links';
+import { OurnetProjectName } from '../../../ournet/data';
 
 export function PageHeader({ capital, capitalForecast, links, locales, lang, head, country }: NewsViewModel) {
 
@@ -37,7 +39,7 @@ export function PageHeader({ capital, capitalForecast, links, locales, lang, hea
     return (
         <header className='c-header o-layout o-layout--small'>
             <div className='o-layout__item u-2/6 u-1/6@tablet'>
-                {HeaderLogo({ url: links.portal.home({ ul: lang }), title: '' })}
+                {HeaderLogo({ url: getSchema(OurnetProjectName.PORTAL, country) + '//' + getHost(OurnetProjectName.PORTAL, country) + links.portal.home({ ul: lang }), title: '' })}
             </div>
             <div className='o-layout__item u-4/6 u-3/6@tablet'>
                 <ul className='c-menu'>

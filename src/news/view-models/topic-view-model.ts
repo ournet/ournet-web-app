@@ -31,7 +31,7 @@ export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicView
 
         const displayName = model.displayName = commonName + (topic.abbr && topic.abbr.length < 10 ? ` (${topic.abbr})` : '');
 
-        head.title = locales.news_topic_title_format({ name: displayName });
+        head.title = locales.news_topic_page_title_format({ name: displayName });
         head.description = locales.news_topic_description_format({ name: topic.name });
 
         this.setCanonical(links.news.topic(slug, { ul: lang }));

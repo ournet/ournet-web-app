@@ -32,7 +32,7 @@ export default class IndexPage extends React.Component<IndexViewModel> {
                 <main>
                     <div className='o-layout'>
                         <div className='o-layout__item u-2/4@tablet'>
-                            {EventListItem({ lang, country, links, timezone: config.timezone, imageSize: 'large', view: 'card-wide', item: mainEvent })}
+                            {mainEvent && EventListItem({ lang, country, links, timezone: config.timezone, imageSize: 'large', view: 'card-wide', item: mainEvent })}
                         </div>
                         <div className='o-layout__item u-2/4@tablet'>
                             <div className='o-layout'>
