@@ -249,20 +249,20 @@ export class GeneratedLocales {
         return this.v('horo_api_title');
     }
 
-    horo_ro_app_name() {
-        return this.v('horo_ro_app_name');
+    horoscope_ro_app_name() {
+        return this.v('horoscope_ro_app_name');
     }
 
-    horo_ro_short_app_name() {
-        return this.v('horo_ro_short_app_name');
+    horoscope_ro_short_app_name() {
+        return this.v('horoscope_ro_short_app_name');
     }
 
-    horo_md_app_name() {
-        return this.v('horo_md_app_name');
+    horoscope_md_app_name() {
+        return this.v('horoscope_md_app_name');
     }
 
-    horo_md_short_app_name() {
-        return this.v('horo_md_short_app_name');
+    horoscope_md_short_app_name() {
+        return this.v('horoscope_md_short_app_name');
     }
 
     horo_notifications_subscribe_for_sign_format(_p1: { name: string }) {
@@ -777,12 +777,12 @@ export class GeneratedLocales {
         return this.v('wind');
     }
 
-    horo_ru_app_name() {
-        return this.v('horo_ru_app_name');
+    horoscope_ru_app_name() {
+        return this.v('horoscope_ru_app_name');
     }
 
-    horo_ru_short_app_name() {
-        return this.v('horo_ru_short_app_name');
+    horoscope_ru_short_app_name() {
+        return this.v('horoscope_ru_short_app_name');
     }
 
     in_country_ru() {
@@ -856,10 +856,10 @@ export type LocalesKey = '24_hrs'
     | 'home'
     | 'horizontal'
     | 'horo_api_title'
-    | 'horo_ro_app_name'
-    | 'horo_ro_short_app_name'
-    | 'horo_md_app_name'
-    | 'horo_md_short_app_name'
+    | 'horoscope_ro_app_name'
+    | 'horoscope_ro_short_app_name'
+    | 'horoscope_md_app_name'
+    | 'horoscope_md_short_app_name'
     | 'horo_notifications_subscribe_for_sign_format'
     | 'horo_on_your_site_info'
     | 'horo_on_your_site'
@@ -988,8 +988,8 @@ export type LocalesKey = '24_hrs'
     | 'weekly'
     | 'width'
     | 'wind'
-    | 'horo_ru_app_name'
-    | 'horo_ru_short_app_name'
+    | 'horoscope_ru_app_name'
+    | 'horoscope_ru_short_app_name'
     | 'in_country_ru'
     | 'news_ru_app_name'
     | 'news_ru_short_app_name'
