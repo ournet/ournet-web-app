@@ -81,7 +81,7 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone, p
         <div className={'c-event-it v--card' + colorClass + (view !== 'card' ? ' v--' + view : '')} style={{ backgroundColor: color.hex() }}>
             <div className='c-event-it__media'>
                 <div className='c-event-it__img o-lazy' data-src={ImageStorageHelper.eventUrl(item.imageId, imageSize || 'medium', 'jpg')}></div>
-                <div className='c-event-it__img-mask' style={{ backgroundImage: `linear-gradient(${orientation},rgba(0,0,0,0),rgba(${color.rgb()},.7),rgb(${color.rgb()}));` }}></div>
+                <div className='c-event-it__img-mask' style={{ backgroundImage: `linear-gradient(${orientation},rgba(0,0,0,0),rgba(${color.rgb()},.7),rgb(${color.rgb()}))` }}></div>
             </div>
             <div className='c-event-it__hover'></div>
 
