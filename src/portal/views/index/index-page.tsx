@@ -39,7 +39,7 @@ export default class IndexPage extends React.Component<IndexViewModel> {
                 <main>
                     <div className='o-layout'>
                         <div className='o-layout__item u-2/4@tablet'>
-                            {EventListItem({ lang, country, links, timezone: config.timezone, imageSize: 'large', view: 'card-wide', item: mainEvent, project })}
+                            {mainEvent && EventListItem({ lang, country, links, timezone: config.timezone, imageSize: 'large', view: 'card-wide', item: mainEvent, project })}
                         </div>
                         <div className='o-layout__item u-2/4@tablet'>
                             <div className='o-layout'>
@@ -61,7 +61,7 @@ export default class IndexPage extends React.Component<IndexViewModel> {
                     <div className='c-group'>
                         {GroupHeader({ name: locales.latest_quotes(), link: newsUrl + links.news.quotes({ ul: lang }), type: 'important' })}
                         <div className='o-layout'>
-                            {latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item, project })}</div>)}
+                            {latestQuotes && latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item, project })}</div>)}
                         </div>
                     </div>
                     <div className='o-layout'>

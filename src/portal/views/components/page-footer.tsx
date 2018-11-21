@@ -4,7 +4,7 @@ import { getSchema, getHost } from 'ournet.links';
 import { Share } from '../../../views/components/share';
 import { PortalViewModel } from '../../view-models/portal-view-model';
 
-export function PageFooter({ project, links, locales, lang, config, country, version, head }: PortalViewModel) {
+export function PageFooter({ project, locales, lang, config, country, version, head }: PortalViewModel) {
 
     return (
         <footer className='c-footer'>
@@ -19,7 +19,7 @@ export function PageFooter({ project, links, locales, lang, config, country, ver
                     </div>
                     <div className='o-layout__item u-1/3@tablet o-footer-sites'>
                         <h4>{locales.international()}</h4>
-                        {config.internationalIds.map(code => <div key={code}><a href={getSchema(project, code) + '//' + getHost(project, code) + links.horoscope.home({ ul: lang })}>{locales.getCountryName(code)}</a></div>)}
+                        {config.internationalIds.map(code => <div key={code}><a href={getSchema(project, code) + '//' + getHost(project, code)}>{locales.getCountryName(code)}</a></div>)}
                     </div>
                     <div className='o-layout__item u-1/3@tablet o-footer-useful'>
                         <h4>{locales.useful()}</h4>
