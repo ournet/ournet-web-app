@@ -4,13 +4,13 @@ import { IndexRouter } from "./routes/index-router";
 import { AppleIconRouter } from "../ournet/routers/apple-icon-router";
 import { FaviconRouter } from "../ournet/routers/favicon-router";
 import { AdsenseAdsRouter } from "../ournet/routers/adsense-ads-router";
-import { ManifestRouter } from "./routes/manifest-router";
 import { Request, Response } from "../base/types";
 import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
 import { RobotsRouter } from "./routes/static-router";
 import { PrefixOldWidgetRedirectRouter } from "./routes/redirect-router";
+import { ManifestRouter } from "../ournet/routers/manifest-router";
 
 export class PortalOurnetApp extends OurnetApp<OurnetAppData> {
 

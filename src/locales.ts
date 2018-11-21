@@ -2,6 +2,7 @@
 import { LocalesProvider, GeneratedLocales, LocalesKey } from './generated-locales';
 import { TranslatorOptions, Locales, parseDirectory } from 'lang-text';
 import { join } from 'path';
+import { OurnetProjectName } from './ournet/data';
 
 export type Locale = {
     lang: string
@@ -32,7 +33,15 @@ export class OurnetLocales extends GeneratedLocales {
         return this.s(`language_${languageCode}` as LocalesKey);
     }
 
-    getProjectName(project: string) {
+    getProjectName(project: OurnetProjectName) {
         return this.s(project as LocalesKey);
+    }
+
+    getAppName(project: OurnetProjectName, country: string) {
+        return this.s(`${project}_${country}_app_name` as LocalesKey);
+    }
+
+    getShortAppName(project: OurnetProjectName, country: string) {
+        return this.s(`${project}_${country}_short_app_name` as LocalesKey);
     }
 }

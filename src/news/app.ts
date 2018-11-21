@@ -12,7 +12,6 @@ import { UrlRouter } from "./routes/url-router";
 import { AppleIconRouter } from "../ournet/routers/apple-icon-router";
 import { FaviconRouter } from "../ournet/routers/favicon-router";
 import { AdsenseAdsRouter } from "../ournet/routers/adsense-ads-router";
-import { ManifestRouter } from "./routes/manifest-router";
 import { RssImportantRouter } from "./routes/rss/rss-important-stories-router";
 import { RssStoriesRouter } from "./routes/rss/rss-stories-router";
 import { RssTopicStoriesRouter } from "./routes/rss/rss-topic-stories-router";
@@ -21,6 +20,7 @@ import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
 import { RobotsRouter } from "./routes/static-router";
+import { ManifestRouter } from "../ournet/routers/manifest-router";
 
 export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
 

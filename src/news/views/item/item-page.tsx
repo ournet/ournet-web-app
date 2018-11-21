@@ -16,7 +16,7 @@ import { AdAside } from '../components/ads/ad-aside';
 
 export default class ItemPage extends React.Component<ItemViewModel> {
     render() {
-        const { lang, country, head, locales, links, latestEvents, item, config, articleContent, similarEvents, event } = this.props;
+        const { lang, country, head, locales, links, latestEvents, item, config, articleContent, similarEvents, event, project } = this.props;
 
         let imageLargeUrl: string | null = null;
         if (item.imagesIds) {
@@ -28,7 +28,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
             head.elements.push(<meta key='og_image' property="og:image" content={imageLargeUrl} />);
         }
         head.elements.push(<meta key='published_time' property="article:published_time" content={item.createdAt} />);
-        head.elements.push(<meta key='publisher' property="article:publisher" content={locales.news_app_name()} />);
+        head.elements.push(<meta key='publisher' property="article:publisher" content={locales.getAppName(project, country)} />);
         if (item.topics) {
             for (let tag of item.topics) {
                 head.elements.push(<meta key={`tag-${tag.id}`} property="article:tag" content={tag.name} />);

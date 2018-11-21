@@ -18,14 +18,14 @@ import { EventListItem } from '../components/event-list-item';
 
 export default class EventPage extends React.Component<EventViewModel> {
     render() {
-        const { lang, head, locales, links, latestEvents, event, config, eventContent, eventQuotes, similarEvents, country } = this.props;
+        const { lang, head, locales, links, latestEvents, event, config, eventContent, eventQuotes, similarEvents, country, project } = this.props;
 
         const imageLargeUrl = ImageStorageHelper.eventUrl(event.imageId, 'large', 'jpg');
 
         head.elements.push(<meta key='og_type' property="og:type" content="article" />);
         head.elements.push(<meta key='og_image' property="og:image" content={imageLargeUrl} />);
         head.elements.push(<meta key='published_time' property="article:published_time" content={event.createdAt} />);
-        head.elements.push(<meta key='publisher' property="article:publisher" content={locales.news_app_name()} />);
+        head.elements.push(<meta key='publisher' property="article:publisher" content={locales.getAppName(project, country)} />);
         for (let tag of event.topics) {
             head.elements.push(<meta key={`tag-${tag.id}`} property="article:tag" content={tag.name} />);
         }

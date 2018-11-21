@@ -44,7 +44,7 @@ class RssHandler extends NewsBaseHandler {
             language: lang,
             pubDate: new Date(),
             ttl: 15,
-            generator: locales.news_app_name(),
+            generator: locales.getAppName(project, country),
         });
 
         const events = viewData.latestEvents || [];

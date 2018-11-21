@@ -7,7 +7,7 @@ import { ParsedUrlQuery } from "querystring";
 import { OurnetLocales, OURNET_TRANSLATOR } from "../locales";
 
 
-export abstract class OurnetViewModelBuilder<DATA extends OurnetAppData, CONFIG extends OurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends OurnetViewModelInput>
+export class OurnetViewModelBuilder<DATA extends OurnetAppData, CONFIG extends OurnetAppConfig, T extends OurnetViewModel<CONFIG>, I extends OurnetViewModelInput>
     extends ViewModelBuilder<T, I> {
     protected readonly data: DATA
 

@@ -18,7 +18,7 @@
     "clean-test-code": "rimraf ./lib/**/*.test.js",
     "watch": "npm-run-all --parallel web:watch assets:watch",
     "web:watch": "npm-watch start",
-    "web:build": "npm-run-all clean tsc",
+    "web:build": "npm-run-all clean generate-locales tsc",
     "assets:build": "gulp --gulpfile ./assets/gulpfile.js",
     "assets:prod": "set NODE_ENV=production&& gulp --gulpfile ./assets/gulpfile.js",
     "assets:serv": "gulp --gulpfile ./assets/gulpfile.js serv",

@@ -50,7 +50,7 @@ class RssHandler extends NewsBaseHandler<RssTopicStoriesViewModelInput> {
             language: lang,
             pubDate: new Date(),
             ttl: 15,
-            generator: locales.news_app_name(),
+            generator: locales.getAppName(project, country),
         });
 
         const events = viewData.events || [];

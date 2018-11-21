@@ -249,8 +249,20 @@ export class GeneratedLocales {
         return this.v('horo_api_title');
     }
 
-    horo_app_name() {
-        return this.v('horo_app_name');
+    horo_ro_app_name() {
+        return this.v('horo_ro_app_name');
+    }
+
+    horo_ro_short_app_name() {
+        return this.v('horo_ro_short_app_name');
+    }
+
+    horo_md_app_name() {
+        return this.v('horo_md_app_name');
+    }
+
+    horo_md_short_app_name() {
+        return this.v('horo_md_short_app_name');
     }
 
     horo_notifications_subscribe_for_sign_format(_p1: { name: string }) {
@@ -263,10 +275,6 @@ export class GeneratedLocales {
 
     horo_on_your_site() {
         return this.v('horo_on_your_site');
-    }
-
-    horo_short_app_name() {
-        return this.v('horo_short_app_name');
     }
 
     horo_sign_daily_details_format(_p1: { sign: string; date: string }) {
@@ -437,12 +445,20 @@ export class GeneratedLocales {
         return this.v('most_important_news_in_last_7days_country_format', Array.from(arguments));
     }
 
-    news_app_name() {
-        return this.v('news_app_name');
+    news_ro_app_name() {
+        return this.v('news_ro_app_name');
     }
 
-    news_short_app_name() {
-        return this.v('news_short_app_name');
+    news_ro_short_app_name() {
+        return this.v('news_ro_short_app_name');
+    }
+
+    news_md_app_name() {
+        return this.v('news_md_app_name');
+    }
+
+    news_md_short_app_name() {
+        return this.v('news_md_short_app_name');
     }
 
     news_site_description_format(_p1: { country: string }) {
@@ -505,12 +521,20 @@ export class GeneratedLocales {
         return this.v('popular');
     }
 
-    portal_app_name() {
-        return this.v('portal_app_name');
+    portal_md_app_name() {
+        return this.v('portal_md_app_name');
     }
 
-    portal_short_app_name() {
-        return this.v('portal_short_app_name');
+    portal_md_short_app_name() {
+        return this.v('portal_md_short_app_name');
+    }
+
+    portal_ro_app_name() {
+        return this.v('portal_ro_app_name');
+    }
+
+    portal_ro_short_app_name() {
+        return this.v('portal_ro_short_app_name');
     }
 
     portal_site_description_format(_p1: { country: string }) {
@@ -653,8 +677,20 @@ export class GeneratedLocales {
         return this.v('views');
     }
 
-    weather_app_name() {
-        return this.v('weather_app_name');
+    weather_ro_app_name() {
+        return this.v('weather_ro_app_name');
+    }
+
+    weather_ro_short_app_name() {
+        return this.v('weather_ro_short_app_name');
+    }
+
+    weather_md_app_name() {
+        return this.v('weather_md_app_name');
+    }
+
+    weather_md_short_app_name() {
+        return this.v('weather_md_short_app_name');
     }
 
     weather_cright() {
@@ -703,10 +739,6 @@ export class GeneratedLocales {
 
     weather_place_title_format(_p1: { name1: string; name2: string }) {
         return this.v('weather_place_title_format', Array.from(arguments));
-    }
-
-    weather_short_app_name() {
-        return this.v('weather_short_app_name');
     }
 
     weather() {
@@ -796,11 +828,13 @@ export type LocalesKey = '24_hrs'
     | 'home'
     | 'horizontal'
     | 'horo_api_title'
-    | 'horo_app_name'
+    | 'horo_ro_app_name'
+    | 'horo_ro_short_app_name'
+    | 'horo_md_app_name'
+    | 'horo_md_short_app_name'
     | 'horo_notifications_subscribe_for_sign_format'
     | 'horo_on_your_site_info'
     | 'horo_on_your_site'
-    | 'horo_short_app_name'
     | 'horo_sign_daily_details_format'
     | 'horo_sign_daily_title_format'
     | 'horo_sign_date_format'
@@ -843,8 +877,10 @@ export type LocalesKey = '24_hrs'
     | 'more_quotes'
     | 'more'
     | 'most_important_news_in_last_7days_country_format'
-    | 'news_app_name'
-    | 'news_short_app_name'
+    | 'news_ro_app_name'
+    | 'news_ro_short_app_name'
+    | 'news_md_app_name'
+    | 'news_md_short_app_name'
     | 'news_site_description_format'
     | 'news_site_title_format'
     | 'news_sources'
@@ -860,8 +896,10 @@ export type LocalesKey = '24_hrs'
     | 'places'
     | 'popular_news'
     | 'popular'
-    | 'portal_app_name'
-    | 'portal_short_app_name'
+    | 'portal_md_app_name'
+    | 'portal_md_short_app_name'
+    | 'portal_ro_app_name'
+    | 'portal_ro_short_app_name'
     | 'portal_site_description_format'
     | 'portal_site_title_format'
     | 'position'
@@ -897,7 +935,10 @@ export type LocalesKey = '24_hrs'
     | 'video_news'
     | 'video'
     | 'views'
-    | 'weather_app_name'
+    | 'weather_ro_app_name'
+    | 'weather_ro_short_app_name'
+    | 'weather_md_app_name'
+    | 'weather_md_short_app_name'
     | 'weather_cright'
     | 'weather_for_10days'
     | 'weather_home_title_format'
@@ -910,7 +951,6 @@ export type LocalesKey = '24_hrs'
     | 'weather_place_details_info_format'
     | 'weather_place_title_format_10days_format'
     | 'weather_place_title_format'
-    | 'weather_short_app_name'
     | 'weather'
     | 'weather2'
     | 'weekly_horoscope_details_format'

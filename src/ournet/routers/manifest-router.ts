@@ -1,11 +1,11 @@
-import { HoroscopeBaseRouter } from "../router";
 import { Request, Response } from "../../base/types";
-import { HoroscopeBaseHandler } from "../handlers/handler";
-import { HoroscopeAppData } from "../data";
-import { HoroscopeViewModelBuilder } from "../view-models/horoscope-view-model";
 import { getAppIconUrl } from "../../helpers";
+import { Handler } from "../../base/handler";
+import { OurnetViewModelBuilder, OurnetViewModelInput } from "../view-model";
+import { OurnetAppData } from "../data";
+import { OurnetRouter } from "../router";
 
-export class ManifestRouter extends HoroscopeBaseRouter {
+export class ManifestRouter extends OurnetRouter {
     constructor() {
         super('/manifest.json');
     }
@@ -14,15 +14,15 @@ export class ManifestRouter extends HoroscopeBaseRouter {
     }
 }
 
-class ManifestHandler extends HoroscopeBaseHandler {
-    async handle(appData: HoroscopeAppData) {
+class ManifestHandler<DATA extends OurnetAppData, INPUT extends OurnetViewModelInput> extends Handler<DATA, INPUT> {
+    async handle(appData: DATA) {
 
-        const model = await new HoroscopeViewModelBuilder(this.input, appData).build();
-        const { locales, config } = model;
+        const model = await new OurnetViewModelBuilder(this.input, appData).build();
+        const { locales, config, project, country } = model;
 
         const manifest = {
-            name: locales.horo_app_name(),
-            short_name: locales.horo_short_app_name(),
+            name: locales.getAppName(project, country),
+            short_name: locales.getShortAppName(project, country),
             display: 'standalone',
             gcm_sender_id: '482941778795',
             background_color: config.background_color,

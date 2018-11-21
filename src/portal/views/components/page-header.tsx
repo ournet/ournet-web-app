@@ -6,7 +6,7 @@ import { HeaderLogo } from '../../../views/components/header-logo';
 import { getSchema, getHost } from 'ournet.links';
 import { OurnetProjectName } from '../../../ournet/data';
 
-export function PageHeader({ capital, capitalForecast, links, locales, lang, country }: PortalViewModel) {
+export function PageHeader({ capital, capitalForecast, links, locales, lang, country, project }: PortalViewModel) {
 
     const placeForecast = capital && capitalForecast
         ? (HeaderPlaceForecast({ links, lang, country, place: capital, forecast: capitalForecast }))
@@ -29,7 +29,7 @@ export function PageHeader({ capital, capitalForecast, links, locales, lang, cou
     return (
         <header className='c-header o-layout o-layout--small'>
             <div className='o-layout__item u-2/6 u-1/6@tablet'>
-                {HeaderLogo({ url: links.portal.home({ ul: lang }), title: locales.portal_app_name() })}
+                {HeaderLogo({ url: links.portal.home({ ul: lang }), title: locales.getAppName(project, country) })}
             </div>
             <div className='o-layout__item u-4/6 u-3/6@tablet'>
                 <ul className='c-menu'>
