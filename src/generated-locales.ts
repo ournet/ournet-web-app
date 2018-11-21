@@ -776,6 +776,34 @@ export class GeneratedLocales {
     wind() {
         return this.v('wind');
     }
+
+    horo_ru_app_name() {
+        return this.v('horo_ru_app_name');
+    }
+
+    horo_ru_short_app_name() {
+        return this.v('horo_ru_short_app_name');
+    }
+
+    in_country_ru() {
+        return this.v('in_country_ru');
+    }
+
+    news_ru_app_name() {
+        return this.v('news_ru_app_name');
+    }
+
+    news_ru_short_app_name() {
+        return this.v('news_ru_short_app_name');
+    }
+
+    portal_ru_app_name() {
+        return this.v('portal_ru_app_name');
+    }
+
+    portal_ru_short_app_name() {
+        return this.v('portal_ru_short_app_name');
+    }
 }
 
 export type LocalesKey = '24_hrs'
@@ -959,4 +987,11 @@ export type LocalesKey = '24_hrs'
     | 'weekly_horoscope'
     | 'weekly'
     | 'width'
-    | 'wind';
+    | 'wind'
+    | 'horo_ru_app_name'
+    | 'horo_ru_short_app_name'
+    | 'in_country_ru'
+    | 'news_ru_app_name'
+    | 'news_ru_short_app_name'
+    | 'portal_ru_app_name'
+    | 'portal_ru_short_app_name';
