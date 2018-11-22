@@ -27,7 +27,7 @@ export function TrendingTopicsMenu({ topics, links, lang, project, country }: Tr
         <div className='c-trend-menu'>
             <ul className='c-trend-menu__l'>
                 <li className='c-trend-menu__trend'></li>
-                {topics.map(item => <li className='c-trend-menu__i' key={item.id}><a title={item.name} href={urlPrefix + links.news.topic(TopicHelper.parseSlugFromId(item.id), { ul: lang })}>{item.abbr || item.name}</a></li>)}
+                {topics.map(item => <li className='c-trend-menu__i' key={item.id}><a title={item.name} href={urlPrefix + links.news.topic(TopicHelper.parseSlugFromId(item.id), { ul: lang })}>{item.abbr || item.commonName || item.name}</a></li>)}
             </ul>
         </div>
     );
