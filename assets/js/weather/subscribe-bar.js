@@ -50,20 +50,18 @@ function init() {
             showSubscribe();
         }
 
-        setTimeout(function () {
-            $('.c-subscribe-bar').click(function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-                ga('send', 'event', category, 'click-subscribe-btn');
-                if (permission === 'granted') {
-                    setPlaceId();
-                    ga('send', 'event', category, 'changed-place-id', placeId);
-                    hideSubscribe();
-                } else {
-                    subscribeToNotifications();
-                }
-            });
-        }, 1000 * 3);
+        $('.c-subscribe-bar').on('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            ga('send', 'event', category, 'click-subscribe-btn');
+            if (permission === 'granted') {
+                setPlaceId();
+                ga('send', 'event', category, 'changed-place-id', placeId);
+                hideSubscribe();
+            } else {
+                subscribeToNotifications();
+            }
+        });
 
 
         OneSignal.on('notificationPermissionChange', function (permissionChange) {
