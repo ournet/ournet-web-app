@@ -27,10 +27,10 @@ function init() {
             }
 
             function hideSubscribe() {
-                // $('.c-subscribe-bar').addClass('hidden');
+                $('.c-subscribe-bar').addClass('hidden');
             }
             function showSubscribe() {
-                // $('.c-subscribe-bar').removeClass('hidden');
+                $('.c-subscribe-bar').removeClass('hidden');
             }
 
             if (permission === 'granted') {

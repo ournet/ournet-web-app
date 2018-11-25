@@ -12,92 +12,87 @@ function init() {
 
     var category = 'notifications-weather';
 
+    function initNotifications(permission) {
+        var currentTags;
 
-    OneSignal.push(function () {
+        function subscribedToCurrentPlace() {
+            return currentTags && currentTags['place-id'] == placeId;
+        }
 
-        function initNotifications(permission) {
-            var currentTags;
+        function setPlaceId() {
+            OneSignal.sendTags({ 'place-id': placeId, 'admin1-code': admin1Code });
+        }
 
-            function subscribedToCurrentPlace() {
-                return currentTags && currentTags['place-id'] == placeId;
-            }
+        function subscribeToNotifications() {
+            OneSignal.registerForPushNotifications();
+            //ga('send', 'event', category, 'show-register-native');
+        }
 
-            function setPlaceId() {
-                OneSignal.sendTags({ 'place-id': placeId, 'admin1-code': admin1Code });
-            }
+        function hideSubscribe() {
+            $('.c-subscribe-bar').addClass('u-hidden');
+        }
+        function showSubscribe() {
+            $('.c-subscribe-bar').removeClass('u-hidden');
+        }
 
-            function subscribeToNotifications() {
-                OneSignal.registerForPushNotifications();
-                //ga('send', 'event', category, 'show-register-native');
-            }
-
-            function hideSubscribe() {
-                $('.c-subscribe-bar').addClass('u-hidden');
-            }
-            function showSubscribe() {
-                $('.c-subscribe-bar').removeClass('u-hidden');
-            }
-
-            if (permission === 'granted') {
-                OneSignal.getTags(function (tags) {
-                    currentTags = tags;
-                    if (!subscribedToCurrentPlace()) {
-                        showSubscribe();
-                    } else {
-                        if (!currentTags['admin1-code']) {
-                            OneSignal.sendTag('admin1-code', admin1Code);
-                        }
+        if (permission === 'granted') {
+            OneSignal.getTags(function (tags) {
+                currentTags = tags;
+                if (!subscribedToCurrentPlace()) {
+                    showSubscribe();
+                } else {
+                    if (!currentTags['admin1-code']) {
+                        OneSignal.sendTag('admin1-code', admin1Code);
                     }
-                });
+                }
+            });
+        } else {
+            showSubscribe();
+        }
+
+        $('.c-subscribe-bar').click(function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            ga('send', 'event', category, 'click-subscribe-btn');
+            if (permission === 'granted') {
+                setPlaceId();
+                ga('send', 'event', category, 'changed-place-id', placeId);
+                hideSubscribe();
+            } else {
+                subscribeToNotifications();
+            }
+        });
+
+
+        OneSignal.on('notificationPermissionChange', function (permissionChange) {
+            var currentPermission = permissionChange.to;
+            if (currentPermission === 'granted') {
+                setPlaceId();
+            }
+            ga('send', 'event', category, currentPermission);
+        });
+        // Occurs when the user's subscription changes to a new value.
+        OneSignal.on('subscriptionChange', function (isSubscribed) {
+            if (isSubscribed) {
+                hideSubscribe();
+                setPlaceId();
             } else {
                 showSubscribe();
             }
+        });
 
-            $('.c-subscribe-bar').click(function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-                ga('send', 'event', category, 'click-subscribe-btn');
-                if (permission === 'granted') {
-                    setPlaceId();
-                    ga('send', 'event', category, 'changed-place-id', placeId);
-                    hideSubscribe();
-                } else {
-                    subscribeToNotifications();
-                }
-            });
+    }
 
-
-            OneSignal.on('notificationPermissionChange', function (permissionChange) {
-                var currentPermission = permissionChange.to;
-                if (currentPermission === 'granted') {
-                    setPlaceId();
-                }
-                ga('send', 'event', category, currentPermission);
-            });
-            // Occurs when the user's subscription changes to a new value.
-            OneSignal.on('subscriptionChange', function (isSubscribed) {
-                if (isSubscribed) {
-                    hideSubscribe();
-                    setPlaceId();
-                } else {
-                    showSubscribe();
-                }
-            });
-
+    OneSignal.push(function () {
+        /* These examples are all valid */
+        var isPushSupported = OneSignal.isPushNotificationsSupported();
+        if (isPushSupported) {
+            OneSignal.push(["getNotificationPermission", function (permission) {
+                initNotifications(permission);
+            }]);
+        } else {
+            hideSubscribe();
         }
-
-        OneSignal.push(["isPushNotificationsSupported", function (supported) {
-            console.log('supported', supported);
-            if (supported) {
-                console.log('suppoted')
-                OneSignal.push(["getNotificationPermission", function (permission) {
-                    initNotifications(permission);
-                }]);
-            } else {
-                console.log('hotsupported')
-                hideSubscribe();
-            }
-        }]);
     });
 }
 
