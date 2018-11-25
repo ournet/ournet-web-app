@@ -12,6 +12,10 @@ export class RobotsRouter extends WeatherBaseRouter {
             data: `User-agent: *
 Disallow: /controls
 Disallow: /actions
+Disallow: /widget/widget_frame
+Disallow: /widget2/widget_frame
+Disallow: /widget/widgetframe
+Disallow: /widget2/widgetframe
 `,
             code: 200,
             headers: { 'Content-Type': 'text/plain; charset=UTF-8' },
