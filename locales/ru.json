@@ -23,7 +23,7 @@
     "country_tr": "Турция",
     "daily_horoscope_details_format": "Гороскоп на сегодня %(name)s.",
     "daily_horoscope_details": "Ежедневный гороскоп. Гороскоп на сегодня и завтра.",
-    "daily_horoscope_format": "Horoscop: %(name)s",
+    "daily_horoscope_format": "Гороскоп: %(name)s",
     "daily_horoscope": "Ежедневный гороскоп",
     "daily": "Ежедневно",
     "date_format": "D MMMM",

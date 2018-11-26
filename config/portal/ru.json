@@ -1,0 +1,33 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "ru"
+    ],
+    "timezone": "Europe/Moscow",
+    "domain": "zborg.ru",
+    "host": "news.zborg.ru",
+    "email": "info@ournet-group.com",
+    "googleAnalyticsId": "UA-1490399-17",
+    "projects": [
+        "horoscope",
+        "news",
+        "weather"
+    ],
+    "shareServices": [
+        "vkontakte",
+        "odnoklassniki",
+        "facebook"
+    ],
+    "internationalIds": [
+		"md",
+		"bg",
+		"it",
+		"ro",
+		"hu",
+		"cz",
+		"in"
+	],
+    "capitalId": "524901",
+    "facebookId": "406165206076337"
+}
