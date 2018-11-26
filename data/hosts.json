@@ -30,5 +30,21 @@
     "horoscop.click.md": {
         "project": "horoscope",
         "country": "md"
+    },
+    "pogoda.zborg.ru": {
+        "project": "weather",
+        "country": "ru"
+    },
+    "www.zborg.ru": {
+        "project": "portal",
+        "country": "ru"
+    },
+    "news.zborg.ru": {
+        "project": "news",
+        "country": "ru"
+    },
+    "horoscope.zborg.ru": {
+        "project": "horoscope",
+        "country": "ru"
     }
 }
