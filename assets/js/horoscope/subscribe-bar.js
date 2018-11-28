@@ -76,4 +76,4 @@ function init() {
     });
 }
 
-init();
+setTimeout(init, 1000 * 2);
