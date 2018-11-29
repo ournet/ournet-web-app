@@ -113,7 +113,7 @@ export class Place10DaysRedirectRouter extends OurnetRouter<PrefixPlaceRedirectR
 
 export class OldWidgetRedirectRouter extends OurnetRouter {
     constructor() {
-        super(`/widget/widgetframe`)
+        super(`/(widget|resources)/widgetframe`)
     }
     protected createHander(req: Request, res: Response) {
         const input = this.formatInput(req, res);
