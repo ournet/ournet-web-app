@@ -29,8 +29,8 @@ export class PlacesViewModelBuilder extends WeatherViewModelBuilder<PlacesViewMo
             this.setCanonical(links.weather.places.byAdm1(input.admin1Code, { ul: lang }));
         } else {
             if (input.q && input.q.trim().length > 1) {
-                this.apiClient.placesSearchPlace('places', { fields: 'id name names admin1Code featureClass admin1 {id name names}' },
-                    { query: input.q, limit: 9, country });
+                this.apiClient.placesSearchPlace('places', { fields: 'id name names admin1Code featureClass population admin1 {id name names}' },
+                    { query: input.q, limit: 24, country });
                 this.setCanonical(links.weather.places({ q: input.q, ul: lang }));
             } else {
                 this.apiClient.placesAdmin1s('places', { fields: 'id name names admin1Code featureClass' },
@@ -40,5 +40,15 @@ export class PlacesViewModelBuilder extends WeatherViewModelBuilder<PlacesViewMo
         }
 
         return super.build();
+    }
+
+    protected formatModelData(data: PlacesViewModel) {
+        const model = super.formatModelData(data);
+        if (this.input.q) {
+            model.places = (model.places || []).sort((a, b) => (b.population || 0) - (a.population || 0));
+            model.places = model.places.filter(item => item.featureClass !== 'A');
+        }
+
+        return model;
     }
 }
