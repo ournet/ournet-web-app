@@ -1,0 +1,33 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "bg"
+    ],
+    "timezone": "Europe/Budapest",
+    "domain": "ournet.bg",
+    "host": "horo.ournet.bg",
+    "email": "info@ournet-group.com",
+    "googleAnalyticsId": "UA-1490399-35",
+    "projects": [
+        "news",
+        "weather",
+        "horoscope"
+    ],
+    "shareServices": [
+        "facebook",
+        "twitter",
+        "gplus"
+    ],
+    "internationalIds": [
+        "ro",
+		"ru",
+		"it",
+		"md",
+		"hu",
+		"cz",
+		"in"
+    ],
+    "capitalId": "727011",
+    "facebookId": "178864255588739"
+}
