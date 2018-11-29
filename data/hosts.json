@@ -46,5 +46,21 @@
     "horoscope.zborg.ru": {
         "project": "horoscope",
         "country": "ru"
+    },
+    "www.ournet.bg": {
+        "project": "portal",
+        "country": "bg"
+    },
+    "news.ournet.bg": {
+        "project": "news",
+        "country": "bg"
+    },
+    "horo.ournet.bg": {
+        "project": "horoscope",
+        "country": "bg"
+    },
+    "vremeto.ournet.bg": {
+        "project": "weather",
+        "country": "bg"
     }
 }
