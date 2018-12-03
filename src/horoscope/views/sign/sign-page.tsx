@@ -33,7 +33,7 @@ export function SignPage(props: SignViewModel) {
             </main>
             {config.oneSignal &&
                 <div>
-                    <div className='c-subscribe-bar u-hidden js-subscribe-box' data-tags={{ 'zodiac-sign': report.sign }} data-type='force'></div>
+                    <div className='c-subscribe-bar u-hidden js-subscribe-box' data-category='notifications-horo' data-tags={{ 'zodiac-sign': report.sign }} data-type='force'></div>
                     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
                     <script dangerouslySetInnerHTML={{
                         __html: `var OneSignal = window.OneSignal || [];
