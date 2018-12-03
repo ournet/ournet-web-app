@@ -4,15 +4,15 @@ var ga = require('./ga').ga;
 function init() {
     var OneSignal = window.OneSignal = window.OneSignal || [];
     var box = $('.js-subscribe-box');
-    if (!box) {
-        console.log('no box')
+    if (!box.length) {
+        // console.log('no box')
         return;
     }
     var tags = box.data('tags');
     var category = box.data('category');
     var subscribeType = box.data('type');
     if (!tags || !category) {
-        console.log('no tags or category')
+        // console.log('no tags or category')
         return;
     }
 
@@ -49,7 +49,7 @@ function init() {
         if (permission === 'granted') {
             OneSignal.getTags(function (remoteTags) {
                 if (!sameTags(remoteTags)) {
-                    console.log('not same tags', remoteTags)
+                    // console.log('not same tags', remoteTags)
                     showSubscribe();
                 }
             });
@@ -96,13 +96,13 @@ function init() {
         /* These examples are all valid */
         var isPushSupported = OneSignal.isPushNotificationsSupported();
         if (isPushSupported) {
-            console.log('supported')
+            // console.log('supported')
             OneSignal.push(["getNotificationPermission", function (permission) {
-                console.log('permission', permission)
+                // console.log('permission', permission)
                 initNotifications(permission);
             }]);
         } else {
-            console.log('not supported')
+            // console.log('not supported')
             hideSubscribe();
         }
     });

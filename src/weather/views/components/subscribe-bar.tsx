@@ -20,7 +20,7 @@ export function SubscribeBar({ locales, config, lang, place }: SubscribeBarProps
 
   return (
     <div>
-      <div className="c-subscribe-bar u-hidden" data-place-id={place.id} data-admin1-code={place.admin1Code}>
+      <div className="c-subscribe-bar u-hidden js-subscribe-box" data-category='notifications-weather' data-tags={JSON.stringify({ 'place-id': place.id, 'admin1-code': place.admin1Code })}>
         <div className="c-subscribe-bar__btn">{locales.weather_notifications_subscribe_for_place_format({ name: getPlaceName(place, lang) })}</div>
       </div>
       <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
