@@ -1,8 +1,8 @@
-var OneSignal = window.OneSignal = window.OneSignal || [];
 var $ = require('cash-dom');
 var ga = require('./ga').ga;
 
 function init() {
+    var OneSignal = window.OneSignal = window.OneSignal || [];
     var box = $('.js-subscribe-box');
     if (!box) {
         console.log('no box')
