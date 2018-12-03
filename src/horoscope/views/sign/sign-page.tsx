@@ -22,7 +22,7 @@ export function SignPage(props: SignViewModel) {
                 </div>
                 {HoroscopeDayReport({ lang, report, date: currentDayPeriodText, footer: true, links, locales })}
                 <div className='u-report-margin'>
-                {HoroscopeSignsLine({lang, country, links})}
+                    {HoroscopeSignsLine({ lang, country, links })}
                     <br />
                     {AdBottom()}
                     <br />
@@ -33,7 +33,7 @@ export function SignPage(props: SignViewModel) {
             </main>
             {config.oneSignal &&
                 <div>
-                    <div className='c-subscribe-bar u-hidden' data-sign-id={report.sign}></div>
+                    <div className='c-subscribe-bar u-hidden js-subscribe-box' data-tags={{ 'zodiac-sign': report.sign }} data-type='force'></div>
                     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
                     <script dangerouslySetInnerHTML={{
                         __html: `var OneSignal = window.OneSignal || [];
