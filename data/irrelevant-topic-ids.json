@@ -17,5 +17,19 @@
         "mdrobritish-broadcasting-corporation",
         "mdrothe-new-york-times",
         "mdroagence-france-presse"
+    ],
+    "bg-bg": [
+        "bgbgblgariya",
+        "bgbgfacebook",
+        "bgbginstagram",
+        "bgbgtwitter",
+        "bgbgroyters",
+        "bgbgblgarska-telegrafna-agenciya"
+    ],
+    "en-in": [
+        "inenindia",
+        "inenfacebook",
+        "ineninstagram",
+        "inentwitter"
     ]
 }
