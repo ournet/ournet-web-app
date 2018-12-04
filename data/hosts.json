@@ -62,5 +62,21 @@
     "vremeto.ournet.bg": {
         "project": "weather",
         "country": "bg"
+    },
+    "www.ournet.in": {
+        "project": "portal",
+        "country": "in"
+    },
+    "news.ournet.in": {
+        "project": "news",
+        "country": "in"
+    },
+    "horoscope.ournet.in": {
+        "project": "horoscope",
+        "country": "in"
+    },
+    "weather.ournet.in": {
+        "project": "weather",
+        "country": "in"
     }
 }

@@ -1,0 +1,33 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "en"
+    ],
+    "timezone": "Asia/Kolkata",
+    "domain": "ournet.in",
+    "host": "horoscope.ournet.in",
+    "email": "info@ournet-group.com",
+    "googleAnalyticsId": "UA-1490399-31",
+    "projects": [
+        "horoscope",
+        "news",
+        "weather"
+    ],
+    "shareServices": [
+        "facebook",
+        "gplus",
+        "twitter"
+    ],
+    "internationalIds": [
+        "ru",
+		"bg",
+		"it",
+		"ro",
+		"hu",
+		"cz",
+		"md"
+	],
+    "capitalId": "1261481",
+    "facebookId": "186954164753362"
+}
