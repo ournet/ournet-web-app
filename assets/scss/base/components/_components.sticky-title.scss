@@ -19,7 +19,7 @@ $title-height: 42px;
 }
 .c-sticky-title__h {
     margin: 0px;
-    padding-top: ($title-height - 20) / 2 - 1;
+    padding-top: ($title-height - 20) / 2;
     line-height: 20px;
     font-size: 16px;
     font-weight: 500;
@@ -29,7 +29,7 @@ $title-height: 42px;
 }
 .c-sticky-title.v--large {
     .c-sticky-title__h {
-        padding-top: ($title-height - 32) /  2 - 2;
+        padding-top: ($title-height - 32) /  2 - 1;
         line-height: 32px;
         font-size: 24px;
     }
