@@ -1,0 +1,36 @@
+$title-height: 42px;
+
+.c-sticky-title {
+    height: $title-height;
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: white;
+    box-shadow: 0px 2px 2px rgba($color: #666666, $alpha: .2);
+    z-index: 100;
+    max-width: 100%;
+    &.c-sticky-title--fixed {
+        display: block;
+    }
+}
+.c-sticky-title__h {
+    margin: 0px;
+    padding-top: ($title-height - 20) / 2;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.c-sticky-title.v--large {
+    padding-top: ($title-height - 32) / 2;
+    line-height: 32px;
+    font-size: 24px;
+}
+.c-sticky-title__share {
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+}

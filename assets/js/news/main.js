@@ -1,3 +1,4 @@
 
-window.jQuery = window.jQuery || require('cash-dom');
+// window.jQuery = window.jQuery || require('cash-dom');
 require('./lazy');
+require('../base/sticky-title');

@@ -15,6 +15,7 @@ import { EventNewsItems } from './event-news-items';
 import { QuoteListItem } from '../components/quote-list-item';
 import { TopicListItem } from '../components/topic-list-item';
 import { EventListItem } from '../components/event-list-item';
+import { StickyTitle } from '../../../views/components/sticky-title';
 
 export default class EventPage extends React.Component<EventViewModel> {
     render() {
@@ -40,6 +41,7 @@ export default class EventPage extends React.Component<EventViewModel> {
         return (
             <CommonLayout {...this.props}>
                 <main>
+                    {StickyTitle({ title: event.title, url: head.canonical || '', lang, shareServices: config.shareServices })}
                     <div className='o-layout'>
                         <div className='o-layout__item u-4/6@desktop'>
                             <article className='c-event'>
