@@ -17,8 +17,7 @@
     ],
     "shareServices": [
         "facebook",
-        "twitter",
-        "gplus"
+        "twitter"
     ],
     "internationalIds": [
         "ro",

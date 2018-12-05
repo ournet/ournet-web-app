@@ -15,8 +15,8 @@
         "weather"
     ],
     "shareServices": [
-        "vkontakte",
-        "odnoklassniki",
+        "vk",
+        "okru",
         "facebook"
     ],
     "internationalIds": [
