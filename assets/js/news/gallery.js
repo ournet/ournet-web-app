@@ -1,6 +1,7 @@
 
-var $ = global.jQuery = require('../base/jquery-3.2.1.slim');
+var $ = global.jQuery = require('jquery');
 require('@fancyapps/fancybox/dist/jquery.fancybox');
+var ga = require('../base/ga').ga;
 
 function getGalleryItems(el) {
     var model = JSON.parse(el.attr('data-gallery'));
@@ -34,7 +35,7 @@ function getGalleryItems(el) {
     return items;
 }
 
-function openGallery() {
+function initGallery() {
     $('.js-media-dialog').on('click', function (event) {
         event.preventDefault();
         var el = $(this);
@@ -45,4 +46,4 @@ function openGallery() {
     })
 }
 
-openGallery();
+initGallery();
