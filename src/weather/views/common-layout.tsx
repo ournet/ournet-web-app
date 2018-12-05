@@ -9,19 +9,26 @@ import { getSchema, getHost } from 'ournet.links';
 import { OurnetProjectName } from '../../ournet/data';
 import { EventListItem } from '../../news/views/components/event-list-item';
 import { SectionHeader } from '../../views/components/section-header';
+import { HoroscopeSvg } from '../../views/components/horoscope/horoscope-svg';
+import { GroupHeader } from '../../views/components/group-header';
+import { HoroscopeSignsLine } from '../../views/components/horoscope/horoscope-signs-line';
 
 export default class CommonLayout extends React.Component<WeatherViewModel> {
     render() {
         const { project, children, lang, country, mainPlaces, config, locales, links, latestNews } = this.props;
         return (
             <Layout {...this.props}>
+                {HoroscopeSvg()}
                 <div className="o-layout">
                     <div className="o-layout__item u-1/5 u-hide-mobile u-1/6@desktop">
                         {ExploreMenu({ lang, country, links, locales, config, places: mainPlaces })}
                     </div>
                     <div className="o-layout__item u-4/5@tablet u-3/6@desktop">
                         {children}
-                        {/* {config.projects.includes('horoscope') && <HoroscopeGroup {...this.props} />} */}
+                        <div className='c-group'>
+                            {GroupHeader({ name: locales.horoscope(), link: getSchema(OurnetProjectName.HOROSCOPE, country) + '//' + getHost(OurnetProjectName.HOROSCOPE, country) + links.horoscope.home({ ul: lang }) })}
+                            {HoroscopeSignsLine({ lang, links, project, country })}
+                        </div>
                     </div>
                     <div className="o-layout__item u-2/6@desktop">
                         {/* <LatestNews {...this.props} /> */}

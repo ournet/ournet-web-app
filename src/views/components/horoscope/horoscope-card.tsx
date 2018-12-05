@@ -9,16 +9,19 @@ export type HoroscopeCardProps = {
     country: string
     links: Sitemap
     lang: string
+    view?: 'wide'
 }
 
-export function HoroscopeCard({ title, country, links, lang }: HoroscopeCardProps) {
+export function HoroscopeCard({ title, country, links, lang, view }: HoroscopeCardProps) {
 
     const host = getSchema(OurnetProjectName.HOROSCOPE, country) + '//' + getHost(OurnetProjectName.HOROSCOPE, country);
 
     const url = host + links.horoscope.home({ ul: lang });
 
+    const viewClass = view ? ' v--' + view : '';
+
     return (
-        <div className='c-horo-card'>
+        <div className={'c-horo-card' + viewClass}>
             <a className='c-horo-card__title' title={title} href={url}>{title}</a>
             <ul className='c-horo-card__list'>
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(id => {
