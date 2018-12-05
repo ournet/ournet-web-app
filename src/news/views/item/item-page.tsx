@@ -13,6 +13,7 @@ import { TopicListItem } from '../components/topic-list-item';
 import { SectionHeader } from '../../../views/components/section-header';
 import { EventListItem } from '../components/event-list-item';
 import { AdAside } from '../components/ads/ad-aside';
+import { StickyTitle } from '../../../views/components/sticky-title';
 
 export default class ItemPage extends React.Component<ItemViewModel> {
     render() {
@@ -45,6 +46,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
         return (
             <CommonLayout {...this.props}>
                 <main>
+                    {StickyTitle({ title: item.title, url: head.canonical || '', lang, shareServices: config.shareServices })}
                     <div className='o-layout'>
                         <div className='o-layout__item u-4/6@desktop'>
                             <article className='c-event'>

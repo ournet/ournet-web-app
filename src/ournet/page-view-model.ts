@@ -17,6 +17,7 @@ export abstract class PageViewModelBuilder<DATA extends OurnetAppData, CONFIG ex
         model.head = {
             title: 'Ournet',
             elements: [],
+            canonical: '',
         }
 
         model.showGoogleAds = true;
@@ -39,5 +40,5 @@ export interface PageHeadViewData {
     title: string
     description?: string
     elements: JSX.Element[]
-    canonical?: string
+    canonical: string
 }

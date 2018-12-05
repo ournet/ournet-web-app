@@ -8,6 +8,7 @@ import { ImportantViewModel } from '../../view-models/important-view-model';
 import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { AdCenter } from '../components/ads/ad-center';
+import { StickyTitle } from '../../../views/components/sticky-title';
 
 export default class ImportantPage extends React.Component<ImportantViewModel> {
     render() {
@@ -21,6 +22,7 @@ export default class ImportantPage extends React.Component<ImportantViewModel> {
         return (
             <CommonLayout {...this.props}>
                 <main>
+                    {StickyTitle({ title: (title || head.title), url: head.canonical, lang, shareServices: config.shareServices, size: 'large' })}
                     {Share({ lang, url: head.canonical, align: 'right', services: config.shareServices })}
                     {PageTitle({ title: (title || head.title), subTitle: (subTitle || head.description) })}
 

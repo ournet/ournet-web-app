@@ -1,4 +1,6 @@
-'use strict';
+
+var ga = require('./ga').ga;
+
 /**
  * @constructor
  */
@@ -276,6 +278,8 @@ Sharer.prototype = {
                 }
             },
             s = sharers[sharer];
+
+        ga('send', 'event', 'social', 'share', sharer);
 
         // custom popups sizes
         if (s) {

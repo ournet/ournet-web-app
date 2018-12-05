@@ -9,6 +9,7 @@ import CommonLayout from '../common-layout';
 import { BreadcrumbData, Breadcrumb } from '../../../views/components/breadcrumb';
 
 
+
 export function PlacePage(props: PlaceViewModel) {
 
     const { locales, lang, links, place, placeForecast, holidays, title, subTitle, description, config, head } = props;

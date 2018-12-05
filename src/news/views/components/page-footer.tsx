@@ -14,7 +14,7 @@ export function PageFooter({ project, locales, lang, config, country, version, h
                         <h4>{locales.info()}</h4>
                         <div>{locales.contact()} <a href={'mailto:' + config.email}>{config.email}</a></div>
                         <p>Version: {version}</p>
-                        <div>{Share({ url: head.canonical, lang, services: config.shareServices })}</div>
+                        <div>{Share({ url: head.canonical || '', title: head.title, lang, services: config.shareServices })}</div>
                         {/* <div>{__(LocalesNames.weather_cright)}</div> */}
                     </div>
                     <div className='o-layout__item u-1/3@tablet o-footer-sites'>

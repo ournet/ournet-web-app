@@ -18,12 +18,12 @@ export function StickyTitle({ title, url, shareServices: services, lang, size }:
         <div className={'c-sticky-title'+viewSize}>
             <div className='o-wrapper o-wrapper--small'>
                 <div className='o-layout o-layout--small'>
-                    <div className='o-layout__item u-4/5'>
+                    <div className='o-layout__item u-4/6'>
                         <h3 className='c-sticky-title__h'>{title}</h3>
                     </div>
-                    <div className='o-layout__item u-1/5'>
+                    <div className='o-layout__item u-2/6'>
                         <div className='c-sticky-title__share'>
-                            {Share({ services, lang, url })}
+                            {Share({ services, lang, url, title })}
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { QuotesViewModel } from '../../view-models/quotes-view-model';
 import { AdCenter } from '../components/ads/ad-center';
+import { StickyTitle } from '../../../views/components/sticky-title';
 
 export default class QuotesPage extends React.Component<QuotesViewModel> {
     render() {
@@ -19,6 +20,7 @@ export default class QuotesPage extends React.Component<QuotesViewModel> {
         return (
             <CommonLayout {...this.props}>
                 <main>
+                    {StickyTitle({ title, url: head.canonical, lang, shareServices: config.shareServices, size: 'large' })}
                     {Share({ lang, url: head.canonical, align: 'right', services: config.shareServices })}
                     {PageTitle({ title: (title || head.title), subTitle: (subTitle || head.description) })}
 
