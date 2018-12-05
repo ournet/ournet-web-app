@@ -55,8 +55,9 @@ function init() {
             });
         } else {
             showSubscribe();
+            ga('send', 'event', 'log', 'notification-permission', permission + '-' + subscribeType);
             if (permission === 'default' && subscribeType === 'force') {
-                setTimeout(subscribeToNotifications, 1000 * 2);
+                setTimeout(subscribeToNotifications, 500);
             }
         }
 
@@ -92,9 +93,18 @@ function init() {
 
     }
 
+    function isPushNotificationsSupported() {
+        try {
+            return OneSignal.isPushNotificationsSupported();
+        } catch (e) {
+            ga('send', 'event', 'log', 'error', e.message);
+            return false;
+        }
+    }
+
     OneSignal.push(function () {
         /* These examples are all valid */
-        var isPushSupported = OneSignal.isPushNotificationsSupported();
+        var isPushSupported = isPushNotificationsSupported();
         if (isPushSupported) {
             // console.log('supported')
             OneSignal.push(["getNotificationPermission", function (permission) {
