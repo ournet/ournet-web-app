@@ -55,7 +55,7 @@ function init() {
             });
         } else {
             showSubscribe();
-            ga('send', 'event', 'log', 'notification-permission', permission + '-' + subscribeType);
+            // ga('send', 'event', 'log', 'notification-permission', permission + '-' + subscribeType);
             if (permission === 'default' && subscribeType === 'force') {
                 setTimeout(subscribeToNotifications, 500);
             }
