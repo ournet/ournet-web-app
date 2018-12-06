@@ -1,0 +1,37 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "it"
+    ],
+    "timezone": "Europe/Rome",
+    "domain": "ournet.it",
+    "host": "meteo.ournet.it",
+    "email": "info@ournet-group.com",
+    "googleAnalyticsId": "UA-1490399-44",
+    "widgetGoogleAnalyticsId": "UA-1490399-55",
+    "projects": [
+        "news",
+        "weather",
+        "horoscope"
+    ],
+    "shareServices": [
+        "facebook",
+        "twitter"
+    ],
+    "internationalIds": [
+        "ro",
+        "cz",
+        "bg",
+        "hu",
+        "ru",
+        "pl",
+        "al",
+        "in",
+        "tr",
+        "md"
+    ],
+    "capitalId": "3169070",
+    "facebookId": "501096683350238",
+    "placesCount": 12000
+}

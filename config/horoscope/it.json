@@ -1,0 +1,30 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "it"
+    ],
+    "timezone": "Europe/Rome",
+    "domain": "ournet.it",
+    "host": "oroscopo.ournet.it",
+    "email": "info@ournet-group.com",
+    "googleAnalyticsId": "UA-1490399-44",
+    "projects": [
+        "news",
+        "weather",
+        "horoscope"
+    ],
+    "shareServices": [
+        "facebook",
+        "twitter"
+    ],
+    "internationalIds": [
+        "bg",
+        "ro",
+        "md",
+        "ru",
+        "in"
+    ],
+    "capitalId": "3169070",
+    "facebookId": "501096683350238"
+}
