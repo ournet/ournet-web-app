@@ -78,5 +78,21 @@
     "weather.ournet.in": {
         "project": "weather",
         "country": "in"
+    },
+    "www.ournet.it": {
+        "project": "portal",
+        "country": "it"
+    },
+    "news.ournet.it": {
+        "project": "news",
+        "country": "it"
+    },
+    "oroscopo.ournet.it": {
+        "project": "horoscope",
+        "country": "it"
+    },
+    "meteo.ournet.it": {
+        "project": "weather",
+        "country": "it"
     }
 }
