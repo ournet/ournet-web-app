@@ -42,7 +42,7 @@ class ApiReportsHandler extends HoroscopeBaseHandler<ApiReportsViewModelInput> {
 
         this.setCacheControl(60 * 24 * 30);
 
-        return this.send({ period, reports: model.reports || [] }, 200);
+        return this.send({ data: { period, reports: model.reports || [] } }, 200);
     }
 }
 
