@@ -94,5 +94,21 @@
     "meteo.ournet.it": {
         "project": "weather",
         "country": "it"
+    },
+    "www.ournet.hu": {
+        "project": "portal",
+        "country": "hu"
+    },
+    "news.ournet.hu": {
+        "project": "news",
+        "country": "hu"
+    },
+    "horoszkop.ournet.hu": {
+        "project": "horoscope",
+        "country": "hu"
+    },
+    "idojaras.ournet.hu": {
+        "project": "weather",
+        "country": "hu"
     }
 }
