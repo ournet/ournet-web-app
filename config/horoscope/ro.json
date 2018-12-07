@@ -21,7 +21,11 @@
     ],
     "internationalIds": [
         "md",
-		"bg",
+        "bg",
+        "cz",
+        "hu",
+        "it",
+        "in",
 		"ru"
 	],
     "capitalId": "683506",

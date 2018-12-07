@@ -6,7 +6,7 @@
     ],
     "timezone": "Europe/Sofia",
     "domain": "ournet.bg",
-    "host": "horo.ournet.bg",
+    "host": "horoscope.ournet.bg",
     "email": "info@ournet-group.com",
     "googleAnalyticsId": "UA-1490399-35",
     "projects": [
@@ -19,6 +19,9 @@
         "twitter"
     ],
     "internationalIds": [
+        "hu",
+        "cz",
+        "it",
         "ru",
         "md",
         "ro"
