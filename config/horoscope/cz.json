@@ -1,0 +1,30 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "cs"
+    ],
+    "timezone": "Europe/Prague",
+    "domain": "ournet.cz",
+    "host": "horoskop.ournet.cz",
+    "email": "info@ournet-group.com",
+    "googleAnalyticsId": "UA-1490399-39",
+    "projects": [
+        "news",
+        "weather",
+        "horoscope"
+    ],
+    "shareServices": [
+        "facebook",
+        "twitter"
+    ],
+    "internationalIds": [
+        "bg",
+        "hu",
+        "ru",
+        "md",
+        "ro"
+    ],
+    "capitalId": "3067696",
+    "facebookId": "1421143378147537"
+}

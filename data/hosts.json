@@ -110,5 +110,21 @@
     "idojaras.ournet.hu": {
         "project": "weather",
         "country": "hu"
+    },
+    "www.ournet.cz": {
+        "project": "portal",
+        "country": "cz"
+    },
+    "news.ournet.cz": {
+        "project": "news",
+        "country": "cz"
+    },
+    "horoskop.ournet.cz": {
+        "project": "horoscope",
+        "country": "cz"
+    },
+    "pocasi.ournet.cz": {
+        "project": "weather",
+        "country": "cz"
     }
 }
