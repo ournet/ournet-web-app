@@ -94,10 +94,10 @@
     joi "^14.0.3"
     normalize-url "^3.2.0"
 
-"@ournet/horoscopes-domain@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@ournet/horoscopes-domain/-/horoscopes-domain-0.1.2.tgz#53b821cfb7326f04f1c9a95510d870cb23a04c43"
-  integrity sha512-K2i1rYCXjLLIolq5+qMOjwfYOhG2Qb85gQkkMnEJnwX8weuZPc3HMl3s2XGZ5PL66qecfn8AmzJcv2BmK8fE4g==
+"@ournet/horoscopes-domain@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@ournet/horoscopes-domain/-/horoscopes-domain-0.1.3.tgz#fff76d316c1e00bf97bfb1a8f31f77dfa7dcd633"
+  integrity sha512-JJYVPQ4HTiNR16c0PjxrC9sFfu+ykEJq5PrZAdTUSu7l+930967hwjid8TGwMP0sv9ydg4AtigbVRpFJ1yHdZQ==
   dependencies:
     "@ournet/domain" "^0.3.3"
     ellipsize "^0.1.0"
@@ -6245,10 +6245,10 @@ osenv@0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-ournet.links@^0.4.8:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.8.tgz#43075b51982ff95291f79a30c1336561e7eb4197"
-  integrity sha512-MuckJhMOAg2nBDfN8wwcg7lufpVZSKFzEvQeK1FBrWNGKYCyW1F9SIKfzEC2XLsPtTolc49J3UYnYE5UKiQbbg==
+ournet.links@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.9.tgz#4d86b21f9e7213beed65bb9115013aa7b0bf68a8"
+  integrity sha512-Wf/Jf+hYJWW4fTsXsSd6a52EiyTs/HQcl8HvfgZw7i4su6NqyhST4ZEGSRTVFb973Bf0xTrbMni8bc22sVrCTA==
   dependencies:
     urlset "^0.6.1"
 
