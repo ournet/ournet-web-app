@@ -5,6 +5,7 @@ import CommonLayout from '../common-layout';
 import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { HoroscopeDayReport } from '../components/horoscope-day-report';
+import { StickyTitle } from '../../../views/components/sticky-title';
 
 export function IndexPage(props: IndexViewModel) {
 
@@ -13,6 +14,7 @@ export function IndexPage(props: IndexViewModel) {
     return (
         <CommonLayout {...props}>
             <main>
+                {StickyTitle({ title: title || head.title, url: head.canonical, lang, shareServices: config.shareServices, size: 'large' })}
                 <div className='u-report-margin'>
                     {Share({ services: config.shareServices, lang, align: 'right', url: head.canonical })}
                     {PageTitle({ title: title || head.title, subTitle: subTitle || head.description })}

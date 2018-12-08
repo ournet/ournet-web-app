@@ -7,6 +7,7 @@ import { Share } from '../../../views/components/share';
 import { PlaceDailyReport } from '../components/forecast/place-daily-report';
 import CommonLayout from '../common-layout';
 import { BreadcrumbData, Breadcrumb } from '../../../views/components/breadcrumb';
+import { StickyTitle } from '../../../views/components/sticky-title';
 
 
 
@@ -33,6 +34,7 @@ export function PlacePage(props: PlaceViewModel) {
     return (
         <CommonLayout {...props}>
             <main>
+                {StickyTitle({ title, url: head.canonical, lang, shareServices: config.shareServices, size: 'large' })}
                 {Share({ services: config.shareServices, align: 'right', url: head.canonical, lang })}
                 {Breadcrumb(breadcrumbData)}
                 {PageTitle({ title, subTitle })}

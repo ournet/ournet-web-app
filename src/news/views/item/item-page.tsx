@@ -46,7 +46,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
         return (
             <CommonLayout {...this.props}>
                 <main>
-                    {StickyTitle({ title: item.title, url: head.canonical || '', lang, shareServices: config.shareServices })}
+                    {StickyTitle({ title: item.title, url: head.canonical, lang, shareServices: config.shareServices })}
                     <div className='o-layout'>
                         <div className='o-layout__item u-4/6@desktop'>
                             <article className='c-event'>
