@@ -1,6 +1,6 @@
 {
   "name": "ournet-web-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ournet web application",
   "private": true,
   "main": "./lib/index.js",
