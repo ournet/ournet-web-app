@@ -108,7 +108,7 @@
     "xhr": "^2.5.0"
   },
   "dependencies": {
-    "@ournet/api-client": "^0.1.2",
+    "@ournet/api-client": "^0.1.3",
     "@ournet/domain": "^0.3.3",
     "@ournet/horoscopes-domain": "^0.1.3",
     "@ournet/images-domain": "^0.1.1",
