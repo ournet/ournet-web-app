@@ -1,10 +1,11 @@
 
 import { NewsViewModel, NewsViewModelBuilder } from "./news-view-model";
-import { NewsEvent, NewsEventStringFields, ArticleContent, ArticleContentStringFields, Quote, QuoteStringFields } from "@ournet/api-client";
+import { NewsEvent, ArticleContent, ArticleContentStringFields, Quote, QuoteStringFields, NewsEventStringFields } from "@ournet/api-client";
 import { notFound } from "boom";
 import { ArticleContentBuilder } from '@ournet/news-domain';
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { filterIrrelevantTopics } from "../irrelevant-topics";
+import { LIST_EVENTS_FIEDLS } from "../config";
 
 export interface EventViewModelInput extends OurnetViewModelInput {
     id: string
@@ -44,8 +45,8 @@ export class EventViewModelBuilder extends NewsViewModelBuilder<EventViewModel, 
 
         const relevaltTopicsIds = filterIrrelevantTopics({ lang, country }, event.topics).map(item => item.id);
 
-        this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 4 } })
-            .newsSimilarEventsByTopics('similarEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 2, topicIds: relevaltTopicsIds.slice(0, 2), exceptId: event.id } });
+        this.apiClient.newsEventsLatest('latestEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 4 } })
+            .newsSimilarEventsByTopics('similarEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 2, topicIds: relevaltTopicsIds.slice(0, 2), exceptId: event.id } });
 
         if (event.hasContent) {
             this.apiClient.newsArticleContentById('eventContent', { fields: ArticleContentStringFields }, { id: ArticleContentBuilder.createId({ refId: id, refType: 'EVENT' }) });

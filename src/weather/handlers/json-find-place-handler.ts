@@ -32,7 +32,7 @@ export class JsonFindPlaceHandler extends WeatherBaseHandler<JsonFindPlaceViewMo
 
         api.placesSearchPlace('places', { fields: PlaceStringFields }, { query: q.trim(), country, limit: 10, type: 'phrase_prefix' });
 
-        const result = await api.execute();
+        const result = await api.queryExecute();
 
         if (!result || !result.data) {
             return this.send([], 200);

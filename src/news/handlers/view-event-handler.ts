@@ -8,7 +8,7 @@ export class ViewEventHandler extends NewsBaseHandler<EventViewModelInput>{
         const apiClient = data.createMutationApiClient<{ countViews: number }>()
         apiClient.newsViewNewsEvent('countViews', { id: this.input.id });
 
-        await apiClient.execute();
+        await apiClient.queryExecute();
 
         this.setCacheControl(0);
 

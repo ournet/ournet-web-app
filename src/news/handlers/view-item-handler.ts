@@ -8,7 +8,7 @@ export class ViewItemHandler extends NewsBaseHandler<ItemViewModelInput>{
         const apiClient = data.createMutationApiClient<{ countViews: number }>()
         apiClient.newsViewNewsItem('countViews', { id: this.input.id });
 
-        await apiClient.execute();
+        await apiClient.queryExecute();
 
         this.setCacheControl(0);
 

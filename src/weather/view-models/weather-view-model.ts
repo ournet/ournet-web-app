@@ -3,9 +3,10 @@ import { WeatherAppConfig } from "../config";
 import { PageViewModelBuilder, PageViewModel } from "../../ournet/page-view-model";
 import { WeatherAppData, PlaceNoAdmin1Fields } from "../data";
 import moment = require("moment-timezone");
-import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, NewsEvent, NewsEventStringFields } from "@ournet/api-client";
+import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, NewsEvent } from "@ournet/api-client";
 import logger from "../../logger";
 import { OurnetViewModelInput, getLanguageFromQueryString } from "../../ournet/view-model";
+import { LIST_EVENTS_FIEDLS } from "../../news/config";
 
 
 export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends OurnetViewModelInput=OurnetViewModelInput>
@@ -29,7 +30,7 @@ export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends Ourne
         const result = await localApiClient
             .placesPlaceById('capital', { fields: 'id name names longitude latitude timezone' },
                 { id: model.config.capitalId })
-            .execute();
+            .queryExecute();
 
         if (result.errors && result.errors.length) {
             logger.error(result.errors[0]);
@@ -49,7 +50,7 @@ export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends Ourne
         }
 
         this.apiClient.placesMainPlaces('mainPlaces', { fields: PlaceNoAdmin1Fields }, { country, limit: 20 })
-            .newsEventsLatest('latestNews', { fields: NewsEventStringFields }, { params: { country, lang, limit: 4 } });
+            .newsEventsLatest('latestNews', { fields: LIST_EVENTS_FIEDLS }, { params: { country, lang, limit: 4 } });
 
         return super.build();
     }

@@ -5,6 +5,7 @@ import { notFound } from "boom";
 import { ArticleContentBuilder } from '@ournet/news-domain';
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { filterIrrelevantTopics } from "../irrelevant-topics";
+import { LIST_EVENTS_FIEDLS } from "../config";
 
 export interface ItemViewModelInput extends OurnetViewModelInput {
     id: string
@@ -44,9 +45,9 @@ export class ItemViewModelBuilder extends NewsViewModelBuilder<ItemViewModel, It
 
         const relevaltTopicsIds = newsItem.topics && filterIrrelevantTopics({ lang, country }, newsItem.topics).map(item => item.id) || [];
 
-        this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 4 } });
+        this.apiClient.newsEventsLatest('latestEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 4 } });
         if (relevaltTopicsIds.length) {
-            this.apiClient.newsSimilarEventsByTopics('similarEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 2, topicIds: relevaltTopicsIds.slice(0, 2), exceptId: newsItem.id } });
+            this.apiClient.newsSimilarEventsByTopics('similarEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 2, topicIds: relevaltTopicsIds.slice(0, 2), exceptId: newsItem.id } });
         }
 
         if (newsItem.hasContent) {

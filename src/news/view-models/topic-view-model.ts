@@ -1,9 +1,10 @@
 
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
-import { NewsEventStringFields, QuoteStringFields, NewsEvent, Quote, NewsItem, Topic, TopicStringFields, NewsItemStringFields } from "@ournet/api-client";
+import { QuoteStringFields, NewsEvent, Quote, NewsItem, Topic, TopicStringFields, NewsItemStringFields } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { TopicHelper } from "@ournet/topics-domain";
 import { notFound } from "boom";
+import { LIST_EVENTS_FIEDLS } from "../config";
 
 
 export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicViewModelInput>
@@ -36,8 +37,8 @@ export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicView
 
         this.setCanonical(links.news.topic(slug, { ul: lang }));
 
-        this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 4 } })
-            .newsEventsLatestByTopic('topicEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 4, topicId: topic.id } })
+        this.apiClient.newsEventsLatest('latestEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 4 } })
+            .newsEventsLatestByTopic('topicEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 4, topicId: topic.id } })
             .newsItemsLatestByTopic('topicNews', { fields: NewsItemStringFields }, { params: { lang, country, limit: 5, topicId: topic.id } })
             .quotesLatestByTopic('aboutQuotes', { fields: QuoteStringFields }, { params: { country, lang, limit: 3, topicId: topic.id } });
 

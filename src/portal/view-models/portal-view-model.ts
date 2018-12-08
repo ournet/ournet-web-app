@@ -30,7 +30,7 @@ export class PortalViewModelBuilder<T extends PortalViewModel, I extends OurnetV
             .placesPlaceById('capital', { fields: 'id name names longitude latitude timezone' },
                 { id: model.config.capitalId })
             .newsTrendingTopics('trendingTopics', { fields: NewsTopItemStringFields }, { params: { country, lang, limit: 20, period: '24h' } })
-            .execute();
+            .queryExecute();
 
         if (result.errors && result.errors.length) {
             logger.error(result.errors[0]);

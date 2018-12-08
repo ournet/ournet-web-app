@@ -1,9 +1,10 @@
 
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
-import { NewsEventStringFields, QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
+import { QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { Moment } from "moment-timezone";
 import { Dictionary, uniq } from "@ournet/domain";
+import { LIST_EVENTS_FIEDLS } from "../config";
 
 
 export class ImportantViewModelBuilder extends NewsViewModelBuilder<ImportantViewModel, OurnetViewModelInput> {
@@ -20,7 +21,7 @@ export class ImportantViewModelBuilder extends NewsViewModelBuilder<ImportantVie
         const ids = await this.getImportantEventsIds({ limit: 12, lang, country, currentDate });
 
         if (ids.length) {
-            this.apiClient.newsEventsByIds('importantEvents', { fields: NewsEventStringFields }, { ids })
+            this.apiClient.newsEventsByIds('importantEvents', { fields: LIST_EVENTS_FIEDLS }, { ids })
                 .quotesLatest('latestQuotes', { fields: QuoteStringFields }, { params: { lang, country, limit: 6 } });
         }
 

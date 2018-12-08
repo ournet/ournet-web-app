@@ -56,7 +56,7 @@ export class Widget1ViewModelBuilder extends PageViewModelBuilder<WeatherAppData
 
         const localApi = this.data.createQueryApiClient<{ place: Place }>();
         const result = await localApi.placesPlaceById('place', { fields: PlaceNoAdmin1Fields },
-            { id: this.input.id.trim() }).execute();
+            { id: this.input.id.trim() }).queryExecute();
         if (!result.data || !result.data.place) {
             throw notFound(`Not found place id=${this.input.id}`);
         }

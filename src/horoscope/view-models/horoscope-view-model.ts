@@ -3,9 +3,10 @@ import { HoroscopeAppConfig } from "../config";
 import { PageViewModelBuilder, PageViewModel } from "../../ournet/page-view-model";
 import { HoroscopeAppData } from "../data";
 import moment = require("moment-timezone");
-import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, NewsEvent, NewsEventStringFields } from "@ournet/api-client";
+import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, NewsEvent } from "@ournet/api-client";
 import logger from "../../logger";
 import { OurnetViewModelInput } from "../../ournet/view-model";
+import { LIST_EVENTS_FIEDLS } from "../../news/config";
 
 
 export class HoroscopeViewModelBuilder<T extends HoroscopeViewModel, I extends OurnetViewModelInput=OurnetViewModelInput>
@@ -38,7 +39,7 @@ export class HoroscopeViewModelBuilder<T extends HoroscopeViewModel, I extends O
         const result = await localApiClient
             .placesPlaceById('capital', { fields: 'id name names longitude latitude timezone' },
                 { id: model.config.capitalId })
-            .execute();
+            .queryExecute();
 
         if (result.errors && result.errors.length) {
             logger.error(result.errors[0]);
@@ -57,7 +58,7 @@ export class HoroscopeViewModelBuilder<T extends HoroscopeViewModel, I extends O
             }
         }
 
-        this.apiClient.newsEventsLatest('latestNews', { fields: NewsEventStringFields }, { params: { country, lang, limit: 4 } });
+        this.apiClient.newsEventsLatest('latestNews', { fields: LIST_EVENTS_FIEDLS }, { params: { country, lang, limit: 4 } });
 
         return super.build();
     }

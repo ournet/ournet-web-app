@@ -1,7 +1,8 @@
 
 import { PortalViewModelBuilder, PortalViewModel } from "./portal-view-model";
-import { NewsEventStringFields, QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
+import { QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
+import { LIST_EVENTS_FIEDLS } from "../../news/config";
 
 
 export class IndexViewModelBuilder<T extends IndexViewModel, I extends OurnetViewModelInput>
@@ -16,7 +17,7 @@ export class IndexViewModelBuilder<T extends IndexViewModel, I extends OurnetVie
 
         this.setCanonical(links.portal.home({ ul: lang }));
 
-        this.apiClient.newsEventsLatest('latestEvents', { fields: NewsEventStringFields }, { params: { lang, country, limit: 14 } })
+        this.apiClient.newsEventsLatest('latestEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 14 } })
             .quotesLatest('latestQuotes', { fields: QuoteStringFields }, { params: { lang, country, limit: 6 } });
 
         return super.build();

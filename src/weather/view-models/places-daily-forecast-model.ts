@@ -11,7 +11,7 @@ export class PlacesDailyForecastViewModelBuilder extends WeatherViewModelBuilder
 
         const result = await localApiClient
             .placesPlacesByIds('places', { fields: 'id name names longitude latitude timezone' }, { ids: this.input.ids })
-            .execute();
+            .queryExecute();
 
         if (result.data && result.data.places) {
             const places = this.model.places = result.data.places;

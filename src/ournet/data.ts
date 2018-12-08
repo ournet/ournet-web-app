@@ -1,8 +1,24 @@
 import { AppData } from "../base/app-data";
-import { GraphQLQueryExecutor, OurnetQueryApi, OurnetMutationApi } from '@ournet/api-client';
+import { CacheGraphQlQueryExecutor, OurnetQueryApi, OurnetMutationApi, OurnetQueryMethods } from '@ournet/api-client';
 import { badImplementation } from "boom";
+import { Dictionary } from "@ournet/domain";
+import ms = require('ms');
 
-const executor = new GraphQLQueryExecutor(process.env.OURNET_API_HOST || 'http://ournetapi.com/graphql');
+const cacheOptions: Dictionary<{ max: number, ttl: number }> = {}
+
+cacheOptions[OurnetQueryMethods.news_trendingTopics] = { max: 20, ttl: ms('10m') };
+cacheOptions[OurnetQueryMethods.news_eventsLatest] = { max: 20, ttl: ms('5m') };
+cacheOptions[OurnetQueryMethods.news_eventsLatestByTopic] = { max: 150, ttl: ms('10m') };
+cacheOptions[OurnetQueryMethods.weather_nowPlaceForecast] = { max: 50, ttl: ms('30m') };
+cacheOptions[OurnetQueryMethods.weather_datePlacesForecast] = { max: 100, ttl: ms('1h') };
+cacheOptions[OurnetQueryMethods.places_placeById] = { max: 500, ttl: ms('30m') };
+cacheOptions[OurnetQueryMethods.places_mainPlaces] = { max: 50, ttl: ms('2h') };
+cacheOptions[OurnetQueryMethods.places_placesByIds] = { max: 100, ttl: ms('1h') };
+cacheOptions[OurnetQueryMethods.quotes_latest] = { max: 20, ttl: ms('10m') };
+cacheOptions[OurnetQueryMethods.topics_topicsByIds] = { max: 50, ttl: ms('1h') };
+cacheOptions[OurnetQueryMethods.topics_topicById] = { max: 100, ttl: ms('1h') };
+
+const executor = new CacheGraphQlQueryExecutor({ url: process.env.OURNET_API_HOST || '' }, cacheOptions);
 
 function createQueryApiClient<QT>(): OurnetQueryApi<QT> {
     return new OurnetQueryApi<QT>(executor)
@@ -13,7 +29,10 @@ function createMutationApiClient<QT>(): OurnetMutationApi<QT> {
 }
 
 async function executeApiClient<APIT>(client: OurnetQueryApi<APIT>) {
-    const apiResult = await client.execute();
+    if (!client.queryHasItems()) {
+        return {} as APIT;
+    }
+    const apiResult = await client.queryExecute();
     if (apiResult.errors) {
         throw badImplementation(apiResult.errors[0].message);
     }
