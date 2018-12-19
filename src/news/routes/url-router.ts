@@ -23,7 +23,7 @@ class UrlHandler extends NewsBaseHandler {
             url = 'http://' + url;
         }
 
-        url = Buffer.from(url, 'binary').toString('utf8');
+        url = Buffer.from(url, 'utf8').toString('ascii');
 
         this.setCacheControl(60 * 24 * 30);
 
