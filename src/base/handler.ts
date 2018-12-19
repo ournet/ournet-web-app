@@ -37,7 +37,7 @@ export abstract class Handler<DATA extends AppData, INPUT extends HandlerInput> 
 
     protected redirect(location: string, code: number, headers?: { [name: string]: string }) {
         headers = headers || {};
-        headers['location'] = location.trim().replace(/[\r\n]/g, '');
+        headers['location'] = location.trim();
 
         return this.send(null, code, headers);
     }
