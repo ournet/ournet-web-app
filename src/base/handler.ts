@@ -37,6 +37,14 @@ export abstract class Handler<DATA extends AppData, INPUT extends HandlerInput> 
 
     protected redirect(location: string, code: number, headers?: { [name: string]: string }) {
         headers = headers || {};
+
+        if (location.startsWith('http')) {
+            const index = location.indexOf(':') + 3;
+            location = location.substr(0, index) + encodeURIComponent(location.substr(index));
+        } else {
+            location = encodeURIComponent(location);
+        }
+
         headers['location'] = location.trim();
 
         return this.send(null, code, headers);

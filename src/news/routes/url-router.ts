@@ -23,8 +23,6 @@ class UrlHandler extends NewsBaseHandler {
             url = 'http://' + url;
         }
 
-        url = Buffer.from(url, 'utf8').toString('ascii');
-
         this.setCacheControl(60 * 24 * 30);
 
         return this.redirect(url, 301);
