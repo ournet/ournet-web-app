@@ -120,6 +120,7 @@
     "chroma-js": "^1.4.0",
     "dotenv": "^6.1.0",
     "ellipsize": "^0.1.0",
+    "encodeurl": "^1.0.2",
     "entipic.url": "^0.1.0",
     "lang-text": "^0.1.0",
     "micro": "^9.3.3",

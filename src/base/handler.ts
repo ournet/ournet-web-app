@@ -3,6 +3,7 @@ import { AppData } from "./app-data";
 import { renderToStaticMarkup } from 'react-dom/server';
 import { send } from "micro";
 import env from "../env";
+const encodeUrl = require('encodeurl');
 
 export interface IHandler<DATA extends AppData> {
     handle(data: DATA): Promise<void>
@@ -38,7 +39,7 @@ export abstract class Handler<DATA extends AppData, INPUT extends HandlerInput> 
     protected redirect(location: string, code: number, headers?: { [name: string]: string }) {
         headers = headers || {};
 
-        headers['location'] = location.trim();
+        headers['location'] = encodeUrl(location.trim());
 
         return this.send(null, code, headers);
     }
