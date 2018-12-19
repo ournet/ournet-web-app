@@ -25,6 +25,6 @@ class UrlHandler extends NewsBaseHandler {
 
         this.setCacheControl(60 * 24 * 30);
 
-        return this.redirect(url, 301);
+        return this.redirect(url, 301, { 'content-type': 'text/html; charset=UTF-8' });
     }
 }
