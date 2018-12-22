@@ -75,7 +75,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                                 </div>
                             </article>
 
-                            {similarEvents.length > 0 ?
+                            {similarEvents && similarEvents.length > 0 ?
                                 <div className='c-section'>{SectionHeader({ name: locales.related_news() })}
                                     <div key='layout' className='o-layout'>
                                         {similarEvents.slice(0, 2).map(item => <div key={item.id} className='o-layout__item u-1/2@tablet'>{EventListItem({ item, lang, links, country, timezone: config.timezone, view: 'card' })}</div>)}
