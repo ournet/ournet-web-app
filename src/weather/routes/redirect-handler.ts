@@ -5,6 +5,7 @@ import { createAppConfig } from "../../ournet/config";
 import { sitemap } from "ournet.links";
 import { getLanguageFromQueryString } from "../../ournet/view-model";
 import { WidgetOldPlaceHandler } from "../handlers/widget-old-place-handler";
+import { parse as parseUrl } from "url";
 
 
 export class Widget2RedirectRouter extends OurnetRouter {
@@ -138,6 +139,10 @@ export class PrefixOldWidgetRedirectRouter extends OurnetRouter {
     }
     protected createHander(req: Request, res: Response) {
         const input = this.formatInput(req, res);
+
+        if (!input.url.query.id) {
+            input.url = parseUrl((input.req.url || '').replace(/&amp;/g, '&'), true);
+        }
 
         const handler = new WidgetOldPlaceHandler({
             country: input.country,
