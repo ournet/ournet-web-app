@@ -5,8 +5,8 @@ import { OurnetViewModelInput } from "../../ournet/view-model";
 import { HoroscopesHelper, HoroscopeSign } from "@ournet/horoscopes-domain";
 
 
-export class IndexViewModelBuilder<T extends IndexViewModel, I extends OurnetViewModelInput>
-    extends HoroscopeViewModelBuilder<T, I> {
+export class IndexViewModelBuilder
+    extends HoroscopeViewModelBuilder<IndexViewModel, OurnetViewModelInput> {
 
     build() {
 
@@ -17,8 +17,8 @@ export class IndexViewModelBuilder<T extends IndexViewModel, I extends OurnetVie
 
         this.setCanonical(links.horoscope.home({ ul: lang }));
 
-        this.model.title = locales.daily_horoscope_format( { name: currentDayPeriodText });
-        this.model.subTitle = locales.daily_horoscope_details_format( { name: currentDayPeriodText });
+        this.model.title = locales.daily_horoscope_format({ name: currentDayPeriodText });
+        this.model.subTitle = locales.daily_horoscope_details_format({ name: currentDayPeriodText });
 
         const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
             .map(sign => HoroscopesHelper.createReportId(currentDayPeriod, lang, sign as HoroscopeSign));
@@ -26,6 +26,13 @@ export class IndexViewModelBuilder<T extends IndexViewModel, I extends OurnetVie
         this.apiClient.horoscopesReportsByIds('reports', { fields: HoroscopeReportStringFields }, { ids });
 
         return super.build();
+    }
+
+    protected formatModelData(data: IndexViewModel) {
+        const model = super.formatModelData(data);
+        model.reports = (model.reports || []).sort((a, b) => a.sign - b.sign);
+
+        return model;
     }
 }
 

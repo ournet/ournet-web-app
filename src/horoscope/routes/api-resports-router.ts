@@ -27,7 +27,7 @@ class ApiReportsHandler extends HoroscopeBaseHandler<ApiReportsViewModelInput> {
             return this.send({ message: `Param 'client' is required!` }, 400);
         }
 
-        logger.warn(`api reports`, { client: this.input.client });
+        logger.warn(`api reports ${this.input.client}`);
 
         let period = this.input.period;
 
