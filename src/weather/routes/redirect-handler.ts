@@ -119,6 +119,10 @@ export class OldWidgetRedirectRouter extends OurnetRouter {
     protected createHander(req: Request, res: Response) {
         const input = this.formatInput(req, res);
 
+        if (!input.url.query.id) {
+            input.url = parseUrl((input.req.url || '').replace(/&amp;/g, '&'), true);
+        }
+
         const handler = new WidgetOldPlaceHandler({
             country: input.country,
             host: input.host,
