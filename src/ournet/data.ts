@@ -18,7 +18,11 @@ cacheOptions[OurnetQueryMethods.quotes_latest] = { max: 20, ttl: ms('10m') };
 cacheOptions[OurnetQueryMethods.topics_topicsByIds] = { max: 50, ttl: ms('1h') };
 cacheOptions[OurnetQueryMethods.topics_topicById] = { max: 100, ttl: ms('1h') };
 
-const executor = new CacheGraphQlQueryExecutor({ url: process.env.OURNET_API_HOST || '', timeout: 1000 * 4 }, cacheOptions);
+const executor = new CacheGraphQlQueryExecutor({
+    url: process.env.OURNET_API_HOST || '',
+    timeout: 1000 * 4, headers: { authorization: `Bearer ${process.env.OURNET_API_KEY}` }
+},
+    cacheOptions);
 
 function createQueryApiClient<QT>(): OurnetQueryApi<QT> {
     return new OurnetQueryApi<QT>(executor)
