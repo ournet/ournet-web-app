@@ -20,7 +20,11 @@ cacheOptions[OurnetQueryMethods.topics_topicById] = { max: 100, ttl: ms('1h') };
 
 const executor = new CacheGraphQlQueryExecutor({
     url: process.env.OURNET_API_HOST || '',
-    timeout: 1000 * 4, headers: { authorization: `Bearer ${process.env.OURNET_API_KEY}` }
+    timeout: 1000 * 4,
+    headers: {
+        authorization: `Bearer ${process.env.OURNET_API_KEY}`,
+        'Content-Type': 'application/json'
+    }
 },
     cacheOptions);
 
