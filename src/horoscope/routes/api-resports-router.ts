@@ -62,6 +62,13 @@ class ApiReportsViewModelBuilder
 
         return super.build();
     }
+
+    protected formatModelData(data: ApiReportsViewModel) {
+        const model = super.formatModelData(data);
+        model.reports = (model.reports || []).sort((a, b) => a.sign - b.sign);
+
+        return model;
+    }
 }
 
 interface ApiReportsViewModelInput extends OurnetViewModelInput {
