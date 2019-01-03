@@ -58,7 +58,7 @@ class ApiReportsViewModelBuilder
         const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
             .map(sign => HoroscopesHelper.createReportId(period, lang, sign as HoroscopeSign));
 
-        this.apiClient.horoscopesReportsByIds('reports', { fields: 'id lang text period numbers stats {love health success}' }, { ids });
+        this.apiClient.horoscopesReportsByIds('reports', { fields: 'id lang sign text period numbers stats {love health success}' }, { ids });
 
         return super.build();
     }
