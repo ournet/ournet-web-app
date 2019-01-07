@@ -12,12 +12,14 @@ import { SignRouter } from "./routes/sign-router";
 import { ApiReportsRouter } from "./routes/api-resports-router";
 import { RobotsRouter, OneSignalSDKWorkerRouter, OneSignalSDKUpdaterWorkerRouter } from "./routes/static-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
+import { AssetlinksRouter } from "./routes/assetlinks";
 
 export class HoroscopeOurnetApp extends OurnetApp<OurnetAppData> {
 
     constructor() {
         super([
             new RobotsRouter(),
+            new AssetlinksRouter(),
             new OneSignalSDKWorkerRouter(),
             new OneSignalSDKUpdaterWorkerRouter(),
             
