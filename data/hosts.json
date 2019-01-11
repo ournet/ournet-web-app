@@ -126,5 +126,13 @@
     "pocasi.ournet.cz": {
         "project": "weather",
         "country": "cz"
+    },
+    "www.moti2.al": {
+        "project": "weather",
+        "country": "al"
+    },
+    "www.hava.one": {
+        "project": "weather",
+        "country": "tr"
     }
 }
