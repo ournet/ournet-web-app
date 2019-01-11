@@ -1,6 +1,6 @@
 
 import { LocalesProvider, GeneratedLocales, LocalesKey } from './generated-locales';
-import { TranslatorOptions, Locales, parseDirectory } from 'lang-text';
+import { TranslatorOptions, Locales, parseDirectory } from 'localizy';
 import { join } from 'path';
 import { OurnetProjectName } from './ournet/data';
 

@@ -22,7 +22,7 @@ ga('create', '${config.googleAnalyticsId}', '${config.domain}');
 ga('set', 'dimension1', '${project}');
 ga('send', 'pageview');`}}></script>
                     {children}
-                    {showGoogleAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>}
+                    {!config.disabledAds && showGoogleAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>}
                 </body>
             </html>
         )

@@ -15,7 +15,7 @@ import { HoroscopeSignsLine } from '../../views/components/horoscope/horoscope-s
 
 export default class CommonLayout extends React.Component<WeatherViewModel> {
     render() {
-        const { project, children, lang, country, mainPlaces, config, locales, links, latestNews } = this.props;
+        const { project, children, lang, country, mainPlaces, config, locales, links, latestNews, containsProject } = this.props;
         return (
             <Layout {...this.props}>
                 {HoroscopeSvg()}
@@ -25,10 +25,13 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                     </div>
                     <div className="o-layout__item u-4/5@tablet u-3/6@desktop">
                         {children}
-                        <div className='c-group'>
-                            {GroupHeader({ name: locales.horoscope(), link: getSchema(OurnetProjectName.HOROSCOPE, country) + '//' + getHost(OurnetProjectName.HOROSCOPE, country) + links.horoscope.home({ ul: lang }) })}
-                            {HoroscopeSignsLine({ lang, links, project, country })}
-                        </div>
+                        {
+                            containsProject(OurnetProjectName.HOROSCOPE) &&
+                            <div className='c-group'>
+                                {GroupHeader({ name: locales.horoscope(), link: getSchema(OurnetProjectName.HOROSCOPE, country) + '//' + getHost(OurnetProjectName.HOROSCOPE, country) + links.horoscope.home({ ul: lang }) })}
+                                {HoroscopeSignsLine({ lang, links, project, country })}
+                            </div>
+                        }
                     </div>
                     <div className="o-layout__item u-2/6@desktop">
                         {/* <LatestNews {...this.props} /> */}
@@ -39,7 +42,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                                     {latestNews.map(item => <div key={item.id} className='o-layout__item u-1/2@tablet u-1/1@desktop'>{EventListItem({ lang, country, project, links, timezone: config.timezone, item, view: 'card-bare', imageSize: 'small' })}</div>)}
                                 </div>
                             </div>}
-                        {AdAside()}
+                        {!config.disabledAds && AdAside()}
 
                     </div>
                 </div>

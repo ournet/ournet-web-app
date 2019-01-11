@@ -1,5 +1,5 @@
 
-import { Locales, Translator, TranslatorOptions, DirectoryTranslatorOptions, parseDirectory } from 'lang-text';
+import { Locales, Translator, TranslatorOptions, DirectoryTranslatorOptions, parseDirectory } from 'localizy';
 
 export class LocalesProvider<T extends GeneratedLocales = GeneratedLocales> {
     private translator: Translator

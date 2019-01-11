@@ -44,13 +44,17 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
 
     daysData.forEach((dayData, index) => {
         if (index === 1) {
-            items.push(AdTop())
+            if (!config.disabledAds) {
+                items.push(AdTop())
+            }
         }
         else if (index === 2) {
             items.push(SubscribeBar({ locales, config, lang, place }))
         }
         else if (index === 5) {
-            items.push(AdCenter())
+            if (!config.disabledAds) {
+                items.push(AdCenter())
+            }
         }
         items.push(PlaceDayReport({ lang, locales, holidays, filter: index === 0, place, report: { icon: 0, data: dayData } }));
     })

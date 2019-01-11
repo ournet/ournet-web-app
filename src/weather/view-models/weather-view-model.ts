@@ -7,6 +7,7 @@ import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields, Ne
 import logger from "../../logger";
 import { OurnetViewModelInput, getLanguageFromQueryString } from "../../ournet/view-model";
 import { LIST_EVENTS_FIEDLS } from "../../news/config";
+import { OurnetProjectName } from "../../ournet/data";
 
 
 export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends OurnetViewModelInput=OurnetViewModelInput>
@@ -49,8 +50,10 @@ export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends Ourne
             }
         }
 
-        this.apiClient.placesMainPlaces('mainPlaces', { fields: PlaceNoAdmin1Fields }, { country, limit: 20 })
-            .newsEventsLatest('latestNews', { fields: LIST_EVENTS_FIEDLS }, { params: { country, lang, limit: 4 } });
+        this.apiClient.placesMainPlaces('mainPlaces', { fields: PlaceNoAdmin1Fields }, { country, limit: 20 });
+        if (model.containsProject(OurnetProjectName.NEWS)) {
+            this.apiClient.newsEventsLatest('latestNews', { fields: LIST_EVENTS_FIEDLS }, { params: { country, lang, limit: 4 } });
+        }
 
         return super.build();
     }

@@ -28,6 +28,8 @@ export class OurnetViewModelBuilder<DATA extends OurnetAppData, CONFIG extends O
         model.links = sitemap(model.config.languages[0]);
 
         model.locales = OURNET_TRANSLATOR.locales(model.lang);
+
+        model.containsProject = (project: OurnetProjectName) => model.config.projects.includes(project);
     }
 
     protected getLanguage(config: CONFIG) {
@@ -54,6 +56,7 @@ export interface OurnetViewModel<CONFIG extends OurnetAppConfig> extends ViewMod
     lang: string
     version: string
     project: OurnetProjectName
+    containsProject: (project: OurnetProjectName) => boolean
 }
 
 export function getLanguageFromQueryString(config: OurnetAppConfig, query: ParsedUrlQuery) {
