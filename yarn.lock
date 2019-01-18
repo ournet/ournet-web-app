@@ -49,10 +49,10 @@
   dependencies:
     arrify "^1.0.1"
 
-"@fancyapps/fancybox@^3.5.2":
-  version "3.5.6"
-  resolved "https://registry.yarnpkg.com/@fancyapps/fancybox/-/fancybox-3.5.6.tgz#d5e513def9aa18acb5767ce6155dc8a2e430a24a"
-  integrity sha512-Hp83AAWb0uNR7ekGQExGv0fMJEa/0t97Ab1aPk2hopWnKKpFI6acnIssJ2SD2YCBqv5Rb4W+lHDJTtJPRbcqhA==
+"@fancyapps/fancybox@3.3.5":
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/@fancyapps/fancybox/-/fancybox-3.3.5.tgz#e0bead520450ff0af51d353a17ac6bf864ba0f49"
+  integrity sha512-/sO9o/zeQhWN1OMRlVOWpElN56Ww/aSNks5a7PZ7JKM6I5jeih6CxaCeeOp8jgJXVfElbWOO2KTAMT/7tICNcQ==
 
 "@ladjs/time-require@^0.1.4":
   version "0.1.4"
