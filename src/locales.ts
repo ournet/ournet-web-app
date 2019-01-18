@@ -1,26 +1,36 @@
 
-import { LocalesProvider, GeneratedLocales, LocalesKey } from './generated-locales';
-import { TranslatorOptions, Locales, parseDirectory } from 'localizy';
-import { join } from 'path';
+import { LocalesKey, LocalizyLocalesProvider, LocalizyLocales } from './generated-locales';
+import { parseTranslationData, Locales } from 'localizy';
+import { join, basename } from 'path';
 import { OurnetProjectName } from './ournet/data';
+import { readdirSync, readFileSync } from 'fs';
 
 export type Locale = {
     lang: string
     country: string
 }
 
-export class OurnetTranslator extends LocalesProvider<OurnetLocales> {
-    constructor(options: TranslatorOptions) {
-        super(options, (t: Locales) => new OurnetLocales(t))
+export class OurnetTranslator extends LocalizyLocalesProvider<OurnetLocales> {
+    protected createInstance(t: Locales) {
+        return new OurnetLocales(t);
     }
 }
 
 export const OURNET_TRANSLATOR = new OurnetTranslator({
-    data: parseDirectory({ directory: join(__dirname, '..', 'locales') }),
+    data: readdirSync(join(__dirname, '..', 'locales'))
+        .filter(file => file.endsWith('.json'))
+        .map(file => ({
+            lang: basename(file, '.json'),
+            data: parseTranslationData(JSON.parse(readFileSync(join(__dirname, '..', 'locales', file), 'utf8'))),
+        }))
+        .reduce<any>((dic, item) => {
+            dic[item.lang] = item.data;
+            return dic;
+        }, {}),
     throwUndefinedKey: true,
 })
 
-export class OurnetLocales extends GeneratedLocales {
+export class OurnetLocales extends LocalizyLocales {
     getCountryName(countryCode: string) {
         return this.s(`country_${countryCode}` as LocalesKey);
     }

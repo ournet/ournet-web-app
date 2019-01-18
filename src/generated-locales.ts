@@ -1,40 +1,28 @@
 
-import { Locales, Translator, TranslatorOptions, DirectoryTranslatorOptions, parseDirectory } from 'localizy';
+import { Locales, Translator, TranslatorOptions } from 'localizy';
 
-export class LocalesProvider<T extends GeneratedLocales = GeneratedLocales> {
+export class LocalizyLocalesProvider<T extends LocalizyLocales = LocalizyLocales> {
     private translator: Translator
     private localesMap: { [lang: string]: T } = {}
 
-    constructor(options: TranslatorOptions, private createLocales?: (t: Locales) => T) {
+    constructor(options: TranslatorOptions) {
         this.translator = new Translator(options);
     }
 
-    locales(lang: string) {
+    lang(lang: string) {
         if (!this.localesMap[lang]) {
-            if (this.createLocales) {
-                this.localesMap[lang] = this.createLocales(this.translator.locales(lang));
-            } else {
-                this.localesMap[lang] = new GeneratedLocales(this.translator.locales(lang)) as T;
-            }
+            this.localesMap[lang] = this.createInstance(this.translator.locales(lang)) as T;
         }
 
         return this.localesMap[lang];
     }
 
-    static createFromDirectory(options: DirectoryTranslatorOptions) {
-        const { directory, defaultLanguage, throwUndefinedKey, languages } = options;
-
-        const data = parseDirectory({ directory, languages });
-
-        return new LocalesProvider({
-            defaultLanguage,
-            throwUndefinedKey,
-            data,
-        })
+    protected createInstance(t: Locales): T {
+        return new LocalizyLocales(t) as T;
     }
 }
 
-export class GeneratedLocales {
+export class LocalizyLocales {
     protected __locales: Locales
     constructor(locales: Locales) {
         this.__locales = locales;
@@ -249,20 +237,12 @@ export class GeneratedLocales {
         return this.v('horo_api_title');
     }
 
-    horoscope_ro_app_name() {
-        return this.v('horoscope_ro_app_name');
+    horoscope_bg_app_name() {
+        return this.v('horoscope_bg_app_name');
     }
 
-    horoscope_ro_short_app_name() {
-        return this.v('horoscope_ro_short_app_name');
-    }
-
-    horoscope_md_app_name() {
-        return this.v('horoscope_md_app_name');
-    }
-
-    horoscope_md_short_app_name() {
-        return this.v('horoscope_md_short_app_name');
+    horoscope_bg_short_app_name() {
+        return this.v('horoscope_bg_short_app_name');
     }
 
     horo_notifications_subscribe_for_sign_format(_p1: { name: string }) {
@@ -333,12 +313,8 @@ export class GeneratedLocales {
         return this.v('important');
     }
 
-    in_country_md() {
-        return this.v('in_country_md');
-    }
-
-    in_country_ro() {
-        return this.v('in_country_ro');
+    in_country_bg() {
+        return this.v('in_country_bg');
     }
 
     info() {
@@ -445,20 +421,12 @@ export class GeneratedLocales {
         return this.v('most_important_news_in_last_7days_country_format', Array.from(arguments));
     }
 
-    news_ro_app_name() {
-        return this.v('news_ro_app_name');
+    news_bg_app_name() {
+        return this.v('news_bg_app_name');
     }
 
-    news_ro_short_app_name() {
-        return this.v('news_ro_short_app_name');
-    }
-
-    news_md_app_name() {
-        return this.v('news_md_app_name');
-    }
-
-    news_md_short_app_name() {
-        return this.v('news_md_short_app_name');
+    news_bg_short_app_name() {
+        return this.v('news_bg_short_app_name');
     }
 
     news_site_description_format(_p1: { country: string }) {
@@ -521,20 +489,12 @@ export class GeneratedLocales {
         return this.v('popular');
     }
 
-    portal_md_app_name() {
-        return this.v('portal_md_app_name');
+    portal_bg_app_name() {
+        return this.v('portal_bg_app_name');
     }
 
-    portal_md_short_app_name() {
-        return this.v('portal_md_short_app_name');
-    }
-
-    portal_ro_app_name() {
-        return this.v('portal_ro_app_name');
-    }
-
-    portal_ro_short_app_name() {
-        return this.v('portal_ro_short_app_name');
+    portal_bg_short_app_name() {
+        return this.v('portal_bg_short_app_name');
     }
 
     portal_site_description_format(_p1: { country: string }) {
@@ -677,20 +637,12 @@ export class GeneratedLocales {
         return this.v('views');
     }
 
-    weather_ro_app_name() {
-        return this.v('weather_ro_app_name');
+    weather_bg_app_name() {
+        return this.v('weather_bg_app_name');
     }
 
-    weather_ro_short_app_name() {
-        return this.v('weather_ro_short_app_name');
-    }
-
-    weather_md_app_name() {
-        return this.v('weather_md_app_name');
-    }
-
-    weather_md_short_app_name() {
-        return this.v('weather_md_short_app_name');
+    weather_bg_short_app_name() {
+        return this.v('weather_bg_short_app_name');
     }
 
     weather_cright() {
@@ -733,7 +685,7 @@ export class GeneratedLocales {
         return this.v('weather_place_details_info_format', Array.from(arguments));
     }
 
-    weather_place_title_format_10days_format(_p1: { name1: string; name2: string }) {
+    weather_place_title_format_10days_format(_p1: { name1: string }) {
         return this.v('weather_place_title_format_10days_format', Array.from(arguments));
     }
 
@@ -777,6 +729,222 @@ export class GeneratedLocales {
         return this.v('wind');
     }
 
+    horoscope_cz_app_name() {
+        return this.v('horoscope_cz_app_name');
+    }
+
+    horoscope_cz_short_app_name() {
+        return this.v('horoscope_cz_short_app_name');
+    }
+
+    in_country_cz() {
+        return this.v('in_country_cz');
+    }
+
+    news_cz_app_name() {
+        return this.v('news_cz_app_name');
+    }
+
+    news_cz_short_app_name() {
+        return this.v('news_cz_short_app_name');
+    }
+
+    portal_cz_app_name() {
+        return this.v('portal_cz_app_name');
+    }
+
+    portal_cz_short_app_name() {
+        return this.v('portal_cz_short_app_name');
+    }
+
+    weather_cz_app_name() {
+        return this.v('weather_cz_app_name');
+    }
+
+    weather_cz_short_app_name() {
+        return this.v('weather_cz_short_app_name');
+    }
+
+    horoscope_in_app_name() {
+        return this.v('horoscope_in_app_name');
+    }
+
+    horoscope_in_short_app_name() {
+        return this.v('horoscope_in_short_app_name');
+    }
+
+    in_country_in() {
+        return this.v('in_country_in');
+    }
+
+    news_in_app_name() {
+        return this.v('news_in_app_name');
+    }
+
+    news_in_short_app_name() {
+        return this.v('news_in_short_app_name');
+    }
+
+    portal_in_app_name() {
+        return this.v('portal_in_app_name');
+    }
+
+    portal_in_short_app_name() {
+        return this.v('portal_in_short_app_name');
+    }
+
+    weather_in_app_name() {
+        return this.v('weather_in_app_name');
+    }
+
+    weather_in_short_app_name() {
+        return this.v('weather_in_short_app_name');
+    }
+
+    horoscope_hu_app_name() {
+        return this.v('horoscope_hu_app_name');
+    }
+
+    horoscope_hu_short_app_name() {
+        return this.v('horoscope_hu_short_app_name');
+    }
+
+    in_country_hu() {
+        return this.v('in_country_hu');
+    }
+
+    news_hu_app_name() {
+        return this.v('news_hu_app_name');
+    }
+
+    news_hu_short_app_name() {
+        return this.v('news_hu_short_app_name');
+    }
+
+    portal_hu_app_name() {
+        return this.v('portal_hu_app_name');
+    }
+
+    portal_hu_short_app_name() {
+        return this.v('portal_hu_short_app_name');
+    }
+
+    weather_hu_app_name() {
+        return this.v('weather_hu_app_name');
+    }
+
+    weather_hu_short_app_name() {
+        return this.v('weather_hu_short_app_name');
+    }
+
+    horoscope_it_app_name() {
+        return this.v('horoscope_it_app_name');
+    }
+
+    horoscope_it_short_app_name() {
+        return this.v('horoscope_it_short_app_name');
+    }
+
+    in_country_it() {
+        return this.v('in_country_it');
+    }
+
+    news_it_app_name() {
+        return this.v('news_it_app_name');
+    }
+
+    news_it_short_app_name() {
+        return this.v('news_it_short_app_name');
+    }
+
+    portal_it_app_name() {
+        return this.v('portal_it_app_name');
+    }
+
+    portal_it_short_app_name() {
+        return this.v('portal_it_short_app_name');
+    }
+
+    weather_it_app_name() {
+        return this.v('weather_it_app_name');
+    }
+
+    weather_it_short_app_name() {
+        return this.v('weather_it_short_app_name');
+    }
+
+    horoscope_ro_app_name() {
+        return this.v('horoscope_ro_app_name');
+    }
+
+    horoscope_ro_short_app_name() {
+        return this.v('horoscope_ro_short_app_name');
+    }
+
+    horoscope_md_app_name() {
+        return this.v('horoscope_md_app_name');
+    }
+
+    horoscope_md_short_app_name() {
+        return this.v('horoscope_md_short_app_name');
+    }
+
+    in_country_md() {
+        return this.v('in_country_md');
+    }
+
+    in_country_ro() {
+        return this.v('in_country_ro');
+    }
+
+    news_ro_app_name() {
+        return this.v('news_ro_app_name');
+    }
+
+    news_ro_short_app_name() {
+        return this.v('news_ro_short_app_name');
+    }
+
+    news_md_app_name() {
+        return this.v('news_md_app_name');
+    }
+
+    news_md_short_app_name() {
+        return this.v('news_md_short_app_name');
+    }
+
+    portal_md_app_name() {
+        return this.v('portal_md_app_name');
+    }
+
+    portal_md_short_app_name() {
+        return this.v('portal_md_short_app_name');
+    }
+
+    portal_ro_app_name() {
+        return this.v('portal_ro_app_name');
+    }
+
+    portal_ro_short_app_name() {
+        return this.v('portal_ro_short_app_name');
+    }
+
+    weather_ro_app_name() {
+        return this.v('weather_ro_app_name');
+    }
+
+    weather_ro_short_app_name() {
+        return this.v('weather_ro_short_app_name');
+    }
+
+    weather_md_app_name() {
+        return this.v('weather_md_app_name');
+    }
+
+    weather_md_short_app_name() {
+        return this.v('weather_md_short_app_name');
+    }
+
     horoscope_ru_app_name() {
         return this.v('horoscope_ru_app_name');
     }
@@ -803,6 +971,42 @@ export class GeneratedLocales {
 
     portal_ru_short_app_name() {
         return this.v('portal_ru_short_app_name');
+    }
+
+    weather_ru_app_name() {
+        return this.v('weather_ru_app_name');
+    }
+
+    weather_ru_short_app_name() {
+        return this.v('weather_ru_short_app_name');
+    }
+
+    in_country_al() {
+        return this.v('in_country_al');
+    }
+
+    news_al_app_name() {
+        return this.v('news_al_app_name');
+    }
+
+    news_al_short_app_name() {
+        return this.v('news_al_short_app_name');
+    }
+
+    portal_al_app_name() {
+        return this.v('portal_al_app_name');
+    }
+
+    portal_al_short_app_name() {
+        return this.v('portal_al_short_app_name');
+    }
+
+    weather_al_app_name() {
+        return this.v('weather_al_app_name');
+    }
+
+    weather_al_short_app_name() {
+        return this.v('weather_al_short_app_name');
     }
 }
 
@@ -856,10 +1060,8 @@ export type LocalesKey = '24_hrs'
     | 'home'
     | 'horizontal'
     | 'horo_api_title'
-    | 'horoscope_ro_app_name'
-    | 'horoscope_ro_short_app_name'
-    | 'horoscope_md_app_name'
-    | 'horoscope_md_short_app_name'
+    | 'horoscope_bg_app_name'
+    | 'horoscope_bg_short_app_name'
     | 'horo_notifications_subscribe_for_sign_format'
     | 'horo_on_your_site_info'
     | 'horo_on_your_site'
@@ -877,8 +1079,7 @@ export type LocalesKey = '24_hrs'
     | 'important_news_in_last_7days'
     | 'important_news'
     | 'important'
-    | 'in_country_md'
-    | 'in_country_ro'
+    | 'in_country_bg'
     | 'info'
     | 'international'
     | 'invalid_email'
@@ -905,10 +1106,8 @@ export type LocalesKey = '24_hrs'
     | 'more_quotes'
     | 'more'
     | 'most_important_news_in_last_7days_country_format'
-    | 'news_ro_app_name'
-    | 'news_ro_short_app_name'
-    | 'news_md_app_name'
-    | 'news_md_short_app_name'
+    | 'news_bg_app_name'
+    | 'news_bg_short_app_name'
     | 'news_site_description_format'
     | 'news_site_title_format'
     | 'news_sources'
@@ -924,10 +1123,8 @@ export type LocalesKey = '24_hrs'
     | 'places'
     | 'popular_news'
     | 'popular'
-    | 'portal_md_app_name'
-    | 'portal_md_short_app_name'
-    | 'portal_ro_app_name'
-    | 'portal_ro_short_app_name'
+    | 'portal_bg_app_name'
+    | 'portal_bg_short_app_name'
     | 'portal_site_description_format'
     | 'portal_site_title_format'
     | 'position'
@@ -963,10 +1160,8 @@ export type LocalesKey = '24_hrs'
     | 'video_news'
     | 'video'
     | 'views'
-    | 'weather_ro_app_name'
-    | 'weather_ro_short_app_name'
-    | 'weather_md_app_name'
-    | 'weather_md_short_app_name'
+    | 'weather_bg_app_name'
+    | 'weather_bg_short_app_name'
     | 'weather_cright'
     | 'weather_for_10days'
     | 'weather_home_title_format'
@@ -988,10 +1183,73 @@ export type LocalesKey = '24_hrs'
     | 'weekly'
     | 'width'
     | 'wind'
+    | 'horoscope_cz_app_name'
+    | 'horoscope_cz_short_app_name'
+    | 'in_country_cz'
+    | 'news_cz_app_name'
+    | 'news_cz_short_app_name'
+    | 'portal_cz_app_name'
+    | 'portal_cz_short_app_name'
+    | 'weather_cz_app_name'
+    | 'weather_cz_short_app_name'
+    | 'horoscope_in_app_name'
+    | 'horoscope_in_short_app_name'
+    | 'in_country_in'
+    | 'news_in_app_name'
+    | 'news_in_short_app_name'
+    | 'portal_in_app_name'
+    | 'portal_in_short_app_name'
+    | 'weather_in_app_name'
+    | 'weather_in_short_app_name'
+    | 'horoscope_hu_app_name'
+    | 'horoscope_hu_short_app_name'
+    | 'in_country_hu'
+    | 'news_hu_app_name'
+    | 'news_hu_short_app_name'
+    | 'portal_hu_app_name'
+    | 'portal_hu_short_app_name'
+    | 'weather_hu_app_name'
+    | 'weather_hu_short_app_name'
+    | 'horoscope_it_app_name'
+    | 'horoscope_it_short_app_name'
+    | 'in_country_it'
+    | 'news_it_app_name'
+    | 'news_it_short_app_name'
+    | 'portal_it_app_name'
+    | 'portal_it_short_app_name'
+    | 'weather_it_app_name'
+    | 'weather_it_short_app_name'
+    | 'horoscope_ro_app_name'
+    | 'horoscope_ro_short_app_name'
+    | 'horoscope_md_app_name'
+    | 'horoscope_md_short_app_name'
+    | 'in_country_md'
+    | 'in_country_ro'
+    | 'news_ro_app_name'
+    | 'news_ro_short_app_name'
+    | 'news_md_app_name'
+    | 'news_md_short_app_name'
+    | 'portal_md_app_name'
+    | 'portal_md_short_app_name'
+    | 'portal_ro_app_name'
+    | 'portal_ro_short_app_name'
+    | 'weather_ro_app_name'
+    | 'weather_ro_short_app_name'
+    | 'weather_md_app_name'
+    | 'weather_md_short_app_name'
     | 'horoscope_ru_app_name'
     | 'horoscope_ru_short_app_name'
     | 'in_country_ru'
     | 'news_ru_app_name'
     | 'news_ru_short_app_name'
     | 'portal_ru_app_name'
-    | 'portal_ru_short_app_name';
+    | 'portal_ru_short_app_name'
+    | 'weather_ru_app_name'
+    | 'weather_ru_short_app_name'
+    | 'in_country_al'
+    | 'news_al_app_name'
+    | 'news_al_short_app_name'
+    | 'portal_al_app_name'
+    | 'portal_al_short_app_name'
+    | 'weather_al_app_name'
+    | 'weather_al_short_app_name';
