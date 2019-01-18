@@ -55,8 +55,10 @@ class ApiReportsViewModelBuilder
 
         const period = this.input.period || currentDayPeriod;
 
+        const reportLang = this.input.url.query.lang as string || lang;
+
         const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-            .map(sign => HoroscopesHelper.createReportId(period, lang, sign as HoroscopeSign));
+            .map(sign => HoroscopesHelper.createReportId(period, reportLang, sign as HoroscopeSign));
 
         this.apiClient.horoscopesReportsByIds('reports', { fields: 'id lang sign text period numbers stats {love health success}' }, { ids });
 
