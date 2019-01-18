@@ -27,7 +27,7 @@ export class OurnetViewModelBuilder<DATA extends OurnetAppData, CONFIG extends O
 
         model.links = sitemap(model.config.languages[0]);
 
-        model.locales = OURNET_TRANSLATOR.locales(model.lang);
+        model.locales = OURNET_TRANSLATOR.lang(model.lang);
 
         model.containsProject = (project: OurnetProjectName) => model.config.projects.includes(project);
     }

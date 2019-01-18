@@ -49,7 +49,7 @@ gulp.task('imagemin', () =>
         .pipe(gulp.dest(imgDest))
 );
 
-gulp.task('img', ['imagemin']);
+gulp.task('img', gulp.series(['imagemin']));
 
 gulp.task('upload:img', () =>
     gulp.src(imgDest + '**')
@@ -87,7 +87,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('sass:watch', function () {
-    gulp.watch('./scss/**/*.scss', ['sass']);
+    gulp.watch('./scss/**/*.scss', gulp.series(['sass']));
 });
 
 gulp.task('upload:css', () =>
@@ -135,7 +135,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('js:watch', function () {
-    gulp.watch('./js/**/*.js', ['js']);
+    gulp.watch('./js/**/*.js', gulp.series(['js']));
 });
 
 
@@ -160,7 +160,7 @@ gulp.task('connect', function () {
 });
 
 
-gulp.task('watch', ['sass:watch', 'js:watch']);
-gulp.task('serv', ['watch', 'connect']);
-gulp.task('default', ['img', 'sass', 'js']);
-gulp.task('upload', ['upload:img', 'upload:css', 'upload:js']);
+gulp.task('watch', gulp.parallel(['sass:watch', 'js:watch']));
+gulp.task('serv', gulp.parallel(['watch', 'connect']));
+gulp.task('default', gulp.series(['img', 'sass', 'js']));
+gulp.task('upload', gulp.series(['upload:img', 'upload:css', 'upload:js']));
