@@ -9,6 +9,7 @@ import { AdBottom } from '../components/ads/ad-bottom';
 import { FacebookScript } from '../../../views/components/facebook-script';
 import { HoroscopeSignsLine } from '../../../views/components/horoscope/horoscope-signs-line';
 import { StickyTitle } from '../../../views/components/sticky-title';
+import { HoroscopeAppAdCard } from '../components/horoscope-app-ad-card';
 
 export function SignPage(props: SignViewModel) {
 
@@ -25,7 +26,7 @@ export function SignPage(props: SignViewModel) {
                 {HoroscopeDayReport({ lang, report, date: currentDayPeriodText, footer: true, links, locales })}
                 <div className='u-report-margin'>
                     {HoroscopeSignsLine({ lang, country, links })}
-                    <br />
+                    {HoroscopeAppAdCard({lang})}
                     {AdBottom()}
                     <br />
                     <div className='fb-comments' data-href={head.canonical} data-numposts="5" data-width="100%" data-order-by="reverse-time"></div>
