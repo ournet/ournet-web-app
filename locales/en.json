@@ -151,7 +151,7 @@
     "views": "views",
     "weather_in_app_name": "Ournet Weather",
     "weather_in_short_app_name": "Weather",
-    "weather_cright": "Weather forecast provided by met.no",
+    "weather_cright": "Weather forecast provided by MET Norway",
     "weather_for_10days": "Weather forecast for 10 days",
     "weather_home_title_format": "Weather in %(name)s for 10 days",
     "weather_in_cn_summary_format": "Weather in %(country)s for 10 days in any city",
