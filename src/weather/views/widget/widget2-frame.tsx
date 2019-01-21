@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { ForecastHelper } from '@ournet/weather-domain';
 import * as moment from 'moment-timezone';
 import { Widget2ViewModel } from '../../view-models/widget2-view-model';
 import { getPlaceName } from '../../../helpers';
 import { getHost } from 'ournet.links';
+import { WeatherHelpers } from '../../helpers';
 
 export function Widget2Frame(props: Widget2ViewModel) {
 
@@ -126,12 +126,13 @@ ul ul li{ overflow: hidden;}
 .wi-15 {
     background-position: -560px 0;
 }`}}></style>
-<script dangerouslySetInnerHTML={{ __html: `(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                {config.widgetGoogleAnalyticsId && <script dangerouslySetInnerHTML={{
+                    __html: `(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 ga('create', '${config.widgetGoogleAnalyticsId}', '${host}');
-ga('send', 'pageview');`}}></script>
+ga('send', 'pageview');`}}></script>}
             </head>
             <body dangerouslySetInnerHTML={{ __html: widget }}></body>
         </html >
@@ -143,7 +144,7 @@ function formatWidget(props: Widget2ViewModel) {
     const { pos, w, header, showInfo, days } = props.widget;
     const id = place.id;
     const placename = getPlaceName(place, lang);
-    const longtitle = locales.weather_in_format( { name: placename });
+    const longtitle = locales.weather_in_format({ name: placename });
     let title = longtitle;
 
     const url = links.weather.place(id, {
@@ -171,7 +172,7 @@ function formatWidget(props: Widget2ViewModel) {
     for (var i = 0; i < days && i < report.data.length; i++) {
         const day = report.data[i];
 
-        const symbolName = ForecastHelper.iconName(day.icon, lang);
+        const symbolName = WeatherHelpers.iconName(day.icon, lang);
         const date = moment(new Date(day.time * 1000)).tz(place.timezone).locale(lang);
 
         body.push('<li class="item" onclick="window.open(\'' + url + '\', \'_blank\');">');

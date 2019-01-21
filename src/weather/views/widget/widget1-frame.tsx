@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Widget1ViewModel } from '../../view-models/widget1-view-model';
-import { ForecastHelper } from '@ournet/weather-domain';
 import * as moment from 'moment-timezone';
 import { getPlaceName } from '../../../helpers';
 import * as util from 'util';
 import { getHost } from 'ournet.links';
+import { WeatherHelpers } from '../../helpers';
 
 export function Widget1Frame(props: Widget1ViewModel) {
 
@@ -17,7 +17,7 @@ export function Widget1Frame(props: Widget1ViewModel) {
     return (
         <html lang={lang}>
             <head>
-                <meta charSet="utf-8"/>
+                <meta charSet="utf-8" />
                 <title>Widget1</title>
                 <style type="text/css" dangerouslySetInnerHTML={{
                     __html: `body{font-size:.75em;font-family:Arial, Helvetica, Sans-Serif;margin:0;padding:0;color:#${textcolor};}
@@ -50,12 +50,13 @@ td{overflow:hidden}
 .w-icon.wi-13 {background-position: -384px 0;}
 .w-icon.wi-14 {background-position: -416px 0;}
 .w-icon.wi-15 {background-position: -448px 0;}`}}></style>
-<script dangerouslySetInnerHTML={{ __html: `(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                {config.widgetGoogleAnalyticsId && <script dangerouslySetInnerHTML={{
+                    __html: `(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 ga('create', '${config.widgetGoogleAnalyticsId}', '${host}');
-ga('send', 'pageview');`}}></script>
+ga('send', 'pageview');`}}></script>}
             </head>
             <body dangerouslySetInnerHTML={{ __html: widget }}></body>
         </html >
@@ -66,7 +67,7 @@ function formatWidget(props: Widget1ViewModel) {
     const { place, lang, links, w, locales, days, htcolor, report, bcolor, bkcolor, hbkcolor } = props;
     const id = place.id;
     const placename = getPlaceName(place, lang);
-    const longtitle = locales.weather_in_format( { name: placename });
+    const longtitle = locales.weather_in_format({ name: placename });
     let title = longtitle;
 
     const url = links.weather.place(id, {
@@ -86,7 +87,7 @@ function formatWidget(props: Widget1ViewModel) {
 
     for (var i = 0; i < days && i < report.data.length; i++) {
         const day = report.data[i],
-            symbolName = ForecastHelper.iconName(day.icon, lang),
+            symbolName = WeatherHelpers.iconName(day.icon, lang),
             temperature = Math.round(day.temperatureHigh || day.temperature) + '&deg; | ' + Math.round(day.temperatureLow || day.temperature) + '&deg;',
             date = moment(new Date(day.time * 1000)).tz(place.timezone).locale(lang);
 
