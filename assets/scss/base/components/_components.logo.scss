@@ -53,4 +53,8 @@ $logo-height: 36px;
     float: left;
     position: relative;
     bottom: -2px;
+    svg {
+        height: 100%;
+        width: 100%;
+    }
 }
