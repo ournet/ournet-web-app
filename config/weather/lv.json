@@ -5,8 +5,8 @@
         "lv"
     ],
     "timezone": "Europe/Rome",
-    "domain": "ournet.lv",
-    "host": "meteo.ournet.lv",
+    "domain": "www.meteo2.lv",
+    "host": "meteo2.lv",
     "email": "info@ournet-group.com",
     "googleAnalyticsId": "UA-1490399-42",
     "widgetGoogleAnalyticsId": "",

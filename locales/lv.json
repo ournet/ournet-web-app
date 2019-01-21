@@ -159,7 +159,7 @@
     "weather_in_format": "%(name)s laikapstākļi",
     "weather_notifications_subscribe_for_place_format": "Parakstīties uz laika brīdinājumu: %(name)s",
     "weather_on_your_site_info_format": "Novietojiet laika apstākļus jūsu vietnē jebkurai vietai (%(country)s).",
-    "weather_on_your_site": "Laiks jūsu vietnē",
+    "weather_on_your_site": "Laika ziņas jūsu vietnē",
     "weather_place_description_format": "Laika prognoze %(name1)s, %(name2)s -šodien, rīt, 10 dienas, 7 dienas",
     "weather_place_details_info_format": "Laika ziņas %(name1)s, %(name2)s šodien, rīt, 3 dienas, 7 dienas, 10 dienas, 15 dienas, šajās dienās. Prognoze %(name3)s.",
     "weather_place_title_format_10days_format": "%(name1)s laika prognoze %(name2)s, 10 dienas",

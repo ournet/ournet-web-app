@@ -18,7 +18,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
         const { project, children, lang, country, mainPlaces, config, locales, links, latestNews, containsProject } = this.props;
         return (
             <Layout {...this.props}>
-                {HoroscopeSvg()}
+                {containsProject(OurnetProjectName.HOROSCOPE) && HoroscopeSvg()}
                 <div className="o-layout">
                     <div className="o-layout__item u-1/5 u-hide-mobile u-1/6@desktop">
                         {ExploreMenu({ lang, country, links, locales, config, places: mainPlaces })}
