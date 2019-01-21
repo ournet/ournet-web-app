@@ -21,6 +21,7 @@
     "country_ro": "Румыния",
     "country_ru": "Россия",
     "country_tr": "Турция",
+    "country_lv": "Латвия",
     "daily_horoscope_details_format": "Гороскоп на сегодня %(name)s.",
     "daily_horoscope_details": "Ежедневный гороскоп. Гороскоп на сегодня и завтра.",
     "daily_horoscope_format": "Гороскоп: %(name)s",

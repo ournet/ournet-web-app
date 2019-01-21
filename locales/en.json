@@ -21,6 +21,7 @@
     "country_ro": "Romania",
     "country_ru": "Russia",
     "country_tr": "Turkey",
+    "country_lv": "Latvia",
     "daily_horoscope_details_format": "Daily Horoscope: %(name)s.",
     "daily_horoscope_details": "Daily Horoscope. Today/Tomorrow horoscope.",
     "daily_horoscope_format": "Horoscope: %(name)s",

@@ -134,5 +134,9 @@
     "www.hava.one": {
         "project": "weather",
         "country": "tr"
+    },
+    "www.meteo2.lv": {
+        "project": "weather",
+        "country": "lv"
     }
 }
