@@ -1,0 +1,33 @@
+{
+    "background_color": "#f2f0ea",
+    "theme_color": "#ca0000",
+    "languages": [
+        "lv"
+    ],
+    "timezone": "Europe/Rome",
+    "domain": "ournet.lv",
+    "host": "meteo.ournet.lv",
+    "email": "info@ournet-group.com",
+    "googleAnalyticsId": "UA-1490399-42",
+    "widgetGoogleAnalyticsId": "",
+    "projects": [
+        "weather"
+    ],
+    "shareServices": [
+        "facebook",
+        "twitter"
+    ],
+    "internationalIds": [
+        "ro",
+        "cz",
+        "bg",
+        "hu",
+        "ru",
+        "al",
+        "in",
+        "tr",
+        "md"
+    ],
+    "capitalId": "456172",
+    "placesCount": 9000
+}
