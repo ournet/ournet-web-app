@@ -40,7 +40,7 @@ export class WeatherPlaceHelper {
                 }
                 break;
             case 'lv':
-                return name.replace(' Rajons', '').replace(' Novads', '');
+                return name.replace(/'\sRajons$/i, '').replace(/\sNovads$/i, '');
             case 'lt':
                 return name.replace(' Apskritis', '');
             case 'ro':

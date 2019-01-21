@@ -5,60 +5,52 @@ $logo-height: 36px;
     white-space: nowrap;
 }
 
-.c-logo__img {
-    display: block;
-    height: $logo-height;
+.c-logo__a {
+    display: inline-block;
     width: 110px;
-    background-position: 0 center;
-    background-repeat: no-repeat;
-    background-image: url(//assets.ournetcdn.net/ournet/img/logos/ournet-logo.png);
-    float: left;
+    line-height: 34px;
+    font-size: 30px;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
 }
 
-@media screen and (max-width: 600px) {
-    .c-logo--proj {
-        .c-logo__img {
-            width: 36px;
+.c-logo-image {
+    font-weight: 600;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    position: relative;
+
+    &.v--md, &.v--ru {
+        &:after{
+            content: '';
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            background: $accent-color;
+            border-radius: 50%;
+            margin-left: 4px;
         }
     }
 }
 
-body.country-md {
-    .c-logo__img {
-        background-image: url(//assets.ournetcdn.net/ournet/img/logos/click-logo.png);
-    }
+.c-logo-image_t2 {
+    color: $accent-color;
+}
+.c-logo-image_t1 {
+    color: lighten($second-color, 12%);
+}
+.c-logo-image_n {
+    color: $accent-color;
+    font-size: 110%;
 }
 
-body.country-ru {
-    .c-logo__img {
-        background-image: url(//assets.ournetcdn.net/ournet/img/logos/zborg-logo.png);
-    }
-}
-
-body.country-tr {
-    .c-logo__img {
-        background-image: url(//assets.ournetcdn.net/ournet/img/logos/havaone-logo.png);
-    }
-}
-
-body.country-al {
-    .c-logo__img {
-        background-image: url(//assets.ournetcdn.net/ournet/img/logos/moti2-logo.png);
-    }
-}
-
-a.c-logo__proj {
-    font-size: 160%;
-    line-height: 30px;
-    display: inline-block;
-    text-decoration: none;
-    color: $red;
-    text-transform: lowercase; // font-weight: 400;
-    font-style: italic;
-    &:before {
-        content: "/";
-        color: $text-color;
-        padding-right: 2px;
-        font-style: normal;
-    }
+.c-logo-image_i {
+    height: 32px;
+    width: 32px;
+    display: block;
+    float: left;
+    position: relative;
+    bottom: -2px;
 }
