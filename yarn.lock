@@ -140,15 +140,14 @@
     joi "^14.0.6"
     transliteration "^1.6.6"
 
-"@ournet/weather-domain@^0.2.0":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@ournet/weather-domain/-/weather-domain-0.2.2.tgz#9b4f51da9857eea8e9509b1155295fcd24838a66"
-  integrity sha512-hh18QPCc2vizz215ELZuIdH9HiLNRXMloZLnxZtsz7r9KxaHkLfITl0wKRe/HBooM3ygn/N1gJ8Kv4yyOEEARw==
+"@ournet/weather-domain@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@ournet/weather-domain/-/weather-domain-0.2.3.tgz#4ef36c5fa198e3b27f0a5505b7d7989a8ad7ef25"
+  integrity sha512-WjNN4S4FTdnefdSqmwLZwN2IV8yaw9mniaB0Q/+B2yLqtmOdzh7Ba7W4wOlN3spHlBFVVdn3hyEDvMMZqfa5Eg==
   dependencies:
     "@ournet/domain" "^0.3.3"
     joi "^14.0.6"
     luxon "^1.6.2"
-    metno-symbols "^0.1.1"
     node-fetch "^2.3.0"
     suncalc "^1.8.0"
     xml2js "^0.4.19"
@@ -5499,10 +5498,10 @@ merge@^1.2.0:
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
   integrity sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ==
 
-metno-symbols@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/metno-symbols/-/metno-symbols-0.1.1.tgz#8dee2d38fee58fa06ea90d6d07b0760a9c2b31fe"
-  integrity sha1-je4tOP7lj6BuqQ1tB7B2CpwrMf4=
+metno-symbols@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/metno-symbols/-/metno-symbols-0.1.2.tgz#b31098a181e5573f8dd958c128bd665ff1dc8158"
+  integrity sha512-qvrguCuT/yuftXBAWE7igA8UrqoZ9DTDEj3E5qBQ/MEu1VeODlBXGq0sTclT5N1nHF5vrf8+y9jxTzQVU86Vbg==
 
 micro@^9.3.3:
   version "9.3.3"

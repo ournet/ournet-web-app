@@ -1,11 +1,11 @@
 
 import * as React from 'react';
-import { ForecastHelper } from '@ournet/weather-domain';
 import { getPlaceName, toBeaufort } from '../../../../helpers';
 import { Sitemap } from 'ournet.links';
 import { ForecastIcon } from '../../../../views/components/weather/forecast-icon';
 import { ForecastTemp } from '../../../../views/components/weather/forecast-temp';
 import { PlaceDailyForecast } from '../../../view-models/places-daily-forecast-model';
+import { WeatherHelpers } from '../../../helpers';
 
 export type PlacesDailyForecastProps = {
     lang: string
@@ -25,7 +25,7 @@ export function PlacesDailyForecast({ reports, lang, links }: PlacesDailyForecas
                     <div className='dr-r dr-r-temp'>
                         {ForecastIcon({ lang, icon: item.forecast.icon })}
                         {ForecastTemp({ temperature: item.forecast.temperature })}
-                        <span className='symbol-name'>{ForecastHelper.iconName(item.forecast.icon, lang)}</span>
+                        <span className='symbol-name'>{WeatherHelpers.iconName(item.forecast.icon, lang)}</span>
                     </div>
                     <div className='dr-r dr-r-wind'>
                         <span className={'wind-speed beaufort-' + toBeaufort(item.forecast.windSpeed || 1)}>{item.forecast.windSpeed}</span>

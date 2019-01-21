@@ -2,11 +2,11 @@
 import * as React from 'react';
 import { Place, HoursForecastDataBlock, PublicHoliday } from '@ournet/api-client';
 import * as moment from 'moment-timezone';
-import { ForecastHelper } from '@ournet/weather-domain';
 import { ForecastIcon } from '../../../../views/components/weather/forecast-icon';
 import { ForecastTemp } from '../../../../views/components/weather/forecast-temp';
 import { toBeaufort, unixTime } from '../../../../helpers';
 import { OurnetLocales } from '../../../../locales';
+import { WeatherHelpers } from '../../../helpers';
 
 
 export type PlaceDayReportProps = {
@@ -37,7 +37,7 @@ export function PlaceDayReport({ place, report, lang, locales, filter, holidays 
     const items = data.map((item, index) => {
         const date = moment(item.time * 1000).tz(timezone);
         // const nextDate = index < data.length - 1 ? moment(data[index + 1].time * 1000).tz(timezone) : undefined;
-        const symbolName = ForecastHelper.iconName(item.icon, lang);
+        const symbolName = WeatherHelpers.iconName(item.icon, lang);
         return (
             <div key={index} className='dr-row'>
                 <div className='dr-r dr-r-date'>{date.format('HH:00')}</div>
