@@ -40,6 +40,12 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
         lastDay = date.date();
     });
 
+    const currentDate = moment().tz(timezone);
+    const firstDayData = Array.from(daysData[0]);
+    if (moment(firstDayData[firstDayData.length - 1].time * 1000).tz(timezone).date() < currentDate.date()) {
+        daysData.shift();
+    }
+
     const items: (JSX.Element | null)[] = []
 
     daysData.forEach((dayData, index) => {
