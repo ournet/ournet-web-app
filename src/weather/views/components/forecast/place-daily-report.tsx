@@ -44,7 +44,7 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
     const firstDayData = Array.from(daysData[0]);
     const firstDayDate = moment(firstDayData[firstDayData.length - 1].time * 1000).tz(timezone);
     if (firstDayDate.date() < currentDate.date()
-        || firstDayDate.date() === currentDate.date() && firstDayDate.hour() > currentDate.hour()) {
+        || firstDayDate.date() === currentDate.date() && firstDayDate.hour() < currentDate.hour()) {
         daysData.shift();
     }
 
