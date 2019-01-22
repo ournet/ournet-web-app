@@ -5,7 +5,7 @@ import env from '../../env';
 import { getAssetUrl } from '../../assets';
 import { getAppIconUrl } from '../../helpers';
 
-export function PageHead({ config, head, lang, country, project }: PageViewModel<OurnetAppConfig>) {
+export function PageHead({ config, head, lang, country, project, showGoogleAds }: PageViewModel<OurnetAppConfig>) {
 
     return (
         <head>
@@ -23,6 +23,7 @@ export function PageHead({ config, head, lang, country, project }: PageViewModel
             <link rel="dns-prefetch" href="//tpc.googlesyndication.com" />
             <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
             <script dangerouslySetInnerHTML={{ __html: `window.CONSTANTS={lang:"${lang}",country:"${country}"};` }}></script>
+            {!config.disabledAds && showGoogleAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>}
         </head>
     )
 }

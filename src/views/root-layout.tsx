@@ -7,7 +7,7 @@ import { PageHead } from './components/page-head';
 
 export default class RootLayout extends React.Component<PageViewModel<OurnetAppConfig>, any> {
     render() {
-        const { lang, children, country, config, project, showGoogleAds } = this.props;
+        const { lang, children, country, config, project } = this.props;
 
         return (
             <html lang={lang}>
@@ -22,7 +22,6 @@ ga('create', '${config.googleAnalyticsId}', '${config.domain}');
 ga('set', 'dimension1', '${project}');
 ga('send', 'pageview');`}}></script>
                     {children}
-                    {!config.disabledAds && showGoogleAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>}
                 </body>
             </html>
         )
