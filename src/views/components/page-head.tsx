@@ -7,6 +7,12 @@ import { getAppIconUrl } from '../../helpers';
 
 export function PageHead({ config, head, lang, country, project, showGoogleAds }: PageViewModel<OurnetAppConfig>) {
 
+    let verificationMeta = null;
+
+    if (country === 'ru') {
+        verificationMeta = <meta name="yandex-verification" content="669891f5130ce03b" />
+    }
+
     return (
         <head>
             <meta charSet="utf-8" />
@@ -17,6 +23,7 @@ export function PageHead({ config, head, lang, country, project, showGoogleAds }
             <link rel='shortcut icon' href={getAppIconUrl(config.domain, 'favicon.ico')} type='image/x-icon' />
             <link rel='apple-touch-icon' href={getAppIconUrl(config.domain, 'apple-touch-icon.png')} />
             <link key='1' type="text/css" rel="stylesheet" href={getAssetUrl(project, 'css', 'main', env.isProduction)} />
+            {verificationMeta}
             {head.elements}
             <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
             <link rel="dns-prefetch" href="//ajax.googleapis.com" />
