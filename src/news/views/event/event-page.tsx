@@ -45,7 +45,7 @@ export default class EventPage extends React.Component<EventViewModel> {
                     <div className='o-layout'>
                         <div className='o-layout__item u-4/6@desktop'>
                             <article className='c-event'>
-                                {EventMedia({ event, locales })}
+                                {EventMedia({ event, locales, links, lang })}
                                 <div className='c-event__body'>
                                     <div className='o-layout o-layout--small'>
                                         <div className='o-layout__item u-1/6@tablet'>

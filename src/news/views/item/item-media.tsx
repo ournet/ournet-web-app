@@ -14,11 +14,12 @@ export type ItemMediaProps = {
     event?: NewsEvent
     links: Sitemap
     locales: OurnetLocales
+    lang: string
 }
 
 
 
-export function ItemMedia({ item, event, locales }: ItemMediaProps) {
+export function ItemMedia({ item, event, locales, lang, links }: ItemMediaProps) {
 
     if (!item.imagesIds && !event) {
         return null;
@@ -38,7 +39,7 @@ export function ItemMedia({ item, event, locales }: ItemMediaProps) {
     }
 
     if (event) {
-        return EventMedia({ event, image, locales });
+        return EventMedia({ event, image, locales, lang, links });
     }
 
     if (!image) {
@@ -48,7 +49,7 @@ export function ItemMedia({ item, event, locales }: ItemMediaProps) {
     const mediaTitle = locales.foto_video_from_event_format({ name: truncateAt(item.title, 70) });
     const imageColor = image.id.split(/-/g)[1];
 
-    const galleryModel = createMediaGalleryModel({ event, item });
+    const galleryModel = createMediaGalleryModel({ event, item, links: links.news, lang });
 
     return (
         <a className='c-event-media js-media-dialog' data-gallery={JSON.stringify(galleryModel)} style={{ backgroundColor: `#${imageColor}` }} href={image.masterUrl} target='_blank' title={mediaTitle}>

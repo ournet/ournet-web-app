@@ -6,11 +6,14 @@ import { truncateAt } from '../../../helpers';
 import { createMediaGalleryModel } from '../../view-models/media-gallery-model';
 import GalleryResources from '../components/gallery-resources';
 import { OurnetLocales } from '../../../locales';
+import { Sitemap } from 'ournet.links';
 
 export type EventMediaProps = {
     locales: OurnetLocales
     event: NewsEvent
     image?: EventMediaPropsImage
+    links: Sitemap
+    lang: string
 }
 
 export type EventMediaPropsImage = {
@@ -22,7 +25,7 @@ export type EventMediaPropsImage = {
 
 
 
-export function EventMedia({ locales, event, image }: EventMediaProps) {
+export function EventMedia({ locales, event, image, lang, links }: EventMediaProps) {
 
     image = image || {
         id: event.imageId,
@@ -34,7 +37,7 @@ export function EventMedia({ locales, event, image }: EventMediaProps) {
     const mediaTitle = locales.foto_video_from_event_format({ name: truncateAt(event.title, 70) });
     const imageColor = image.id.split(/-/g)[1];
 
-    const galleryModel = createMediaGalleryModel({ event });
+    const galleryModel = createMediaGalleryModel({ event, lang, links: links.news });
 
     galleryModel.startId = image.id;
 

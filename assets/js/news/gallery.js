@@ -26,10 +26,18 @@ function getGalleryItems(el) {
     var items = []
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
-        items.push({
-            src: item.url,
-            srcset: item.url + ' 1200w, ' + item.url.replace(/\/master\//, '/large/') + ' 640w',
-        });
+        if (item.type === 'image') {
+            items.push({
+                type: 'image',
+                src: item.url,
+                srcset: item.url + ' 1200w, ' + item.url.replace(/\/master\//, '/large/') + ' 640w',
+            });
+        } else if (item.type === 'video') {
+            items.push({
+                type: 'iframe',
+                src: item.url,
+            })
+        }
     }
 
     return items;

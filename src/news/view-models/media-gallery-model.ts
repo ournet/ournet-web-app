@@ -1,6 +1,7 @@
 import { NewsItem, NewsEvent } from "@ournet/api-client";
 import { ImageStorageHelper } from "@ournet/images-domain";
 import { uniqByProperty } from "@ournet/domain";
+import { NewsSitemap } from "ournet.links";
 
 export type MediaGalleryModel = {
     startId?: string
@@ -13,7 +14,7 @@ export type MediaGalleryModelItem = {
     url: string
 }
 
-export function createMediaGalleryModel({ event, item }: { event?: NewsEvent, item?: NewsItem }) {
+export function createMediaGalleryModel({ event, item, links, lang }: { event?: NewsEvent, item?: NewsItem, links: NewsSitemap, lang: string }) {
     const model: MediaGalleryModel = {
         items: []
     };
@@ -40,16 +41,37 @@ export function createMediaGalleryModel({ event, item }: { event?: NewsEvent, it
                 url: ImageStorageHelper.eventUrl(event.imageId, 'master', 'jpg'),
             });
         }
+
+        if (event.videosIds) {
+            model.items = event.videosIds.map(id => ({
+                type: 'video',
+                id,
+                url: links.videoEmbed(id, { ul: lang }),
+            } as MediaGalleryModelItem))
+                .concat(model.items);
+        }
     }
 
-    if (item && item.imagesIds && item.imagesIds.length) {
-        model.items = model.items.concat((item.imagesIds || []).map(id => ({
-            type: 'image',
-            id,
-            url: ImageStorageHelper.newsUrl(id, 'master', 'jpg'),
-        } as MediaGalleryModelItem)));
+    if (item) {
+        if (item.imagesIds && item.imagesIds.length) {
+            model.items = model.items.concat((item.imagesIds || []).map(id => ({
+                type: 'image',
+                id,
+                url: ImageStorageHelper.newsUrl(id, 'master', 'jpg'),
+            } as MediaGalleryModelItem)));
 
-        model.startId = item.imagesIds[0];
+            model.startId = item.imagesIds[0];
+        }
+
+        if (item.videoId) {
+            model.items = [
+                {
+                    type: 'video',
+                    id: item.videoId,
+                    url: links.videoEmbed(item.videoId, { ul: lang }),
+                } as MediaGalleryModelItem
+            ].concat(model.items);
+        }
     }
 
     model.items = uniqByProperty(model.items, 'id');

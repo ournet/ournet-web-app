@@ -50,7 +50,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                     <div className='o-layout'>
                         <div className='o-layout__item u-4/6@desktop'>
                             <article className='c-event'>
-                                {ItemMedia({ event, item, locales, links })}
+                                {ItemMedia({ event, item, locales, links, lang })}
                                 <div className='c-event__body'>
                                     <div className='o-layout o-layout--small'>
                                         <div className='o-layout__item u-1/6@tablet'>

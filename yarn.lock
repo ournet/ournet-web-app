@@ -95,6 +95,16 @@
     joi "^14.0.3"
     normalize-url "^3.2.0"
 
+"@ournet/domain@^0.3.4":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@ournet/domain/-/domain-0.3.4.tgz#59a8fb3c13a38b3a82601e9c3fbde40eee9d7c93"
+  integrity sha512-PNpVFhgtOlgQGeRkjQWZjBkbP7edHzX6LZRNteXk2/sjO55kg/Bf7JahbxywZ6K+WQsjWpbUJgtHHHS7aoqaAQ==
+  dependencies:
+    atonic "^1.0.4"
+    ava "^0.25.0"
+    joi "^14.0.3"
+    normalize-url "^3.2.0"
+
 "@ournet/horoscopes-domain@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@ournet/horoscopes-domain/-/horoscopes-domain-0.1.3.tgz#fff76d316c1e00bf97bfb1a8f31f77dfa7dcd633"
@@ -139,6 +149,15 @@
     "@ournet/domain" "^0.3.3"
     joi "^14.0.6"
     transliteration "^1.6.6"
+
+"@ournet/videos-domain@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ournet/videos-domain/-/videos-domain-0.1.0.tgz#a118fb68db3b31f5bc1991db6f7dc67307a66f1c"
+  integrity sha512-9fhcuo6LSb+gOviXQ9vArtNYNZ/dmpSKcVzmmLK/bgj28oO1loq4lbTVtF0C5wTw/IET1It0Z18kpB7NrSUcMA==
+  dependencies:
+    "@ournet/domain" "^0.3.4"
+    joi "^14.0.3"
+    ms "^2.1.1"
 
 "@ournet/weather-domain@^0.2.3":
   version "0.2.3"
@@ -6198,10 +6217,10 @@ osenv@0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-ournet.links@^0.4.11:
-  version "0.4.11"
-  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.11.tgz#eeea35e4f719db40edd7039a0a63bc5ce088eddf"
-  integrity sha512-TJ09s0jABINJsP/kRxJB6EcNC1jvmxtBTzC0kO9jBlozuCohbqQLjLuOWpVmSZ9Y7rXG9tS9diVA8JuTAMehvQ==
+ournet.links@^0.4.12:
+  version "0.4.12"
+  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.12.tgz#86b08917a16b351e6ea57055fab6b35e72a01a36"
+  integrity sha512-oWn/7xteqd5TPisRI50QnlALcw7kIq4dwftAHm3w5naU/JCjweTsFVpXEOp7KrR4VRJz7ddz1TQxjR7bPMiS7g==
   dependencies:
     urlset "^0.6.1"
 
