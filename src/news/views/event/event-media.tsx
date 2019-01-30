@@ -49,7 +49,7 @@ export function EventMedia({ locales, event, image, lang, links }: EventMediaPro
                 {event.countVideos > 0 && <i className='c-event-media__stats-v'>{event.countVideos}<span>{locales.video()}</span></i>}
             </span>
             <span className='c-event-media__copy'>© {image.host}</span>
-            {event.countVideos > 0 && [<i className='c-event-media__hover'></i>,<i className='c-event-media__vi'></i>]}
+            {event.countVideos > 0 && [<i key='ki1' className='c-event-media__hover'></i>,<i key='ki2' className='c-event-media__vi'></i>]}
             {GalleryResources()}
         </a>
     );
