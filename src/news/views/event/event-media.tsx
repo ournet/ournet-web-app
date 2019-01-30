@@ -42,14 +42,14 @@ export function EventMedia({ locales, event, image, lang, links }: EventMediaPro
     galleryModel.startId = image.id;
 
     return (
-        <a className='c-event-media js-media-dialog' data-gallery={JSON.stringify(galleryModel)} style={{ backgroundColor: `#${imageColor}` }} data-event-id={event.id} href={image.masterUrl} target='_blank' title={mediaTitle}>
+        <a className={`c-event-media js-media-dialog${event.videosIds && event.videosIds.length > 0 ? ' v--video' : ''}`} data-gallery={JSON.stringify(galleryModel)} style={{ backgroundColor: `#${imageColor}` }} data-event-id={event.id} href={image.masterUrl} target='_blank' title={mediaTitle}>
             <img className='c-event-media__pic' alt={event.title} src={image.largeUrl} srcSet={`${image.masterUrl} 1200w, ${image.largeUrl} 640w`} />
             <span className='c-event-media__stats'>
                 {event.countImages > 1 && <i className='c-event-media__stats-i'>{event.countImages}<span>{locales.photo()}</span></i>}
                 {event.countVideos > 0 && <i className='c-event-media__stats-v'>{event.countVideos}<span>{locales.video()}</span></i>}
             </span>
             <span className='c-event-media__copy'>© {image.host}</span>
-            {event.countVideos > 0 && <i className='c-event-media__vi'></i>}
+            {event.countVideos > 0 && [<i className='c-event-media__hover'></i>,<i className='c-event-media__vi'></i>]}
             {GalleryResources()}
         </a>
     );

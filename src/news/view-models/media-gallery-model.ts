@@ -49,6 +49,8 @@ export function createMediaGalleryModel({ event, item, links, lang }: { event?: 
                 url: links.videoEmbed(id, { ul: lang }),
             } as MediaGalleryModelItem))
                 .concat(model.items);
+
+            model.startId = model.items[0].id;
         }
     }
 
@@ -60,7 +62,7 @@ export function createMediaGalleryModel({ event, item, links, lang }: { event?: 
                 url: ImageStorageHelper.newsUrl(id, 'master', 'jpg'),
             } as MediaGalleryModelItem)));
 
-            model.startId = item.imagesIds[0];
+            model.startId = model.items[0].id;
         }
 
         if (item.videoId) {
@@ -71,6 +73,7 @@ export function createMediaGalleryModel({ event, item, links, lang }: { event?: 
                     url: links.videoEmbed(item.videoId, { ul: lang }),
                 } as MediaGalleryModelItem
             ].concat(model.items);
+            model.startId = model.items[0].id;
         }
     }
 

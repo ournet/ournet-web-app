@@ -36,6 +36,7 @@ export class ItemViewModelBuilder extends NewsViewModelBuilder<ItemViewModel, It
         const model = this.model;
 
         const newsItem = model.item = apiResult.item;
+        newsItem.videoId = 'c89d58fbf2d7c8e834825aa837467563';
         const { lang, links, head, country } = model;
 
         head.title = newsItem.title;
