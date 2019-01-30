@@ -39,8 +39,6 @@ export function EventMedia({ locales, event, image, lang, links }: EventMediaPro
 
     const galleryModel = createMediaGalleryModel({ event, lang, links: links.news });
 
-    galleryModel.startId = image.id;
-
     return (
         <a className={`c-event-media js-media-dialog${event.videosIds && event.videosIds.length > 0 ? ' v--video' : ''}`} data-gallery={JSON.stringify(galleryModel)} style={{ backgroundColor: `#${imageColor}` }} data-event-id={event.id} href={image.masterUrl} target='_blank' title={mediaTitle}>
             <img className='c-event-media__pic' alt={event.title} src={image.largeUrl} srcSet={`${image.masterUrl} 1200w, ${image.largeUrl} 640w`} />
