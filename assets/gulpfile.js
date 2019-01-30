@@ -72,6 +72,7 @@ gulp.task('sass', function () {
         './scss/horoscope/main.scss',
         './scss/news/main.scss',
         './scss/news/gallery.scss',
+        './scss/news/video-embed.scss',
         './scss/portal/main.scss',
     ], { base: './scss' })
         .pipe(sass().on('error', sass.logError))
