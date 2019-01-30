@@ -54,6 +54,49 @@ h4.c-event-it__title {
     }
 }
 
+$media-icon-size: 36px;
+$media-icon-bg-color: $accent-color;
+$media-icon-color: #fff;
+
+.c-event-it__vi {
+    position: absolute;
+    width: $media-icon-size + $media-icon-size / 2;
+    height: $media-icon-size;
+    background: $media-icon-bg-color;
+    border-radius: 3px;
+    opacity: .5;
+    top: 20px;
+    left: 20px;
+    // margin-top: -($media-icon-size / 2);
+    // margin-left: -($media-icon-size / 2);
+    cursor: pointer;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -($media-icon-size / 10);
+        margin-top: -($media-icon-size / 5);
+        width: 0;
+        height: 0;
+        border-top: ($media-icon-size / 5) solid transparent;
+        border-bottom: ($media-icon-size / 5) solid transparent;
+        border-left: ($media-icon-size / 4) solid $media-icon-color;
+    }
+}
+.c-event-it.v--card.v--card-wide {
+    .c-event-it__vi {
+        top: 30px;
+        left: auto;
+        right: 30px;
+    }
+}
+.c-event-it.v--card.v--card-bare {
+    .c-event-it__vi {
+        display: none;
+    }
+}
+
 .c-event-it.v--card {
     height: 320px;
     width: 100%;

@@ -45,6 +45,7 @@ function mediaItemView({ item, imageSize, view, links, lang, country, timezone }
             <div className='o-media__img'>
                 <span className='c-event-it__img o-lazy' data-src={ImageStorageHelper.eventUrl(item.imageId, imageSize || 'square', 'jpg')}></span>
             </div>
+            {item.countVideos>0 && <i className='c-event-it__vi'></i>}
             <div className='c-event-it__info o-media__body'>
                 <a className='c-event-it__title' href={link} title={item.title}>{truncateAt(item.title, 80)}</a>
                 <div className='c-event-it__stats'>
@@ -84,6 +85,7 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone, p
                 <div className='c-event-it__img-mask' style={{ backgroundImage: `linear-gradient(${orientation},rgba(0,0,0,0),rgba(${color.rgb()},.7),rgb(${color.rgb()}))` }}></div>
             </div>
             <div className='c-event-it__hover'></div>
+            {item.countVideos>0 && <i className='c-event-it__vi'></i>}
 
             <a className='c-event-it__doc' title={item.title} href={urlPrefix + links.news.story(item.slug, item.id, { ul: lang })}>
                 <div className='c-event-it__inner'>
