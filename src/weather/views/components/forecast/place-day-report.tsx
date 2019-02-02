@@ -26,7 +26,7 @@ export function PlaceDayReport({ place, report, lang, locales, filter, holidays 
     let data = report.data;
     if (filter) {
         const currentUnixTime = moment().tz(timezone).unix();
-        data = data.filter(item => item.time >= currentUnixTime);
+        data = data.filter(item => moment(item.time * 1000).tz(timezone).unix() >= currentUnixTime);
     }
     const isWeekend = [6, 7].includes(dayDate.isoWeekday());
 
@@ -42,8 +42,8 @@ export function PlaceDayReport({ place, report, lang, locales, filter, holidays 
             <div key={index} className='dr-row'>
                 <div className='dr-r dr-r-date'>{date.format('HH:00')}</div>
                 <div className='dr-r dr-r-temp'>
-                    {ForecastIcon({icon:item.icon, lang})}
-                    {ForecastTemp({temperature:item.temperature})}
+                    {ForecastIcon({ icon: item.icon, lang })}
+                    {ForecastTemp({ temperature: item.temperature })}
                     <span className='symbol-name'>{symbolName}</span>
                 </div>
                 <div className='dr-r dr-r-wind'>
