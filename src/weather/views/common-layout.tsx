@@ -34,7 +34,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                         }
                     </div>
                     <div className="o-layout__item u-2/6@desktop">
-                        {/* <LatestNews {...this.props} /> */}
+                        {!config.disabledAds && AdAside()}
                         {latestNews && latestNews.length > 0 &&
                             <div className='c-section'>
                                 {SectionHeader({ name: locales.latest_news(), link: getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country) + links.news.home({ ul: lang }) })}
@@ -42,8 +42,6 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                                     {latestNews.map(item => <div key={item.id} className='o-layout__item u-1/2@tablet u-1/1@desktop'>{EventListItem({ lang, country, project, links, timezone: config.timezone, item, view: 'card-bare', imageSize: 'small' })}</div>)}
                                 </div>
                             </div>}
-                        {!config.disabledAds && AdAside()}
-
                     </div>
                 </div>
                 <script async={true} src={getAssetUrl(project, 'js', 'main', env.isProduction)} />
