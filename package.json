@@ -34,7 +34,7 @@
         "config",
         "data"
       ],
-      "extensions": "js,json",
+      "extensions": "js,json,.env",
       "quiet": true,
       "legacyWatch": true,
       "delay": 2000

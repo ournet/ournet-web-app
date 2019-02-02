@@ -57,7 +57,7 @@ function initGallery() {
         var items = getGalleryItems(el);
         var options = {
             thumbs: items.length > 1 ? {
-                autoStart: true,
+                autoStart: false,
                 // axis: 'x',
             } : undefined,
             mobile: {
@@ -67,7 +67,7 @@ function initGallery() {
                 "zoom",
                 // "share",
                 // "slideShow",
-                //"fullScreen",
+                "fullScreen",
                 //"download",
                 "thumbs",
                 "close"
