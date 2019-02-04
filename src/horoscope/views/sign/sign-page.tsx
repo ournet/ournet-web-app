@@ -55,7 +55,7 @@ OneSignal.push(['init', {
     safari_web_id: "${config.oneSignal.safari_web_id}"
 }]);`}}></script>
                 </div>}
-            {config.facebookId && FacebookScript(config.facebookId, lang, country)}
+            {config.facebookAppId && FacebookScript(config.facebookAppId, lang, country)}
         </CommonLayout>
     )
 }

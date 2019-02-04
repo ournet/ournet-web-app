@@ -2,24 +2,23 @@
     "background_color": "#f2f0ea",
     "theme_color": "#ca0000",
     "languages": [
-        "it"
+        "lv"
     ],
     "timezone": "Europe/Rome",
-    "domain": "ournet.it",
-    "host": "meteo.ournet.it",
+    "domain": "ournet.lv",
+    "host": "meteo.ournet.lv",
     "email": "info@ournet-group.com",
-    "googleAnalyticsId": "UA-1490399-44",
-    "widgetGoogleAnalyticsId": "UA-1490399-55",
+    "googleAnalyticsId": "UA-1490399-42",
+    "widgetGoogleAnalyticsId": "",
     "projects": [
-        "news",
-        "weather",
-        "horoscope"
+        "weather"
     ],
     "shareServices": [
         "facebook",
         "twitter"
     ],
     "internationalIds": [
+        "lv",
         "ro",
         "cz",
         "bg",
@@ -28,10 +27,8 @@
         "al",
         "in",
         "tr",
-        "md",
-        "lv"
+        "md"
     ],
-    "capitalId": "3169070",
-    "facebookAppId": "501096683350238",
-    "placesCount": 12000
+    "capitalId": "593116",
+    "placesCount": 32000
 }

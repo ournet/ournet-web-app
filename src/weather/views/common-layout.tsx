@@ -32,6 +32,12 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                                 {HoroscopeSignsLine({ lang, links, project, country })}
                             </div>
                         }
+                        {
+                            (config.facebookPageUrl && config.facebookAppId) &&
+                            <div className='c-fb-plike'>
+                                <iframe className='o-lazy' data-src={`https://www.facebook.com/plugins/like.php?href=${encodeURIComponent(config.facebookPageUrl)}&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=${config.facebookAppId}`} width="450" height="80" style={{ border: 'none', overflow: 'hidden' }} scrolling="no" frameBorder="0" allowTransparency={true} allow="encrypted-media"></iframe>
+                            </div>
+                        }
                     </div>
                     <div className="o-layout__item u-2/6@desktop">
                         {!config.disabledAds && AdAside()}

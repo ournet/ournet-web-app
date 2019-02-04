@@ -12,7 +12,8 @@ export interface OurnetAppConfig {
     readonly capitalId: string
     readonly shareServices: string[]
     readonly internationalIds: string[]
-    readonly facebookId?: string
+    readonly facebookAppId?: string
+    readonly facebookPageUrl?: string
     readonly disabledAds?: boolean
 
     readonly oneSignal?: {
