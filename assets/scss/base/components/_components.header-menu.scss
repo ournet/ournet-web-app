@@ -10,11 +10,14 @@
     }
     a {
         display: block;
-        padding: 3px 12px;
-        border-radius: $global-radius;
+        padding: 3px $global-spacing-unit / 3;
+        // border-radius: $global-radius;
         text-decoration: none;
         color: $text-color;
-        margin-right: 2px;
+        margin-right: 3px;
+        &:last-child{
+            margin-right: 0px;
+        }
         &:hover {
             color: $accent-color;
             &.v--news {
