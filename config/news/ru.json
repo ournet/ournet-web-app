@@ -10,9 +10,9 @@
     "email": "info@ournet-group.com",
     "googleAnalyticsId": "UA-1490399-17",
     "projects": [
-        "horoscope",
         "news",
-        "weather"
+        "weather",
+        "horoscope"
     ],
     "shareServices": [
         "vk",

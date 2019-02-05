@@ -9,10 +9,10 @@
     "host": "news.ournet.ro",
     "email": "info@ournet.ro",
     "googleAnalyticsId": "UA-1490399-11",
-    "projects": [
-        "horoscope",
+    "projects": [        
         "news",
         "weather",
+        "horoscope",
         "exchange"
     ],
     "shareServices": [

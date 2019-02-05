@@ -57,7 +57,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                                             </div>
                                             <div className='o-layout__item u-5/6@tablet'>
                                                 <h1 className='c-event__title'><a href={link} title={item.title}>{item.title}</a></h1>
-                                                {Share({ url: head.canonical, align: 'right', services: config.shareServices, lang: lang })}
+                                                {Share({ url: head.canonical, align: 'right', services: config.shareServices, lang: lang, size: 'small' })}
                                                 <div className='c-event__stats'>
                                                     <time dateTime={item.createdAt}>{createdAt.format('lll') + ', '}</time>
                                                     {locales.count_views_format(item.countViews)}

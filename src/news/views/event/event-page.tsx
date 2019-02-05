@@ -52,7 +52,7 @@ export default class EventPage extends React.Component<EventViewModel> {
                                             </div>
                                             <div className='o-layout__item u-5/6@tablet'>
                                                 <h1 className='c-event__title'><a href={link} title={event.title}>{event.title}</a></h1>
-                                                {Share({ url: head.canonical || '', align: 'right', services: config.shareServices, lang: lang })}
+                                                {Share({ url: head.canonical || '', align: 'right', services: config.shareServices, lang, size: 'small' })}
                                                 <div className='c-event__stats'>
                                                     <time dateTime={event.createdAt}>{createdAt.format('lll')}</time>
                                                     {', ' + locales.count_news_format(event.countNews) + ', '}

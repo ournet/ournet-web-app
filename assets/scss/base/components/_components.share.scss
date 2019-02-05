@@ -12,10 +12,10 @@
 }
 
 .c-share.v--small {
-    &.c-share__icon,
-    &.c-share__item {
-        height: 22px;
-        width: 32px;
+    .c-share__icon,
+    .c-share__item {
+        height: 24px;
+        width: 24px;
     }
 }
 

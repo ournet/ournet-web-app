@@ -3,10 +3,10 @@ import * as React from 'react';
 import RootLayout from '../../views/root-layout';
 import { NewsViewModel } from '../view-models/news-view-model';
 import { AccentLine } from '../../views/components/accent-line';
-import { PageFooter } from './components/page-footer';
 import { PageHeader } from '../../views/components/page-header';
 import PageMenu, { PageMenuProps } from '../../views/components/page-menu';
 import { TopicHelper } from '@ournet/topics-domain';
+import { PageFooter } from '../../views/components/page-footer';
 
 export default class Layout extends React.Component<NewsViewModel, any> {
     render() {
