@@ -16,13 +16,28 @@
         color: $text-color;
         margin-right: 2px;
         &:hover {
-            background-color: $primary;
-            color: white;
+            color: $accent-color;
+            &.v--news {
+                color: $news-accent-color;
+            }
+            &.v--weather {
+                color: $weather-accent-color;
+            }
+            &.v--horo {
+                color: $horo-accent-color;
+            }
         }
     }
 }
 
 a.c-menu--selected {
-    background-color: $primary;
-    color: white;
+    &.v--news {
+        color: $news-accent-color;
+    }
+    &.v--weather {
+        color: $weather-accent-color;
+    }
+    &.v--horo {
+        color: $horo-accent-color;
+    }
 }

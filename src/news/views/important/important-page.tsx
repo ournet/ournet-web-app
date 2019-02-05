@@ -8,7 +8,7 @@ import { ImportantViewModel } from '../../view-models/important-view-model';
 import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { AdCenter } from '../components/ads/ad-center';
-import { StickyTitle } from '../../../views/components/sticky-title';
+import PageContentSection from '../../../views/components/page-content-section';
 
 export default class ImportantPage extends React.Component<ImportantViewModel> {
     render() {
@@ -21,26 +21,27 @@ export default class ImportantPage extends React.Component<ImportantViewModel> {
 
         return (
             <CommonLayout {...this.props}>
-                <main>
-                    {StickyTitle({ title: (title || head.title), url: head.canonical, lang, shareServices: config.shareServices, size: 'large' })}
-                    {Share({ lang, url: head.canonical, align: 'right', services: config.shareServices })}
-                    {PageTitle({ title: (title || head.title), subTitle: (subTitle || head.description) })}
+                <PageContentSection>
+                    <main>
+                        {Share({ lang, url: head.canonical, align: 'right', services: config.shareServices })}
+                        {PageTitle({ title: (title || head.title), subTitle: (subTitle || head.description) })}
 
-                    <div className='o-layout'>
-                        {list1.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/3@desktop'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', imageSize: 'large' })}</div>)}
-                    </div>
-                    {AdCenter()}
-                    <div className='o-layout'>
-                        {list2.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/3@desktop'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', imageSize: 'large' })}</div>)}
-                    </div>
-
-                    <div className='c-group'>
-                        {GroupHeader({ name: locales.latest_quotes(), link: links.news.quotes({ ul: lang }), type: 'important' })}
                         <div className='o-layout'>
-                            {latestQuotes && latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ country, lang, links, timezone: config.timezone, item, view: 'card' })}</div>)}
+                            {list1.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/3@desktop'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', imageSize: 'large' })}</div>)}
                         </div>
-                    </div>
-                </main>
+                        {AdCenter()}
+                        <div className='o-layout'>
+                            {list2.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/3@desktop'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card', imageSize: 'large' })}</div>)}
+                        </div>
+
+                        <div className='c-group'>
+                            {GroupHeader({ name: locales.latest_quotes(), link: links.news.quotes({ ul: lang }), type: 'important' })}
+                            <div className='o-layout'>
+                                {latestQuotes && latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ country, lang, links, timezone: config.timezone, item, view: 'card' })}</div>)}
+                            </div>
+                        </div>
+                    </main>
+                </PageContentSection>
             </CommonLayout >
         )
     }

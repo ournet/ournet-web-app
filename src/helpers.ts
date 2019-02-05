@@ -1,7 +1,8 @@
 import { Place, NewsEvent } from "@ournet/api-client";
 import { PlaceHelper } from '@ournet/places-domain';
-import { Sitemap } from "ournet.links";
+import { Sitemap, getHost, getSchema } from "ournet.links";
 import { ImageStorageHelper } from "@ournet/images-domain";
+import { OurnetProjectName } from "./ournet/data";
 const standard = require('standard-text');
 const ellipsize = require('ellipsize');
 const entipicUrlFn = require('entipic.url');
@@ -118,4 +119,19 @@ export function isNullOrEmpty(val?: string) {
 export function encodeHTML(str: string) {
     return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
         .replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+export function resolveProjectLinkPrefix(currentProject: OurnetProjectName, linkProject: OurnetProjectName, country: string) {
+    if (currentProject === linkProject) {
+        return ''
+    }
+    const host = getHost(linkProject, country);
+
+    if (!host) {
+        return '';
+    }
+
+    const schema = getSchema(linkProject, country);
+
+    return schema + '//' + host;
 }

@@ -52,13 +52,18 @@ $dark:          $gray-800 !default;
 $bg-color: #f2f0ea;//#F2F1F2;
 $dark-bg-color: darken($bg-color, 5%);
 $darker-bg-color: darken($bg-color, 10%);
-$text-color: #333;
-$accent-color: $red;
-$second-color: #2b363c;
+
 $gray: #999;
 $mute-color: $gray;
 
 $link-color: $primary;
+
+$text-color: #333;
+$accent-color: $red;
+$second-color: #2b363c;
+$news-accent-color: $red;
+$weather-accent-color: $blue;
+$horo-accent-color: #c84697;
 
 // Standardise some UI treatments.
 

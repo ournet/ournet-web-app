@@ -3,20 +3,59 @@ import * as React from 'react';
 import RootLayout from '../../views/root-layout';
 import { NewsViewModel } from '../view-models/news-view-model';
 import { AccentLine } from '../../views/components/accent-line';
-import { PageHeader } from './components/page-header';
 import { PageFooter } from './components/page-footer';
+import { PageHeader } from '../../views/components/page-header';
+import PageMenu, { PageMenuProps } from '../../views/components/page-menu';
+import { TopicHelper } from '@ournet/topics-domain';
 
 export default class Layout extends React.Component<NewsViewModel, any> {
     render() {
-        const { children, country } = this.props;
+        const { children, country, links, locales, lang, head, trendingTopics, currentLink } = this.props;
+
+        const pageMenu: PageMenuProps = {
+            items: [
+                {
+                    id: 'important',
+                    link: links.news.important({ ul: lang }),
+                    title: locales.important_news(),
+                    text: locales.important(),
+                },
+                {
+                    id: 'quotes',
+                    link: links.news.quotes({ ul: lang }),
+                    title: locales.latest_quotes(),
+                    text: locales.quotes(),
+                }
+            ]
+        }
+
+        for (const item of pageMenu.items) {
+            if (currentLink === item.link || head.canonical === item.link) {
+                pageMenu.selectedId = item.id;
+                break;
+            }
+        }
+
+        if (trendingTopics && trendingTopics.length) {
+            for (const item of trendingTopics) {
+                const link = links.news.topic(TopicHelper.parseSlugFromId(item.id), { ul: lang });
+                if (currentLink === link || head.canonical === link) {
+                    pageMenu.selectedId = item.id;
+                }
+
+                pageMenu.items.push({
+                    link, id: item.id, title: item.name,
+                    text: item.abbr || item.commonName || item.name,
+                })
+            }
+        }
 
         return (
             <RootLayout {...this.props}>
                 {AccentLine()}
-                <div className='o-wrapper o-wrapper--small'>
-                    {PageHeader(this.props)}
-                    {children}
-                </div>
+                {PageHeader(this.props)}
+                {PageMenu(pageMenu)}
+                {children}
                 {PageFooter(this.props)}
                 {getFooterScripts(country)}
             </RootLayout>

@@ -7,6 +7,7 @@ import { HoroscopeSvg } from '../../../views/components/horoscope/horoscope-svg'
 import { HoroscopeCard } from '../../../views/components/horoscope/horoscope-card';
 import { QuoteListItem } from '../components/quote-list-item';
 import { GroupHeader } from '../../../views/components/group-header';
+import PageContentSection from '../../../views/components/page-content-section';
 
 export default class IndexPage extends React.Component<IndexViewModel> {
     render() {
@@ -30,36 +31,37 @@ export default class IndexPage extends React.Component<IndexViewModel> {
             <CommonLayout {...this.props}>
                 {links.horoscope && HoroscopeSvg()}
                 <main>
-                    <div className='o-layout'>
-                        <div className='o-layout__item u-2/4@tablet'>
-                            {mainEvent && EventListItem({ lang, country, links, timezone: config.timezone, imageSize: 'large', view: 'card-wide', item: mainEvent })}
-                        </div>
-                        <div className='o-layout__item u-2/4@tablet'>
-                            <div className='o-layout'>
-                                {restEvents.slice(0, 2).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                    <PageContentSection>
+                        <div className='o-layout'>
+                            <div className='o-layout__item u-2/4@tablet'>
+                                {mainEvent && EventListItem({ lang, country, links, timezone: config.timezone, imageSize: 'large', view: 'card-wide', item: mainEvent })}
+                            </div>
+                            <div className='o-layout__item u-2/4@tablet'>
+                                <div className='o-layout'>
+                                    {restEvents.slice(0, 2).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='o-layout'>
-                        <div className='o-layout__item u-1/4@tablet u-1/2@mobile'>
-                            {links.horoscope && HoroscopeCard({ links, lang, country, title: locales.horoscope() })}
-                        </div>
-                        <div className='o-layout__item u-1/4@tablet u-1/2@mobile'>
-                            {restEvents[2] && EventListItem({ lang, country, links, timezone: config.timezone, view: 'card', item: restEvents[2] })}
-                        </div>
-
-                        {restEvents.slice(3, 5).map(item => <div key={item.id} className='o-layout__item u-1/4@tablet u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
-
-                    </div>
-                    <div className='c-group'>
-                        {GroupHeader({ name: locales.latest_quotes(), link: links.news.quotes({ ul: lang }), type: 'important' })}
                         <div className='o-layout'>
-                            {latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item })}</div>)}
+                            <div className='o-layout__item u-1/4@tablet u-1/2@mobile'>
+                                {links.horoscope && HoroscopeCard({ links, lang, country, title: locales.horoscope() })}
+                            </div>
+                            <div className='o-layout__item u-1/4@tablet u-1/2@mobile'>
+                                {restEvents[2] && EventListItem({ lang, country, links, timezone: config.timezone, view: 'card', item: restEvents[2] })}
+                            </div>
+
+                            {restEvents.slice(3, 5).map(item => <div key={item.id} className='o-layout__item u-1/4@tablet u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
                         </div>
-                    </div>
-                    <div className='o-layout'>
-                        {restEvents.slice(5).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
-                    </div>
+                        <div className='c-group'>
+                            {GroupHeader({ name: locales.latest_quotes(), link: links.news.quotes({ ul: lang }), type: 'important' })}
+                            <div className='o-layout'>
+                                {latestQuotes.map(item => <div key={item.id} className='o-layout__item u-1/3@tablet'>{QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item })}</div>)}
+                            </div>
+                        </div>
+                        <div className='o-layout'>
+                            {restEvents.slice(5).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile u-1/4@tablet'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                        </div>
+                    </PageContentSection>
                 </main>
             </CommonLayout>
         )

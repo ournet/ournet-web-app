@@ -12,6 +12,6 @@ export type ShareProps = {
 export function Share({ url, lang, services, align, title }: ShareProps) {
 
     return (
-            <div className={'c-share' + (align ? ' v--' + align : '')} data-services={services.join(',')} data-lang={lang} data-url={url} data-title={title}></div>
+        <div className={'c-share' + (align ? ' v--' + align : '')} data-services={services.join(',')} data-lang={lang} data-url={url} data-title={title}></div>
     )
 }

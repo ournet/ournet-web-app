@@ -15,7 +15,7 @@ import { EventNewsItems } from './event-news-items';
 import { QuoteListItem } from '../components/quote-list-item';
 import { TopicListItem } from '../components/topic-list-item';
 import { EventListItem } from '../components/event-list-item';
-import { StickyTitle } from '../../../views/components/sticky-title';
+import PageContentSection from '../../../views/components/page-content-section';
 
 export default class EventPage extends React.Component<EventViewModel> {
     render() {
@@ -40,60 +40,61 @@ export default class EventPage extends React.Component<EventViewModel> {
 
         return (
             <CommonLayout {...this.props}>
-                <main>
-                    {StickyTitle({ title: event.title, url: head.canonical, lang, shareServices: config.shareServices })}
-                    <div className='o-layout'>
-                        <div className='o-layout__item u-4/6@desktop'>
-                            <article className='c-event'>
-                                {EventMedia({ event, locales, links, lang })}
-                                <div className='c-event__body'>
-                                    <div className='o-layout o-layout--small'>
-                                        <div className='o-layout__item u-1/6@tablet'>
-                                        </div>
-                                        <div className='o-layout__item u-5/6@tablet'>
-                                            <h1 className='c-event__title'><a href={link} title={event.title}>{event.title}</a></h1>
-                                            {Share({ url: head.canonical||'', align: 'right', services: config.shareServices, lang: lang })}
-                                            <div className='c-event__stats'>
-                                                <time dateTime={event.createdAt}>{createdAt.format('lll')}</time>
-                                                {', ' + locales.count_news_format(event.countNews) + ', '}
-                                                {locales.count_views_format(event.countViews)}
+                <PageContentSection>
+                    <main>
+                        <div className='o-layout'>
+                            <div className='o-layout__item u-4/6@desktop'>
+                                <article className='c-event'>
+                                    {EventMedia({ event, locales, links, lang })}
+                                    <div className='c-event__body'>
+                                        <div className='o-layout o-layout--small'>
+                                            <div className='o-layout__item u-1/6@tablet'>
                                             </div>
-                                            <div className='c-event__text'>
-                                                {paragraphs}
+                                            <div className='o-layout__item u-5/6@tablet'>
+                                                <h1 className='c-event__title'><a href={link} title={event.title}>{event.title}</a></h1>
+                                                {Share({ url: head.canonical || '', align: 'right', services: config.shareServices, lang: lang })}
+                                                <div className='c-event__stats'>
+                                                    <time dateTime={event.createdAt}>{createdAt.format('lll')}</time>
+                                                    {', ' + locales.count_news_format(event.countNews) + ', '}
+                                                    {locales.count_views_format(event.countViews)}
+                                                </div>
+                                                <div className='c-event__text'>
+                                                    {paragraphs}
+                                                </div>
+                                                {OutReadMoreLink({ url: event.source.host + event.source.path, source: startWithUpperCase(event.source.sourceId), links, locales })}
+                                                {eventQuotes && <div className='c-event_quotes'>{eventQuotes.map(item => QuoteListItem({ item, view: 'card', country, lang, links, timezone: config.timezone }))}</div>}
+                                                <hr />
+                                                {EventNewsItems({ lang, event, links })}
+                                                <hr />
+                                                <ul className='c-event__tags'>
+                                                    {event.topics.map(item => <li key={item.id}>{TopicListItem({ links, lang, item, view: 'tag' })}</li>)}
+                                                </ul>
                                             </div>
-                                            {OutReadMoreLink({ url: event.source.host + event.source.path, source: startWithUpperCase(event.source.sourceId), links, locales })}
-                                            {eventQuotes && <div className='c-event_quotes'>{eventQuotes.map(item => QuoteListItem({ item, view: 'card', country, lang, links, timezone: config.timezone }))}</div>}
-                                            <hr />
-                                            {EventNewsItems({ lang, event, links })}
-                                            <hr />
-                                            <ul className='c-event__tags'>
-                                                {event.topics.map(item => <li key={item.id}>{TopicListItem({ links, lang, item, view: 'tag' })}</li>)}
-                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                            </article>
-                            {similarEvents.length > 0 ?
+                                </article>
+                                {similarEvents.length > 0 ?
+                                    <div className='c-section'>
+                                        {SectionHeader({ name: locales.related_news() })}
+                                        <div key='slayout' className='o-layout'>
+                                            {similarEvents.slice(0, 2).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                                        </div>
+                                    </div> : null
+                                }
+                            </div>
+                            <div className='o-layout__item u-2/6@desktop'>
+                                {AdAside()}
                                 <div className='c-section'>
-                                    {SectionHeader({ name: locales.related_news() })}
-                                    <div key='slayout' className='o-layout'>
-                                        {similarEvents.slice(0, 2).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                                    {SectionHeader({ name: locales.latest_events(), link: links.news.home({ ul: lang }) })}
+                                    <div className='o-layout o-layout--small'>
+                                        {latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@tablet u-1/1@desktop'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card-bare' })}</div>)}
                                     </div>
-                                </div> : null
-                            }
-                        </div>
-                        <div className='o-layout__item u-2/6@desktop'>
-                            {AdAside()}
-                            <div className='c-section'>
-                                {SectionHeader({ name: locales.latest_events(), link: links.news.home({ ul: lang }) })}
-                                <div className='o-layout o-layout--small'>
-                                    {latestEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@tablet u-1/1@desktop'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card-bare' })}</div>)}
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <script dangerouslySetInnerHTML={{ __html: `(function(){var img=new Image();img.src='${links.news.actions.viewStory(event.id, { ul: lang })}';}());` }}></script>
-                </main>
+                        <script dangerouslySetInnerHTML={{ __html: `(function(){var img=new Image();img.src='${links.news.actions.viewStory(event.id, { ul: lang })}';}());` }}></script>
+                    </main>
+                </PageContentSection>
             </CommonLayout >
         )
     }
