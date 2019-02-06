@@ -10,10 +10,10 @@ import { PlacesList } from './places-list';
 
 export function PlacesPage(props: PlacesViewModel) {
 
-    const { locales, lang, country, links, places, placesAdmin1, head } = props;
+    const { locales, lang, country, links, places, placesAdmin1, head, ref } = props;
 
     const localeParams = { ul: lang };
-    let title = locales.search_place_in_cn_format( { country: locales.getInCountryName(country) });
+    let title = locales.search_place_in_cn_format({ country: locales.getInCountryName(country) });
 
     const breadcrumbData: BreadcrumbData = {
         items: [
@@ -41,7 +41,7 @@ export function PlacesPage(props: PlacesViewModel) {
                 {PageTitle({ title })}
                 {places.length === 0
                     ? <div className='c-nodata'>{locales.not_found_places()}</div>
-                    : PlacesList({ places, lang, links })}
+                    : PlacesList({ places, lang, links, ref: ref || 'browse' })}
             </main>
         </CommonLayout>
     )

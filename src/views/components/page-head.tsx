@@ -38,7 +38,7 @@ export function PageHead({ config, head, lang, country, project, showGoogleAds }
             <link rel="preconnect" href="//www.google-analytics.com" />
             {hasAds && <link rel="preconnect" href="//tpc.googlesyndication.com" />}
             {hasAds && <link rel="preconnect" href="//pagead2.googlesyndication.com" />}
-            <script dangerouslySetInnerHTML={{ __html: `window.CONSTANTS={lang:"${lang}",country:"${country}"};` }}></script>
+            <script dangerouslySetInnerHTML={{ __html: `window.CONSTANTS={lang:"${lang}",country:"${country}",domain:"${config.domain}"};` }}></script>
             {hasAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>}
         </head>
     )

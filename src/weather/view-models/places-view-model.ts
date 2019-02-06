@@ -6,6 +6,7 @@ import { OurnetViewModelInput } from "../../ournet/view-model";
 export interface PlacesViewModel extends WeatherViewModel {
     places: Place[]
     placesAdmin1?: Place
+    ref?: string
 }
 
 export interface PlacesViewModelInput extends OurnetViewModelInput {
@@ -32,6 +33,7 @@ export class PlacesViewModelBuilder extends WeatherViewModelBuilder<PlacesViewMo
                 this.apiClient.placesSearchPlace('places', { fields: 'id name names admin1Code featureClass population admin1 {id name names}' },
                     { query: input.q, limit: 24, country });
                 this.setCanonical(links.weather.places({ q: input.q, ul: lang }));
+                this.model.ref = 'search';
             } else {
                 this.apiClient.placesAdmin1s('places', { fields: 'id name names admin1Code featureClass' },
                     { country, limit: 90 });

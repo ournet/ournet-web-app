@@ -9,9 +9,10 @@ export type PlacesListProps = {
     lang: string
     links: Sitemap
     places: Place[]
+    ref?: string
 }
 
-export function PlacesList({ lang, places, links }: PlacesListProps) {
+export function PlacesList({ lang, places, links, ref }: PlacesListProps) {
 
     const linkParams = { ul: lang };
 
@@ -21,7 +22,7 @@ export function PlacesList({ lang, places, links }: PlacesListProps) {
         if (place.featureClass === 'A') {
             link = <a href={links.weather.places.byAdm1(place.admin1Code, linkParams)}>{getPlaceName(place, lang)}</a>
         } else {
-            link = <a href={links.weather.place(place.id.toString(), linkParams)}>{getPlaceName(place, lang)}</a>
+            link = <a href={links.weather.place(place.id.toString(), linkParams) + (ref ? '#ref-' + ref : '')}>{getPlaceName(place, lang)}</a>
             if (place.admin1) {
                 adm1 = <div>{WeatherPlaceHelper.shortAdm1Name(place.admin1, lang)}</div>
             }

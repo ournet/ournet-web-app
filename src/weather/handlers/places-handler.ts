@@ -12,7 +12,7 @@ export class PlacesHandler extends WeatherBaseHandler<PlacesViewModelInput> {
         const { links, lang } = viewData;
 
         if (this.input.q && viewData.places && viewData.places.length === 1) {
-            return this.redirect(links.weather.place(viewData.places[0].id, { ul: lang }), 301);
+            return this.redirect(links.weather.place(viewData.places[0].id, { ul: lang }) + '#ref-search', 301);
         }
         return this.render(PlacesPage(viewData));
     }

@@ -33,9 +33,8 @@ export function PlacePage(props: PlaceViewModel) {
     return (
         <CommonLayout {...props}>
             <main>
-                {Share({ services: config.shareServices, align: 'right', url: head.canonical, lang })}
                 {Breadcrumb(breadcrumbData)}
-                {PageTitle({ title, subTitle: description })}
+                {PageTitle({ title, subTitle: description, preSubTitle: Share({ services: config.shareServices, align: 'right', url: head.canonical, lang }) })}
 
                 {PlaceDailyReport({ holidays, report: placeForecast && placeForecast.details, place, lang, config, locales })}
                 <p className='c-seo-mute'>{subTitle}</p>
