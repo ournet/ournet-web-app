@@ -29,7 +29,7 @@ export function PlacesDailyForecast({ reports, lang, links }: PlacesDailyForecas
                     </div>
                     <div className='dr-r dr-r-wind'>
                         <span className={'wind-speed beaufort-' + toBeaufort(item.forecast.windSpeed || 1)}>{item.forecast.windSpeed}</span>
-                        <span className='wind-dir'>{item.forecast.windDir}</span>
+                        <i title={item.forecast.windDir} className={`i-wind-dir i-wind-dir--${item.forecast.windDir}`}></i>
                     </div>
                 </div>
             ))}

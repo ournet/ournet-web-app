@@ -48,7 +48,7 @@ export function PlaceDayReport({ place, report, lang, locales, filter, holidays 
                 </div>
                 <div className='dr-r dr-r-wind'>
                     <span className={'wind-speed beaufort-' + toBeaufort(item.windSpeed || 1)}>{item.windSpeed}</span>
-                    <span className='wind-dir'>{item.windDir}</span>
+                    <i title={item.windDir} className={`i-wind-dir i-wind-dir--${item.windDir}`}></i>
                 </div>
                 <div className='dr-r dr-r-hum'>{(Math.round((item.humidity || 0) * 100)) + '%'}</div>
             </div>

@@ -127,9 +127,12 @@ $hum-width: 15%;
         vertical-align: middle;
     }
 }
-.dr-r-wind{
+.dr-r-wind {
     width: $wind-width;
     text-align: right;
+    .i-wind-dir {
+        float: right;
+    }
 }
 .dr-r-hum{
     width: $hum-width;
@@ -166,14 +169,7 @@ $hum-width: 15%;
     padding: 0px 3px;
     cursor: default;
     /*background-color: @layout-color;*/
-}
-
-.wind-dir {
-    display: inline-block;
-    font-style: italic;
-    margin-left: 4px;
-    min-width: 22px;
-    text-align: left;
+    margin-right: 6px;
 }
 
 .beaufort-5,

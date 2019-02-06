@@ -1,0 +1,39 @@
+$wind-icon-size: 24px;
+$wind-icon-arrow-size: $wind-icon-size / 2;
+$wind-icon-border-size: $wind-icon-size / 10;
+
+.i-wind-dir {
+    position: relative;
+    display: inline-block;
+    width: $wind-icon-size;
+    height: $wind-icon-size;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='#ccc' d='M20.176,5.118c0.315-0.811-0.484-1.61-1.294-1.294L3.474,9.815C3.188,9.927,3,10.202,3,10.509v0 c0,0.298,0.177,0.567,0.451,0.684L10,14l2.807,6.549C12.924,20.823,13.193,21,13.491,21h0c0.307,0,0.582-0.188,0.694-0.475 L20.176,5.118z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+$wind-icon-arrow-deg: 45deg;
+
+.i-wind-dir--E {
+    transform: rotate(0 + $wind-icon-arrow-deg);
+}
+
+.i-wind-dir--N {
+    transform: rotate(-90deg + $wind-icon-arrow-deg);
+}
+.i-wind-dir--NE {
+    transform: rotate(-45deg + $wind-icon-arrow-deg);
+}
+.i-wind-dir--NW {
+    transform: rotate(-135deg + $wind-icon-arrow-deg);
+}
+.i-wind-dir--S {
+    transform: rotate(90deg + $wind-icon-arrow-deg);
+}
+.i-wind-dir--SE {
+    transform: rotate(45deg + $wind-icon-arrow-deg);
+}
+.i-wind-dir--SW {
+    transform: rotate(135deg + $wind-icon-arrow-deg);
+}
+.i-wind-dir--W {
+    transform: rotate(-180deg + $wind-icon-arrow-deg);
+}
