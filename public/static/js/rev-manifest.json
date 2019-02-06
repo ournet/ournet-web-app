@@ -1,8 +1,8 @@
 {
   "weather/main.js": "weather/main.72801b55.js",
-  "weather/page-widget.js": "weather/page-widget.9cca3bdd.js",
-  "news/main.js": "news/main.2f231bd0.js",
+  "weather/page-widget.js": "weather/page-widget.85feab80.js",
+  "news/main.js": "news/main.763cb49e.js",
   "news/gallery.js": "news/gallery.cd08e0b0.js",
-  "portal/main.js": "portal/main.2bc7765a.js",
-  "horoscope/main.js": "horoscope/main.fc98838b.js"
+  "portal/main.js": "portal/main.453ec3ca.js",
+  "horoscope/main.js": "horoscope/main.f55c559f.js"
 }
