@@ -125,6 +125,7 @@
     "read_more_on_source_format": "Read on %(name)s",
     "recent_search": "Recent searches",
     "related_news": "Related News",
+    "save": "Ruaj",
     "search_place_format": "Rezultatet e kërkimit nga: %(name)s",
     "search_place_in_adm_cn_format": "Kërkoni vend në %(region)s, %(country)s",
     "search_place_in_cn_format": "Kërkoni vend në %(country)s",

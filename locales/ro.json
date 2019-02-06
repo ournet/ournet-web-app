@@ -132,6 +132,7 @@
     "read_more_on_source_format": "Citește pe %(name)s",
     "recent_search": "Ultimele căutări",
     "related_news": "Știri asemănătoare",
+    "save": "Salvează",
     "search_place_format": "Rezultatele căutării după: %(name)s",
     "search_place_in_adm_cn_format": "Caută localitate în %(region)s, %(country)s",
     "search_place_in_cn_format": "Caută localitate în %(country)s",

@@ -125,6 +125,7 @@
     "read_more_on_source_format": "Прочетете на %(name)s",
     "recent_search": "Последни търсения",
     "related_news": "Свързани новини",
+    "save": "Запази",
     "search_place_format": "Резултати от търсенето по: %(name)s",
     "search_place_in_adm_cn_format": "Търсене на град в %(region)s, %(country)s",
     "search_place_in_cn_format": "Търсене на град в %(country)s",

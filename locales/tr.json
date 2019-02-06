@@ -125,6 +125,7 @@
     "read_more_on_source_format": "Read on %(name)s",
     "recent_search": "Son aramalar",
     "related_news": "Related News",
+    "save": "Kayıt etmek",
     "search_place_format": "Arama sonuçları: %(name)s",
     "search_place_in_adm_cn_format": "Yerler: %(region)s, %(country)s",
     "search_place_in_cn_format": "Yerler: %(country)s",

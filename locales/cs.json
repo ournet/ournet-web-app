@@ -125,6 +125,7 @@
     "read_more_on_source_format": "Číst dál %(name)s",
     "recent_search": "Poslední vyhledávání",
     "related_news": "Související zprávy",
+    "save": "Uložit",
     "search_place_format": "Výsledky vyhledávání podle: %(name)s",
     "search_place_in_adm_cn_format": "Vyhledat místo: %(region)s, %(country)s",
     "search_place_in_cn_format": "Vyhledat místo: %(country)s",

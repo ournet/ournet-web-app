@@ -125,6 +125,7 @@
     "read_more_on_source_format": "Olvassa el a %(name)s",
     "recent_search": "Legutóbbi keresések",
     "related_news": "Kapcsolódó hírek",
+    "save": "Mentés",
     "search_place_format": "Keresési eredmények: %(name)s",
     "search_place_in_adm_cn_format": "Hely keresése: %(region)s, %(country)s",
     "search_place_in_cn_format": "Hely keresése: %(country)s",

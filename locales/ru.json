@@ -132,6 +132,7 @@
     "read_more_on_source_format": "Читайте на %(name)s",
     "recent_search": "Недавно искали",
     "related_news": "Связанные новости",
+    "save": "Сохранить",
     "search_place_format": "Результаты поиска для: %(name)s",
     "search_place_in_adm_cn_format": "Поиск города/нас. пункта в %(region)s, %(country)s",
     "search_place_in_cn_format": "Поиск города/нас. пункта в %(country)s",

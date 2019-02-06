@@ -125,6 +125,10 @@ export class LocalizyLocales {
         return this.v('country_tr');
     }
 
+    country_lv() {
+        return this.v('country_lv');
+    }
+
     daily_horoscope_details_format(_p1: { name: string }) {
         return this.v('daily_horoscope_details_format', Array.from(arguments));
     }
@@ -537,6 +541,10 @@ export class LocalizyLocales {
         return this.v('related_news');
     }
 
+    save() {
+        return this.v('save');
+    }
+
     search_place_format(_p1: { name: string }) {
         return this.v('search_place_format', Array.from(arguments));
     }
@@ -685,7 +693,7 @@ export class LocalizyLocales {
         return this.v('weather_place_details_info_format', Array.from(arguments));
     }
 
-    weather_place_title_format_10days_format(_p1: { name1: string }) {
+    weather_place_title_format_10days_format(_p1: { name1: string; name2: string }) {
         return this.v('weather_place_title_format_10days_format', Array.from(arguments));
     }
 
@@ -873,6 +881,42 @@ export class LocalizyLocales {
         return this.v('weather_it_short_app_name');
     }
 
+    horoscope_lv_app_name() {
+        return this.v('horoscope_lv_app_name');
+    }
+
+    horoscope_lv_short_app_name() {
+        return this.v('horoscope_lv_short_app_name');
+    }
+
+    in_country_lv() {
+        return this.v('in_country_lv');
+    }
+
+    news_lv_app_name() {
+        return this.v('news_lv_app_name');
+    }
+
+    news_lv_short_app_name() {
+        return this.v('news_lv_short_app_name');
+    }
+
+    portal_lv_app_name() {
+        return this.v('portal_lv_app_name');
+    }
+
+    portal_lv_short_app_name() {
+        return this.v('portal_lv_short_app_name');
+    }
+
+    weather_lv_app_name() {
+        return this.v('weather_lv_app_name');
+    }
+
+    weather_lv_short_app_name() {
+        return this.v('weather_lv_short_app_name');
+    }
+
     horoscope_ro_app_name() {
         return this.v('horoscope_ro_app_name');
     }
@@ -1008,6 +1052,18 @@ export class LocalizyLocales {
     weather_al_short_app_name() {
         return this.v('weather_al_short_app_name');
     }
+
+    in_country_tr() {
+        return this.v('in_country_tr');
+    }
+
+    weather_tr_app_name() {
+        return this.v('weather_tr_app_name');
+    }
+
+    weather_tr_short_app_name() {
+        return this.v('weather_tr_short_app_name');
+    }
 }
 
 export type LocalesKey = '24_hrs'
@@ -1032,6 +1088,7 @@ export type LocalesKey = '24_hrs'
     | 'country_ro'
     | 'country_ru'
     | 'country_tr'
+    | 'country_lv'
     | 'daily_horoscope_details_format'
     | 'daily_horoscope_details'
     | 'daily_horoscope_format'
@@ -1135,6 +1192,7 @@ export type LocalesKey = '24_hrs'
     | 'read_more_on_source_format'
     | 'recent_search'
     | 'related_news'
+    | 'save'
     | 'search_place_format'
     | 'search_place_in_adm_cn_format'
     | 'search_place_in_cn_format'
@@ -1219,6 +1277,15 @@ export type LocalesKey = '24_hrs'
     | 'portal_it_short_app_name'
     | 'weather_it_app_name'
     | 'weather_it_short_app_name'
+    | 'horoscope_lv_app_name'
+    | 'horoscope_lv_short_app_name'
+    | 'in_country_lv'
+    | 'news_lv_app_name'
+    | 'news_lv_short_app_name'
+    | 'portal_lv_app_name'
+    | 'portal_lv_short_app_name'
+    | 'weather_lv_app_name'
+    | 'weather_lv_short_app_name'
     | 'horoscope_ro_app_name'
     | 'horoscope_ro_short_app_name'
     | 'horoscope_md_app_name'
@@ -1252,4 +1319,7 @@ export type LocalesKey = '24_hrs'
     | 'portal_al_app_name'
     | 'portal_al_short_app_name'
     | 'weather_al_app_name'
-    | 'weather_al_short_app_name';
+    | 'weather_al_short_app_name'
+    | 'in_country_tr'
+    | 'weather_tr_app_name'
+    | 'weather_tr_short_app_name';

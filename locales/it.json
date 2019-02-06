@@ -125,6 +125,7 @@
     "read_more_on_source_format": "Leggi su %(name)s",
     "recent_search": "Ultime ricerche",
     "related_news": "Notizie correlate",
+    "save": "Salvare",
     "search_place_format": "Risultati della ricerca per: %(name)s",
     "search_place_in_adm_cn_format": "Cerca città in %(region)s, %(country)s",
     "search_place_in_cn_format": "Cerca città in %(country)s",
