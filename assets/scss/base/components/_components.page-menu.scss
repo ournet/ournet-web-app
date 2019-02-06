@@ -17,6 +17,9 @@
     max-width: 160px;
     text-overflow: ellipsis;
     padding-bottom: 3px;
+    &:first-child {
+        padding-left: 0px;
+    }
     a {
         color: $text-color;
         text-decoration: none;
