@@ -8,7 +8,6 @@ import { HoroscopeDayReport } from '../components/horoscope-day-report';
 import { AdBottom } from '../components/ads/ad-bottom';
 import { FacebookScript } from '../../../views/components/facebook-script';
 import { HoroscopeSignsLine } from '../../../views/components/horoscope/horoscope-signs-line';
-import { StickyTitle } from '../../../views/components/sticky-title';
 import { HoroscopeAppAdCard } from '../components/horoscope-app-ad-card';
 
 export function SignPage(props: SignViewModel) {
@@ -18,7 +17,6 @@ export function SignPage(props: SignViewModel) {
     return (
         <CommonLayout {...props}>
             <main>
-                {StickyTitle({ title: title || head.title, url: head.canonical, lang, shareServices: config.shareServices, size: 'large' })}
                 <div className='u-report-margin'>
                     {Share({ services: config.shareServices, lang, align: 'right', url: head.canonical })}
                     {PageTitle({ title: title || head.title, subTitle: subTitle || head.description })}
