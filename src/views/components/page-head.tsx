@@ -13,6 +13,8 @@ export function PageHead({ config, head, lang, country, project, showGoogleAds }
         verificationMeta = <meta name="yandex-verification" content="669891f5130ce03b" />
     }
 
+    const hasAds = !config.disabledAds && showGoogleAds;
+
     return (
         <head>
             <meta charSet="utf-8" />
@@ -26,11 +28,18 @@ export function PageHead({ config, head, lang, country, project, showGoogleAds }
             {verificationMeta}
             {head.elements}
             <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
-            <link rel="dns-prefetch" href="//ajax.googleapis.com" />
-            <link rel="dns-prefetch" href="//tpc.googlesyndication.com" />
-            <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+            <link rel="dns-prefetch" href="//news.ournetcdn.net" />
+            <link rel="dns-prefetch" href="//www.google-analytics.com" />
+            {hasAds && <link rel="dns-prefetch" href="//tpc.googlesyndication.com" />}
+            {hasAds && <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />}
+
+            <link rel="preconnect" href="//assets.ournetcdn.net" />
+            <link rel="preconnect" href="//news.ournetcdn.net" />
+            <link rel="preconnect" href="//www.google-analytics.com" />
+            {hasAds && <link rel="preconnect" href="//tpc.googlesyndication.com" />}
+            {hasAds && <link rel="preconnect" href="//pagead2.googlesyndication.com" />}
             <script dangerouslySetInnerHTML={{ __html: `window.CONSTANTS={lang:"${lang}",country:"${country}"};` }}></script>
-            {!config.disabledAds && showGoogleAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>}
+            {hasAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>}
         </head>
     )
 }

@@ -4,6 +4,7 @@
     "languages": [
         "en"
     ],
+    "disabledAds": true,
     "timezone": "Asia/Kolkata",
     "domain": "ournet.in",
     "host": "horoscope.ournet.in",

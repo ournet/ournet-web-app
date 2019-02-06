@@ -5,6 +5,7 @@
         "ro",
         "ru"
     ],
+    "disabledAds": true,
     "timezone": "Europe/Bucharest",
     "domain": "click.md",
     "host": "www.click.md",

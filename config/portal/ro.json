@@ -4,6 +4,7 @@
     "languages": [
         "ro"
     ],
+    "disabledAds": true,
     "timezone": "Europe/Bucharest",
     "domain": "ournet.ro",
     "host": "www.ournet.ro",

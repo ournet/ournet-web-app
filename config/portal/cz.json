@@ -4,6 +4,7 @@
     "languages": [
         "cs"
     ],
+    "disabledAds": true,
     "timezone": "Europe/Prague",
     "domain": "ournet.cz",
     "host": "www.ournet.cz",

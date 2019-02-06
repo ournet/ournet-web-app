@@ -4,6 +4,7 @@
     "languages": [
         "bg"
     ],
+    "disabledAds": true,
     "timezone": "Europe/Sofia",
     "domain": "ournet.bg",
     "host": "horo.ournet.bg",

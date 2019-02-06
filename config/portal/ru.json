@@ -4,6 +4,7 @@
     "languages": [
         "ru"
     ],
+    "disabledAds": true,
     "timezone": "Europe/Moscow",
     "domain": "zborg.ru",
     "host": "news.zborg.ru",

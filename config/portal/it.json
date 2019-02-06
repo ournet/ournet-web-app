@@ -4,6 +4,7 @@
     "languages": [
         "it"
     ],
+    "disabledAds": true,
     "timezone": "Europe/Rome",
     "domain": "ournet.it",
     "host": "www.ournet.it",

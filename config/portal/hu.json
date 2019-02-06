@@ -4,6 +4,7 @@
     "languages": [
         "hu"
     ],
+    "disabledAds": true,
     "timezone": "Europe/Budapest",
     "domain": "ournet.hu",
     "host": "www.ournet.hu",
