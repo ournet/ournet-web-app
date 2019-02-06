@@ -16,9 +16,10 @@ type PageFooterProps = {
     version: string
     head: PageHeadViewData
     utilLinks?: { id: string, url: string, text: string, title?: string }[]
+    preInfo?: React.ReactNode
 }
 
-export function PageFooter({ project, locales, lang, config, country, version, head, utilLinks }: PageFooterProps) {
+export function PageFooter({ project, locales, lang, config, country, version, head, utilLinks, preInfo }: PageFooterProps) {
 
     return (
         <footer className='c-footer'>
@@ -26,6 +27,7 @@ export function PageFooter({ project, locales, lang, config, country, version, h
                 <div className='o-layout'>
                     <div className='o-layout__item u-1/3@tablet o-footer-info'>
                         <div>{locales.contact()} <a href={'mailto:' + config.email}>{config.email}</a></div>
+                        {preInfo}
                         <p>Version: {version}</p>
                         <div>{Share({ url: head.canonical || '', title: head.title, lang, services: config.shareServices })}</div>
                     </div>
