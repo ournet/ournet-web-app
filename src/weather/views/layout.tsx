@@ -58,7 +58,7 @@ export default class Layout extends React.Component<WeatherViewModel, any> {
                 {WeatherPageHeader(this.props)}
                 {PageMenu(pageMenu)}
                 {children}
-                {PageFooter({ ...this.props, utilLinks })}
+                {PageFooter({ ...this.props, utilLinks, preInfo: <div>{locales.weather_cright()}</div> })}
                 {getFooterScripts(country)}
             </RootLayout>
         )

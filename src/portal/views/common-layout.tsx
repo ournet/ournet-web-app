@@ -3,15 +3,16 @@ import { PortalViewModel } from '../view-models/portal-view-model';
 import Layout from './layout';
 import { getAssetUrl } from '../../assets';
 import env from '../../env';
-import { TrendingTopicsMenu } from '../../news/views/components/trending-topics-menu';
+import PageContentSection from '../../views/components/page-content-section';
 
 export default class CommonLayout extends React.Component<PortalViewModel> {
     render() {
-        const { project, children, lang, links, trendingTopics, country } = this.props;
+        const { project, children } = this.props;
         return (
             <Layout {...this.props}>
-                {TrendingTopicsMenu({ lang, links, topics: trendingTopics, country, project })}
-                {children}
+                <PageContentSection>
+                    {children}
+                </PageContentSection>
                 <script async={true} src={getAssetUrl(project, 'js', 'main', env.isProduction)} />
             </Layout>
         )
