@@ -15,28 +15,28 @@ $wind-icon-border-size: $wind-icon-size / 10;
 
 $wind-icon-arrow-deg: 45deg;
 
-.i-wind-dir--E {
+.i-wind-dir--W {
     transform: rotate(0 + $wind-icon-arrow-deg);
 }
 
-.i-wind-dir--N {
+.i-wind-dir--S {
     transform: rotate(-90deg + $wind-icon-arrow-deg);
 }
-.i-wind-dir--NE {
+.i-wind-dir--SW {
     transform: rotate(-45deg + $wind-icon-arrow-deg);
 }
-.i-wind-dir--NW {
+.i-wind-dir--SE {
     transform: rotate(-135deg + $wind-icon-arrow-deg);
 }
-.i-wind-dir--S {
+.i-wind-dir--N {
     transform: rotate(90deg + $wind-icon-arrow-deg);
 }
-.i-wind-dir--SE {
+.i-wind-dir--NW {
     transform: rotate(45deg + $wind-icon-arrow-deg);
 }
-.i-wind-dir--SW {
+.i-wind-dir--NE {
     transform: rotate(135deg + $wind-icon-arrow-deg);
 }
-.i-wind-dir--W {
+.i-wind-dir--E {
     transform: rotate(-180deg + $wind-icon-arrow-deg);
 }
