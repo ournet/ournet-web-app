@@ -7,6 +7,7 @@ import { PageHeader } from '../../views/components/page-header';
 import PageMenu, { PageMenuProps } from '../../views/components/page-menu';
 import { TopicHelper } from '@ournet/topics-domain';
 import { PageFooter } from '../../views/components/page-footer';
+import { topicDisplayName } from '../helpers';
 
 export default class Layout extends React.Component<NewsViewModel, any> {
     render() {
@@ -45,7 +46,7 @@ export default class Layout extends React.Component<NewsViewModel, any> {
 
                 pageMenu.items.push({
                     link, id: item.id, title: item.name,
-                    text: item.abbr || item.commonName || item.name,
+                    text: item.abbr || topicDisplayName(item, lang),
                 })
             }
         }

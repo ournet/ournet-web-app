@@ -9,6 +9,7 @@ import { getImageColorFromId, truncateAt } from '../../../helpers';
 import { Sitemap, getSchema, getHost } from 'ournet.links';
 import { OurnetProjectName } from '../../../ournet/data';
 import { Locale } from '../../../locales';
+import { topicDisplayName } from '../../helpers';
 
 export type EventListItemProps = {
     links: Sitemap
@@ -45,12 +46,12 @@ function mediaItemView({ item, imageSize, view, links, lang, country, timezone }
             <div className='o-media__img'>
                 <span className='c-event-it__img o-lazy' data-src={ImageStorageHelper.eventUrl(item.imageId, imageSize || 'square', 'jpg')}></span>
             </div>
-            {item.countVideos>0 && <i className='c-event-it__vi'></i>}
+            {item.countVideos > 0 && <i className='c-event-it__vi'></i>}
             <div className='c-event-it__info o-media__body'>
                 <a className='c-event-it__title' href={link} title={item.title}>{truncateAt(item.title, 80)}</a>
                 <div className='c-event-it__stats'>
                     <time dateTime={item.createdAt}>{createdAt.fromNow(true)}</time>
-                    <a className='c-event-it__topic' title={mainTopic.name} href={links.news.topic(mainTopic.slug, { ul: lang })}>{mainTopic.abbr || truncateAt(mainTopic.name, 30)}</a>
+                    <a className='c-event-it__topic' title={mainTopic.name} href={links.news.topic(mainTopic.slug, { ul: lang })}>{mainTopic.abbr || truncateAt(topicDisplayName(mainTopic, lang), 30)}</a>
                 </div>
             </div>
         </div>
@@ -85,7 +86,7 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone, p
                 <div className='c-event-it__img-mask' style={{ backgroundImage: `linear-gradient(${orientation},rgba(0,0,0,0),rgba(${color.rgb()},.7),rgb(${color.rgb()}))` }}></div>
             </div>
             <div className='c-event-it__hover'></div>
-            {item.countVideos>0 && <i className='c-event-it__vi'></i>}
+            {item.countVideos > 0 && <i className='c-event-it__vi'></i>}
 
             <a className='c-event-it__doc' title={item.title} href={urlPrefix + links.news.story(item.slug, item.id, { ul: lang })}>
                 <div className='c-event-it__inner'>
@@ -95,7 +96,7 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone, p
             </a>
             <div className='c-event-it__stats'>
                 <time dateTime={item.createdAt}>{createdAt.fromNow(true)}</time>
-                <a className='c-event-it__topic' title={mainTopic.name} href={urlPrefix + links.news.topic(mainTopic.slug, { ul: lang })}>{mainTopic.abbr || truncateAt(mainTopic.name, 30)}</a>
+                <a className='c-event-it__topic' title={mainTopic.name} href={urlPrefix + links.news.topic(mainTopic.slug, { ul: lang })}>{mainTopic.abbr || truncateAt(topicDisplayName(mainTopic, lang), 30)}</a>
             </div>
         </div>
     )

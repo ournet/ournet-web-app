@@ -5,6 +5,7 @@ import moment = require('moment-timezone');
 import { Sitemap, getSchema, getHost } from 'ournet.links';
 import { truncateAt, entipicUrl } from '../../../helpers';
 import { OurnetProjectName } from '../../../ournet/data';
+import { getPersonDisplayName } from '../../helpers';
 
 export type QuoteListItemProps = {
     timezone: string
@@ -41,7 +42,7 @@ function cardItemView({ item, maxLength, timezone, lang, country, links, project
             <div className='c-quote-it__media'>
                 <div className='c-quote-it__icon o-lazy' data-src={entipicUrl(author.name, 'a', lang, country)}></div>
                 <div className='c-quote-it__body'>
-                    <a className='c-quote-it__name' title={author.name} href={urlPrefix + links.news.topic(author.slug, { ul: lang })}>{author.name}</a>,
+                    <a className='c-quote-it__name' title={author.name} href={urlPrefix + links.news.topic(author.slug, { ul: lang })}>{getPersonDisplayName(author.name, lang)}</a>,
                     <time dateTime={createdAt.toISOString()}> {createdAt.fromNow(true)}</time>
                     <div className='c-quote-it__ctx'>{truncateAt(item.source.title, 60)}</div>
                 </div>

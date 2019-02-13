@@ -5,6 +5,7 @@ import { OurnetViewModelInput } from "../../ournet/view-model";
 import { TopicHelper } from "@ournet/topics-domain";
 import { notFound } from "boom";
 import { LIST_EVENTS_FIEDLS } from "../config";
+import { topicDisplayName } from "../helpers";
 
 
 export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicViewModelInput>
@@ -28,7 +29,7 @@ export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicView
         }
 
         const topic = model.topic = apiResult.topic;
-        const commonName = topic.commonName || topic.name;
+        const commonName = topicDisplayName(topic);
 
         const displayName = model.displayName = commonName + (topic.abbr && topic.abbr.length < 10 ? ` (${topic.abbr})` : '');
 
