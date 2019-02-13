@@ -48,7 +48,7 @@ export class NewsViewModelBuilder<T extends NewsViewModel, I extends OurnetViewM
                     { place: { longitude, latitude, timezone } });
             }
 
-            const trendingTopTopics = filterIrrelevantTopics({ lang, country }, result.data.trendingTopics || []).slice(0, 12);
+            const trendingTopTopics = filterIrrelevantTopics({ lang, country }, result.data.trendingTopics || []).slice(0, 15);
 
             if (trendingTopTopics.length) {
                 this.apiClient.topicsTopicsByIds('trendingTopics', { fields: TopicStringFields },

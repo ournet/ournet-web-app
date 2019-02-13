@@ -6,7 +6,10 @@
         "roroagerpres",
         "rorobritish-broadcasting-corporation",
         "rorothe-new-york-times",
-        "roroagence-france-presse"
+        "roroagence-france-presse",
+        "roroantena-1",
+        "roroantena-2",
+        "roroantena-3"
     ],
     "ro-md": [
         "mdromoldova",
@@ -31,5 +34,12 @@
         "inenfacebook",
         "ineninstagram",
         "inentwitter"
+    ],
+    "ru-ru": [
+        "ruruinterfaks",
+        "rururegnum",
+        "rurutass",
+        "rururia-novosti",
+        "rurutvitter"
     ]
 }
