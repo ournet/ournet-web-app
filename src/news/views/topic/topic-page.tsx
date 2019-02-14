@@ -31,7 +31,7 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                             <div className='o-layout__item u-3/5@tablet c-topic'>
                                 <div className='o-media c-topic-h'>
                                     <div className='o-media__img'>
-                                        <img className='c-topic-h__img' src={entipicUrl(topic.name, 'b', lang, country)} alt={topic.name} />
+                                        <img className='c-topic-h__img o-lazy' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' data-src={entipicUrl(topic.name, 'b', lang, country)} alt={topic.name} />
                                     </div>
                                     <div className='o-media__body'>
                                         {/* {Share({ lang, url: head.canonical, align: 'right', services: config.shareServices })} */}
