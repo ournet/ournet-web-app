@@ -1,6 +1,6 @@
 
 import { NewsViewModel, NewsViewModelBuilder } from "./news-view-model";
-import { NewsEvent, ArticleContent, ArticleContentStringFields, Quote, QuoteStringFields, NewsEventStringFields } from "@ournet/api-client";
+import { NewsEvent, ArticleContent, ArticleContentStringFields, Quote, QuoteStringFields } from "@ournet/api-client";
 import { notFound } from "boom";
 import { ArticleContentBuilder } from '@ournet/news-domain';
 import { OurnetViewModelInput } from "../../ournet/view-model";
@@ -26,7 +26,7 @@ export class EventViewModelBuilder extends NewsViewModelBuilder<EventViewModel, 
         const { id } = this.input;
 
         const localeApi = this.data.createQueryApiClient<{ event: NewsEvent }>();
-        localeApi.newsEventById('event', { fields: NewsEventStringFields }, { id });
+        localeApi.newsEventById('event', { fields: "id title slug summary source { id host path sourceId } lang country imageId imageHost imageSourceId countNews countViews countQuotes countVideos countImages topics { id name slug abbr type } quotesIds videosIds imagesIds status createdAt updatedAt hasContent" }, { id });
 
         const apiResult = await this.executeApiClient(localeApi);
 
