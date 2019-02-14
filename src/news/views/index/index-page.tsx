@@ -3,7 +3,6 @@ import * as React from 'react';
 import { IndexViewModel } from '../../view-models/index-view-model';
 import CommonLayout from '../common-layout';
 import { EventListItem } from '../components/event-list-item';
-import { HoroscopeSvg } from '../../../views/components/horoscope/horoscope-svg';
 import { HoroscopeCard } from '../../../views/components/horoscope/horoscope-card';
 import { QuoteListItem } from '../components/quote-list-item';
 import { GroupHeader } from '../../../views/components/group-header';
@@ -29,7 +28,6 @@ export default class IndexPage extends React.Component<IndexViewModel> {
 
         return (
             <CommonLayout {...this.props}>
-                {links.horoscope && HoroscopeSvg()}
                 <main>
                     <PageContentSection>
                         <div className='o-layout'>

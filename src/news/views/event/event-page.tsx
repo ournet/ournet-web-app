@@ -15,6 +15,7 @@ import { QuoteListItem } from '../components/quote-list-item';
 import { TopicListItem } from '../components/topic-list-item';
 import { EventListItem } from '../components/event-list-item';
 import PageContentSection from '../../../views/components/page-content-section';
+import { HoroscopeCard } from '../../../views/components/horoscope/horoscope-card';
 
 export default class EventPage extends React.Component<EventViewModel> {
     render() {
@@ -79,6 +80,7 @@ export default class EventPage extends React.Component<EventViewModel> {
                                         {SectionHeader({ name: locales.related_news() })}
                                         <div key='slayout' className='o-layout'>
                                             {similarEvents.slice(0, 2).map(item => <div key={item.id} className='o-layout__item u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                                            <div className='o-layout__item u-1/2@mobile'>{similarEvents.length === 1 && HoroscopeCard({ title: locales.horoscope(), links, lang, country })}</div>
                                         </div>
                                     </div> : null
                                 }
