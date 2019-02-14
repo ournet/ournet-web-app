@@ -2,5 +2,6 @@
 var LazyLoad = require('vanilla-lazyload');
 
 new LazyLoad({
-    elements_selector: ".o-lazy"
+    elements_selector: ".o-lazy",
+    to_webp: true,
 });
