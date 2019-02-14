@@ -5,6 +5,7 @@
 
 .c-share.v--right {
     float: right;
+    text-align: right;
 }
 
 .c-share.v--left {
@@ -16,6 +17,14 @@
     .c-share__item {
         height: 24px;
         width: 24px;
+    }
+}
+.c-share.v--long {
+    min-width: 60%;
+    .c-share__item {
+        width: 30%;
+        min-width: 32px;
+        max-width: 100px;
     }
 }
 
@@ -43,6 +52,7 @@ $whatsapp-color: #65bc54;
     height: 32px;
     width: 32px;
     border-radius: 2px;
+    text-align: left;
     cursor: pointer;
     &:hover {
         opacity: .9;

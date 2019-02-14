@@ -11,7 +11,6 @@ import { Share } from '../../../views/components/share';
 import { SectionHeader } from '../../../views/components/section-header';
 import { AdAside } from '../components/ads/ad-aside';
 import { EventMedia } from './event-media';
-import { EventNewsItems } from './event-news-items';
 import { QuoteListItem } from '../components/quote-list-item';
 import { TopicListItem } from '../components/topic-list-item';
 import { EventListItem } from '../components/event-list-item';
@@ -52,7 +51,6 @@ export default class EventPage extends React.Component<EventViewModel> {
                                             </div>
                                             <div className='o-layout__item u-5/6@tablet'>
                                                 <h1 className='c-event__title'><a href={link} title={event.title}>{event.title}</a></h1>
-                                                {Share({ url: head.canonical || '', align: 'right', services: config.shareServices, lang, size: 'small' })}
                                                 <div className='c-event__stats'>
                                                     <time dateTime={event.createdAt}>{createdAt.format('lll')}</time>
                                                     {', ' + locales.count_news_format(event.countNews) + ', '}
@@ -61,10 +59,13 @@ export default class EventPage extends React.Component<EventViewModel> {
                                                 <div className='c-event__text'>
                                                     {paragraphs}
                                                 </div>
-                                                {OutReadMoreLink({ url: event.source.host + event.source.path, source: startWithUpperCase(event.source.sourceId), links, locales })}
+                                                <div className='u-clearfix'>
+                                                    {Share({ url: head.canonical || '', align: 'right', services: config.shareServices, lang, size: 'long' })}
+                                                    {OutReadMoreLink({ url: event.source.host + event.source.path, source: startWithUpperCase(event.source.sourceId), links, locales })}
+                                                </div>
                                                 {eventQuotes && <div className='c-event_quotes'>{eventQuotes.map(item => QuoteListItem({ item, view: 'card', country, lang, links, timezone: config.timezone }))}</div>}
-                                                <hr />
-                                                {EventNewsItems({ lang, event, links })}
+                                                {/* <hr />
+                                                {EventNewsItems({ lang, event, links })} */}
                                                 <hr />
                                                 <ul className='c-event__tags'>
                                                     {event.topics.map(item => <li key={item.id}>{TopicListItem({ links, lang, item, view: 'tag' })}</li>)}
