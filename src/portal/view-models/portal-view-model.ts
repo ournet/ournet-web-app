@@ -48,7 +48,7 @@ export class PortalViewModelBuilder<T extends PortalViewModel, I extends OurnetV
                     { place: { longitude, latitude, timezone } });
             }
 
-            const trendingTopTopics = filterIrrelevantTopics({ lang, country }, result.data.trendingTopics || []).slice(0, 12);
+            const trendingTopTopics = filterIrrelevantTopics({ lang, country }, result.data.trendingTopics || []).slice(0, 15);
 
             if (trendingTopTopics.length) {
                 this.apiClient.topicsTopicsByIds('trendingTopics', { fields: TopicStringFields },

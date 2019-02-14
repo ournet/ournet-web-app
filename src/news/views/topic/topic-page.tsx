@@ -48,7 +48,7 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                                     <div className='c-section'>
                                         {SectionHeader({ name: (topic.abbr || commonName) + ' - ' + locales.latest_events(), h: "h4" })}
                                         <div className='o-layout'>
-                                            {topicEvents.map(item => <div key={item.id} className='o-layout__item u-1/2'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
+                                            {topicEvents.map(item => <div key={item.id} className='o-layout__item u-1/2@mobile'>{EventListItem({ lang, country, item, links, timezone: config.timezone, view: 'card' })}</div>)}
                                         </div>
                                     </div>
                                     : null
