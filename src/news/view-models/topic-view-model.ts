@@ -45,6 +45,7 @@ export class TopicViewModelBuilder<T extends TopicViewModel, I extends TopicView
 
         if (topic.type === 'PERSON') {
             this.apiClient.quotesLatestByAuthor('byQuotes', { fields: QuoteStringFields }, { params: { country, lang, limit: 3, authorId: topic.id } })
+            this.apiClient.quotesPopularByAuthor('popularByQuotes', { fields: QuoteStringFields }, { params: { country, lang, limit: 2, authorId: topic.id } })
         }
         return super.build();
     }
@@ -60,7 +61,8 @@ export interface TopicViewModel extends NewsViewModel {
     topicNews: NewsItem[]
     topic: Topic
     aboutQuotes: Quote[]
-    byQuotes: Quote[]
+    popularByQuotes?: Quote[]
+    byQuotes?: Quote[]
     displayName: string
     slug: string
 }

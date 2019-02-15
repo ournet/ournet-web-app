@@ -77,10 +77,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@ournet/api-client@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@ournet/api-client/-/api-client-0.1.5.tgz#9ec228491429d58e68abdbc7b76a53320d524076"
-  integrity sha512-EmkY9aSLo5E5WXYiAgudoHhcNDMv1AXKlET9Wl675bSWCDqrOyd6i0LQeYEIDoTQXfdUZdJx8rNHC9m9rNS1nA==
+"@ournet/api-client@~0.x.x":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@ournet/api-client/-/api-client-0.2.0.tgz#368891bc57918fd0fa8f9a68aac38e7af84a5fc3"
+  integrity sha512-Plf9VhrfoLBK4PVERBcq9LCOQu2Vd8y1I07tjEg0O9qpleWw7tsy0ugiO/Mq+sl8AQ2zEw38OW8ifMs+pCIBgA==
   dependencies:
     lru-cache "^5.1.1"
     node-fetch "^2.3.0"
@@ -95,7 +95,7 @@
     joi "^14.0.3"
     normalize-url "^3.2.0"
 
-"@ournet/domain@^0.3.4":
+"@ournet/domain@^0.3.4", "@ournet/domain@~0.x.x":
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/@ournet/domain/-/domain-0.3.4.tgz#59a8fb3c13a38b3a82601e9c3fbde40eee9d7c93"
   integrity sha512-PNpVFhgtOlgQGeRkjQWZjBkbP7edHzX6LZRNteXk2/sjO55kg/Bf7JahbxywZ6K+WQsjWpbUJgtHHHS7aoqaAQ==
@@ -105,7 +105,7 @@
     joi "^14.0.3"
     normalize-url "^3.2.0"
 
-"@ournet/horoscopes-domain@^0.1.3":
+"@ournet/horoscopes-domain@~0.x.x":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@ournet/horoscopes-domain/-/horoscopes-domain-0.1.3.tgz#fff76d316c1e00bf97bfb1a8f31f77dfa7dcd633"
   integrity sha512-JJYVPQ4HTiNR16c0PjxrC9sFfu+ykEJq5PrZAdTUSu7l+930967hwjid8TGwMP0sv9ydg4AtigbVRpFJ1yHdZQ==
@@ -115,7 +115,7 @@
     joi "^14.0.3"
     standard-text "^0.1.1"
 
-"@ournet/images-domain@^0.1.1":
+"@ournet/images-domain@~0.x.x":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@ournet/images-domain/-/images-domain-0.1.2.tgz#9af9534f8e6bd848d626524344790163e7cefa99"
   integrity sha512-CI5NKuisnk2NycsmLmEE01jaSAiIfP4viFXa737Z2nmy5XGJcRtlvQ1oGtNdrYKkjzb466G6w7gfzusUFFmtaw==
@@ -123,17 +123,17 @@
     "@ournet/domain" "^0.3.3"
     joi "^14.0.6"
 
-"@ournet/news-domain@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@ournet/news-domain/-/news-domain-0.1.1.tgz#cf738e3929110fb7abf6731c3e0e576bb94ccbfa"
-  integrity sha512-vx1byy/6yV3opfbGDG6eZ03rsoMRgJ7Httr6Mde0ZtyRHmzNABsWv8RNjs9tU1aBhiZCm6Ehh+0JDj/zoa1ivg==
+"@ournet/news-domain@~0.x.x":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@ournet/news-domain/-/news-domain-0.1.2.tgz#fce8103fc8d16f8274c5046ca5b1bcb1c9558ff2"
+  integrity sha512-unO2F3yqDB+2+7ffELKlj97GBZSOHwPos8X6RWcH+9vLFojr15D3PFrTWEFbG5nFzwuEtpQUxhsbwcyM+oZqYQ==
   dependencies:
-    "@ournet/domain" "^0.3.3"
+    "@ournet/domain" "^0.3.4"
     ellipsize "^0.1.0"
     joi "^13.6.0"
     transliteration "^1.6.6"
 
-"@ournet/places-domain@^0.2.0":
+"@ournet/places-domain@~0.x.x":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@ournet/places-domain/-/places-domain-0.2.0.tgz#9e1c1e57744339ee2a7a353b68e7e561659a0c49"
   integrity sha512-8umxs7KhZu604maP9rdXFUDcMw+NrlNW/nAnoZwAmcYdgPIwJjDDK5OzRcnEIiYbS7TIFe0Sg157xf2nGtW1FA==
@@ -141,7 +141,7 @@
     "@ournet/domain" "^0.3.3"
     joi "^14.0.6"
 
-"@ournet/topics-domain@^0.1.0":
+"@ournet/topics-domain@~0.x.x":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@ournet/topics-domain/-/topics-domain-0.1.0.tgz#56ae79cc74fb1fba503dbefa5d55eb6ade4b93db"
   integrity sha512-GqB7zPiBz1+/EP5o8NiTaaQjLMvTRXvAJIchDJ/1VugxO7iFbOWLQidC9H6GjfTvh/Df4Ckr2cOsSWweY3ekhw==
@@ -150,7 +150,7 @@
     joi "^14.0.6"
     transliteration "^1.6.6"
 
-"@ournet/videos-domain@^0.1.0":
+"@ournet/videos-domain@~0.x.x":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@ournet/videos-domain/-/videos-domain-0.1.0.tgz#a118fb68db3b31f5bc1991db6f7dc67307a66f1c"
   integrity sha512-9fhcuo6LSb+gOviXQ9vArtNYNZ/dmpSKcVzmmLK/bgj28oO1loq4lbTVtF0C5wTw/IET1It0Z18kpB7NrSUcMA==
@@ -159,7 +159,7 @@
     joi "^14.0.3"
     ms "^2.1.1"
 
-"@ournet/weather-domain@^0.2.3":
+"@ournet/weather-domain@~0.x.x":
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@ournet/weather-domain/-/weather-domain-0.2.3.tgz#4ef36c5fa198e3b27f0a5505b7d7989a8ad7ef25"
   integrity sha512-WjNN4S4FTdnefdSqmwLZwN2IV8yaw9mniaB0Q/+B2yLqtmOdzh7Ba7W4wOlN3spHlBFVVdn3hyEDvMMZqfa5Eg==
@@ -185,6 +185,11 @@
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@types/chroma-js/-/chroma-js-1.4.1.tgz#7c52d461173d569ba1f27e0c2dd26ee76691ec82"
   integrity sha512-i9hUiO3bwgmzZUDwBuR65WqsBQ/nwN+H2fKX0bykXCdd8cFQEuIj8vI7FXjyb2f5z5h+pv76I/uakikKSgaqTA==
+
+"@types/js-cookie@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@types/js-cookie/-/js-cookie-2.2.0.tgz#ae2eabaa4bc892ba553c664cca21e6ee5224e5b5"
+  integrity sha512-k0umv2jvUvl1/OdOgFwEIPF6qKllf2jEsrd5ka9aVQo2ilxaBb2vsh1AmAAZ3eqt54vNrdbGW5QPOKJBmCNS7g==
 
 "@types/micro@^7.3.3":
   version "7.3.3"
@@ -4943,6 +4948,11 @@ js-base64@^2.1.8:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.0.tgz#42255ba183ab67ce59a0dee640afdc00ab5ae93e"
   integrity sha512-wlEBIZ5LP8usDylWbDNhKPEFVFdI5hCHpnVoT/Ysvoi/PRhJENm/Rlh9TvjYB38HFfKZN7OzEbRjmjvLkFw11g==
+
+js-cookie@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.0.tgz#1b2c279a6eece380a12168b92485265b35b1effb"
+  integrity sha1-Gywnmm7s44ChIWi5JIUmWzWx7/s=
 
 js-string-escape@^1.0.1:
   version "1.0.1"

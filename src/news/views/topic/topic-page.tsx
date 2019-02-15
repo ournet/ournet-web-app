@@ -11,10 +11,29 @@ import { QuoteListItem } from '../components/quote-list-item';
 import { NewsItemListItem } from '../components/item-list-item';
 import { AdCenter } from '../components/ads/ad-center';
 import PageContentSection from '../../../views/components/page-content-section';
+import { AdAside } from '../components/ads/ad-aside';
+import { Quote } from '@ournet/api-client';
 
 export default class TopicPage extends React.Component<TopicViewModel> {
     render() {
-        const { lang, head, country, locales, links, latestEvents, topic, slug, displayName, config, topicEvents, topicNews, aboutQuotes, byQuotes } = this.props;
+        const { lang, head, country, locales, links, latestEvents, topic, slug, displayName, config, topicEvents, topicNews, byQuotes, popularByQuotes, aboutQuotes } = this.props;
+
+        let quotes: Quote[] = [];
+        const quotesLimit = 3;
+
+        if (topic.type === 'PERSON') {
+            quotes = byQuotes || quotes;
+            if (popularByQuotes && popularByQuotes.length) {
+                if (quotes.length >= quotesLimit) {
+                    quotes = quotes.splice(0, quotesLimit - 1);
+                }
+                quotes = quotes.concat(popularByQuotes).slice(0, quotesLimit);
+            }
+        }
+
+        if (quotes.length < quotesLimit) {
+            quotes = quotes.concat(aboutQuotes).slice(0, quotesLimit);
+        }
 
         const commonName = topic.commonName || topic.name;
         const title = locales.topic_news_title_format({ name: displayName });
@@ -56,15 +75,11 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                                 {AdCenter()}
                             </div>
                             <div className='o-layout__item u-2/5@tablet'>
-                                {byQuotes && byQuotes.length > 0 ? <div>
-                                    {SectionHeader({ name: locales.quotes_by_author_format({ name: topic.abbr || commonName }), h: "h4" })}
-                                    {byQuotes.map(item => QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item }))}
+                                {quotes && quotes.length > 0 ? <div>
+                                    {SectionHeader({ name: locales.quotes(), h: "h4" })}
+                                    {quotes.map(item => QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item }))}
                                 </div> : null}
-                                {/* {adAside()} */}
-                                {aboutQuotes && aboutQuotes.length > 0 ? <div>
-                                    {SectionHeader({ name: locales.quotes_about_format({ name: topic.abbr || commonName }), h: "h4" })}
-                                    {aboutQuotes.map(item => QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item }))}
-                                </div> : null}
+                                {AdAside()}
                             </div>
                         </div>
 

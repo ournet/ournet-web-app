@@ -7,7 +7,7 @@ import { OurnetAppConfig } from '../../ournet/config';
 import { PageHeadViewData } from '../../ournet/page-view-model';
 import { Share } from './share';
 
-type PageFooterProps = {
+interface PageFooterProps {
     project: OurnetProjectName
     locales: OurnetLocales
     lang: string

@@ -10,7 +10,7 @@ import { WeatherPageHeader } from './components/page-header';
 
 export default class Layout extends React.Component<WeatherViewModel, any> {
     render() {
-        const { children, country, currentLink, head, mainPlaces, links, lang, locales, config } = this.props;
+        const { children, country, currentLink, head, mainPlaces, links, lang, locales, config, project, version } = this.props;
 
         const pageMenu: PageMenuProps = {
             items: []
@@ -58,7 +58,7 @@ export default class Layout extends React.Component<WeatherViewModel, any> {
                 {WeatherPageHeader(this.props)}
                 {PageMenu(pageMenu)}
                 {children}
-                {PageFooter({ ...this.props, utilLinks, preInfo: <div>{locales.weather_cright()}</div> })}
+                {PageFooter({ config, country, lang, locales, head, project, version, utilLinks, preInfo: <div>{locales.weather_cright()}</div> })}
                 {getFooterScripts(country)}
             </RootLayout>
         )
