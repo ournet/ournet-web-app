@@ -57,7 +57,6 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                                             </div>
                                             <div className='o-layout__item u-5/6@tablet'>
                                                 <h1 className='c-event__title'><a href={link} title={item.title}>{item.title}</a></h1>
-                                                {Share({ url: head.canonical, align: 'right', services: config.shareServices, lang: lang, size: 'small' })}
                                                 <div className='c-event__stats'>
                                                     <time dateTime={item.createdAt}>{createdAt.format('lll') + ', '}</time>
                                                     {locales.count_views_format(item.countViews)}
@@ -65,7 +64,10 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                                                 <div className='c-event__text'>
                                                     {paragraphs}
                                                 </div>
-                                                {OutReadMoreLink({ url: item.urlHost + item.urlPath, source: startWithUpperCase(item.sourceId), links, locales })}
+                                                <div className='u-clearfix'>
+                                                    {Share({ url: head.canonical || '', align: 'right', services: config.shareServices, lang, size: 'long' })}
+                                                    {OutReadMoreLink({ url: item.urlHost + item.urlPath, source: startWithUpperCase(item.sourceId), links, locales })}
+                                                </div>
                                                 <hr />
                                                 <ul className='c-event__tags'>
                                                     {(item.topics || []).map(item => <li key={item.id}>{TopicListItem({ links, lang, item, view: 'tag' })}</li>)}

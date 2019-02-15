@@ -9,10 +9,12 @@
         float: left;
         color: $mute-color;
         display: block;
-        width: 50px;
+        width: 60px;
         white-space: nowrap;
         overflow: hidden;
         margin-right: $global-spacing-unit-small;
+        font-size: 90%;
+        padding-top: 1px;
     }
     a {
         overflow: hidden;
