@@ -9,10 +9,12 @@ import PageContentSection from '../../../views/components/page-content-section';
 import { AdAside } from '../components/ads/ad-aside';
 import { QuoteViewModel } from '../../view-models/quote-view-model';
 import { ImageStorageHelper } from '@ournet/images-domain';
+import { FacebookScript } from '../../../views/components/facebook-script';
 
 export default class QuotePage extends React.Component<QuoteViewModel> {
     render() {
-        const { lang, head, country, locales, links, latestEvents, config, byQuotes, event, quote } = this.props;
+        const { lang, head, country, locales, links, latestEvents, config, event, quote, authorDisplayName } = this.props;
+        const byQuotes = this.props.byQuotes.filter(item => item.id !== quote.id);
 
         head.elements.push(<meta key='og_image' property="og:image" content={ImageStorageHelper.quoteUrl(quote.id)} />);
 
@@ -23,15 +25,16 @@ export default class QuotePage extends React.Component<QuoteViewModel> {
                         <div className='o-layout'>
                             <div className='o-layout__item u-3/5@tablet'>
                                 {QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'main', item: quote, shareServices: config.shareServices })}
-                                {event && EventListItem({ lang, country, links, item: event, timezone: config.timezone, view: 'card-wide' })}
+                                {event && EventListItem({ lang, country, links, item: event, timezone: config.timezone, view: 'card-wide', imageSize: 'large' })}
                                 {AdCenter()}
+                                {config.facebookAppId && <div className='fb-comments' data-href={head.canonical} data-numposts="5" data-width="100%" data-order-by="reverse-time"></div>}
                             </div>
                             <div className='o-layout__item u-2/5@tablet'>
+                                {AdAside()}
                                 {byQuotes && byQuotes.length > 0 ? <div>
-                                    {SectionHeader({ name: locales.quotes(), h: "h4" })}
+                                    {SectionHeader({ name: locales.quotes_by_author_format({ name: authorDisplayName }), h: "h4" })}
                                     {byQuotes.map(item => QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item }))}
                                 </div> : null}
-                                {AdAside()}
                             </div>
                         </div>
 
@@ -44,6 +47,7 @@ export default class QuotePage extends React.Component<QuoteViewModel> {
 
                     </main>
                 </PageContentSection>
+                {config.facebookAppId && FacebookScript(config.facebookAppId, lang, country)}
             </CommonLayout >
         )
     }

@@ -28,7 +28,7 @@ export class QuoteViewModelBuilder<T extends QuoteViewModel, I extends QuoteView
 
         const quote = model.quote = apiResult.quote;
 
-        const authorDisplayName = getPersonDisplayName(quote.author.name, lang);
+        const authorDisplayName = model.authorDisplayName = getPersonDisplayName(quote.author.name, lang);
 
         head.title = `${authorDisplayName}: ${truncateAt(quote.text, 80)}`;
         head.description = `${authorDisplayName}: ${truncateAt(quote.text, 120)}`;
@@ -57,5 +57,6 @@ export interface QuoteViewModel extends NewsViewModel {
     latestEvents: NewsEvent[]
     byQuotes: Quote[]
     event?: NewsEvent
+    authorDisplayName: string
 }
 
