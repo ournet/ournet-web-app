@@ -7,7 +7,6 @@ import { LIST_EVENTS_FIEDLS } from "../config";
 import { getPersonDisplayName } from "../helpers";
 import { truncateAt } from "../../helpers";
 
-
 export class QuoteViewModelBuilder<T extends QuoteViewModel, I extends QuoteViewModelInput>
     extends NewsViewModelBuilder<T, I> {
 
