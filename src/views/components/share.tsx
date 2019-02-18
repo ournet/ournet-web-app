@@ -7,7 +7,7 @@ export type ShareProps = {
     url: string
     lang: string
     title?: string
-    size?: 'small' | 'long'
+    size?: 'small' | 'long' | 'tiny'
 }
 
 export function Share({ url, lang, services, align, title, size }: ShareProps) {

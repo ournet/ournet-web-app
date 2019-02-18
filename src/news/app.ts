@@ -22,6 +22,7 @@ import { getHostInfo } from "../hosts";
 import { RobotsRouter } from "./routes/static-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
 import { VideoEmbedRouter } from "./routes/video-embed-router";
+import { QuoteRouter } from "./routes/quote-router";
 
 export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
 
@@ -35,6 +36,8 @@ export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
             new TopicRouter(),
             new EventRouter(),
             new ItemRouter(),
+            new QuoteRouter(),
+            
             new ViewEventRouter(),
             new ViewItemRouter(),
 

@@ -24,6 +24,10 @@ export function getPersonDisplayName(name: string, lang: string) {
 
         return displayName;
     }
+    const index = name.indexOf('(');
+    if (index > 10) {
+        return name.substr(0, index).trim();
+    }
 
     return name;
 }
