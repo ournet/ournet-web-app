@@ -4,7 +4,6 @@ import CommonLayout from '../common-layout';
 import { SectionHeader } from '../../../views/components/section-header';
 import { EventListItem } from '../components/event-list-item';
 import { QuoteListItem } from '../components/quote-list-item';
-import { AdCenter } from '../components/ads/ad-center';
 import PageContentSection from '../../../views/components/page-content-section';
 import { AdAside } from '../components/ads/ad-aside';
 import { QuoteViewModel } from '../../view-models/quote-view-model';
@@ -26,11 +25,11 @@ export default class QuotePage extends React.Component<QuoteViewModel> {
                             <div className='o-layout__item u-3/5@tablet'>
                                 {QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'main', item: quote, shareServices: config.shareServices })}
                                 {event && EventListItem({ lang, country, links, item: event, timezone: config.timezone, view: 'card-wide', imageSize: 'large' })}
-                                {AdCenter()}
                                 {config.facebookAppId && <div className='fb-comments' data-href={head.canonical} data-numposts="5" data-width="100%" data-order-by="reverse-time"></div>}
                             </div>
                             <div className='o-layout__item u-2/5@tablet'>
                                 {AdAside()}
+                                <br/>
                                 {byQuotes && byQuotes.length > 0 ? <div>
                                     {SectionHeader({ name: locales.quotes_by_author_format({ name: authorDisplayName }), h: "h4" })}
                                     {byQuotes.map(item => QuoteListItem({ lang, country, links, timezone: config.timezone, view: 'card', item }))}
