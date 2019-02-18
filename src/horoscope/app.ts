@@ -13,6 +13,7 @@ import { ApiReportsRouter } from "./routes/api-resports-router";
 import { RobotsRouter, OneSignalSDKWorkerRouter, OneSignalSDKUpdaterWorkerRouter } from "./routes/static-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
 import { AssetlinksRouter } from "./routes/assetlinks";
+import { Widget1Router } from "./routes/widget1-router";
 
 export class HoroscopeOurnetApp extends OurnetApp<OurnetAppData> {
 
@@ -30,6 +31,9 @@ export class HoroscopeOurnetApp extends OurnetApp<OurnetAppData> {
             new ManifestRouter(),
 
             new ApiReportsRouter(),
+
+            new Widget1Router(),
+
             new SignRouter(),
         ], OurnetProjectName.HOROSCOPE);
     }
