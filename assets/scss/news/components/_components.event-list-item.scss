@@ -287,11 +287,6 @@ $media-icon-color: #fff;
         padding-top: 10px;
         padding-right: 40%;
     }
-    .c-event-it__stats {
-        width: 60%;
-        bottom: 6px;
-        margin-right: 0px;
-    }
     .c-event-it__media {
         height: 100%;
         width: 40%;
@@ -311,9 +306,9 @@ $media-icon-color: #fff;
         height: 100%;
     }
     .c-event-it__title {
-        height: 56px;
-        font-size: 16px;
-        line-height: 18px;
+        // height: 90%;
+        font-size: 18px;
+        // line-height: 18px;
         font-weight: 500;
     }
 }

@@ -35,11 +35,8 @@ export function EventListItem(props: EventListItemProps) {
     return null;
 }
 
-function mediaItemView({ item, imageSize, view, links, lang, country, timezone }: EventListItemProps) {
-
-    const mainTopic = getMainTopic({ lang, country }, item.topics);
+function mediaItemView({ item, imageSize, view, links, lang }: EventListItemProps) {
     const link = links.news.story(item.slug, item.id, { ul: lang });
-    const createdAt = moment(item.createdAt).tz(timezone).locale(lang);
 
     return (
         <div className={'c-event-it c-event-it--media o-media o-media--small' + (view === 'media-right' ? ' o-media--reverse' : '')}>
@@ -49,10 +46,6 @@ function mediaItemView({ item, imageSize, view, links, lang, country, timezone }
             {item.countVideos > 0 && <i className='c-event-it__vi'></i>}
             <div className='c-event-it__info o-media__body'>
                 <a className='c-event-it__title' href={link} title={item.title}>{truncateAt(item.title, 80)}</a>
-                <div className='c-event-it__stats'>
-                    <time dateTime={item.createdAt}>{createdAt.fromNow(true)}</time>
-                    <a className='c-event-it__topic' title={mainTopic.name} href={links.news.topic(mainTopic.slug, { ul: lang })}>{mainTopic.abbr || truncateAt(topicDisplayName(mainTopic, lang), 30)}</a>
-                </div>
             </div>
         </div>
     )
@@ -94,10 +87,12 @@ function cardItemView({ item, imageSize, view, links, lang, country, timezone, p
                     {showSummary && <div className='c-event-it__summary'>{truncateAt(item.summary, 120)}</div>}
                 </div>
             </a>
-            <div className='c-event-it__stats'>
-                <time dateTime={item.createdAt}>{createdAt.fromNow(true)}</time>
-                <a className='c-event-it__topic' title={mainTopic.name} href={urlPrefix + links.news.topic(mainTopic.slug, { ul: lang })}>{mainTopic.abbr || truncateAt(topicDisplayName(mainTopic, lang), 30)}</a>
-            </div>
+            {showSummary &&
+                <div className='c-event-it__stats'>
+                    <time dateTime={item.createdAt}>{createdAt.fromNow(true)}</time>
+                    <a className='c-event-it__topic' title={mainTopic.name} href={urlPrefix + links.news.topic(mainTopic.slug, { ul: lang })}>{mainTopic.abbr || truncateAt(topicDisplayName(mainTopic, lang), 30)}</a>
+                </div>
+            }
         </div>
     )
 }
