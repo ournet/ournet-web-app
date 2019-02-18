@@ -64,7 +64,7 @@ export default class EventPage extends React.Component<EventViewModel> {
                                                     {Share({ url: head.canonical || '', align: 'right', services: config.shareServices, lang, size: 'long' })}
                                                     {OutReadMoreLink({ url: event.source.host + event.source.path, source: startWithUpperCase(event.source.sourceId), links, locales })}
                                                 </div>
-                                                {eventQuotes && <div className='c-event_quotes'>{eventQuotes.map(item => QuoteListItem({ item, view: 'card', country, lang, links, timezone: config.timezone }))}</div>}
+                                                {eventQuotes && <div className='c-event_quotes'>{eventQuotes.map(item => QuoteListItem({ item, view: 'card', country, lang, links, timezone: config.timezone, shareServices: config.shareServices }))}</div>}
                                                 {/* <hr />
                                                 {EventNewsItems({ lang, event, links })} */}
                                                 <hr />

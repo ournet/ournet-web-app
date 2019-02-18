@@ -19,6 +19,7 @@ $(function () {
 
             var icon = document.createElement('span');
             icon.className = 'c-share__icon';
+            icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><use href="#svg-share-' + service + '"></use></svg>';
             item.appendChild(icon);
 
             el.append(item);
@@ -28,7 +29,7 @@ $(function () {
 })
 
 function correctService(service) {
-    switch(service) {
+    switch (service) {
         case 'odnoklassniki': return 'okru';
     }
 

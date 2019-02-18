@@ -4,6 +4,7 @@ import * as React from 'react';
 import { PageViewModel } from '../ournet/page-view-model';
 import { OurnetAppConfig } from '../ournet/config';
 import { PageHead } from './components/page-head';
+import { ShareSvg } from './components/share-svg';
 
 export default class RootLayout extends React.Component<PageViewModel<OurnetAppConfig>, any> {
     render() {
@@ -21,6 +22,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', '${config.googleAnalyticsId}', '${config.domain}');
 ga('set', 'dimension1', '${project}');
 ga('send', 'pageview');`}}></script>
+                    {ShareSvg()}
                     {children}
                     {getFooterScripts(country)}
                 </body>
