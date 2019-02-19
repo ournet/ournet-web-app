@@ -1,7 +1,7 @@
 
 import { HoroscopeBaseHandler } from "./handler";
 import { HoroscopeAppData } from "../data";
-import { WidgetsViewModelBuilder } from "../view-models/widget-view-model";
+import { WidgetsViewModelBuilder } from "../view-models/widgets-view-model";
 import { WidgetsPage } from "../views/widgets/widgets-page";
 
 export class WidgetsHandler extends HoroscopeBaseHandler {

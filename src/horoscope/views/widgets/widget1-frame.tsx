@@ -187,6 +187,19 @@ export function Widget1Frame(props: Widget1ViewModel) {
                         border-radius: 100%;
                         margin: 0px 0px 6px 6px;
                         cursor: pointer;
+                        position: relative;
+                    }
+                    #report-close:after {
+                        content: "";
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        margin-left:-4px;
+                        margin-top:-4px;
+                        width:8px;
+                        height:8px;
+                        background: #111;
+                        border-radius: 100%;
                     }
                     #report-title {
                         font-weight: bold;
@@ -283,11 +296,9 @@ export function Widget1Frame(props: Widget1ViewModel) {
                         return true;
                     }
 
-                    var reportElement = document.getElementById('report');
-                    reportElement.className = '';
-
-                    var reportTextElement = document.getElementById('report-text');
-                    reportTextElement.innerText = report.text;
+                    document.getElementById('report').className = '';
+                    document.getElementById('report-text').innerText = report.text;
+                    document.getElementById('report-title').innerText = sign.name;
 
                     event.preventDefault();
                     return false;

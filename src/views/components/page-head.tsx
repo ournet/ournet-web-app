@@ -25,6 +25,7 @@ export function PageHead({ config, head, lang, country, project, showGoogleAds }
             <link rel='shortcut icon' href={getAppIconUrl(config.domain, 'favicon.ico')} type='image/x-icon' />
             <link rel='apple-touch-icon' href={getAppIconUrl(config.domain, 'apple-touch-icon.png')} />
             <link key='1' type="text/css" rel="stylesheet" href={getAssetUrl(project, 'css', 'main', env.isProduction)} />
+            {config.facebookAppId && <meta property="fb:app_id" content={config.facebookAppId} />}
             {verificationMeta}
             {head.elements}
             <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
