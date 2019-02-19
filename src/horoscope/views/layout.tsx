@@ -9,7 +9,7 @@ import { PageFooter } from '../../views/components/page-footer';
 
 export default class Layout extends React.Component<HoroscopeViewModel, any> {
     render() {
-        const { children, country } = this.props;
+        const { children, country, links, lang, locales } = this.props;
 
         return (
             <RootLayout {...this.props}>
@@ -17,7 +17,7 @@ export default class Layout extends React.Component<HoroscopeViewModel, any> {
                 {AccentLine()}
                 {PageHeader(this.props)}
                 {children}
-                {PageFooter(this.props)}
+                {PageFooter({ ...this.props, utilLinks: [{ id: 'widgets', url: links.horoscope.widgets({ ul: lang }), text: locales.horo_on_your_site() }] })}
                 {getFooterScripts(country)}
             </RootLayout>
         )

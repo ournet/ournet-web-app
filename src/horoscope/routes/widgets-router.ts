@@ -1,15 +1,15 @@
 import { Request, Response } from "../../base/types";
 import { HoroscopeBaseRouter, HoroscopeBaseRouterData } from "../router";
-import { Widget1Handler } from "../handlers/widget1-handler";
+import { WidgetsHandler } from "../handlers/widgets-handler";
 
 
-export class Widget1Router extends HoroscopeBaseRouter<HoroscopeBaseRouterData> {
+export class WidgetsRouter extends HoroscopeBaseRouter<HoroscopeBaseRouterData> {
     constructor() {
-        super('/widgets/widget1_frame')
+        super('/widgets')
     }
 
     protected createHander(req: Request, res: Response) {
         const input = this.formatInput(req, res);
-        return new Widget1Handler(input);
+        return new WidgetsHandler(input);
     }
 }

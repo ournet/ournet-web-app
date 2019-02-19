@@ -2,7 +2,7 @@
 import { HoroscopeBaseHandler } from "./handler";
 import { HoroscopeAppData } from "../data";
 import { Widget1ViewModelBuilder } from "../view-models/widget1-view-model";
-import { Widget1Frame } from "../views/widget/widget1-frame";
+import { Widget1Frame } from "../views/widgets/widget1-frame";
 
 export class Widget1Handler extends HoroscopeBaseHandler {
     async handle(data: HoroscopeAppData) {

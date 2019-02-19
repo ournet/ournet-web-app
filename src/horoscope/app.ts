@@ -14,6 +14,7 @@ import { RobotsRouter, OneSignalSDKWorkerRouter, OneSignalSDKUpdaterWorkerRouter
 import { ManifestRouter } from "../ournet/routers/manifest-router";
 import { AssetlinksRouter } from "./routes/assetlinks";
 import { Widget1Router } from "./routes/widget1-router";
+import { WidgetsRouter } from "./routes/widgets-router";
 
 export class HoroscopeOurnetApp extends OurnetApp<OurnetAppData> {
 
@@ -32,6 +33,7 @@ export class HoroscopeOurnetApp extends OurnetApp<OurnetAppData> {
 
             new ApiReportsRouter(),
 
+            new WidgetsRouter(),
             new Widget1Router(),
 
             new SignRouter(),
