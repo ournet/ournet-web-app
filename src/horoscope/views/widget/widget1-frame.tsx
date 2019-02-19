@@ -155,6 +155,51 @@ export function Widget1Frame(props: Widget1ViewModel) {
                         -webkit-filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, .4));
                         filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, .4));
                     }
+                    .hidden {
+                        display: none;
+                    }
+                    #report {
+                        background: rgba(1,1,1,.7);
+                        position: absolute;
+                        top:0px;
+                        left:0px;
+                        right:0px;
+                        max-height: 100%;
+                        overflow: hidden;
+                        color: #eee;
+                        margin: 24px;
+                        padding: 6px;
+                        border-radius: 3px;
+                    }
+                    .small #report {
+                        margin: 12px;
+                    }
+                    .tiny #report {
+                        margin: 6px;
+                        font-size: 90%;
+                    }
+                    #report-close {
+                        float: right;
+                        display: block;
+                        width: 16px;
+                        height: 16px;
+                        background: #fff;
+                        border-radius: 100%;
+                        margin: 0px 0px 6px 6px;
+                        cursor: pointer;
+                    }
+                    #report-title {
+                        font-weight: bold;
+                        margin-bottom: 6px;
+                        font-size: 110%;
+                    }
+                    .small #report-title  {
+                        margin-bottom: 3px;
+                        font-size: 100%;
+                    }
+                    .tiny #report-title  {
+                        display: none;
+                    }
                     `}}></style>
             </head>
             <body>
@@ -166,12 +211,13 @@ export function Widget1Frame(props: Widget1ViewModel) {
                             if (!sign) return null;
                             return (
                                 <li key={item.sign} className='item'>
-                                    <a target='_blank' title={sign.name} href={links.horoscope.sign(sign.slug, { ul: lang })}>
+                                    <a className='item-a' data-report={JSON.stringify(item)} data-sign={JSON.stringify(sign)} target='_blank' title={sign.name} href={links.horoscope.sign(sign.slug, { ul: lang })}>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><use href={"#svg-zs-icon-" + item.sign}></use></svg>
                                     </a>
                                 </li>)
                         })}
                     </ul>
+                    <div id='report' className='hidden'><i id='report-close'></i><div id='report-title'></div><div id='report-text'></div></div>
                     <a id='icon' target='_blank' href={getSchema(project, country) + '//' + host}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3937 3937"><g>
                             <path fill="#fff" fillRule="nonzero" d="M668 1298c25-23 27-61 4-86L466 984c-23-25-61-27-86-4l-228 206c-25 23-27 61-4 87l206 228c23 25 62 27 86 4l229-206zM896 679c25 7 51-7 58-32l65-224c7-24-7-51-32-58l-224-65c-25-7-50 7-58 32l-65 224c-7 25 7 50 32 58l224 65zM1204 384c-4 24 12 47 36 51l221 35c24 4 47-12 51-37l36-221c3-24-13-47-37-51l-220-36c-24-4-47 13-51 37l-35 220zM1004 1334c-31 14-67 1-81-30l-127-279c-14-31-1-67 29-81l279-128c31-14 67 0 81 30l127 279c14 30 0 67-30 81l-279 127zM1018 2345c-54 26-118 2-143-51l-232-489c-25-55-3-118 51-144l490-232c54-25 118-2 143 51l232 490c26 54 3 118-51 143l-490 232z"></path>
@@ -180,9 +226,15 @@ export function Widget1Frame(props: Widget1ViewModel) {
                 </div>
                 <script dangerouslySetInnerHTML={{__html:`
                 var timeout=false;
+                function getDocumentWidth() {
+                    return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+                }
+                function getDocumentHeight() {
+                    return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+                }
                 function setSize() {
-                    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-                    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+                    var w = getDocumentWidth();
+                    var h = getDocumentHeight();
                     var step = Math.round(Math.max(w,h)/12);
                     var wSize = Math.round(w/step) || 1;
                     var hSize = Math.round(h/step) || 1;
@@ -214,7 +266,36 @@ export function Widget1Frame(props: Widget1ViewModel) {
                 });
                 document.addEventListener("DOMContentLoaded", function() {
                     setSize();
+                    document.getElementById('report-close').setAttribute('onclick', 'closeReport()');
+                    var items = document.getElementsByClassName('item-a');
+                    for(var i=0;i<items.length;i++) {
+                        items[i].setAttribute("onclick", 'return showReport(event, this);');
+                    }
                 });
+                function showReport(event, el) {
+                    var sign = JSON.parse(el.getAttribute('data-sign'));
+                    var report = JSON.parse(el.getAttribute('data-report'));
+                    var w = getDocumentWidth();
+                    var h = getDocumentHeight();
+                    var min = Math.min(w, h);
+
+                    if(min<150 || w*h<150*150) {
+                        return true;
+                    }
+
+                    var reportElement = document.getElementById('report');
+                    reportElement.className = '';
+
+                    var reportTextElement = document.getElementById('report-text');
+                    reportTextElement.innerText = report.text;
+
+                    event.preventDefault();
+                    return false;
+                }
+                function closeReport(){
+                    var reportElement = document.getElementById('report');
+                    reportElement.className = 'hidden';
+                }
                 `}}>
                 </script>
             </body>
