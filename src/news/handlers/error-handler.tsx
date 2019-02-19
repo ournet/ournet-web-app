@@ -11,6 +11,6 @@ export class ErrorHandler extends NewsBaseHandler<ErrorViewModelInput>{
 
         this.setCacheControl(2);
 
-        return this.render(<ErrorPage {...viewData} />);
+        return this.render(<ErrorPage {...viewData} />, this.input.error);
     }
 }

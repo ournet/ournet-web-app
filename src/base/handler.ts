@@ -3,6 +3,7 @@ import { AppData } from "./app-data";
 import { renderToStaticMarkup } from 'react-dom/server';
 import { send } from "micro";
 import env from "../env";
+import { boomify } from "boom";
 const encodeUrl = require('encodeurl');
 
 export interface IHandler<DATA extends AppData> {
@@ -20,8 +21,12 @@ export abstract class Handler<DATA extends AppData, INPUT extends HandlerInput> 
 
     abstract handle(data: DATA): Promise<void>
 
-    protected render(page: JSX.Element, statusCode?: number, headers?: { [name: string]: string }) {
-        statusCode = statusCode || 200;
+    protected render(page: JSX.Element, statusCodeOrError?: number | Error, headers?: { [name: string]: string }) {
+        let statusCode = typeof statusCodeOrError === 'number' ? statusCodeOrError : 200;
+        if (typeof statusCodeOrError === 'object') {
+            const error = boomify(statusCodeOrError);
+            statusCode = error.output.statusCode;
+        }
 
         const text = '<!DOCTYPE html>' + renderToStaticMarkup(page);
         return this.send(text, statusCode, headers);

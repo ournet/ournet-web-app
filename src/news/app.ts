@@ -56,7 +56,7 @@ export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
     }
 
     protected handleError(req: Request, res: Response, error: Error): Promise<void> {
-        this.logError(error, req);
+        super.onError(error, req, res);
 
         const url = parse(req.url || '', true);
         const host = req.headers.host || ''
