@@ -23,10 +23,14 @@ export abstract class Handler<DATA extends AppData, INPUT extends HandlerInput> 
 
     protected render(page: JSX.Element, statusCodeOrError?: number | Error, headers?: { [name: string]: string }) {
         let statusCode = typeof statusCodeOrError === 'number' ? statusCodeOrError : 200;
+        headers = headers || {};
         if (typeof statusCodeOrError === 'object') {
             const error = boomify(statusCodeOrError);
             statusCode = error.output.statusCode;
         }
+
+        headers['content-type'] = headers['content-type'] || headers['Content-Type'] || 'text/html; charset=utf-8';
+        delete headers['Content-Type'];
 
         const text = '<!DOCTYPE html>' + renderToStaticMarkup(page);
         return this.send(text, statusCode, headers);
