@@ -16,7 +16,7 @@ export class SitemapRegionIndexHandler extends WeatherBaseHandler {
         const lang = this.getLanguage(config);
 
 
-        api.placesAdmin1s('regions', { fields: 'id name names admin1Code featureClass' }, { country, limit: 200 });
+        api.placesAdmin1s('regions', { fields: 'id name names admin1Code featureClass' }, { country, limit: 100 });
 
         const result = await data.executeApiClient(api);
 
