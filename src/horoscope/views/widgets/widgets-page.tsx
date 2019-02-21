@@ -17,7 +17,7 @@ export function WidgetsPage(props: WidgetsViewModel) {
     const host = getHost(OurnetProjectName.HOROSCOPE, country);
     const fullIframeLink = '//' + host + iframeLink;
 
-    const formatHtmlCode = (h: string) => `<iframe src="${fullIframeLink}" frame-border="0" allow-transparency="true" width="100%" height="${h}"></iframe>`;
+    const formatHtmlCode = (h: string) => `<iframe src="${fullIframeLink}" frameborder="0" width="100%" height="${h}"></iframe>`;
 
     return (
         <Layout {...props}>
@@ -32,7 +32,7 @@ export function WidgetsPage(props: WidgetsViewModel) {
                     `}}></style>
                     <div className='o-layout'>
                         <div className="o-layout__item u-1/5@tablet">
-                            <iframe src={iframeLink} frameBorder={0} allowTransparency={true} width={'100%'} height={'150px'} style={{ maxWidth: "300px" }}></iframe>
+                            <iframe src={iframeLink} frameBorder={0} width={'100%'} height={'150px'} style={{ maxWidth: "300px" }}></iframe>
                             <h4>{locales.html_code()}:</h4>
                             <textarea rows={5}>
                                 {formatHtmlCode('150px')}
@@ -40,19 +40,19 @@ export function WidgetsPage(props: WidgetsViewModel) {
                             <br />
                         </div>
                         <div className="o-layout__item u-1/5@tablet">
-                            <iframe src={iframeLink} frameBorder={0} allowTransparency={true} width={'100%'} height={'350px'}></iframe>
+                            <iframe src={iframeLink} frameBorder={0} width={'100%'} height={'350px'}></iframe>
                             <h4>{locales.html_code()}:</h4>
                             <textarea rows={5} value={formatHtmlCode('350px')}></textarea>
                             <br />
                         </div>
                         <div className="o-layout__item u-2/5@tablet">
-                            <iframe src={iframeLink} frameBorder={0} allowTransparency={true} width={'100%'} height={'200px'}></iframe>
+                            <iframe src={iframeLink} frameBorder={0} width={'100%'} height={'200px'}></iframe>
                             <h4>{locales.html_code()}:</h4>
                             <textarea rows={5} value={formatHtmlCode('200px')}></textarea>
                             <br />
                         </div>
                         <div className="o-layout__item u-1/5@tablet">
-                            <iframe src={iframeLink} frameBorder={0} allowTransparency={true} width={'100%'} height={'120px'}></iframe>
+                            <iframe src={iframeLink} frameBorder={0} width={'100%'} height={'120px'}></iframe>
                             <h4>{locales.html_code()}:</h4>
                             <textarea rows={5} value={formatHtmlCode('120px')}></textarea>
                             <br />

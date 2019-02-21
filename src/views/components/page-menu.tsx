@@ -19,7 +19,7 @@ export default function PageMenu({ items, selectedId }: PageMenuProps) {
             <div className='o-wrapper o-wrapper--small'>
                 <ul>
                     {items.map(item => (
-                        <li className={`c-page-menu__i${selectedId === item.id ? ' v--selected' : ''}`}>
+                        <li key={item.id} className={`c-page-menu__i${selectedId === item.id ? ' v--selected' : ''}`}>
                             <a href={item.link} title={item.title}>{item.text}</a>
                         </li>
                     ))}
