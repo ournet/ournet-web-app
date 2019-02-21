@@ -1,9 +1,9 @@
 import { Request, Response } from "../../base/types";
-import { WeatherBaseRouter } from "../router";
+import { WeatherBaseRouter, WeatherBaseRouterData } from "../router";
 import { PlaceHandler } from "../handlers/place-handler";
 import { PlaceViewModelInput } from "../view-models/place-view-model";
 
-interface PlaceRouterData extends WeatherBaseRouter {
+interface PlaceRouterData extends WeatherBaseRouterData {
     id: string
 }
 

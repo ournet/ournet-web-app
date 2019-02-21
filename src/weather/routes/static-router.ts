@@ -1,12 +1,17 @@
 import { WeatherBaseRouter } from "../router";
 import { Request, Response } from "../../base/types";
 import { DataHandler } from "../../base/data-handler";
+import { OurnetProjectName } from "../../ournet/data";
+import { sitemap } from "ournet.links";
 
 export class RobotsRouter extends WeatherBaseRouter {
     constructor() {
         super('/robots.txt')
     }
     protected createHander(req: Request, res: Response) {
+        const { country } = this.formatInput(req, res);
+        const config = this.createAppConfig(OurnetProjectName.WEATHER, country);
+        const links = sitemap(config.languages[0]);
         const handler = new DataHandler({
             req, res,
             data: `User-agent: *
@@ -16,6 +21,8 @@ Disallow: /widget/widget_frame
 Disallow: /widget2/widget_frame
 Disallow: /widget/widgetframe
 Disallow: /widget2/widgetframe
+
+${config.languages.map(lang => 'Sitemap: ' + links.weather.sitemap.regionIndex({ ul: lang })).join('\n')}
 `,
             code: 200,
             headers: { 'Content-Type': 'text/plain; charset=UTF-8' },

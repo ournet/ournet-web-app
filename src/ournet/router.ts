@@ -2,6 +2,8 @@ import { Router, RegExpRoutePattern } from "../base/router";
 import { OurnetViewModelInput } from "./view-model";
 import { Request, Response } from "../base/types";
 import { getHostInfo } from "../hosts";
+import { OurnetProjectName } from "./data";
+import { createAppConfig, OurnetAppConfig } from "./config";
 
 export abstract class OurnetRouter<DATA=void> extends Router<DATA> {
     constructor(path: string, names?: (keyof DATA)[]) {
@@ -16,6 +18,10 @@ export abstract class OurnetRouter<DATA=void> extends Router<DATA> {
         const input: OurnetViewModelInput = { req, res, host, url, country: hostInfo.country, project: hostInfo.project };
 
         return input as INPUT;
+    }
+
+    protected createAppConfig<CONFIG extends OurnetAppConfig=OurnetAppConfig>(project: OurnetProjectName, country: string) {
+        return createAppConfig<CONFIG>(project, country);
     }
 }
 
