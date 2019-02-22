@@ -93,6 +93,23 @@ export class PrefixPlaceRedirectRouter extends OurnetRouter<PrefixPlaceRedirectR
         return handler;
     }
 }
+export class PrefixPlace10DaysRedirectRouter extends OurnetRouter<PrefixPlaceRedirectRouterData> {
+    constructor() {
+        super(`/${ROUTE_PREFIX}/(\\d+)/\\w+`, ['prefix', 'placeId'])
+    }
+    protected createHander(req: Request, res: Response, data: PrefixPlaceRedirectRouterData) {
+        const input = this.formatInput(req, res);
+        const config = createAppConfig(input.project, input.country);
+        const links = sitemap(config.languages[0]);
+        const lang = getLanguageFromQueryString(config, input.url.query);
+
+        const handler = new RedirectHandler({ code: 301, location: links.weather.place(data.placeId, { ul: lang }), req, res });
+
+        handler.setCacheControl(60 * 24);
+
+        return handler;
+    }
+}
 
 export class PrefixPlaceNameRedirectRouter extends OurnetRouter<PrefixPlaceRedirectRouterData> {
     constructor() {
