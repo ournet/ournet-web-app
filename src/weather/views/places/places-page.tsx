@@ -13,7 +13,7 @@ export function PlacesPage(props: PlacesViewModel) {
     const { locales, lang, country, links, places, placesAdmin1, head, ref } = props;
 
     const localeParams = { ul: lang };
-    let title = locales.search_place_in_cn_format({ country: locales.getInCountryName(country) });
+    let title = `${locales.weather2()}: ${locales.getCountryName(country)}`;
 
     const breadcrumbData: BreadcrumbData = {
         items: [
@@ -27,9 +27,7 @@ export function PlacesPage(props: PlacesViewModel) {
             text: getPlaceName(placesAdmin1, lang),
             url: links.weather.places.byAdm1(placesAdmin1.admin1Code, localeParams)
         })
-
-        title = locales.search_place_in_adm_cn_format(
-            { region: getPlaceName(placesAdmin1, lang), country: locales.getCountryName(country) });
+        title = `${locales.weather2()}: ${getPlaceName(placesAdmin1, lang)}, ${locales.getCountryName(country)}`;
     }
 
     head.title = title;
