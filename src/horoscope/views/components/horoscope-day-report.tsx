@@ -27,17 +27,34 @@ export function HoroscopeDayReport({ date, report, locales, lang, links, footer 
     return (
         <div className='c-report'>
             {date ? <div className='c-report__date'>{date}</div> : null}
-            <a className='c-report__head' href={links.horoscope.sign(sign.slug, { ul: lang })}>
-                <div className='c-report__icon'>
-                    <div className='c-zs-icon'>
-                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
-                            <use href={"#svg-zs-icon-" + report.sign}></use>
-                        </svg>
+            <div className='c-report__head u-clearfix'>
+                <a className='c-report__sign' href={links.horoscope.sign(sign.slug, { ul: lang })}>
+                    <div className='c-report__icon'>
+                        <div className='c-zs-icon'>
+                            <svg viewBox='0 0 20 20'>
+                                <use href={"#svg-zs-icon-" + report.sign}></use>
+                            </svg>
+                        </div>
+                        <h4>{sign.name}</h4>
                     </div>
-                    <h4>{sign.name}</h4>
                     <div className='c-report__dates'>{formatSignDates(report.sign, locales.horo_sign_date_format(), lang)}</div>
+                </a>
+                <div className='c-report__stats'>
+                    {Object.keys(report.stats).map(key => {
+                        const percent = (report.stats as any)[key];
+                        const circ = 2 * Math.PI * 40;
+                        const len = (circ / 100) * percent;
+                        return (
+                            <div key={key} className={'c-stat-it' + ' v-' + key}>
+                                <svg viewBox='0 0 100 100'>
+                                    <circle className='c-stat-it__line' r="40" cx="50" cy="50" strokeDasharray={`${len} ${circ}`} />
+                                    <text x="50%" y="55%">{percent}</text>
+                                </svg>
+                            </div>
+                        )
+                    })}
                 </div>
-            </a>
+            </div>
             <div className='c-report__body'>
                 <div className='c-report__text' dangerouslySetInnerHTML={{ __html: encodeReportText(report.text) }}></div>
                 {footer && <div className='c-report__footer'><div className='c-report__numbers'>{locales.lucky_numbers()}: {report.numbers.map((no, i) => <span key={i}>{no}</span>)}</div></div>}

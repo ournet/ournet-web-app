@@ -18,8 +18,9 @@ $report-border-color: darken($bg-color, 5%);
     margin-top: 8px;
     font-size: 80%;
     color: #999;
+    text-decoration: none!important;
     &:hover {
-        text-decoration: none;
+        text-decoration: none!important;
     }
 }
 
@@ -59,12 +60,16 @@ $report-border-color: darken($bg-color, 5%);
 }
 
 .c-report__head {
-    /*background-color: $brand-primary;*/
+    background: $dark-bg-color;
+    padding: 6px;
+}
+
+.c-report__sign {
     text-align: center;
     color: $accent-color;
     padding: 4px 10px;
     float: left;
-    width: 120px;
+    width: 150px;
     position: relative;
     font-size: 90%;
     h3,
@@ -75,6 +80,7 @@ $report-border-color: darken($bg-color, 5%);
     color: $text-color;
     text-decoration: none;
     &:hover {
+        text-decoration: none;
         h4,
         h3 {
             color: $accent-color;
@@ -83,14 +89,44 @@ $report-border-color: darken($bg-color, 5%);
 }
 
 .c-report__icon {
-    height: 90px;
-    width: 90px;
+    height: 80px;
+    width: 80px;
     margin: 0px auto;
     display: inline-block;
     .c-zs-icon {
         width: 100%;
         height: 100%;
     }
+}
+
+.c-report__stats {
+    overflow: hidden;
+    text-align: center;
+}
+.c-stat-it {
+    display: inline-block;
+    width: 30%;
+    max-width: 80px;
+    height: 90%;
+    
+    svg {
+        height: 100%;
+        width: 100%;
+        text {
+            text-anchor: middle;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+    }
+    circle {
+        stroke-width: 8;
+        stroke-linecap: round;
+        // border-radius: 50%;
+    }
+}
+.c-stat-it__line {
+    fill: #fff;
+    stroke: #ca0000;
 }
 
 @media (min-width: 768px) {
