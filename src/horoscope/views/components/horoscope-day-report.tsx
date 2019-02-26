@@ -29,14 +29,12 @@ export function HoroscopeDayReport({ date, report, locales, lang, links, footer 
             {date ? <div className='c-report__date'>{date}</div> : null}
             <div className='c-report__head u-clearfix'>
                 <a className='c-report__sign' href={links.horoscope.sign(sign.slug, { ul: lang })}>
-                    <div className='c-report__icon'>
-                        <div className='c-zs-icon'>
-                            <svg viewBox='0 0 20 20'>
-                                <use href={"#svg-zs-icon-" + report.sign}></use>
-                            </svg>
-                        </div>
-                        <h4>{sign.name}</h4>
+                    <div className='c-zs-icon'>
+                        <svg viewBox='0 0 20 20'>
+                            <use href={"#svg-zs-icon-" + report.sign}></use>
+                        </svg>
                     </div>
+                    <h4>{sign.name}</h4>
                     <div className='c-report__dates'>{formatSignDates(report.sign, locales.horo_sign_date_format(), lang)}</div>
                 </a>
                 <div className='c-report__stats'>
@@ -50,6 +48,7 @@ export function HoroscopeDayReport({ date, report, locales, lang, links, footer 
                                     <circle className='c-stat-it__line' r="40" cx="50" cy="50" strokeDasharray={`${len} ${circ}`} />
                                     <text x="50%" y="55%">{percent}</text>
                                 </svg>
+                                {locales.getHoroStatItemName(key as any)}
                             </div>
                         )
                     })}

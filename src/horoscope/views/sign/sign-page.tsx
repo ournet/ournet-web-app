@@ -17,20 +17,15 @@ export function SignPage(props: SignViewModel) {
     return (
         <CommonLayout {...props}>
             <main>
-                <div className='u-report-margin'>
-                    {Share({ services: config.shareServices, lang, align: 'right', url: head.canonical })}
-                    {PageTitle({ title: title || head.title, subTitle: subTitle || head.description })}
-                </div>
+                {PageTitle({ title: title || head.title, subTitle: subTitle || head.description, preSubTitle: Share({ services: config.shareServices, lang, align: 'right', url: head.canonical }) })}
                 {HoroscopeDayReport({ lang, report, date: currentDayPeriodText, footer: true, links, locales })}
-                <div className='u-report-margin'>
-                    {HoroscopeSignsLine({ lang, country, links })}
-                    {HoroscopeAppAdCard({lang})}
-                    {AdBottom()}
-                    <br />
-                    <div className='fb-comments' data-href={head.canonical} data-numposts="5" data-width="100%" data-order-by="reverse-time"></div>
-                    <br />
-                    {AdBottom()}
-                </div>
+                {HoroscopeSignsLine({ lang, country, links })}
+                {HoroscopeAppAdCard({ lang })}
+                {AdBottom()}
+                <br />
+                <div className='fb-comments' data-href={head.canonical} data-numposts="5" data-width="100%" data-order-by="reverse-time"></div>
+                <br />
+                {AdBottom()}
             </main>
             {config.oneSignal &&
                 <div>

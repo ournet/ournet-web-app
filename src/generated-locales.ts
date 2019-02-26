@@ -917,12 +917,8 @@ export class LocalizyLocales {
         return this.v('weather_lv_short_app_name');
     }
 
-    horoscope_ro_app_name() {
-        return this.v('horoscope_ro_app_name');
-    }
-
-    horoscope_ro_short_app_name() {
-        return this.v('horoscope_ro_short_app_name');
+    health() {
+        return this.v('health');
     }
 
     horoscope_md_app_name() {
@@ -933,6 +929,14 @@ export class LocalizyLocales {
         return this.v('horoscope_md_short_app_name');
     }
 
+    horoscope_ro_app_name() {
+        return this.v('horoscope_ro_app_name');
+    }
+
+    horoscope_ro_short_app_name() {
+        return this.v('horoscope_ro_short_app_name');
+    }
+
     in_country_md() {
         return this.v('in_country_md');
     }
@@ -941,12 +945,8 @@ export class LocalizyLocales {
         return this.v('in_country_ro');
     }
 
-    news_ro_app_name() {
-        return this.v('news_ro_app_name');
-    }
-
-    news_ro_short_app_name() {
-        return this.v('news_ro_short_app_name');
+    love() {
+        return this.v('love');
     }
 
     news_md_app_name() {
@@ -955,6 +955,14 @@ export class LocalizyLocales {
 
     news_md_short_app_name() {
         return this.v('news_md_short_app_name');
+    }
+
+    news_ro_app_name() {
+        return this.v('news_ro_app_name');
+    }
+
+    news_ro_short_app_name() {
+        return this.v('news_ro_short_app_name');
     }
 
     portal_md_app_name() {
@@ -973,12 +981,8 @@ export class LocalizyLocales {
         return this.v('portal_ro_short_app_name');
     }
 
-    weather_ro_app_name() {
-        return this.v('weather_ro_app_name');
-    }
-
-    weather_ro_short_app_name() {
-        return this.v('weather_ro_short_app_name');
+    success() {
+        return this.v('success');
     }
 
     weather_md_app_name() {
@@ -987,6 +991,14 @@ export class LocalizyLocales {
 
     weather_md_short_app_name() {
         return this.v('weather_md_short_app_name');
+    }
+
+    weather_ro_app_name() {
+        return this.v('weather_ro_app_name');
+    }
+
+    weather_ro_short_app_name() {
+        return this.v('weather_ro_short_app_name');
     }
 
     horoscope_ru_app_name() {
@@ -1286,24 +1298,27 @@ export type LocalesKey = '24_hrs'
     | 'portal_lv_short_app_name'
     | 'weather_lv_app_name'
     | 'weather_lv_short_app_name'
-    | 'horoscope_ro_app_name'
-    | 'horoscope_ro_short_app_name'
+    | 'health'
     | 'horoscope_md_app_name'
     | 'horoscope_md_short_app_name'
+    | 'horoscope_ro_app_name'
+    | 'horoscope_ro_short_app_name'
     | 'in_country_md'
     | 'in_country_ro'
-    | 'news_ro_app_name'
-    | 'news_ro_short_app_name'
+    | 'love'
     | 'news_md_app_name'
     | 'news_md_short_app_name'
+    | 'news_ro_app_name'
+    | 'news_ro_short_app_name'
     | 'portal_md_app_name'
     | 'portal_md_short_app_name'
     | 'portal_ro_app_name'
     | 'portal_ro_short_app_name'
-    | 'weather_ro_app_name'
-    | 'weather_ro_short_app_name'
+    | 'success'
     | 'weather_md_app_name'
     | 'weather_md_short_app_name'
+    | 'weather_ro_app_name'
+    | 'weather_ro_short_app_name'
     | 'horoscope_ru_app_name'
     | 'horoscope_ru_short_app_name'
     | 'in_country_ru'

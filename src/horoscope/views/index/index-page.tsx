@@ -13,10 +13,7 @@ export function IndexPage(props: IndexViewModel) {
     return (
         <CommonLayout {...props}>
             <main>
-                <div className='u-report-margin'>
-                    {Share({ services: config.shareServices, lang, align: 'right', url: head.canonical })}
-                    {PageTitle({ title: title || head.title, subTitle: subTitle || head.description })}
-                </div>
+                {PageTitle({ title: title || head.title, subTitle: subTitle || head.description, preSubTitle: Share({ services: config.shareServices, lang, align: 'right', url: head.canonical }) })}
                 {reports.map(report => HoroscopeDayReport({ lang, locales, report, links }))}
             </main>
         </CommonLayout>

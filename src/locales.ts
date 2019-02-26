@@ -54,4 +54,8 @@ export class OurnetLocales extends LocalizyLocales {
     getShortAppName(project: OurnetProjectName, country: string) {
         return this.s(`${project}_${country}_short_app_name` as LocalesKey);
     }
+
+    getHoroStatItemName(item: 'health' | 'love' | 'success') {
+        return this.s(item as LocalesKey);
+    }
 }
