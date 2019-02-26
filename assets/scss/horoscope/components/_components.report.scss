@@ -154,11 +154,21 @@ $report-border-color: darken($bg-color, 5%);
     &.v-success .c-stat-it__line {
         stroke: #2199e8;
     }
+    &.v-health .c-stat-it__back {
+        stroke: lighten(#96c557, 25%);
+    }
+    &.v-love .c-stat-it__back {
+        stroke: lighten(#c84697, 30%);
+    }
+    &.v-success .c-stat-it__back {
+        stroke: lighten(#2199e8, 30%);
+    }
 }
-
-.c-stat-it__line {
+.c-stat-it__back {
     fill: #fff;
-    stroke: #ca0000;
+}
+.c-stat-it__line {
+    fill: none;
 }
 
 @media (min-width: 568px) {

@@ -40,11 +40,12 @@ export function HoroscopeDayReport({ date, report, locales, lang, links, footer 
                 <div className='c-report__stats'>
                     {Object.keys(report.stats).map(key => {
                         const percent = (report.stats as any)[key];
-                        const circ = 2 * Math.PI * 40;
-                        const len = (circ / 100) * percent;
+                        const circ = Math.round(2 * Math.PI * 40);
+                        const len = Math.round((circ / 100) * percent);
                         return (
                             <div key={key} className={'c-stat-it' + ' v-' + key}>
                                 <svg viewBox='0 0 100 100'>
+                                    <circle className='c-stat-it__back' r="40" cx="50" cy="50" />
                                     <circle className='c-stat-it__line' r="40" cx="50" cy="50" strokeDasharray={`${len} ${circ}`} />
                                     <text x="50%" y="55%">{percent}</text>
                                 </svg>
