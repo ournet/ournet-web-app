@@ -8,10 +8,12 @@ import { OurnetProjectName } from '../../../ournet/data';
 import Layout from '../layout';
 import PageContentSection from '../../../views/components/page-content-section';
 import { FacebookScript } from '../../../views/components/facebook-script';
+import { getAssetUrl } from '../../../assets';
+import env from '../../../env';
 
 export function WidgetsPage(props: WidgetsViewModel) {
 
-    const { lang, head, config, title, subTitle, links, locales, country } = props;
+    const { lang, head, config, title, subTitle, links, locales, country, project } = props;
 
     const iframeLink = links.horoscope.widgets.widget1Frame({ ul: lang });
     const host = getHost(OurnetProjectName.HOROSCOPE, country);
@@ -34,27 +36,26 @@ export function WidgetsPage(props: WidgetsViewModel) {
                         <div className="o-layout__item u-1/5@tablet">
                             <iframe src={iframeLink} frameBorder={0} width={'100%'} height={'150px'} style={{ maxWidth: "300px" }}></iframe>
                             <h4>{locales.html_code()}:</h4>
-                            <textarea rows={5}>
-                                {formatHtmlCode('150px')}
+                            <textarea rows={5} defaultValue={formatHtmlCode('150px')}>
                             </textarea>
                             <br />
                         </div>
                         <div className="o-layout__item u-1/5@tablet">
                             <iframe src={iframeLink} frameBorder={0} width={'100%'} height={'350px'}></iframe>
                             <h4>{locales.html_code()}:</h4>
-                            <textarea rows={5} value={formatHtmlCode('350px')}></textarea>
+                            <textarea rows={5} defaultValue={formatHtmlCode('350px')}></textarea>
                             <br />
                         </div>
                         <div className="o-layout__item u-2/5@tablet">
                             <iframe src={iframeLink} frameBorder={0} width={'100%'} height={'200px'}></iframe>
                             <h4>{locales.html_code()}:</h4>
-                            <textarea rows={5} value={formatHtmlCode('200px')}></textarea>
+                            <textarea rows={5} defaultValue={formatHtmlCode('200px')}></textarea>
                             <br />
                         </div>
                         <div className="o-layout__item u-1/5@tablet">
                             <iframe src={iframeLink} frameBorder={0} width={'100%'} height={'120px'}></iframe>
                             <h4>{locales.html_code()}:</h4>
-                            <textarea rows={5} value={formatHtmlCode('120px')}></textarea>
+                            <textarea rows={5} defaultValue={formatHtmlCode('120px')}></textarea>
                             <br />
                         </div>
                     </div>
@@ -70,6 +71,7 @@ export function WidgetsPage(props: WidgetsViewModel) {
                     {config.facebookAppId && FacebookScript(config.facebookAppId, lang, country)}
                 </main>
             </PageContentSection>
+            <script async={true} src={getAssetUrl(project, 'js', 'main', env.isProduction)} />
         </Layout>
     )
 }
