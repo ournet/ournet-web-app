@@ -1,4 +1,7 @@
-$report-border-color: darken($bg-color, 5%);
+$report-border-color: $dark-bg-color;//darken($bg-color, 5%);
+$report-light-color: $bg-color;//lighten($link-color, 50%);
+$report-dark-color: $dark-bg-color;//lighten($link-color, 30%);
+
 .c-report {
     margin-bottom: 20px;
     @include inuit-clearfix();
@@ -35,7 +38,7 @@ $report-border-color: darken($bg-color, 5%);
     background-color: #fff;
     padding: 10px;
     overflow: hidden;
-    border: 1px solid $dark-bg-color;
+    border: 1px solid $report-border-color;
     p {
         margin-bottom: 12px;
     }
@@ -46,37 +49,43 @@ $report-border-color: darken($bg-color, 5%);
 
 .c-report__footer {
     background: $dark-bg-color;
-    background: -moz-linear-gradient(top, $dark-bg-color 100%, $bg-color 100%);
-    background: -webkit-linear-gradient(top, $dark-bg-color 100%,$bg-color 100%);
-    background: linear-gradient(to bottom, $dark-bg-color 0%,$bg-color 100%);
+    background: -moz-linear-gradient(top, $report-dark-color 100%, $report-light-color 100%);
+    background: -webkit-linear-gradient(top, $report-dark-color 100%,$report-light-color 100%);
+    background: linear-gradient(to bottom, $report-dark-color 0%,$report-light-color 100%);
     border-bottom-left-radius: $global-radius;
     border-bottom-right-radius: $global-radius;
-    border: 1px solid $dark-bg-color;
+    border: 1px solid $report-dark-color;
     padding: 2px 10px;
+    font-size: 90%;
 }
 
 .c-report__numbers {
+    label {
+        font-weight: 500;
+    }
     span {
         display: inline-block;
-        margin: 0px 6px;
-        border-bottom: 2px solid #fff;
+        margin: 0px 5px;
+        background: #fff;
+        border-radius: $global-radius;
         text-align: center;
         font-weight: 500;
-        padding: 0px 2px;
+        padding: 0px 3px;
+        line-height: 1.3;
         color: $accent-color;
     }
 }
 
 .c-report__head {
-    background: $dark-bg-color;
-    background: -moz-linear-gradient(top, $bg-color 0%, $dark-bg-color 100%);
-    background: -webkit-linear-gradient(top, $bg-color 0%,$dark-bg-color 100%);
-    background: linear-gradient(to bottom, $bg-color 0%,$dark-bg-color 100%);
+    background: $report-dark-color;
+    background: -moz-linear-gradient(top, $report-light-color 0%, $report-dark-color 100%);
+    background: -webkit-linear-gradient(top, $report-light-color 0%,$report-dark-color 100%);
+    background: linear-gradient(to bottom, $report-light-color 0%,$report-dark-color 100%);
     padding: 6px;
     text-align: center;
     border-top-left-radius: $global-radius;
     border-top-right-radius: $global-radius;
-    border: 1px solid $dark-bg-color;
+    border: 1px solid $report-dark-color;
 }
 
 .c-report__sign {
@@ -142,7 +151,7 @@ $report-border-color: darken($bg-color, 5%);
         }
     }
     circle {
-        stroke-width: 8;
+        stroke-width: 10;
         stroke-linecap: round; // border-radius: 50%;
     }
     &.v-health .c-stat-it__line {
@@ -174,5 +183,14 @@ $report-border-color: darken($bg-color, 5%);
 @media (min-width: 568px) {
     .c-report__sign {
         float: left;
+    }
+}
+@media (max-width: 568px) {
+    .c-report__footer {
+        text-align: center;
+        label {
+            display: block;
+            padding-bottom: 4px;
+        }
     }
 }

@@ -57,7 +57,7 @@ export function HoroscopeDayReport({ date, report, locales, lang, links, footer 
             </div>
             <div className='c-report__body'>
                 <div className='c-report__text' dangerouslySetInnerHTML={{ __html: encodeReportText(report.text) }}></div>
-                {footer && <div className='c-report__footer'><div className='c-report__numbers'>{locales.lucky_numbers()}: {report.numbers.map((no, i) => <span key={i}>{no}</span>)}</div></div>}
+                {footer && <div className='c-report__footer'><div className='c-report__numbers'><label>{locales.lucky_numbers()}: </label>{report.numbers.map((no, i) => <span key={i}>{no}</span>)}</div></div>}
             </div>
         </div >
     )
