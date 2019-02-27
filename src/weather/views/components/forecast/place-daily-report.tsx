@@ -50,15 +50,15 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
     const items: (JSX.Element | null)[] = []
 
     daysData.forEach((dayData, index) => {
-        if (index === 1) {
+        if (index === 2) {
             if (!config.disabledAds) {
                 items.push(AdTop())
             }
         }
-        else if (index === 2) {
+        else if (index === 4) {
             items.push(SubscribeBar({ locales, config, lang, place }))
         }
-        else if (index === 5) {
+        else if (index === 8) {
             if (!config.disabledAds) {
                 items.push(AdCenter())
             }
