@@ -25,7 +25,6 @@ export function SignPage(props: SignViewModel) {
                 <br />
                 <div className='fb-comments' data-href={head.canonical} data-numposts="5" data-width="100%" data-order-by="reverse-time"></div>
                 <br />
-                {AdBottom()}
             </main>
             {config.oneSignal &&
                 <div>

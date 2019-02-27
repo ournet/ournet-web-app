@@ -21,6 +21,7 @@ export default class CommonLayout extends React.Component<HoroscopeViewModel> {
                             {children}
                         </div>
                         <div className="o-layout__item u-2/6@desktop">
+                            {AdAside()}
                             {latestNews && latestNews.length > 0 &&
                                 <div className='c-section'>
                                     {SectionHeader({
@@ -30,8 +31,8 @@ export default class CommonLayout extends React.Component<HoroscopeViewModel> {
                                     <div className="o-layout o-layout--small">
                                         {latestNews.map(item => <div key={item.id} className='o-layout__item u-1/2@tablet u-1/1@desktop'>{EventListItem({ lang, country, project, links, timezone: config.timezone, item, view: 'card-bare', imageSize: 'small' })}</div>)}
                                     </div>
-                                </div>}
-                            {AdAside()}
+                                </div>
+                            }
                         </div>
                     </div>
                 </PageContentSection>
