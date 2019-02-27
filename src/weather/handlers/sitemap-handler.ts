@@ -48,7 +48,7 @@ export class SitemapRegionPlacesHandler extends WeatherBaseHandler<SitemapRegion
         const lang = this.getLanguage(config);
 
 
-        api.placesPlacesByAdmin1Code('places', { fields: 'id name featureCode population' }, { country, admin1Code, limit: 100 });
+        api.placesPlacesByAdmin1Code('places', { fields: 'id name featureCode population' }, { country, admin1Code, limit: 1000 });
 
         const result = await data.executeApiClient(api);
 
