@@ -55,10 +55,10 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
                 items.push(AdTop())
             }
         }
-        else if (index === 6) {
+        else if (index === 4) {
             items.push(SubscribeBar({ locales, config, lang, place }))
         }
-        else if (index === 4) {
+        else if (index === 3) {
             if (!config.disabledAds) {
                 items.push(AdCenter())
             }
