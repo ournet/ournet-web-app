@@ -35,6 +35,7 @@ export function LogoImage({ country }: LogoImageProps) {
                 </span>
             );
         case 'lv':
+        case 'kz':
             return (
                 <span className={`c-logo-image v--${country}`}>
                     <span className='c-logo-image_t1'>Meteo</span>
