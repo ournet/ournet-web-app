@@ -138,5 +138,9 @@
     "www.meteo2.lv": {
         "project": "weather",
         "country": "lv"
+    },
+    "www.meteo2.kz": {
+        "project": "weather",
+        "country": "kz"
     }
 }
