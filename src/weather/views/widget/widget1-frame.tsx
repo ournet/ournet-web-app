@@ -64,7 +64,7 @@ ga('send', 'pageview');`}}></script>}
 }
 
 function formatWidget(props: Widget1ViewModel) {
-    const { place, lang, links, w, locales, days, htcolor, report, bcolor, bkcolor, hbkcolor } = props;
+    const { place, lang, links, w, locales, days, htcolor, report, bcolor, bkcolor, hbkcolor, config } = props;
     const id = place.id;
     const placename = getPlaceName(place, lang);
     const longtitle = locales.weather_in_format({ name: placename });
@@ -85,11 +85,13 @@ function formatWidget(props: Widget1ViewModel) {
 
     let body = '';
 
+    const timezone = !!moment.tz.zone(place.timezone) ? place.timezone : config.timezone;
+
     for (var i = 0; i < days && i < report.data.length; i++) {
         const day = report.data[i],
             symbolName = WeatherHelpers.iconName(day.icon, lang),
             temperature = Math.round(day.temperatureHigh || day.temperature) + '&deg; | ' + Math.round(day.temperatureLow || day.temperature) + '&deg;',
-            date = moment(new Date(day.time * 1000)).tz(place.timezone).locale(lang);
+            date = moment(new Date(day.time * 1000)).tz(timezone).locale(lang);
 
         const line = '<div class="line"><table width="100%" border="0" cellspacing="0"><tr><td class="day"><div class="name">' + date.format('dd') + '</div><div class="date">' + date.format('D MMM') + '</div></td><td class="icon"><span class="w-icon wi-' + day.icon + '" title="' + symbolName + '"></span></td><td class="details"><div class="temp">' + temperature + '</div><div class="name" title="' + symbolName + '">' + symbolName + '</div></td></tr></table></div>';
         body += line;

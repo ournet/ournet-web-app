@@ -26,7 +26,7 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
         return <div className='c-nodata'>{locales.forecast_no_data()}</div>
     }
 
-    const timezone = place.timezone;
+    const timezone = !!moment.tz.zone(place.timezone) ? place.timezone : config.timezone;
     let lastDay = -1;
 
     report.data.forEach(item => {
@@ -63,7 +63,7 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
                 items.push(AdCenter())
             }
         }
-        items.push(PlaceDayReport({ lang, locales, holidays, filter: index === 0, place, report: { icon: 0, data: dayData } }));
+        items.push(PlaceDayReport({ lang, locales, holidays, filter: index === 0, config, place, report: { icon: 0, data: dayData } }));
     })
 
     return (

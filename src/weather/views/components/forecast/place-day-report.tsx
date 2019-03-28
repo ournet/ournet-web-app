@@ -7,6 +7,7 @@ import { ForecastTemp } from '../../../../views/components/weather/forecast-temp
 import { toBeaufort, unixTime } from '../../../../helpers';
 import { OurnetLocales } from '../../../../locales';
 import { WeatherHelpers } from '../../../helpers';
+import { OurnetAppConfig } from '../../../../ournet/config';
 
 
 export type PlaceDayReportProps = {
@@ -16,11 +17,12 @@ export type PlaceDayReportProps = {
     report: HoursForecastDataBlock
     filter: boolean
     holidays: PublicHoliday[]
+    config: OurnetAppConfig
 }
 
-export function PlaceDayReport({ place, report, lang, locales, filter, holidays }: PlaceDayReportProps) {
+export function PlaceDayReport({ place, report, lang, locales, filter, holidays, config }: PlaceDayReportProps) {
 
-    const timezone = place.timezone;
+    const timezone = !!moment.tz.zone(place.timezone) ? place.timezone : config.timezone;
     const dayDate = moment(report.data[report.data.length - 1].time * 1000).tz(timezone).locale(lang);
 
     let data = report.data;
@@ -56,7 +58,7 @@ export function PlaceDayReport({ place, report, lang, locales, filter, holidays 
     });
 
     return (
-        <div className='day-report' >
+        <div key={data[0].time} className='day-report' >
             <div className={'dr-caption' + (isWeekend ? ' weekend' : '')}>
                 <div className='dr-c-date'>
                     {dayDate.format('dddd') + ' , ' + dayDate.format('D MMMM')}

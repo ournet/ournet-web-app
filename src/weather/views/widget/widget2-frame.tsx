@@ -140,7 +140,7 @@ ga('send', 'pageview');`}}></script>}
 }
 
 function formatWidget(props: Widget2ViewModel) {
-    const { place, lang, links, locales, report } = props;
+    const { place, lang, links, locales, report, config } = props;
     const { pos, w, header, showInfo, days } = props.widget;
     const id = place.id;
     const placename = getPlaceName(place, lang);
@@ -169,11 +169,13 @@ function formatWidget(props: Widget2ViewModel) {
 
     body.push('<div id="body"><ul class="table">');
 
+    const timezone = !!moment.tz.zone(place.timezone) ? place.timezone : config.timezone;
+
     for (var i = 0; i < days && i < report.data.length; i++) {
         const day = report.data[i];
 
         const symbolName = WeatherHelpers.iconName(day.icon, lang);
-        const date = moment(new Date(day.time * 1000)).tz(place.timezone).locale(lang);
+        const date = moment(new Date(day.time * 1000)).tz(timezone).locale(lang);
 
         body.push('<li class="item" onclick="window.open(\'' + url + '\', \'_blank\');">');
         body.push('<ul class="in-table"><li class="date"><div class="inner"><span class="day-name">' + date.format('ddd') + '</span><span class="day-date">' + date.format('D MMM') + '</span></div></li>');
