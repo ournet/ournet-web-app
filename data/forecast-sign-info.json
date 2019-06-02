@@ -1,0 +1,25 @@
+{
+  "1": {
+    "day": {
+      "darkColor": "4c90f4",
+      "lightColor": "3e9eee",
+      "previewImage": ""
+    },
+    "night": {
+      "darkColor": "162a62",
+      "lightColor": "16315f",
+      "previewImage": ""
+    }
+  },
+  "3": {
+    "darkColor": "4c90f4",
+    "lightColor": "3e9eee",
+    "previewImage": ""
+  },
+  "4": {
+    "darkColor": "162a62",
+    "lightColor": "16315f",
+    "previewImage": ""
+  }
+}
+// sleet: https://yastatic.net/s3/weather-frontend/_/ewLl1a9gDK0ke824wMQgBP1org8.svg
