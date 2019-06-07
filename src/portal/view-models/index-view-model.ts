@@ -17,7 +17,7 @@ export class IndexViewModelBuilder<T extends IndexViewModel, I extends OurnetVie
 
         this.setCanonical(links.portal.home({ ul: lang }));
 
-        this.apiClient.newsEventsLatest('latestEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 14 } })
+        this.apiClient.newsEventsLatest('latestEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 15 } })
             .quotesLatest('latestQuotes', { fields: QuoteStringFields }, { params: { lang, country, limit: 6 } });
 
         return super.build();
