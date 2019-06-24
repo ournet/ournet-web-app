@@ -28,7 +28,7 @@ function timeLineItemView({ links, lang, timezone, item }: ItemListItemProps) {
     return (
         <div className='c-item-it c-item-it--tline'>
             <time dateTime={createdAt.toISOString()}>{createdAt.fromNow(true)}</time>
-            <a title={item.title} href={links.news.item(item.id, { ul: lang })}>{truncateAt(item.title, 90)}</a>
+            <a title={item.title} target="_blank" rel="nofollow noindex" href={links.news.item(item.id, { ul: lang })}>{truncateAt(item.title, 90)}</a>
         </div>
     )
 }
