@@ -13,6 +13,7 @@ export class RobotsRouter extends NewsBaseRouter {
 Disallow: /controls
 Disallow: /actions
 Disallow: /video_embed
+Disallow: /item
 `,
             code: 200,
             headers: { 'Content-Type': 'text/plain; charset=UTF-8' },
