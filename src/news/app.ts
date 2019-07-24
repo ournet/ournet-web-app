@@ -23,46 +23,61 @@ import { RobotsRouter } from "./routes/static-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
 import { VideoEmbedRouter } from "./routes/video-embed-router";
 import { QuoteRouter } from "./routes/quote-router";
+import { AdsRouter } from "../ournet/routers/ads-router";
 
 export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
+  constructor() {
+    super(
+      [
+        new AdsRouter(),
+        new RobotsRouter(),
 
-    constructor() {
-        super([
-            new RobotsRouter(),
+        new IndexRouter(),
+        new ImportantRouter(),
+        new QuotesRouter(),
+        new TopicRouter(),
+        new EventRouter(),
+        new ItemRouter(),
+        new QuoteRouter(),
 
-            new IndexRouter(),
-            new ImportantRouter(),
-            new QuotesRouter(),
-            new TopicRouter(),
-            new EventRouter(),
-            new ItemRouter(),
-            new QuoteRouter(),
-            
-            new ViewEventRouter(),
-            new ViewItemRouter(),
+        new ViewEventRouter(),
+        new ViewItemRouter(),
 
-            new UrlRouter(),
-            new FaviconRouter(),
-            new AppleIconRouter(),
-            new AdsenseAdsRouter(),
-            new ManifestRouter(),
+        new UrlRouter(),
+        new FaviconRouter(),
+        new AppleIconRouter(),
+        new AdsenseAdsRouter(),
+        new ManifestRouter(),
 
-            new RssImportantRouter(),
-            new RssStoriesRouter(),
-            new RssTopicStoriesRouter(),
+        new RssImportantRouter(),
+        new RssStoriesRouter(),
+        new RssTopicStoriesRouter(),
 
-            new VideoEmbedRouter(),
-        ], OurnetProjectName.NEWS);
-    }
+        new VideoEmbedRouter()
+      ],
+      OurnetProjectName.NEWS
+    );
+  }
 
-    protected handleError(req: Request, res: Response, error: Error): Promise<void> {
-        super.onError(error, req, res);
+  protected handleError(
+    req: Request,
+    res: Response,
+    error: Error
+  ): Promise<void> {
+    super.onError(error, req, res);
 
-        const url = parse(req.url || '', true);
-        const host = req.headers.host || ''
-        const hostInfo = getHostInfo(host);
+    const url = parse(req.url || "", true);
+    const host = req.headers.host || "";
+    const hostInfo = getHostInfo(host);
 
-        return new ErrorHandler({ req, res, error, url, host, project: hostInfo.project, country: hostInfo.country })
-            .handle(this.data);
-    }
+    return new ErrorHandler({
+      req,
+      res,
+      error,
+      url,
+      host,
+      project: hostInfo.project,
+      country: hostInfo.country
+    }).handle(this.data);
+  }
 }

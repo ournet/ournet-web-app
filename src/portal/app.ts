@@ -11,29 +11,44 @@ import { getHostInfo } from "../hosts";
 import { RobotsRouter } from "./routes/static-router";
 import { PrefixOldWidgetRedirectRouter } from "./routes/redirect-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
+import { AdsRouter } from "../ournet/routers/ads-router";
 
 export class PortalOurnetApp extends OurnetApp<OurnetAppData> {
+  constructor() {
+    super(
+      [
+        new AdsRouter(),
+        new RobotsRouter(),
+        new IndexRouter(),
+        new FaviconRouter(),
+        new AppleIconRouter(),
+        new AdsenseAdsRouter(),
+        new ManifestRouter(),
+        new PrefixOldWidgetRedirectRouter()
+      ],
+      OurnetProjectName.PORTAL
+    );
+  }
 
-    constructor() {
-        super([
-            new RobotsRouter(),
-            new IndexRouter(),
-            new FaviconRouter(),
-            new AppleIconRouter(),
-            new AdsenseAdsRouter(),
-            new ManifestRouter(),
-            new PrefixOldWidgetRedirectRouter()
-        ], OurnetProjectName.PORTAL);
-    }
+  protected handleError(
+    req: Request,
+    res: Response,
+    error: Error
+  ): Promise<void> {
+    super.onError(error, req, res);
 
-    protected handleError(req: Request, res: Response, error: Error): Promise<void> {
-        super.onError(error, req, res);
+    const url = parse(req.url || "", true);
+    const host = req.headers.host || "";
+    const hostInfo = getHostInfo(host);
 
-        const url = parse(req.url || '', true);
-        const host = req.headers.host || ''
-        const hostInfo = getHostInfo(host);
-
-        return new ErrorHandler({ req, res, error, url, host, project: hostInfo.project, country: hostInfo.country })
-            .handle(this.data);
-    }
+    return new ErrorHandler({
+      req,
+      res,
+      error,
+      url,
+      host,
+      project: hostInfo.project,
+      country: hostInfo.country
+    }).handle(this.data);
+  }
 }
