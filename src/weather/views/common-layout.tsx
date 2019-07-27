@@ -39,6 +39,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                         </div>
                         <div className="o-layout__item u-2/6@tablet">
                             {!config.disabledAds && AdAside()}
+                            <div className="c-ad"><div key="SC_TBlock_673203" id="SC_TBlock_673203" className="SC_TBlock"></div></div>
                             {latestNews && latestNews.length > 0 &&
                                 <div className='c-section'>
                                     {SectionHeader({ name: locales.latest_news(), link: getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country) + links.news.home({ ul: lang }) })}

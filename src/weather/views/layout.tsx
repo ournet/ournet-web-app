@@ -135,6 +135,12 @@ function getFooterScripts(country: string) {
                         domain : "n.domnovrek.com"
                       });`}}>
                 </script>
+                <script dangerouslySetInnerHTML={{
+                    __html: `(sc_adv_out = window.sc_adv_out || []).push({
+                        id : "673203",
+                        domain : "n.domnovrek.com"
+                      });`}}>
+                </script>
                 <script async defer type="text/javascript" src="//st-n.domnovrek.com/js/a.js"></script>
             </ins>
         )
