@@ -11,7 +11,8 @@ export class AdsRouter extends OurnetRouter {
       req,
       res,
       data: `google.com, pub-3959589883092051, DIRECT, f08c47fec0942fa0
-            `,
+mgid.com, 404611, DIRECT, d4c29acad76ce94f
+`,
       code: 200,
       headers: { "Content-Type": "text/plain; charset=UTF-8" }
     });

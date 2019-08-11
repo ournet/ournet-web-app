@@ -55,6 +55,17 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
                 items.push(AdTop())
             }
         }
+        if (index === 2) {
+            if (config.domain === "moti2.al") {
+                items.push(<div id="M454705ScriptRootC701831"><div id="M454705PreloadC701831"></div><script dangerouslySetInnerHTML={{
+                    __html: `(function(){
+                        var D=new Date(),d=document,b='body',ce='createElement',ac='appendChild',st='style',ds='display',n='none',gi='getElementById',lp=d.location.protocol,wp=lp.indexOf('http')==0?lp:'https:';
+                        var i=d[ce]('iframe');i[st][ds]=n;d[gi]("M454705ScriptRootC701831")[ac](i);try{var iw=i.contentWindow.document;iw.open();iw.writeln("<ht"+"ml><bo"+"dy></bo"+"dy></ht"+"ml>");iw.close();var c=iw[b];}
+                        catch(e){var iw=d;var c=d[gi]("M454705ScriptRootC701831");}var dv=iw[ce]('div');dv.id="MG_ID";dv[st][ds]=n;dv.innerHTML=701831;c[ac](dv);
+                        var s=iw[ce]('script');s.async='async';s.defer='defer';s.charset='utf-8';s.src=wp+"//jsc.mgid.com/m/o/moti2.al.701831.js?t="+D.getUTCFullYear()+D.getUTCMonth()+D.getUTCDate()+D.getUTCHours();c[ac](s);})();`}}>
+                </script></div>);
+            }
+        }
         else if (index === 6) {
             items.push(SubscribeBar({ locales, config, lang, place }))
         }
