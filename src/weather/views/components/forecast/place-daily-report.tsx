@@ -54,8 +54,6 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
             if (!config.disabledAds) {
                 items.push(AdTop())
             }
-        }
-        if (index === 2) {
             if (config.domain === "moti2.al") {
                 items.push(<div id="M454705ScriptRootC701831"><div id="M454705PreloadC701831"></div><script dangerouslySetInnerHTML={{
                     __html: `(function(){
