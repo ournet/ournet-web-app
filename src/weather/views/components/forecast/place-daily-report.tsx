@@ -55,11 +55,6 @@ export function PlaceDailyReport({ place, report, locales, lang, config, holiday
                 items.push(AdTop())
             }
         }
-        else if (index === 2) {
-            if (config.domain === "moti2.al") {
-                items.push(<div className="c-ad"><div key="SC_TBlock_672309" id="SC_TBlock_672309" className="SC_TBlock"></div></div>);
-            }
-        }
         else if (index === 6) {
             items.push(SubscribeBar({ locales, config, lang, place }))
         }
