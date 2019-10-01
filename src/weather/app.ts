@@ -42,6 +42,7 @@ import {
   SitemapRegionPlacesRouter
 } from "./routes/sitemap-router";
 import { AdsRouter } from "../ournet/routers/ads-router";
+import { NewsletterUnsubscribeRouter } from "./routes/newsletter-unsubscribe-router";
 
 export class WeatherOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
@@ -83,7 +84,9 @@ export class WeatherOurnetApp extends OurnetApp<OurnetAppData> {
         new PrefixOldWidgetRedirectRouter(),
         new OldWidgetRedirectRouter(),
 
-        new JsonFindPlaceRouter()
+        new JsonFindPlaceRouter(),
+
+        new NewsletterUnsubscribeRouter()
       ],
       OurnetProjectName.WEATHER
     );
