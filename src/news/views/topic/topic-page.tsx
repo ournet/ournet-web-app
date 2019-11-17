@@ -3,7 +3,6 @@ import * as React from 'react';
 import CommonLayout from '../common-layout';
 import { TopicViewModel } from '../../view-models/topic-view-model';
 import { entipicUrl } from '../../../helpers';
-// import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { SectionHeader } from '../../../views/components/section-header';
 import { EventListItem } from '../components/event-list-item';
@@ -13,7 +12,6 @@ import { AdCenter } from '../components/ads/ad-center';
 import PageContentSection from '../../../views/components/page-content-section';
 import { AdAside } from '../components/ads/ad-aside';
 import { Quote } from '@ournet/api-client';
-import { Share } from '../../../views/components/share';
 
 export default class TopicPage extends React.Component<TopicViewModel> {
     render() {
@@ -54,7 +52,7 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                                         <img className='c-topic-h__img o-lazy' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' data-src={entipicUrl(topic.name, 'b', lang, country)} alt={topic.name} />
                                     </div>
                                     <div className='o-media__body'>
-                                        {PageTitle({ title: (title || head.title), subTitle: head.description, preSubTitle: Share({ lang, url: head.canonical, align: 'right', services: config.shareServices }) })}
+                                        {PageTitle({ title: (title || head.title), subTitle: head.description })}
                                     </div>
                                 </div>
                                 {topicNews.length > 0 ? <div className='c-section'>

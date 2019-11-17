@@ -5,7 +5,6 @@ import { OurnetProjectName } from '../../ournet/data';
 import { OurnetLocales } from '../../locales';
 import { OurnetAppConfig } from '../../ournet/config';
 import { PageHeadViewData } from '../../ournet/page-view-model';
-import { Share } from './share';
 
 interface PageFooterProps {
     project: OurnetProjectName
@@ -19,7 +18,7 @@ interface PageFooterProps {
     preInfo?: React.ReactNode
 }
 
-export function PageFooter({ project, locales, lang, config, country, version, head, utilLinks, preInfo }: PageFooterProps) {
+export function PageFooter({ project, locales, config, country, version, utilLinks, preInfo }: PageFooterProps) {
 
     return (
         <footer className='c-footer'>
@@ -29,7 +28,6 @@ export function PageFooter({ project, locales, lang, config, country, version, h
                         <div>{locales.contact()} <a href={'mailto:' + config.email}>{config.email}</a></div>
                         {preInfo}
                         <p>Version: {version}</p>
-                        <div>{Share({ url: head.canonical || '', title: head.title, lang, services: config.shareServices })}</div>
                     </div>
                     <div className='o-layout__item u-1/3@tablet o-footer-useful'>
                         {utilLinks && utilLinks.map(item => <div key={item.id}><a href={item.url} title={item.title}>{item.text}</a></div>)}

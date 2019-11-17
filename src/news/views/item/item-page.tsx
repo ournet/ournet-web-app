@@ -6,7 +6,6 @@ import { ItemViewModel } from '../../view-models/item-view-model';
 import { FormatArticleContent } from '../components/format-article-content';
 import * as moment from 'moment-timezone';
 import { ItemMedia } from './item-media';
-import { Share } from '../../../views/components/share';
 import { OutReadMoreLink } from '../components/out-read-more';
 import { startWithUpperCase } from '../../../helpers';
 import { TopicListItem } from '../components/topic-list-item';
@@ -65,7 +64,6 @@ export default class ItemPage extends React.Component<ItemViewModel> {
                                                     {paragraphs}
                                                 </div>
                                                 <div className='u-clearfix'>
-                                                    {Share({ url: head.canonical || '', align: 'right', services: config.shareServices, lang, size: 'long' })}
                                                     {OutReadMoreLink({ url: item.urlHost + item.urlPath, source: startWithUpperCase(item.sourceId), links, locales })}
                                                 </div>
                                                 <hr />

@@ -6,7 +6,6 @@ import { Sitemap, getSchema, getHost } from 'ournet.links';
 import { truncateAt, entipicUrl } from '../../../helpers';
 import { OurnetProjectName } from '../../../ournet/data';
 import { getPersonDisplayName } from '../../helpers';
-import { Share } from '../../../views/components/share';
 
 export type QuoteListItemProps = {
     timezone: string
@@ -31,7 +30,7 @@ export function QuoteListItem(props: QuoteListItemProps) {
 }
 
 
-function cardItemView({ item, maxLength, timezone, lang, country, links, project, shareServices }: QuoteListItemProps) {
+function cardItemView({ item, maxLength, timezone, lang, country, links, project }: QuoteListItemProps) {
     const createdAt = moment(item.createdAt).tz(timezone).locale(lang);
     const author = item.author;
 
@@ -39,13 +38,10 @@ function cardItemView({ item, maxLength, timezone, lang, country, links, project
         ? (getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country))
         : '';
     const link = urlPrefix + links.news.quote(item.id, { ul: lang });
-    const canonical = getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country)
-        + links.news.quote(item.id, { ul: lang });
 
     return (
         <div className='c-quote-it c-quote-it--card'>
             <a href={link} className='c-quote-it__text' tabIndex={0}><i>“</i> {truncateAt(item.text, maxLength || 200)}</a>
-            {shareServices && Share({ url: canonical, lang, services: shareServices, align: 'right', size: 'tiny' })}
             <div className='c-quote-it__media'>
                 <div className='c-quote-it__icon o-lazy' data-src={entipicUrl(author.name, 'a', lang, country)}></div>
                 <div className='c-quote-it__body'>
@@ -58,17 +54,14 @@ function cardItemView({ item, maxLength, timezone, lang, country, links, project
     )
 }
 
-function mainItemView({ item, timezone, lang, country, links, shareServices }: QuoteListItemProps) {
+function mainItemView({ item, timezone, lang, country, links }: QuoteListItemProps) {
     const createdAt = moment(item.createdAt).tz(timezone).locale(lang);
     const author = item.author;
     const link = links.news.quote(item.id, { ul: lang });
-    const canonical = getSchema(OurnetProjectName.NEWS, country) + '//' + getHost(OurnetProjectName.NEWS, country)
-        + link;
 
     return (
         <div className='c-quote-it c-quote-it--card'>
             <a href={link} className='c-quote-it__text' tabIndex={0}><i>“</i> {item.text}</a>
-            {shareServices && Share({ url: canonical, lang, services: shareServices, align: 'right' })}
             <div className='c-quote-it__media'>
                 <div className='c-quote-it__icon o-lazy' data-src={entipicUrl(author.name, 'a', lang, country)}></div>
                 <div className='c-quote-it__body'>

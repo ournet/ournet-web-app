@@ -7,7 +7,6 @@ import * as moment from 'moment-timezone';
 import { OutReadMoreLink } from '../components/out-read-more';
 import { startWithUpperCase } from '../../../helpers';
 import { FormatArticleContent } from '../components/format-article-content';
-import { Share } from '../../../views/components/share';
 import { SectionHeader } from '../../../views/components/section-header';
 import { AdAside } from '../components/ads/ad-aside';
 import { EventMedia } from './event-media';
@@ -61,7 +60,6 @@ export default class EventPage extends React.Component<EventViewModel> {
                                                     {paragraphs}
                                                 </div>
                                                 <div className='u-clearfix'>
-                                                    {Share({ url: head.canonical || '', align: 'right', services: config.shareServices, lang, size: 'long' })}
                                                     {OutReadMoreLink({ url: event.source.host + event.source.path, source: startWithUpperCase(event.source.sourceId), links, locales })}
                                                 </div>
                                                 {eventQuotes && <div className='c-event_quotes'>{eventQuotes.map(item => QuoteListItem({ item, view: 'card', country, lang, links, timezone: config.timezone, shareServices: config.shareServices }))}</div>}

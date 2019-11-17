@@ -4,7 +4,6 @@ import CommonLayout from '../common-layout';
 import { EventListItem } from '../components/event-list-item';
 import { QuoteListItem } from '../components/quote-list-item';
 import { GroupHeader } from '../../../views/components/group-header';
-import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { QuotesViewModel } from '../../view-models/quotes-view-model';
 import { AdCenter } from '../components/ads/ad-center';
@@ -21,7 +20,6 @@ export default class QuotesPage extends React.Component<QuotesViewModel> {
             <CommonLayout {...this.props}>
                 <PageContentSection>
                     <main>
-                        {Share({ lang, url: head.canonical, align: 'right', services: config.shareServices })}
                         {PageTitle({ title: (title || head.title), subTitle: (subTitle || head.description) })}
 
                         <div className='o-layout'>

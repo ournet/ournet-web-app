@@ -2,7 +2,6 @@
 import * as React from 'react';
 import CommonLayout from '../common-layout';
 import { SignViewModel } from '../../view-models/sign-view-model';
-import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { HoroscopeDayReport } from '../components/horoscope-day-report';
 import { AdBottom } from '../components/ads/ad-bottom';
@@ -14,11 +13,14 @@ export function SignPage(props: SignViewModel) {
 
     const { lang, country, head, locales, links, config, title, subTitle, report, currentDayPeriodText } = props;
 
+    props.head.elements.push(<link key="facebook-connect" rel="dns-prefetch" href="https://connect.facebook.net" />);
+    props.head.elements.push(<link key="facebook-m" rel="dns-prefetch" href="https://m.facebook.com" />);
+
     return (
         <CommonLayout {...props}>
             <main>
-                {PageTitle({ title: title || head.title, subTitle: subTitle || head.description, preSubTitle: Share({ services: config.shareServices, lang, align: 'right', url: head.canonical }) })}
-                <br/>
+                {PageTitle({ title: title || head.title, subTitle: subTitle || head.description })}
+                <br />
                 {HoroscopeDayReport({ lang, report, date: currentDayPeriodText, footer: true, links, locales })}
                 {HoroscopeSignsLine({ lang, country, links })}
                 {HoroscopeAppAdCard({ lang })}

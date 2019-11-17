@@ -3,16 +3,13 @@ import * as React from 'react';
 import { PlaceViewModel } from '../../view-models/place-view-model';
 import { getPlaceName } from '../../../helpers';
 import { PageTitle } from '../../../views/components/page-title';
-import { Share } from '../../../views/components/share';
 import { PlaceDailyReport } from '../components/forecast/place-daily-report';
 import CommonLayout from '../common-layout';
 import { BreadcrumbData, Breadcrumb } from '../../../views/components/breadcrumb';
 
-
-
 export function PlacePage(props: PlaceViewModel) {
 
-    const { locales, lang, links, place, placeForecast, holidays, title, subTitle, description, config, head } = props;
+    const { locales, lang, links, place, placeForecast, holidays, title, subTitle, description, config } = props;
 
     const localeParams = { ul: lang };
 
@@ -34,8 +31,7 @@ export function PlacePage(props: PlaceViewModel) {
         <CommonLayout {...props}>
             <main>
                 {Breadcrumb(breadcrumbData)}
-                {PageTitle({ title, subTitle: description, preSubTitle: Share({ services: config.shareServices, align: 'right', url: head.canonical, lang }) })}
-
+                {PageTitle({ title, subTitle: description })}
                 {PlaceDailyReport({ holidays, report: placeForecast && placeForecast.details, place, lang, config, locales })}
                 <p className='c-seo-mute'>{subTitle}</p>
             </main>

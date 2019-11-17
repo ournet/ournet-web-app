@@ -1,6 +1,5 @@
 
 import * as React from 'react';
-import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { WidgetsViewModel } from '../../view-models/widgets-view-model';
 import { getHost } from 'ournet.links';
@@ -25,7 +24,6 @@ export function WidgetsPage(props: WidgetsViewModel) {
         <Layout {...props}>
             <PageContentSection>
                 <main>
-                    {Share({ services: config.shareServices, lang, align: 'right', url: head.canonical })}
                     {PageTitle({ title: title || head.title, subTitle: subTitle || head.description })}
                     <style dangerouslySetInnerHTML={{
                         __html: `

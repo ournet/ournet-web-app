@@ -1,10 +1,9 @@
 
 import * as React from 'react';
 import { getSchema, getHost } from 'ournet.links';
-import { Share } from '../../../views/components/share';
 import { HoroscopeViewModel } from '../../view-models/horoscope-view-model';
 
-export function PageFooter({ project, locales, lang, config, country, version, head }: HoroscopeViewModel) {
+export function PageFooter({ project, locales, lang, config, country, version }: HoroscopeViewModel) {
 
     return (
         <footer className='c-footer'>
@@ -14,7 +13,6 @@ export function PageFooter({ project, locales, lang, config, country, version, h
                         <h4>{locales.info()}</h4>
                         <div>{locales.contact()} <a href={'mailto:' + config.email}>{config.email}</a></div>
                         <p>Version: {version}</p>
-                        <div>{Share({ url: head.canonical, lang, services: config.shareServices })}</div>
                     </div>
                     <div className='o-layout__item u-1/3@tablet o-footer-sites'>
                         <h4>{locales.international()}</h4>

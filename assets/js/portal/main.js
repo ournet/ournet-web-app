@@ -1,3 +1,2 @@
-
-require('../news/lazy');
-require('../base/share');
+require("../news/lazy");
+// require('../base/share');

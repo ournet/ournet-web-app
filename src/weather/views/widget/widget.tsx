@@ -1,7 +1,6 @@
 
 import * as React from 'react';
 import { WidgetViewModel } from '../../view-models/widget-view-model';
-import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { Widget1Config } from './components/widget1-config';
 import { Widget2Config } from './components/widget2-config';
@@ -13,7 +12,7 @@ import PageContentSection from '../../../views/components/page-content-section';
 
 export function WidgetPage(props: WidgetViewModel) {
 
-    const { locales, lang, config, head, project } = props;
+    const { locales, head, project } = props;
 
     return (
         <Layout {...props}>
@@ -21,7 +20,6 @@ export function WidgetPage(props: WidgetViewModel) {
                 <main>
                     <div className='o-layout'>
                         <div className='o-layout__item u-2/5@tablet'>
-                            {Share({ url: head.canonical, services: config.shareServices, lang, align: 'right' })}
                             {PageTitle({ title: head.title, subTitle: head.description })}
 
                             <div id='widget-configs'>

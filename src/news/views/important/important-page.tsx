@@ -5,7 +5,6 @@ import { EventListItem } from '../components/event-list-item';
 import { QuoteListItem } from '../components/quote-list-item';
 import { GroupHeader } from '../../../views/components/group-header';
 import { ImportantViewModel } from '../../view-models/important-view-model';
-import { Share } from '../../../views/components/share';
 import { PageTitle } from '../../../views/components/page-title';
 import { AdCenter } from '../components/ads/ad-center';
 import PageContentSection from '../../../views/components/page-content-section';
@@ -23,7 +22,6 @@ export default class ImportantPage extends React.Component<ImportantViewModel> {
             <CommonLayout {...this.props}>
                 <PageContentSection>
                     <main>
-                        {Share({ lang, url: head.canonical, align: 'right', services: config.shareServices })}
                         {PageTitle({ title: (title || head.title), subTitle: (subTitle || head.description) })}
 
                         <div className='o-layout'>
