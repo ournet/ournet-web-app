@@ -3,7 +3,7 @@ require("../news/lazy");
 require("./forecast-browser");
 require("./widget-config");
 require("../base/subscribe-box");
-var adsenseLoader = require("../base/adsense-loader");
+const adsenseLoader = require("../base/adsense-loader");
 
 new window.LazyLoad({
   elements_selector: ".o-lazy-noext",
