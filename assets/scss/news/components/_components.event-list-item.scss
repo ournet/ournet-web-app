@@ -1,3 +1,5 @@
+$story-card-height: 280px;
+
 .c-event-it {
   overflow: hidden;
   background-color: #fff;
@@ -108,7 +110,7 @@ $media-icon-color: #fff;
 }
 
 .c-event-it.v--card {
-  height: 300px;
+  height: $story-card-height;
   width: 100%;
   margin-bottom: $global-spacing-unit;
   position: relative;
@@ -133,7 +135,7 @@ $media-icon-color: #fff;
   }
 
   .c-event-it__media {
-    height: 50%;
+    height: 54%;
     width: 100%;
     position: absolute;
     top: 0;
@@ -186,13 +188,9 @@ $media-icon-color: #fff;
   }
 
   .c-event-it__title {
-    height: 96px;
+    height: 4.3rem;
     overflow: hidden;
-    // font-weight: 500;
-    // font-size: 17px;
-    // line-height: 22px; // font-family: $global-font-family;
     margin-bottom: 0px;
-    // text-shadow: 1px 1px 1px rgba(10, 10, 10, .3);
   }
 
   .c-event-it__stats {
@@ -214,6 +212,7 @@ $media-icon-color: #fff;
       text-align: right;
       float: right;
       font-size: 85%;
+      margin-top: 2px;
     }
   }
 
