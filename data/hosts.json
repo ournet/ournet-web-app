@@ -1,146 +1,150 @@
 {
-    "meteo.ournet.ro": {
-        "project": "weather",
-        "country": "ro"
-    },
-    "www.ournet.ro": {
-        "project": "portal",
-        "country": "ro"
-    },
-    "news.ournet.ro": {
-        "project": "news",
-        "country": "ro"
-    },
-    "horoscop.ournet.ro": {
-        "project": "horoscope",
-        "country": "ro"
-    },
-    "meteo.click.md": {
-        "project": "weather",
-        "country": "md"
-    },
-    "www.click.md": {
-        "project": "portal",
-        "country": "md"
-    },
-    "news.click.md": {
-        "project": "news",
-        "country": "md"
-    },
-    "horoscop.click.md": {
-        "project": "horoscope",
-        "country": "md"
-    },
-    "pogoda.zborg.ru": {
-        "project": "weather",
-        "country": "ru"
-    },
-    "www.zborg.ru": {
-        "project": "portal",
-        "country": "ru"
-    },
-    "news.zborg.ru": {
-        "project": "news",
-        "country": "ru"
-    },
-    "horoscope.zborg.ru": {
-        "project": "horoscope",
-        "country": "ru"
-    },
-    "www.ournet.bg": {
-        "project": "portal",
-        "country": "bg"
-    },
-    "news.ournet.bg": {
-        "project": "news",
-        "country": "bg"
-    },
-    "horoscope.ournet.bg": {
-        "project": "horoscope",
-        "country": "bg"
-    },
-    "vremeto.ournet.bg": {
-        "project": "weather",
-        "country": "bg"
-    },
-    "www.ournet.in": {
-        "project": "portal",
-        "country": "in"
-    },
-    "news.ournet.in": {
-        "project": "news",
-        "country": "in"
-    },
-    "horoscope.ournet.in": {
-        "project": "horoscope",
-        "country": "in"
-    },
-    "weather.ournet.in": {
-        "project": "weather",
-        "country": "in"
-    },
-    "www.ournet.it": {
-        "project": "portal",
-        "country": "it"
-    },
-    "news.ournet.it": {
-        "project": "news",
-        "country": "it"
-    },
-    "oroscopo.ournet.it": {
-        "project": "horoscope",
-        "country": "it"
-    },
-    "meteo.ournet.it": {
-        "project": "weather",
-        "country": "it"
-    },
-    "www.ournet.hu": {
-        "project": "portal",
-        "country": "hu"
-    },
-    "news.ournet.hu": {
-        "project": "news",
-        "country": "hu"
-    },
-    "horoszkop.ournet.hu": {
-        "project": "horoscope",
-        "country": "hu"
-    },
-    "idojaras.ournet.hu": {
-        "project": "weather",
-        "country": "hu"
-    },
-    "www.ournet.cz": {
-        "project": "portal",
-        "country": "cz"
-    },
-    "news.ournet.cz": {
-        "project": "news",
-        "country": "cz"
-    },
-    "horoskop.ournet.cz": {
-        "project": "horoscope",
-        "country": "cz"
-    },
-    "pocasi.ournet.cz": {
-        "project": "weather",
-        "country": "cz"
-    },
-    "www.moti2.al": {
-        "project": "weather",
-        "country": "al"
-    },
-    "www.hava.one": {
-        "project": "weather",
-        "country": "tr"
-    },
-    "www.meteo2.lv": {
-        "project": "weather",
-        "country": "lv"
-    },
-    "www.meteo2.kz": {
-        "project": "weather",
-        "country": "kz"
-    }
+  "meteo.ournet.ro": {
+    "project": "weather",
+    "country": "ro"
+  },
+  "www.ournet.ro": {
+    "project": "portal",
+    "country": "ro"
+  },
+  "news.ournet.ro": {
+    "project": "news",
+    "country": "ro"
+  },
+  "horoscop.ournet.ro": {
+    "project": "horoscope",
+    "country": "ro"
+  },
+  "meteo.click.md": {
+    "project": "weather",
+    "country": "md"
+  },
+  "www.click.md": {
+    "project": "portal",
+    "country": "md"
+  },
+  "news.click.md": {
+    "project": "news",
+    "country": "md"
+  },
+  "horoscop.click.md": {
+    "project": "horoscope",
+    "country": "md"
+  },
+  "pogoda.zborg.ru": {
+    "project": "weather",
+    "country": "ru"
+  },
+  "www.zborg.ru": {
+    "project": "portal",
+    "country": "ru"
+  },
+  "news.zborg.ru": {
+    "project": "news",
+    "country": "ru"
+  },
+  "horoscope.zborg.ru": {
+    "project": "horoscope",
+    "country": "ru"
+  },
+  "www.ournet.bg": {
+    "project": "portal",
+    "country": "bg"
+  },
+  "news.ournet.bg": {
+    "project": "news",
+    "country": "bg"
+  },
+  "horoscope.ournet.bg": {
+    "project": "horoscope",
+    "country": "bg"
+  },
+  "vremeto.ournet.bg": {
+    "project": "weather",
+    "country": "bg"
+  },
+  "www.ournet.in": {
+    "project": "portal",
+    "country": "in"
+  },
+  "news.ournet.in": {
+    "project": "news",
+    "country": "in"
+  },
+  "horoscope.ournet.in": {
+    "project": "horoscope",
+    "country": "in"
+  },
+  "weather.ournet.in": {
+    "project": "weather",
+    "country": "in"
+  },
+  "www.ournet.it": {
+    "project": "portal",
+    "country": "it"
+  },
+  "news.ournet.it": {
+    "project": "news",
+    "country": "it"
+  },
+  "oroscopo.ournet.it": {
+    "project": "horoscope",
+    "country": "it"
+  },
+  "meteo.ournet.it": {
+    "project": "weather",
+    "country": "it"
+  },
+  "www.ournet.hu": {
+    "project": "portal",
+    "country": "hu"
+  },
+  "news.ournet.hu": {
+    "project": "news",
+    "country": "hu"
+  },
+  "horoszkop.ournet.hu": {
+    "project": "horoscope",
+    "country": "hu"
+  },
+  "idojaras.ournet.hu": {
+    "project": "weather",
+    "country": "hu"
+  },
+  "www.ournet.cz": {
+    "project": "portal",
+    "country": "cz"
+  },
+  "news.ournet.cz": {
+    "project": "news",
+    "country": "cz"
+  },
+  "horoskop.ournet.cz": {
+    "project": "horoscope",
+    "country": "cz"
+  },
+  "pocasi.ournet.cz": {
+    "project": "weather",
+    "country": "cz"
+  },
+  "www.moti2.al": {
+    "project": "weather",
+    "country": "al"
+  },
+  "www.hava.one": {
+    "project": "weather",
+    "country": "tr"
+  },
+  "www.meteo2.lv": {
+    "project": "weather",
+    "country": "lv"
+  },
+  "www.meteo2.kz": {
+    "project": "weather",
+    "country": "kz"
+  },
+  "www.thoi.vn": {
+    "project": "weather",
+    "country": "vn"
+  }
 }

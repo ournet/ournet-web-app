@@ -42,6 +42,13 @@ export function LogoImage({ country }: LogoImageProps) {
                     <span className='c-logo-image_n'>2</span>
                 </span>
             );
+        case 'vn':
+            return (
+                <span className={`c-logo-image v--${country}`}>
+                    <span className='c-logo-image_t1'>Thời</span>
+                    <span className='c-logo-image_t2'>.vn</span>
+                </span>
+            );
     }
 
     return (

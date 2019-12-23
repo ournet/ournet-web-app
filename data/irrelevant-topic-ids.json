@@ -1,45 +1,40 @@
 {
-    "ro-ro": [
-        "rororomania",
-        "roromediafax",
-        "rorofacebook",
-        "roroagerpres",
-        "rorobritish-broadcasting-corporation",
-        "rorothe-new-york-times",
-        "roroagence-france-presse",
-        "roroantena-1",
-        "roroantena-2",
-        "roroantena-3"
-    ],
-    "ro-md": [
-        "mdromoldova",
-        "mdrorepublica-moldova",
-        "mdromediafax",
-        "mdrofacebook",
-        "mdroagerpres",
-        "mdrobritish-broadcasting-corporation",
-        "mdrothe-new-york-times",
-        "mdroagence-france-presse"
-    ],
-    "bg-bg": [
-        "bgbgblgariya",
-        "bgbgfacebook",
-        "bgbginstagram",
-        "bgbgtwitter",
-        "bgbgroyters",
-        "bgbgblgarska-telegrafna-agenciya"
-    ],
-    "en-in": [
-        "inenindia",
-        "inenfacebook",
-        "ineninstagram",
-        "inentwitter"
-    ],
-    "ru-ru": [
-        "ruruinterfaks",
-        "rururegnum",
-        "rurutass",
-        "rururia-novosti",
-        "rurutvitter"
-    ]
+  "ro-ro": [
+    "rororomania",
+    "roromediafax",
+    "rorofacebook",
+    "roroagerpres",
+    "rorobritish-broadcasting-corporation",
+    "rorothe-new-york-times",
+    "roroagence-france-presse",
+    "roroantena-1",
+    "roroantena-2",
+    "roroantena-3"
+  ],
+  "ro-md": [
+    "mdromoldova",
+    "mdrorepublica-moldova",
+    "mdromediafax",
+    "mdrofacebook",
+    "mdroagerpres",
+    "mdrobritish-broadcasting-corporation",
+    "mdrothe-new-york-times",
+    "mdroagence-france-presse"
+  ],
+  "bg-bg": [
+    "bgbgblgariya",
+    "bgbgfacebook",
+    "bgbginstagram",
+    "bgbgtwitter",
+    "bgbgroyters",
+    "bgbgblgarska-telegrafna-agenciya"
+  ],
+  "en-in": ["inenindia", "inenfacebook", "ineninstagram", "inentwitter"],
+  "ru-ru": [
+    "ruruinterfaks",
+    "rururegnum",
+    "rurutass",
+    "rururia-novosti",
+    "rurutvitter"
+  ]
 }
