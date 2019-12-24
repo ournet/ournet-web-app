@@ -1,43 +1,34 @@
 {
-    "background_color": "#f2f0ea",
-    "theme_color": "#ca0000",
-    "languages": [
-        "ru"
-    ],
-    "timezone": "Europe/Moscow",
-    "domain": "zborg.ru",
-    "host": "pogoda.zborg.ru",
-    "email": "info@ournet-group.com",
-    "googleAnalyticsId": "UA-1490399-17",
-    "widgetGoogleAnalyticsId": "UA-1490399-58",
-    "projects": [
-        "horoscope",
-        "news",
-        "weather"
-    ],
-    "shareServices": [
-        "vk",
-        "okru",
-        "facebook"
-    ],
-    "internationalIds": [
-        "md",
-        "cz",
-        "it",
-        "bg",
-        "hu",
-        "al",
-        "in",
-        "tr",
-        "ro",
-        "lv",
-        "kz"
-    ],
-    "capitalId": "524901",
-    "facebookAppId": "406165206076337",
-    "placesCount": 150000,
-	"oneSignal": {
-		"appId": "c09904b2-9bc4-471e-800d-3a6dfadb23fa",
-		"safari_web_id": "web.onesignal.auto.5c6acdd7-2576-4d7e-9cb0-efba7bf8602e"
-	}
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["ru"],
+  "timezone": "Europe/Moscow",
+  "domain": "zborg.ru",
+  "host": "pogoda.zborg.ru",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "UA-1490399-17",
+  "widgetGoogleAnalyticsId": "UA-1490399-58",
+  "projects": ["horoscope", "news", "weather"],
+  "shareServices": ["vk", "okru", "facebook"],
+  "internationalIds": [
+    "md",
+    "cz",
+    "it",
+    "bg",
+    "hu",
+    "al",
+    "in",
+    "tr",
+    "ro",
+    "lv",
+    "kz",
+    "vn"
+  ],
+  "capitalId": "524901",
+  "facebookAppId": "406165206076337",
+  "placesCount": 150000,
+  "oneSignal": {
+    "appId": "c09904b2-9bc4-471e-800d-3a6dfadb23fa",
+    "safari_web_id": "web.onesignal.auto.5c6acdd7-2576-4d7e-9cb0-efba7bf8602e"
+  }
 }

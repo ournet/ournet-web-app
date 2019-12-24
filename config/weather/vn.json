@@ -1,7 +1,7 @@
 {
   "background_color": "#f2f0ea",
   "theme_color": "#ca0000",
-  "languages": ["en"],
+  "languages": ["vi"],
   "timezone": "Asia/Ho_Chi_Minh",
   "domain": "thoi.vn",
   "host": "www.thoi.vn",
@@ -10,8 +10,8 @@
   "widgetGoogleAnalyticsId": "UA-1490399-69",
   "projects": ["weather"],
   "shareServices": ["facebook", "twitter"],
-  "internationalIds": [],
+  "internationalIds": ["in", "ru", "kz"],
   "capitalId": "1581130",
-  "placesCount": 39000,
+  "placesCount": 62000,
   "disabledAds": true
 }

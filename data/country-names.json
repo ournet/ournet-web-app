@@ -9,7 +9,8 @@
     "hu": "Moldova",
     "pl": "Mołdawia",
     "sq": "Moldavi",
-    "tr": "Moldova"
+    "tr": "Moldova",
+    "vi": "Moldova"
   },
   "ro": {
     "it": "Romania",
@@ -21,7 +22,8 @@
     "hu": "Románia",
     "pl": "Rumunia",
     "sq": "Rumani",
-    "tr": "Romanya"
+    "tr": "Romanya",
+    "vi": "Rumani"
   },
   "ru": {
     "it": "Russia",
@@ -33,7 +35,8 @@
     "hu": "Oroszországi Föderáció",
     "pl": "Rosja",
     "sq": "Rusi",
-    "tr": "Rusya"
+    "tr": "Rusya",
+    "vi": "Nga"
   },
   "it": {
     "it": "Italia",
@@ -45,7 +48,8 @@
     "hu": "Olaszország",
     "pl": "Włochy",
     "sq": "Itali",
-    "tr": "İtalya"
+    "tr": "İtalya",
+    "vi": "Nước Ý"
   },
   "bg": {
     "it": "Bulgaria",
@@ -56,7 +60,8 @@
     "hu": "Bulgária",
     "pl": "Bułgaria",
     "sq": "Bulgari",
-    "tr": "Bulgaristan"
+    "tr": "Bulgaristan",
+    "vi": "Bulgaria"
   },
   "hu": {
     "it": "Hungary",
@@ -67,7 +72,8 @@
     "cs": "Maďarsko",
     "pl": "Węgry",
     "sq": "Hungari",
-    "tr": "Macaristan"
+    "tr": "Macaristan",
+    "vi": "Hungary"
   },
   "cz": {
     "it": "Cehia",
@@ -78,7 +84,8 @@
     "hu": "Csehország",
     "pl": "Czechy",
     "sq": "Republika Çeke",
-    "tr": "Çekya"
+    "tr": "Çekya",
+    "vi": "Cộng hòa Séc"
   },
   "pl": {
     "it": "Poland",
@@ -88,7 +95,8 @@
     "bg": "Полша",
     "cs": "Polsko",
     "hu": "Lengyelország",
-    "sq": "Poloni"
+    "sq": "Poloni",
+    "vi": "Ba Lan"
   },
   "in": {
     "it": "India",
@@ -100,7 +108,8 @@
     "hu": "India",
     "pl": "Indie",
     "sq": "Indi",
-    "tr": "Hindistan"
+    "tr": "Hindistan",
+    "vi": "Ấn Độ"
   },
   "al": {
     "it": "Albania",
@@ -112,7 +121,8 @@
     "hu": "Albánia",
     "pl": "Albania",
     "sq": "Shqipëri",
-    "tr": "Albanya"
+    "tr": "Albanya",
+    "vi": "Albania"
   },
   "tr": {
     "it": "Turchia",
@@ -124,6 +134,20 @@
     "hu": "Törökország",
     "pl": "Turcja",
     "sq": "Turqia",
-    "tr": "Türkiye"
+    "tr": "Türkiye",
+    "vi": "Thổ Nhĩ Kỳ"
+  },
+  "vn": {
+    "it": "Vietnam",
+    "en": "Vietnam",
+    "ro": "Vietnam",
+    "ru": "Вьетнам",
+    "bg": "Виетнам",
+    "cs": "Vietnam",
+    "hu": "Vietnam",
+    "pl": "Wietnam",
+    "sq": "Vietnam",
+    "tr": "Vietnam",
+    "vi": "Việt Nam"
   }
 }
