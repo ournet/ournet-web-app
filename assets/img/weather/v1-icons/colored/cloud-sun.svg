@@ -1,0 +1,19 @@
+<svg width="44" height="44" version="2.0" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-1141 325)">
+    <mask id="a">
+      <path d="M1141-325h44v44h-44v-44z" fill="#FFF"/>
+    </mask>
+    <g style="mix-blend-mode:normal" mask="url(#a)">
+      <use xlink:href="#ip__rhalf-sun" transform="translate(1164.87 -318)" fill="#FC3" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__lhalf-cloud" transform="translate(1142 -316)" fill="#697B94" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__cloud" transform="translate(1156 -308)" fill="#FFF" style="mix-blend-mode:normal"/>
+    </g>
+  </g>
+  <defs>
+    <path id="ip__rhalf-sun" d="M15.125 9A9 9 0 000 2.406 12.536 12.536 0 014.318 8.07a10.01 10.01 0 017.976 5.931c.421.008.836.045 1.241.109A8.958 8.958 0 0015.125 9z"/>
+    <path id="ip__lhalf-cloud" d="M0 18a7 7 0 007 7h5.427A7.487 7.487 0 0112 22.5a7.499 7.499 0 014-6.635c.069-5.129 3.997-9.325 9.012-9.817A10.501 10.501 0 0015.5 0C9.701 0 5 4.701 5 10.5c0 .263.01.523.029.781A7.003 7.003 0 000 18z"/>
+    <path id="ip__cloud" d="M0 14.5a5.5 5.5 0 006 5.478V20h15a7 7 0 10-1.225-13.893A8 8 0 004.087 9.183 5.502 5.502 0 000 14.5z"/>
+  </defs>
+</svg>

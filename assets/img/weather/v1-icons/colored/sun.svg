@@ -1,0 +1,28 @@
+<svg width="44" height="44" version="2.0" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-384 324)">
+    <g transform="translate(387 -321)" fill="#FC3">
+      <use xlink:href="#ip__sun" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__sunbeam1" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__sunbeam2" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__sunbeam3" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__sunbeam4" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__sunbeam5" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__sunbeam6" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__sunbeam7" style="mix-blend-mode:normal"/>
+      <use xlink:href="#ip__sunbeam8" style="mix-blend-mode:normal"/>
+    </g>
+  </g>
+  <defs>
+    <path id="ip__sun" d="M19 28a9 9 0 100-18 9 9 0 000 18z"/>
+    <path id="ip__sunbeam1" d="M20 6V1a1 1 0 10-2 0v5a1 1 0 102 0z"/>
+    <path id="ip__sunbeam2" d="M20 37v-5a1 1 0 10-2 0v5a1 1 0 102 0z"/>
+    <path id="ip__sunbeam3" d="M6 18H1a1 1 0 100 2h5a1 1 0 100-2z"/>
+    <path id="ip__sunbeam4" d="M37 18h-5a1 1 0 100 2h5a1 1 0 100-2z"/>
+    <path id="ip__sunbeam5" d="M28.9 10.515l3.535-3.536a1 1 0 10-1.414-1.414L27.485 9.1a1 1 0 001.415 1.415z"/>
+    <path id="ip__sunbeam6" d="M6.98 32.435l3.535-3.536A1 1 0 009.1 27.485l-3.536 3.536a1 1 0 101.414 1.414z"/>
+    <path id="ip__sunbeam7" d="M10.515 9.1L6.979 5.566a1 1 0 00-1.414 1.414l3.536 3.536A1 1 0 0010.515 9.1z"/>
+    <path id="ip__sunbeam8" d="M32.435 31.02l-3.536-3.535a1 1 0 00-1.414 1.415l3.536 3.535a1 1 0 101.414-1.414z"/>
+  </defs>
+</svg>

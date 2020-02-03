@@ -1,0 +1,26 @@
+<svg width="44" height="44" version="2.0" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-324 324)">
+    <g fill="#2D9CDB">
+      <use xlink:href="#ip__rain-dot" transform="translate(352 -289)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(349 -293)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(355 -293)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(346 -289)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(343 -285)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(337 -285)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(349 -285)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(355 -285)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(340 -289)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(343 -293)"/>
+      <use xlink:href="#ip__rain-dot" transform="translate(337 -293)"/>
+    </g>
+    <use xlink:href="#ic__cloud" transform="translate(330 -318)" fill="#FFF"/>
+    <use xlink:href="#ic__half-sun" transform="translate(326 -322)" fill="#FC3"/>
+  </g>
+  <defs>
+    <path id="ip__rain-dot" d="M2 2a1 1 0 01-2 0C0 1.16.706.32.932.072c.037-.04.1-.04.136 0C1.294.32 2 1.16 2 2z"/>
+    <path id="ic__cloud" d="M27 22.984a7.5 7.5 0 10-3.058-14.537C23.42 3.696 19.391 0 14.5 0a9.5 9.5 0 00-9.372 11.063A6.001 6.001 0 006 23h21v-.016z"/>
+    <path id="ic__half-sun" d="M9 0a9 9 0 00-5.4 16.2A8.025 8.025 0 017 13.581V13.5c0-5.206 3.459-9.603 8.204-11.02A8.97 8.97 0 009 0z"/>
+  </defs>
+</svg>

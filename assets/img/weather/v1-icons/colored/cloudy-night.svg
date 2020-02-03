@@ -1,0 +1,17 @@
+<svg width="44" height="44" version="2.0" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-810 325)">
+    <use xlink:href="#ip__rhalf-moon" transform="translate(837.703 -318.723)" fill="#FFF" style="mix-blend-mode:normal" opacity=".95"/>
+    <use xlink:href="#ip__cloud" transform="translate(814.703 -311)" fill="#697B94" style="mix-blend-mode:normal"/>
+    <use xlink:href="#ip__star1" transform="translate(825.899 -322)" fill="#FC3" style="mix-blend-mode:normal"/>
+    <use xlink:href="#ip__star2" transform="translate(812.703 -319)" fill="#697B94" style="mix-blend-mode:normal"/>
+    <use xlink:href="#ip__star2" transform="translate(810.703 -308)" fill="#9FAFE5" style="mix-blend-mode:normal"/>
+  </g>
+  <defs>
+    <path id="ip__rhalf-moon" d="M13.88 14.213c-4.826 0-8.74-3.82-8.74-8.534 0-1.8.57-3.469 1.544-4.845.275-.388-.03-.949-.486-.813C2.61 1.084 0 4.338 0 8.189v.034a12.536 12.536 0 014.168 5.506 10.46 10.46 0 017.243 2.589 8.788 8.788 0 002.747-1.433c.29-.224.09-.672-.278-.672z"/>
+    <path id="ip__cloud" d="M7 25h21v-.015a8.5 8.5 0 10-2.257-16.803C24.688 3.498 20.503 0 15.5 0 9.701 0 5 4.701 5 10.5c0 .263.01.523.029.781A7 7 0 007 25z"/>
+    <path id="ip__star1" d="M3.566.732a.25.25 0 01.476 0l.604 1.86a.25.25 0 00.238.172h1.955a.25.25 0 01.147.452l-1.582 1.15a.25.25 0 00-.09.279l.604 1.86a.25.25 0 01-.385.279L3.95 5.634a.25.25 0 00-.294 0l-1.581 1.15a.25.25 0 01-.385-.28l.604-1.86a.25.25 0 00-.09-.279L.621 3.216a.25.25 0 01.147-.452h1.956a.25.25 0 00.237-.173l.604-1.86z"/>
+    <path id="ip__star2" d="M3.265.652a.25.25 0 01.47 0l.532 1.475c.035.099.13.165.235.165h1.66a.25.25 0 01.137.459L5.002 3.6a.25.25 0 00-.098.294l.505 1.402a.25.25 0 01-.372.294l-1.4-.917a.25.25 0 00-.274 0l-1.4.917a.25.25 0 01-.372-.294l.505-1.402a.25.25 0 00-.098-.294L.7 2.75a.25.25 0 01.137-.458h1.66a.25.25 0 00.235-.165L3.265.652z"/>
+  </defs>
+</svg>

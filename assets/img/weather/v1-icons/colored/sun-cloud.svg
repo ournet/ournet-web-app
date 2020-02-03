@@ -1,0 +1,31 @@
+<svg width="44" height="44" version="2.0" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-943 324)">
+    <g transform="translate(943 -321)" fill="#FC3">
+      <use xlink:href="#path0_fill"/>
+      <use xlink:href="#path1_fill"/>
+      <use xlink:href="#path2_fill"/>
+      <use xlink:href="#path3_fill"/>
+      <use xlink:href="#path4_fill"/>
+      <use xlink:href="#path5_fill"/>
+    </g>
+    <g fill="#FFF">
+      <use xlink:href="#ip__small-cloud" transform="translate(956 -305)"/>
+    </g>
+  </g>
+  <defs>
+    <!-- <path id="ip__cloud" d="M7 25h21v-.015a8.5 8.5 0 10-2.257-16.803C24.688 3.498 20.503 0 15.5 0 9.701 0 5 4.701 5 10.5c0 .263.01.523.029.781A7 7 0 007 25z"/> -->
+    <path id="ip__small-cloud" d="M0 14.5a5.5 5.5 0 006 5.478V20h15a7 7 0 10-1.225-13.893A8 8 0 004.087 9.183 5.502 5.502 0 000 14.5z"/>
+    <path id="path0_fill" d="M19 10a9 9 0 00-5.864 15.828 8.038 8.038 0 012.144-1.781C15.763 18.418 20.486 14 26.24 14c.082 0 .164 0 .246.003A8.991 8.991 0 0019 10z"/>
+    <path id="path1_fill" d="M20 6V1a1 1 0 10-2 0v5a1 1 0 102 0z"/>
+    <path id="path2_fill" d="M6 18H1a1 1 0 100 2h5a1 1 0 100-2z"/>
+    <path id="path3_fill" d="M28.9 10.515l3.535-3.536a1 1 0 10-1.414-1.414l-3.536 3.536a1 1 0 001.415 1.414z"/>
+    <path id="path4_fill" d="M6.98 32.435l3.535-3.536A1 1 0 009.1 27.485l-3.536 3.536a1 1 0 101.414 1.414z"/>
+    <path id="path5_fill" d="M10.515 9.1L6.979 5.566a1 1 0 00-1.414 1.414l3.536 3.536A1 1 0 0010.515 9.1z"/>
+    <path id="path6_fill" d="M12 6A6 6 0 110 6a6 6 0 0112 0z"/>
+    <path id="path7_fill" d="M14 7A7 7 0 110 7a7 7 0 0114 0z"/>
+    <path id="path8_fill" d="M18 9A9 9 0 110 9a9 9 0 0118 0z"/>
+    <path id="path9_fill" d="M0 0h17v4H0V0z"/>
+  </defs>
+</svg>

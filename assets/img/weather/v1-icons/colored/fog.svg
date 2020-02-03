@@ -1,0 +1,25 @@
+<svg width="44" height="44" version="2.0" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-689 325)">
+    <use xlink:href="#ip__cloud" transform="translate(693 -322)" fill="#FFF"/>
+    <use xlink:href="#ip__fog-line1" transform="matrix(0 -1 1 0 713 -292)" fill="#697B94"/>
+    <use xlink:href="#ip__fog-line2" transform="matrix(0 -1 1 0 706 -292)" fill="#697B94"/>
+    <use xlink:href="#ip__fog-line3" transform="matrix(0 -1 1 0 715 -284)" fill="#697B94"/>
+    <use xlink:href="#ip__fog-line2" transform="matrix(0 -1 1 0 699 -292)" fill="#697B94"/>
+    <use xlink:href="#ip__fog-line1" transform="matrix(0 -1 1 0 699 -288)" fill="#697B94"/>
+    <use xlink:href="#ip__fog-line1" transform="matrix(0 -1 1 0 704 -284)" fill="#697B94"/>
+    <use xlink:href="#ip__fog-line4" transform="matrix(0 -1 1 0 699 -284)" fill="#697B94"/>
+    <use xlink:href="#ip__fog-line5" transform="matrix(0 -1 1 0 710 -288)" fill="#697B94"/>
+    <use xlink:href="#ip__fog-line6" transform="matrix(0 -1 1 0 718 -288)" fill="#697B94"/>
+  </g>
+  <defs>
+    <path id="ip__cloud" d="M7 25h21v-.015a8.5 8.5 0 10-2.257-16.803C24.688 3.498 20.503 0 15.5 0 9.701 0 5 4.701 5 10.5c0 .263.01.523.029.781A7 7 0 007 25z"/>
+    <path id="ip__fog-line1" d="M0 1a1 1 0 012 0v7a1 1 0 01-2 0V1z"/>
+    <path id="ip__fog-line2" d="M0 1a1 1 0 012 0v3a1 1 0 01-2 0V1z"/>
+    <path id="ip__fog-line3" d="M0 1a1 1 0 012 0v5a1 1 0 01-2 0V1z"/>
+    <path id="ip__fog-line4" d="M0 1a1 1 0 012 0v1a1 1 0 01-2 0V1z"/>
+    <path id="ip__fog-line5" d="M0 1a1 1 0 012 0v4a1 1 0 01-2 0V1z"/>
+    <path id="ip__fog-line6" d="M0 1a1 1 0 012 0v2a1 1 0 01-2 0V1z"/>
+  </defs>
+</svg>

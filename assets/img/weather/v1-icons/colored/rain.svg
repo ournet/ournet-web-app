@@ -1,0 +1,21 @@
+<svg width="44" height="44" version="2.0" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-444 324)">
+    <use xlink:href="#ip__cloud" transform="translate(448 -322)" fill="#FFF"/>
+    <g fill="#2D9CDB">
+      <use xlink:href="#ip__rain-line1" transform="translate(473 -294)"/>
+      <use xlink:href="#ip__rain-line2" transform="translate(467 -294)"/>
+      <use xlink:href="#ip__rain-line3" transform="translate(461 -294)"/>
+      <use xlink:href="#ip__rain-line4" transform="translate(459 -294)"/>
+      <use xlink:href="#ip__rain-line2" transform="translate(452 -294)"/>
+    </g>
+  </g>
+  <defs>
+    <path id="ip__cloud" d="M7 25h21v-.015a8.5 8.5 0 10-2.257-16.803C24.688 3.498 20.503 0 15.5 0 9.701 0 5 4.701 5 10.5c0 .263.01.523.029.781A7 7 0 007 25z"/>
+    <path id="ip__rain-line1" d="M3.423.385a1 1 0 00-1.846-.77l1.846.77zm-4.346 5.23a1 1 0 001.846.77l-1.846-.77zm2.5-6l-2.5 6 1.846.77 2.5-6-1.846-.77z"/>
+    <path id="ip__rain-line2" d="M4.432.362a1 1 0 10-1.864-.724l1.864.724zM-.932 8.638a1 1 0 101.864.724l-1.864-.724zm3.5-9l-3.5 9 1.864.724 3.5-9-1.864-.724z"/>
+    <path id="ip__rain-line3" d="M5.436.351A1 1 0 003.564-.35L5.436.35zM-.936 11.65a1 1 0 101.872.702l-1.872-.702zm4.5-12l-4.5 12 1.872.702 4.5-12L3.564-.35z"/>
+    <path id="ip__rain-line4" d="M2.436.351A1 1 0 00.564-.35L2.436.35zM-.936 3.65a1 1 0 101.872.702L-.936 3.65zm1.5-4l-1.5 4 1.872.702 1.5-4L.564-.35z"/>
+  </defs>
+</svg>

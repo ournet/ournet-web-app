@@ -1,0 +1,12 @@
+<svg width="44" height="44" version="2.0" 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(-749 325)">
+    <use xlink:href="#ip__light" transform="translate(765 -297)" fill="#FFCF3B"/>
+    <use xlink:href="#ip__cloud" transform="translate(753 -324)" fill="#697B94"/>
+  </g>
+  <defs>
+    <path id="ip__light" d="M1.478 8.348h2.608l-2.688 5.856c-.275.6.476 1.14.956.688l8.81-8.294c.66-.621.22-1.728-.685-1.728H7.057L8.15 1.292A1 1 0 007.192 0H4.02a1 1 0 00-.929.628L.55 6.976a1 1 0 00.929 1.372z"/>
+    <path id="ip__cloud" d="M7 25h21v-.015a8.5 8.5 0 10-2.257-16.803C24.688 3.498 20.503 0 15.5 0 9.701 0 5 4.701 5 10.5c0 .263.01.523.029.781A7 7 0 007 25z"/>
+  </defs>
+</svg>
