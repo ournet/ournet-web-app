@@ -70,9 +70,9 @@ export default class EventPage extends React.Component<EventViewModel> {
                                                 <ul className='c-event__tags'>
                                                     {event.topics.map(item => <li key={item.id}>{TopicListItem({ links, lang, item, view: 'tag' })}</li>)}
                                                 </ul>
+                                                {AdCenter}
                                             </div>
                                         </div>
-                                        {AdCenter()}
                                     </div>
                                 </article>
                                 {similarEvents.length > 0 ?
