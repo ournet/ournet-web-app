@@ -15,6 +15,7 @@ import { TopicListItem } from '../components/topic-list-item';
 import { EventListItem } from '../components/event-list-item';
 import PageContentSection from '../../../views/components/page-content-section';
 import { HoroscopeCard } from '../../../views/components/horoscope/horoscope-card';
+import { AdCenter } from '../components/ads/ad-center';
 
 export default class EventPage extends React.Component<EventViewModel> {
     render() {
@@ -69,6 +70,7 @@ export default class EventPage extends React.Component<EventViewModel> {
                                                 <ul className='c-event__tags'>
                                                     {event.topics.map(item => <li key={item.id}>{TopicListItem({ links, lang, item, view: 'tag' })}</li>)}
                                                 </ul>
+                                                {AdCenter()}
                                             </div>
                                         </div>
                                     </div>
