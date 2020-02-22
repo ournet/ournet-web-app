@@ -71,7 +71,9 @@ export default class EventPage extends React.Component<EventViewModel> {
                                                     {event.topics.map(item => <li key={item.id}>{TopicListItem({ links, lang, item, view: 'tag' })}</li>)}
                                                 </ul>
                                             </div>
-                                            {AdCenter()}
+                                            <div className='o-layout__item'>
+                                                {AdCenter()}
+                                            </div>
                                         </div>
                                     </div>
                                 </article>
