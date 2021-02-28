@@ -47,19 +47,19 @@
     "project": "horoscope",
     "country": "ru"
   },
-  "www.ournet.bg": {
+  "www.our.bg": {
     "project": "portal",
     "country": "bg"
   },
-  "news.ournet.bg": {
+  "news.our.bg": {
     "project": "news",
     "country": "bg"
   },
-  "horoscope.ournet.bg": {
+  "horoscope.our.bg": {
     "project": "horoscope",
     "country": "bg"
   },
-  "vremeto.ournet.bg": {
+  "vremeto.our.bg": {
     "project": "weather",
     "country": "bg"
   },

@@ -5,8 +5,8 @@
         "bg"
     ],
     "timezone": "Europe/Sofia",
-    "domain": "ournet.bg",
-    "host": "horoscope.ournet.bg",
+    "domain": "our.bg",
+    "host": "horoscope.our.bg",
     "email": "info@ournet-group.com",
     "googleAnalyticsId": "UA-1490399-35",
     "projects": [

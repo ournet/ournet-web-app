@@ -6,8 +6,8 @@
     ],
     "disabledAds": true,
     "timezone": "Europe/Sofia",
-    "domain": "ournet.bg",
-    "host": "horo.ournet.bg",
+    "domain": "our.bg",
+    "host": "horo.our.bg",
     "email": "info@ournet-group.com",
     "googleAnalyticsId": "UA-1490399-35",
     "projects": [
