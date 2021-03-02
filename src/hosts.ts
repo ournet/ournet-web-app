@@ -2,11 +2,11 @@ import env from "./env";
 import { OurnetProjectName } from "./ournet/data";
 
 export type HostInfo = {
-    project: OurnetProjectName
-    country: string
-}
+  project: OurnetProjectName;
+  country: string;
+};
 
-const hosts: { [host: string]: HostInfo } = require('../data/hosts.json');
+const hosts: { [host: string]: HostInfo } = require("../data/hosts.json");
 
 // export function getHostsByProject(project: string) {
 //     return Object.keys(hosts).reduce<HostInfo[]>((list, host) => {
@@ -18,16 +18,17 @@ const hosts: { [host: string]: HostInfo } = require('../data/hosts.json');
 // }
 
 export function getHostInfo(host: string): HostInfo {
-    const data = hosts[host];
-    if (data) {
-        return data;
-    }
-    if (!env.COUNTRY || !env.PROJECT) {
-        throw new Error(`DEFAULT_COUNTRY & DEFAULT_PROJECT required! ${host}`)
-    }
+  host = host.replace(/:\d+$/, "");
+  const data = hosts[host];
+  if (data) {
+    return data;
+  }
+  if (!env.COUNTRY || !env.PROJECT) {
+    throw new Error(`DEFAULT_COUNTRY & DEFAULT_PROJECT required! ${host}`);
+  }
 
-    return {
-        project: env.PROJECT as OurnetProjectName,
-        country: env.COUNTRY,
-    }
+  return {
+    project: env.PROJECT as OurnetProjectName,
+    country: env.COUNTRY
+  };
 }
