@@ -10,6 +10,7 @@ import { AdCenter } from "../components/ads/ad-center";
 import PageContentSection from "../../../views/components/page-content-section";
 import { AdAside } from "../components/ads/ad-aside";
 import { Quote } from "@ournet/api-client";
+import { Share } from "../../../views/components/share";
 
 export default class TopicPage extends React.Component<TopicViewModel> {
   render() {
@@ -81,6 +82,11 @@ export default class TopicPage extends React.Component<TopicViewModel> {
                     <div className="o-media__body">
                       <h2>{head.description}</h2>
                       {topic.description && <h4>{topic.description}</h4>}
+                      {Share({
+                        lang,
+                        url: head.canonical,
+                        services: config.shareServices
+                      })}
                     </div>
                   </div>
                 </div>
