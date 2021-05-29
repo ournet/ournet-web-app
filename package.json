@@ -133,7 +133,7 @@
     "micro": "^9.3.3",
     "moment-timezone": "^0.5.23",
     "ms": "^2.1.1",
-    "ournet.links": "^0.4.21",
+    "ournet.links": "^0.4.22",
     "ournet.logger": "^0.1.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
