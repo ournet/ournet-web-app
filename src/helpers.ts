@@ -5,7 +5,7 @@ import { ImageStorageHelper } from "@ournet/images-domain";
 import { OurnetProjectName } from "./ournet/data";
 const standard = require("standard-text");
 const ellipsize = require("ellipsize");
-const entipicUrlFn = require("entipic.url");
+const entipicUrlFn = require("entipic.url").create("//cdn.entipic.com");
 
 export function entipicUrl(
   name: string,
@@ -34,7 +34,9 @@ export function getPlaceName(place: Place, lang: string): string {
     return anyPlace[key];
   }
   const name = place.names
-    ? PlaceHelper.parseNames(place.names || "").find(item => item.lang === lang)
+    ? PlaceHelper.parseNames(place.names || "").find(
+        (item) => item.lang === lang
+      )
     : null;
   if (name && name.name) {
     return (anyPlace[key] = standard(fixPlaceName(name.name, lang), lang));
