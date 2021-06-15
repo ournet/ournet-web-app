@@ -28,7 +28,6 @@ export default class TopicPage extends React.Component<TopicViewModel> {
       topicEvents,
       topicNews,
       byQuotes,
-      popularByQuotes,
       aboutQuotes
     } = this.props;
 
@@ -37,12 +36,6 @@ export default class TopicPage extends React.Component<TopicViewModel> {
 
     if (topic.type === "PERSON") {
       quotes = byQuotes || quotes;
-      if (popularByQuotes && popularByQuotes.length) {
-        if (quotes.length >= quotesLimit) {
-          quotes = quotes.splice(0, quotesLimit - 1);
-        }
-        quotes = quotes.concat(popularByQuotes).slice(0, quotesLimit);
-      }
     }
 
     if (quotes.length < quotesLimit) {
