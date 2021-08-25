@@ -57,8 +57,8 @@ ul ul li{ overflow: hidden;}
 .position-v .table .image{ height: ${info.imageWidth};}
 .position-v .table .temp{ height: ${info.tempWidth};}
 .position-v .table .info{ height: ${info.infoWidth};background-color: ${info.itemColorDark};}
-.w-icon {width:40px;height:40px;display: inline-block;background-image:url('//assets.ournetcdn.net/root/img/icons/weather/40-weather-icons-wb.png');background-position: 0px 0px;background-repeat: no-repeat;}
-.w-icon.night {background-image:url('//assets.ournetcdn.net/root/img/icons/weather/40-weather-icons-night-wb.png');}
+.w-icon {width:40px;height:40px;display: inline-block;background-image:url('//d1mm9th3p1o4yr.cloudfront.net/root/img/icons/weather/40-weather-icons-wb.png');background-position: 0px 0px;background-repeat: no-repeat;}
+.w-icon.night {background-image:url('//d1mm9th3p1o4yr.cloudfront.net/root/img/icons/weather/40-weather-icons-night-wb.png');}
 
 .wi-2 {
     background-position: -40px 0;

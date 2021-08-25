@@ -53,10 +53,10 @@ export function Widget1Frame(props: Widget1ViewModel) {
                         background-size: cover;
                     }
                     #content.v {
-                        background-image: url('//assets.ournetcdn.net/ournet/img/horo/night-sky-480.jpg');
+                        background-image: url('//d1mm9th3p1o4yr.cloudfront.net/ournet/img/horo/night-sky-480.jpg');
                     }
                     #content.h {
-                        background-image: url('//assets.ournetcdn.net/ournet/img/horo/night-sky-480-160.jpg');
+                        background-image: url('//d1mm9th3p1o4yr.cloudfront.net/ournet/img/horo/night-sky-480-160.jpg');
                     }
                     #list {
                         display: block;

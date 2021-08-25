@@ -19,6 +19,6 @@ class AdsenseAdsHandler extends Handler<OurnetAppData, OurnetViewModelInput> {
 
         this.setCacheControl(60 * 24 * 30);
 
-        return this.redirect('https://assets.ournetcdn.net/backup-ads/index.html', 301);
+        return this.redirect('https://d1mm9th3p1o4yr.cloudfront.net/backup-ads/index.html', 301);
     }
 }
