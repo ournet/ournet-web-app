@@ -40,7 +40,7 @@ export default class VideoEmbed extends React.Component<VideoEmbedViewModel> {
                     <title>Embed Video</title>
                     {head.canonical && <link rel="canonical" href={head.canonical} />}
                     <link key='1' type="text/css" rel="stylesheet" href={getAssetUrl(project, 'css', 'video-embed', env.isProduction)} />
-                    <link rel="dns-prefetch" href="//d1mm9th3p1o4yr.cloudfront.net" />
+                    <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
                     <script dangerouslySetInnerHTML={{ __html: `window.CONSTANTS={lang:"${lang}",country:"${country}"};` }}></script>
                 </head>
                 <body className={`proj-${project} country-${country}`}>

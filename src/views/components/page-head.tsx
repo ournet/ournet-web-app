@@ -28,13 +28,13 @@ export function PageHead({ config, head, lang, country, project, showGoogleAds }
             {config.facebookAppId && <meta property="fb:app_id" content={config.facebookAppId} />}
             {verificationMeta}
             {head.elements}
-            <link rel="dns-prefetch" href="//d1mm9th3p1o4yr.cloudfront.net" />
+            <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
             <link rel="dns-prefetch" href="//news.ournetcdn.net" />
             <link rel="dns-prefetch" href="//www.google-analytics.com" />
             {hasAds && <link rel="dns-prefetch" href="//tpc.googlesyndication.com" />}
             {hasAds && <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />}
 
-            <link rel="preconnect" href="//d1mm9th3p1o4yr.cloudfront.net" />
+            <link rel="preconnect" href="//assets.ournetcdn.net" />
             <link rel="preconnect" href="//news.ournetcdn.net" />
             <link rel="preconnect" href="//www.google-analytics.com" />
             {hasAds && <link rel="preconnect" href="//tpc.googlesyndication.com" />}

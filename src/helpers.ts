@@ -60,7 +60,7 @@ export function getAppIconUrl(domain: string, filename: string) {
   name = ["click", "zborg", "diez"].indexOf(name) > -1 ? name : "ournet";
 
   return (
-    "https://d1mm9th3p1o4yr.cloudfront.net/ournet/img/icons/" + name + "/" + filename
+    "https://assets.ournetcdn.net/ournet/img/icons/" + name + "/" + filename
   );
 }
 

@@ -69,7 +69,7 @@ export class Widget1HtmlStriptHandler extends WeatherBaseHandler<Widget1ViewMode
             data.push('<ins class="ournetweather" style="display:block;max-width:' + width + 'px;height:' + height + 'px" data-type="widget" data-cn="' + country + '" data-params="' + params.join(';') + '" data-h="' + height + '"></ins>');
             data.push('<noscript><a href="http://' + host + '">' + config.domain + '</a></noscript>');
             data.push('<script>(ournetweather=window.ournetweather||[]).push({})</script>');
-            data.push('<script async src="//d1mm9th3p1o4yr.cloudfront.net/ournet/js/weather/widget-ins.js"></script>');
+            data.push('<script async src="//assets.ournetcdn.net/ournet/js/weather/widget-ins.js"></script>');
         }
 
         this.send(data.join('\n'), 200);
@@ -128,7 +128,7 @@ export class Widget2HtmlStriptHandler extends WeatherBaseHandler<Widget2ViewMode
             '<ins class="ournetweather" style="display:block;max-width:' + query.w + 'px;height:' + iframeHeight + 'px" data-cn="' + country + '" data-params="' + params.join(';') + '" data-h="' + iframeHeight + '"></ins>',
             '<noscript><a href="http://' + host + '">' + config.domain + '</a></noscript>',
                 '<script>(ournetweather=window.ournetweather||[]).push({})</script>',
-                '<script async src="//d1mm9th3p1o4yr.cloudfront.net/ournet/js/weather/widget-ins.js"></script>'
+                '<script async src="//assets.ournetcdn.net/ournet/js/weather/widget-ins.js"></script>'
             ].join('\n');
         }
         this.send(script, 200);

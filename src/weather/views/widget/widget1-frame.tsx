@@ -33,9 +33,9 @@ a:active{color:#ca0000;}
 .line{padding:3px 0px;height:36px;overflow: hidden;border-bottom:1px solid #${lcolor};}
 .line:last-child{border-bottom:none;}
 td{overflow:hidden}
-.w-icon {width: 32px;height: 32px;display: inline-block;background-image: url('//d1mm9th3p1o4yr.cloudfront.net/root/img/icons/weather/40-weather-icons-wb.png');background-position: 0px 0px;background-repeat: no-repeat;
+.w-icon {width: 32px;height: 32px;display: inline-block;background-image: url('//assets.ournetcdn.net/root/img/icons/weather/40-weather-icons-wb.png');background-position: 0px 0px;background-repeat: no-repeat;
 -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
-.w-icon.night {background-image: url('//d1mm9th3p1o4yr.cloudfront.net/root/img/icons/weather/40-weather-icons-night-wb.png');}
+.w-icon.night {background-image: url('//assets.ournetcdn.net/root/img/icons/weather/40-weather-icons-night-wb.png');}
 .w-icon.wi-2 {background-position: -32px 0;}
 .w-icon.wi-3 {background-position: -64px 0;}
 .w-icon.wi-4 {background-position: -96px 0;}

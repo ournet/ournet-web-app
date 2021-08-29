@@ -27,7 +27,7 @@ export function getAssetUrl(project: string, type: 'css' | 'js', key: string, pr
     if (production) {
         const name = getAssetName(project, type, key);
 
-        return `//d1mm9th3p1o4yr.cloudfront.net/ournet/${type}/${project}/${key}.${name}.${type}`;
+        return `//assets.ournetcdn.net/ournet/${type}/${project}/${key}.${name}.${type}`;
     }
 
     return `http://localhost:8080/${type}/${project}/${key}.${type}`;
