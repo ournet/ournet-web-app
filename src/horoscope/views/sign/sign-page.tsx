@@ -55,6 +55,15 @@ export function SignPage(props: SignViewModel) {
           links,
           locales
         })}
+        <div className="ad-maiar_full">
+          <a
+            title="Maiar Wallet"
+            target="_blank"
+            rel="nofollow"
+            className="ad-maiar"
+            href="https://get.maiar.com/referral/72yoz0afwu"
+          ></a>
+        </div>
         {HoroscopeSignsLine({ lang, country, links })}
         {/* {HoroscopeAppAdCard({ lang })} */}
         {AdBottom()}
