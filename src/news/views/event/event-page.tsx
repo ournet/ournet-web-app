@@ -154,15 +154,6 @@ export default class EventPage extends React.Component<EventViewModel> {
                             </li>
                           ))}
                         </ul>
-                        <div className="ad-maiar_full">
-                          <a
-                            title="Maiar Wallet"
-                            target="_blank"
-                            rel="nofollow"
-                            className="ad-maiar"
-                            href="https://get.maiar.com/referral/72yoz0afwu"
-                          ></a>
-                        </div>
                         {AdCenter()}
                       </div>
                     </div>
