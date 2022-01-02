@@ -1,0 +1,16 @@
+{
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["sr"],
+  "timezone": "Europe/Belgrade",
+  "domain": "vremenska.rs",
+  "host": "www.vremenska.rs",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "",
+  "widgetGoogleAnalyticsId": "",
+  "projects": ["weather"],
+  "shareServices": ["facebook", "twitter"],
+  "internationalIds": ["al", "bg", "hu", "cz", "it", "ru", "ro"],
+  "capitalId": "792680",
+  "placesCount": 18000
+}

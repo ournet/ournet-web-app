@@ -6,6 +6,12 @@ export type LogoImageProps = {
 
 export function LogoImage({ country }: LogoImageProps) {
   switch (country) {
+    case "rs":
+      return (
+        <span className={`c-logo-image v--${country}`}>
+          <span className="c-logo-image_t2">Vreme</span>
+        </span>
+      );
     case "md":
       return (
         <span className={`c-logo-image v--${country}`}>

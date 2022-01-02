@@ -5577,10 +5577,10 @@ merge@^1.2.0:
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
   integrity sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ==
 
-metno-symbols@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/metno-symbols/-/metno-symbols-0.1.3.tgz#e5abbc92570f2b76779c6e9c2ee2a71157044f0e"
-  integrity sha512-BJ36jc0b/STpX8JgQbpneUZWWj1Dj8VCQ9xykFM06QT6y9G/IsyvQCeDYlkZp6zQLEG+dtbEdH1zImzlWHacXA==
+metno-symbols@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/metno-symbols/-/metno-symbols-0.1.4.tgz#8c7e35e60f0380b7118fbe05695f1b327f86f0d4"
+  integrity sha512-5QNBRcyUpTAOTmKeqUjUoURtg6vaTvdYPsfxCd1bowhdROKtldJyJ45OSlDzsmlCnJeUJPL1oVI2+tW/A6eMmw==
 
 micro@^9.3.3:
   version "9.3.4"
@@ -6252,10 +6252,10 @@ osenv@0:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-ournet.links@^0.4.22:
-  version "0.4.22"
-  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.22.tgz#6f56acad81dac68b0d78a3cd9030d174f978e68e"
-  integrity sha512-b6pOwT8NduLMCEqRLRC2iiGzcpyqhcrInROHDXKZsfamliOYDXjS2dKSIPgM+mVobeXIDYOdzmCzjqQfVWUzSQ==
+ournet.links@^0.4.23:
+  version "0.4.23"
+  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.23.tgz#d5d4ec48b9257164b3fd583ea397f494588f74f1"
+  integrity sha512-WIO/4OVpWmakqRePTyVh9i8mtP/zzEZkou4dEne1YPSCEYmVCd2F+mLQEd1XdYCDJZMsp1D8/IY3/2LIVJE1SA==
   dependencies:
     urlset "^0.6.1"
 
