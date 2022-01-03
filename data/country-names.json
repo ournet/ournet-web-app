@@ -10,7 +10,8 @@
     "pl": "Mołdawia",
     "sq": "Moldavi",
     "tr": "Moldova",
-    "vi": "Moldova"
+    "vi": "Moldova",
+    "sr": "Moldavija"
   },
   "ro": {
     "it": "Romania",
@@ -23,7 +24,8 @@
     "pl": "Rumunia",
     "sq": "Rumani",
     "tr": "Romanya",
-    "vi": "Rumani"
+    "vi": "Rumani",
+    "sr": "Rumunija"
   },
   "ru": {
     "it": "Russia",
@@ -36,7 +38,8 @@
     "pl": "Rosja",
     "sq": "Rusi",
     "tr": "Rusya",
-    "vi": "Nga"
+    "vi": "Nga",
+    "sr": "Rusija"
   },
   "it": {
     "it": "Italia",
@@ -49,7 +52,8 @@
     "pl": "Włochy",
     "sq": "Itali",
     "tr": "İtalya",
-    "vi": "Nước Ý"
+    "vi": "Nước Ý",
+    "sr": "Italija"
   },
   "bg": {
     "it": "Bulgaria",
@@ -61,7 +65,8 @@
     "pl": "Bułgaria",
     "sq": "Bulgari",
     "tr": "Bulgaristan",
-    "vi": "Bulgaria"
+    "vi": "Bulgaria",
+    "sr": "Bugarska"
   },
   "hu": {
     "it": "Hungary",
@@ -73,7 +78,8 @@
     "pl": "Węgry",
     "sq": "Hungari",
     "tr": "Macaristan",
-    "vi": "Hungary"
+    "vi": "Hungary",
+    "sr": "Mađarska"
   },
   "cz": {
     "it": "Cehia",
@@ -85,7 +91,8 @@
     "pl": "Czechy",
     "sq": "Republika Çeke",
     "tr": "Çekya",
-    "vi": "Cộng hòa Séc"
+    "vi": "Cộng hòa Séc",
+    "sr": "Češka"
   },
   "pl": {
     "it": "Poland",
@@ -96,7 +103,8 @@
     "cs": "Polsko",
     "hu": "Lengyelország",
     "sq": "Poloni",
-    "vi": "Ba Lan"
+    "vi": "Ba Lan",
+    "sr": "Poljska"
   },
   "in": {
     "it": "India",
@@ -109,7 +117,8 @@
     "pl": "Indie",
     "sq": "Indi",
     "tr": "Hindistan",
-    "vi": "Ấn Độ"
+    "vi": "Ấn Độ",
+    "sr": "Indija"
   },
   "al": {
     "it": "Albania",
@@ -122,7 +131,8 @@
     "pl": "Albania",
     "sq": "Shqipëri",
     "tr": "Albanya",
-    "vi": "Albania"
+    "vi": "Albania",
+    "sr": "Albanija"
   },
   "tr": {
     "it": "Turchia",
@@ -135,7 +145,8 @@
     "pl": "Turcja",
     "sq": "Turqia",
     "tr": "Türkiye",
-    "vi": "Thổ Nhĩ Kỳ"
+    "vi": "Thổ Nhĩ Kỳ",
+    "sr": "Turska"
   },
   "vn": {
     "it": "Vietnam",
@@ -148,7 +159,8 @@
     "pl": "Wietnam",
     "sq": "Vietnam",
     "tr": "Vietnam",
-    "vi": "Việt Nam"
+    "vi": "Việt Nam",
+    "sr": "Vijetnam"
   },
   "rs": {
     "it": "Serbia",
