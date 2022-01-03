@@ -12,3 +12,4 @@ Ournet web application:
 - [www.ournet.it](http://www.ournet.it)
 - [www.moti2.al](http://www.moti2.al)
 - [www.hava.one](http://www.hava.one)
+- [www.vremenska.rs](https://www.vremenska.rs)
