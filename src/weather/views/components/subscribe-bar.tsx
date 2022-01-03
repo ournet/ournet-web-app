@@ -19,7 +19,7 @@ export function SubscribeBar({ locales, config, lang, place }: SubscribeBarProps
   }
 
   return (
-    <div>
+    <div key={`substribe-bar-${Math.random().toString().substring(0, 10)}`}>
       <div className="c-subscribe-bar u-hidden js-subscribe-box o-lazy-noext" data-src="https://c2.staticflickr.com/8/7724/26987380802_dc156534d3_z.jpg" data-category='notifications-weather' data-tags={JSON.stringify({ 'place-id': place.id, 'admin1-code': place.admin1Code })}>
         <div className="c-subscribe-bar__btn">{locales.weather_notifications_subscribe_for_place_format({ name: getPlaceName(place, lang) })}</div>
       </div>
