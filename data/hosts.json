@@ -146,5 +146,9 @@
   "www.thoi.vn": {
     "project": "weather",
     "country": "vn"
+  },
+  "www.vremenska.rs": {
+    "project": "weather",
+    "country": "rs"
   }
 }
