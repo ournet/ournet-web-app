@@ -5126,10 +5126,10 @@ merge@^1.2.0:
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
   integrity sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ==
 
-metno-symbols@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/metno-symbols/-/metno-symbols-0.1.4.tgz#8c7e35e60f0380b7118fbe05695f1b327f86f0d4"
-  integrity sha512-5QNBRcyUpTAOTmKeqUjUoURtg6vaTvdYPsfxCd1bowhdROKtldJyJ45OSlDzsmlCnJeUJPL1oVI2+tW/A6eMmw==
+metno-symbols@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/metno-symbols/-/metno-symbols-0.1.5.tgz#5c5fb3db2de8af57f9989865280a45078d99dd31"
+  integrity sha512-w6uNJMJAwZ/mQ6YNKpXR/UxwDJo58NiSoovgLMur3bFZhWSyxp83IEcJL6iNLxjPYXSyow2c6C05h3Wc1TO0tw==
 
 micro@^9.3.3:
   version "9.3.4"
