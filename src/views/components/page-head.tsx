@@ -85,6 +85,21 @@ export function PageHead({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         ></script>
       )}
+      {config.googleTagId && (
+        <>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${config.googleTagId}`}
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+gtag('config', '${config.googleTagId}');`
+            }}
+          ></script>
+        </>
+      )}
     </head>
   );
 }

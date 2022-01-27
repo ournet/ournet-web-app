@@ -12,5 +12,7 @@
   "shareServices": ["facebook", "twitter"],
   "internationalIds": ["al", "bg", "hu", "cz", "it", "ru", "ro"],
   "capitalId": "792680",
-  "placesCount": 18000
+  "placesCount": 18000,
+  "googleTagId": "G-3KTEJ7XXDX",
+  "disabledAds": true
 }
