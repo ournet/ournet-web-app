@@ -22,7 +22,8 @@ export function PlacePage(props: PlaceViewModel) {
     subTitle,
     description,
     config,
-    head
+    head,
+    country
   } = props;
 
   const localeParams = { ul: lang };
@@ -30,6 +31,14 @@ export function PlacePage(props: PlaceViewModel) {
   const breadcrumbData: BreadcrumbData = {
     items: [{ text: locales.weather(), url: links.weather.home(localeParams) }]
   };
+
+  if (place.countryCode !== country) {
+    const countryName = locales.getCountryName(place.countryCode);
+    breadcrumbData.items.push({
+      text: countryName,
+      url: links.weather.country(place.countryCode.toLowerCase())
+    });
+  }
 
   if (place.admin1) {
     const adm1Name = getPlaceName(place.admin1, lang);

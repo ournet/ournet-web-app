@@ -23,7 +23,7 @@ export class CountryViewModelBuilder extends WeatherViewModelBuilder<
     const { countryCode: country } = this.input;
     const countryName = locales.getCountryName(country);
 
-    head.title = `${countryName}: ${locales.weather}`;
+    head.title = `${countryName}: ${locales.weather()}`;
     head.description = locales.weather_in_cn_summary_format({
       country: countryName
     });
