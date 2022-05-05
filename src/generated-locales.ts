@@ -825,6 +825,10 @@ export class LocalizyLocales {
         return this.v('portal_in_short_app_name');
     }
 
+    weather_around_the_world() {
+        return this.v('weather_around_the_world');
+    }
+
     weather_in_app_name() {
         return this.v('weather_in_app_name');
     }
@@ -1105,6 +1109,18 @@ export class LocalizyLocales {
         return this.v('weather_sr_app_name');
     }
 
+    in_country_rs() {
+        return this.v('in_country_rs');
+    }
+
+    weather_rs_app_name() {
+        return this.v('weather_rs_app_name');
+    }
+
+    weather_rs_short_app_name() {
+        return this.v('weather_rs_short_app_name');
+    }
+
     in_country_tr() {
         return this.v('in_country_tr');
     }
@@ -1315,6 +1331,7 @@ export type LocalesKey = '24_hrs'
     | 'news_in_short_app_name'
     | 'portal_in_app_name'
     | 'portal_in_short_app_name'
+    | 'weather_around_the_world'
     | 'weather_in_app_name'
     | 'weather_in_short_app_name'
     | 'weather_vn_app_name'
@@ -1385,6 +1402,9 @@ export type LocalesKey = '24_hrs'
     | 'weather_al_short_app_name'
     | 'country_rs'
     | 'weather_sr_app_name'
+    | 'in_country_rs'
+    | 'weather_rs_app_name'
+    | 'weather_rs_short_app_name'
     | 'in_country_tr'
     | 'weather_tr_app_name'
     | 'weather_tr_short_app_name';

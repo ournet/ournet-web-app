@@ -35,6 +35,7 @@
     "error_404_info": "Stránka nebyla nalezena",
     "error_500_info": "Neznámá chyba",
     "error_description": "Vyskytla se chyba. Zkuste to později.",
+    "weather_around_the_world": "Počasí po celém světě",
     "error": "Chyba",
     "events_from_country_format": "Události z %(name)s",
     "events": "Události",

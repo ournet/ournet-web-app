@@ -4,10 +4,35 @@ import CommonLayout from "../common-layout";
 import { PageTitle } from "../../../views/components/page-title";
 import { ForecastBrowser } from "../components/forecast/forecast-browser";
 import { Share } from "../../../views/components/share";
+import { ALL_WEATHER_COUNTRY_CODES } from "../../data";
 
 export class IndexPage extends React.Component<IndexViewModel> {
   render() {
-    const { head, placeIds, currentDate, locales, lang, config } = this.props;
+    const {
+      head,
+      placeIds,
+      currentDate,
+      locales,
+      lang,
+      config,
+      links,
+      country
+    } = this.props;
+
+    const countries = ALL_WEATHER_COUNTRY_CODES.filter((it) => it !== country)
+      .map((code) => ({
+        name: locales.getCountryName(code),
+        code
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((it) => (
+        <div
+          key={it.code}
+          className="c-places-list__i o-layout__item u-1/2 u-1/3@tablet"
+        >
+          <a href={links.weather.country(it.code, { ul: lang })}>{it.name}</a>
+        </div>
+      ));
 
     return (
       <CommonLayout {...this.props}>
@@ -28,6 +53,13 @@ export class IndexPage extends React.Component<IndexViewModel> {
             days: 5,
             locales
           })}
+          <div className="c-group">
+            <h3>{locales.weather_around_the_world()}</h3>
+            <div className="o-layout o-layout--small c-places-list">
+              {countries}
+            </div>
+            ;
+          </div>
         </main>
       </CommonLayout>
     );

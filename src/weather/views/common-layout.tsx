@@ -26,6 +26,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
       latestNews,
       containsProject
     } = this.props;
+
     return (
       <Layout {...this.props}>
         {containsProject(OurnetProjectName.HOROSCOPE) && HoroscopeSvg()}
@@ -44,24 +45,6 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                       links.horoscope.home({ ul: lang })
                   })}
                   {HoroscopeSignsLine({ lang, links, project, country })}
-                </div>
-              )}
-              {config.facebookPageUrl && config.facebookAppId && (
-                <div className="c-fb-plike">
-                  <iframe
-                    className="o-lazy"
-                    data-src={`https://www.facebook.com/plugins/like.php?href=${encodeURIComponent(
-                      config.facebookPageUrl
-                    )}&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=${
-                      config.facebookAppId
-                    }`}
-                    width="450"
-                    height="80"
-                    style={{ border: "none", overflow: "hidden" }}
-                    scrolling="no"
-                    frameBorder="0"
-                    allow="encrypted-media"
-                  ></iframe>
                 </div>
               )}
             </div>
