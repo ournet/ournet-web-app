@@ -11,7 +11,7 @@ export interface CountryViewModel extends WeatherViewModel {
 }
 
 export interface CountryViewModelInput extends OurnetViewModelInput {
-  country: string;
+  countryCode: string;
 }
 
 export class CountryViewModelBuilder extends WeatherViewModelBuilder<
@@ -20,7 +20,7 @@ export class CountryViewModelBuilder extends WeatherViewModelBuilder<
 > {
   async build() {
     const { lang, links, locales, head } = this.model;
-    const { country } = this.input;
+    const { countryCode: country } = this.input;
     const countryName = locales.getCountryName(country);
 
     head.title = `${countryName}: ${locales.weather}`;
