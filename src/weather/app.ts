@@ -43,6 +43,7 @@ import {
 } from "./routes/sitemap-router";
 import { AdsRouter } from "../ournet/routers/ads-router";
 import { NewsletterUnsubscribeRouter } from "./routes/newsletter-unsubscribe-router";
+import { CountryRouter } from "./routes/country-router";
 
 export class WeatherOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
@@ -56,6 +57,7 @@ export class WeatherOurnetApp extends OurnetApp<OurnetAppData> {
         new OneSignalSDKUpdaterWorkerRouter(),
 
         new IndexRouter(),
+        new CountryRouter(),
         new FaviconRouter(),
         new AppleIconRouter(),
         new AdsenseAdsRouter(),

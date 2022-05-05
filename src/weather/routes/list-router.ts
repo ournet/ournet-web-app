@@ -5,17 +5,17 @@ import { WEATHER_GLOBAL_CONFIG_LIST_IDS } from "../config";
 import { ListHandler } from "../handlers/list-handler";
 
 interface ListRouterData extends WeatherBaseRouter {
-    listId: string
+  listId: string;
 }
 
 export class ListRouter extends WeatherBaseRouter<ListRouterData> {
-    constructor() {
-        super(`/(${WEATHER_GLOBAL_CONFIG_LIST_IDS.join('|')})`, ['listId'])
-    }
+  constructor() {
+    super(`/(${WEATHER_GLOBAL_CONFIG_LIST_IDS.join("|")})`, ["listId"]);
+  }
 
-    protected createHander(req: Request, res: Response, data: ListRouterData) {
-        const input = this.formatInput<ListViewModelInput>(req, res);
-        input.listId = data.listId;
-        return new ListHandler(input);
-    }
+  protected createHander(req: Request, res: Response, data: ListRouterData) {
+    const input = this.formatInput<ListViewModelInput>(req, res);
+    input.listId = data.listId;
+    return new ListHandler(input);
+  }
 }

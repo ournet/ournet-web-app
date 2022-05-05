@@ -1,10 +1,14 @@
 import { Request, Response } from "../../base/types";
-import { WeatherBaseRouter } from "../router";
+import { WeatherBaseRouter, WeatherBaseRouterData } from "../router";
 import { IndexHandler } from "../handlers/index-handler";
 
-export class IndexRouter extends WeatherBaseRouter {
+interface RouterData extends WeatherBaseRouterData {
+  country: string;
+}
+
+export class CountryRouter extends WeatherBaseRouter<RouterData> {
   constructor() {
-    super("/");
+    super("/[a-z]{2}", ["country"]);
   }
 
   protected createHander(req: Request, res: Response) {
