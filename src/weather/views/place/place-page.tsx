@@ -38,9 +38,7 @@ export function PlacePage(props: PlaceViewModel) {
       text: countryName,
       url: links.weather.country(place.countryCode.toLowerCase())
     });
-  }
-
-  if (place.admin1) {
+  } else if (place.admin1) {
     const adm1Name = getPlaceName(place.admin1, lang);
     breadcrumbData.items.push({
       text: adm1Name,
