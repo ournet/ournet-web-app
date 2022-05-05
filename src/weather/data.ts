@@ -29,7 +29,9 @@ export const ALL_WEATHER_COUNTRY_CODES = [
   "no",
   "se",
   "fi",
-  "at"
+  "at",
+  "us",
+  "ca"
 ];
 
 export const PlaceNoAdmin1Fields =
