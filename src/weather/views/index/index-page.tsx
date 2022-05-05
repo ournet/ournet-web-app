@@ -5,6 +5,7 @@ import { PageTitle } from "../../../views/components/page-title";
 import { ForecastBrowser } from "../components/forecast/forecast-browser";
 import { Share } from "../../../views/components/share";
 import { ALL_WEATHER_COUNTRY_CODES } from "../../data";
+import { GroupHeader } from "../../../views/components/group-header";
 
 export class IndexPage extends React.Component<IndexViewModel> {
   render() {
@@ -54,11 +55,10 @@ export class IndexPage extends React.Component<IndexViewModel> {
             locales
           })}
           <div className="c-group">
-            <h3>{locales.weather_around_the_world()}</h3>
+            {GroupHeader({ name: locales.weather_around_the_world() })}
             <div className="o-layout o-layout--small c-places-list">
               {countries}
             </div>
-            ;
           </div>
         </main>
       </CommonLayout>
