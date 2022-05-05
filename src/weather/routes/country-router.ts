@@ -1,6 +1,7 @@
 import { Request, Response } from "../../base/types";
 import { WeatherBaseRouter, WeatherBaseRouterData } from "../router";
-import { IndexHandler } from "../handlers/index-handler";
+import { CountryHandler } from "../handlers/country-handler";
+import { CountryViewModelInput } from "../view-models/country-view-model";
 
 interface RouterData extends WeatherBaseRouterData {
   country: string;
@@ -11,7 +12,9 @@ export class CountryRouter extends WeatherBaseRouter<RouterData> {
     super("/[a-z]{2}", ["country"]);
   }
 
-  protected createHander(req: Request, res: Response) {
-    return new IndexHandler(this.formatInput(req, res));
+  protected createHander(req: Request, res: Response, data: RouterData) {
+    const input = this.formatInput<CountryViewModelInput>(req, res);
+    input.country = data.country;
+    return new CountryHandler(input);
   }
 }
