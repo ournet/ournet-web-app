@@ -19,6 +19,18 @@ export const ALL_WEATHER_COUNTRY_CODES = [
   "ru",
   "tr",
   "ua",
+  "pt",
+  "es",
+  "ch",
+  "be",
+  "nl",
+  "dk",
+  "ir",
+  "is",
+  "no",
+  "se",
+  "fi",
+  "at"
 ];
 
 export const PlaceNoAdmin1Fields =
