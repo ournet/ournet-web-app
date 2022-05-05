@@ -22,7 +22,7 @@ export function truncateAt(text: string, maxLength: number): string {
 
 const fixPlaceName = (name: string, lang: string) => {
   if (lang === "vi" && /^Thành phố/i.test(name)) {
-    return name.substr(9).trim();
+    return name.substring(9).trim();
   }
   return name;
 };
@@ -160,14 +160,11 @@ export function resolveProjectLinkPrefix(
   linkProject: OurnetProjectName,
   country: string
 ) {
-  if (currentProject === linkProject) {
-    return "";
-  }
+  if (currentProject === linkProject) return "";
+
   const host = getHost(linkProject, country);
 
-  if (!host) {
-    return "";
-  }
+  if (!host) return "";
 
   const schema = getSchema(linkProject, country);
 

@@ -40,13 +40,7 @@ export class PlaceViewModelBuilder extends WeatherViewModelBuilder<
 
     const localeApi = this.data.createQueryApiClient<{ place: Place }>();
     const result = await this.executeApiClient(
-      localeApi.placesPlaceById(
-        "place",
-        {
-          fields: PlaceStringFields
-        },
-        { id }
-      )
+      localeApi.placesPlaceById("place", { fields: PlaceStringFields }, { id })
     );
 
     if (!result || !result.place) {
@@ -67,9 +61,7 @@ export class PlaceViewModelBuilder extends WeatherViewModelBuilder<
 
     this.apiClient.weatherForecastReport(
       "placeForecast",
-      {
-        fields: ForecastReportStringFields
-      },
+      { fields: ForecastReportStringFields },
       {
         place: {
           longitude: place.longitude,

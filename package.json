@@ -128,6 +128,7 @@
     "ellipsize": "^0.1.0",
     "encodeurl": "^1.0.2",
     "entipic.url": "^0.1.1",
+    "i18n-iso-countries": "^7.4.0",
     "localizy": "^0.1.6",
     "metno-symbols": "^0.1.5",
     "micro": "^9.3.3",

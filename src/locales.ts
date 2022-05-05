@@ -7,9 +7,7 @@ import { parseTranslationData, Locales } from "localizy";
 import { join, basename } from "path";
 import { OurnetProjectName } from "./ournet/data";
 import { readdirSync, readFileSync } from "fs";
-const countryNames = JSON.parse(
-  readFileSync(join(__dirname, "../data/country-names.json"), "utf8")
-);
+import { getName } from "i18n-iso-countries";
 
 export type Locale = {
   lang: string;
@@ -41,9 +39,7 @@ export const OURNET_TRANSLATOR = new OurnetTranslator({
 export class OurnetLocales extends LocalizyLocales {
   getCountryName(countryCode: string) {
     return (
-      (countryNames[countryCode.toLocaleLowerCase()] || {})[
-        this.__locales.language()
-      ] || ""
+      getName(countryCode.toLocaleLowerCase(), this.__locales.language()) || ""
     );
   }
 
