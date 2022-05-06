@@ -38,6 +38,7 @@ import {
 } from "./routes/static-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
 import {
+  SitemapMainPlacesRouter,
   SitemapRegionIndexRouter,
   SitemapRegionPlacesRouter
 } from "./routes/sitemap-router";
@@ -53,6 +54,7 @@ export class WeatherOurnetApp extends OurnetApp<OurnetAppData> {
         new RobotsRouter(),
         new SitemapRegionIndexRouter(),
         new SitemapRegionPlacesRouter(),
+        new SitemapMainPlacesRouter(),
         new OneSignalSDKWorkerRouter(),
         new OneSignalSDKUpdaterWorkerRouter(),
 

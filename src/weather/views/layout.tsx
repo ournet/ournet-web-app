@@ -1,76 +1,104 @@
-
-import * as React from 'react';
-import RootLayout from '../../views/root-layout';
-import { WeatherViewModel } from '../view-models/weather-view-model';
-import { AccentLine } from '../../views/components/accent-line';
-import PageMenu, { PageMenuProps } from '../../views/components/page-menu';
-import { getPlaceName } from '../../helpers';
-import { PageFooter } from '../../views/components/page-footer';
-import { WeatherPageHeader } from './components/page-header';
+import * as React from "react";
+import RootLayout from "../../views/root-layout";
+import { WeatherViewModel } from "../view-models/weather-view-model";
+import { AccentLine } from "../../views/components/accent-line";
+import PageMenu, { PageMenuProps } from "../../views/components/page-menu";
+import { getPlaceName } from "../../helpers";
+import { PageFooter } from "../../views/components/page-footer";
+import { WeatherPageHeader } from "./components/page-header";
 
 export default class Layout extends React.Component<WeatherViewModel, any> {
-    render() {
-        const { children, country, currentLink, head, mainPlaces, links, lang, locales, config, project, version } = this.props;
+  render() {
+    const {
+      children,
+      country,
+      currentLink,
+      head,
+      mainPlaces,
+      links,
+      lang,
+      locales,
+      config,
+      project,
+      version
+    } = this.props;
 
-        const pageMenu: PageMenuProps = {
-            items: []
-        }
+    const pageMenu: PageMenuProps = {
+      items: []
+    };
 
-        for (const item of pageMenu.items) {
-            if (currentLink === item.link || head.canonical === item.link) {
-                pageMenu.selectedId = item.id;
-                break;
-            }
-        }
-
-        if (mainPlaces && mainPlaces.length) {
-            for (const item of mainPlaces) {
-                const link = links.weather.place(item.id, { ul: lang });
-                if (currentLink === link || head.canonical === link) {
-                    pageMenu.selectedId = item.id;
-                }
-
-                const name = getPlaceName(item, lang);
-
-                pageMenu.items.push({
-                    link,
-                    id: item.id,
-                    title: name,
-                    text: name,
-                })
-            }
-        }
-
-        const utilLinks = [{ id: 'widget', url: links.weather.widget({ ul: lang }), text: locales.weather_on_your_site() }];
-        if (config.lists) {
-            config.lists.forEach(item => {
-                utilLinks.push({
-                    id: item.id,
-                    url: links.weather.place(item.id, { ul: lang }),
-                    text: item.name[lang],
-                })
-            })
-        }
-
-        return (
-            <RootLayout {...this.props}>
-                {AccentLine()}
-                {WeatherPageHeader(this.props)}
-                {PageMenu(pageMenu)}
-                {children}
-                {PageFooter({ config, country, lang, locales, head, project, version, utilLinks, preInfo: <div>{locales.weather_cright()}</div> })}
-                {getFooterScripts(country)}
-            </RootLayout>
-        )
+    for (const item of pageMenu.items) {
+      if (currentLink === item.link || head.canonical === item.link) {
+        pageMenu.selectedId = item.id;
+        break;
+      }
     }
+
+    if (mainPlaces && mainPlaces.length) {
+      for (const item of mainPlaces) {
+        const link = links.weather.place(item.id, { ul: lang });
+        if (currentLink === link || head.canonical === link) {
+          pageMenu.selectedId = item.id;
+        }
+
+        const name = getPlaceName(item, lang);
+
+        pageMenu.items.push({
+          link,
+          id: item.id,
+          title: name,
+          text: name
+        });
+      }
+    }
+
+    const utilLinks = [
+      {
+        id: "widget",
+        url: links.weather.widget({ ul: lang }),
+        text: locales.weather_on_your_site()
+      }
+    ];
+    if (config.lists) {
+      config.lists.forEach((item) => {
+        utilLinks.push({
+          id: item.id,
+          url: links.weather.place(item.id, { ul: lang }),
+          text: item.name[lang]
+        });
+      });
+    }
+
+    return (
+      <RootLayout {...this.props}>
+        {AccentLine()}
+        {WeatherPageHeader(this.props)}
+        {PageMenu(pageMenu)}
+        {children}
+        {PageFooter({
+          config,
+          country,
+          lang,
+          locales,
+          head,
+          project,
+          version,
+          utilLinks,
+          preInfo: <div>{locales.weather_cright()}</div>
+        })}
+        {getFooterScripts(country)}
+      </RootLayout>
+    );
+  }
 }
 
 function getFooterScripts(country: string) {
-    if (country === 'ru') {
-        return (
-            <ins>
-                <script dangerouslySetInnerHTML={{
-                    __html: `(function (w, d, c) {
+  if (country === "ru") {
+    return (
+      <ins>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function (w, d, c) {
                     (w[c] = w[c] || []).push(function() {
                         var options = {
                             project: 4509755,
@@ -91,16 +119,18 @@ function getFooterScripts(country: string) {
                     if (w.opera == "[object Opera]") {
                     d.addEventListener("DOMContentLoaded", f, false);
                 } else { f(); }
-                })(window, document, "_top100q");`}}>
-                </script>
-            </ins>
-        )
-    }
-    if (country === 'kz') {
-        return (
-            <ins>
-                <script dangerouslySetInnerHTML={{
-                    __html: `(function (w, d, c) {
+                })(window, document, "_top100q");`
+          }}
+        ></script>
+      </ins>
+    );
+  }
+  if (country === "kz") {
+    return (
+      <ins>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function (w, d, c) {
                     (w[c] = w[c] || []).push(function() {
                         var options = {
                             project: 6593194,
@@ -121,11 +151,12 @@ function getFooterScripts(country: string) {
                     if (w.opera == "[object Opera]") {
                     d.addEventListener("DOMContentLoaded", f, false);
                 } else { f(); }
-                })(window, document, "_top100q");`}}>
-                </script>
-            </ins>
-        )
-    }
+                })(window, document, "_top100q");`
+          }}
+        ></script>
+      </ins>
+    );
+  }
 
-    return null;
+  return null;
 }

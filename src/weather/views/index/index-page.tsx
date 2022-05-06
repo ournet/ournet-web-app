@@ -20,6 +20,26 @@ export class IndexPage extends React.Component<IndexViewModel> {
       country
     } = this.props;
 
+    head.elements.push(
+      <link
+        key="index-rss"
+        rel="alternate"
+        type="application/rss+xml"
+        href={links.weather.sitemap.regionIndex({ ul: lang })}
+      ></link>
+    );
+    ALL_WEATHER_COUNTRY_CODES.forEach((code) => {
+      head.elements.push(
+        <link
+          key={`main-places-${code}-rss`}
+          rel="alternate"
+          title={`${code} main places`}
+          type="application/rss+xml"
+          href={links.weather.sitemap.mainPlaces(code, { ul: lang })}
+        ></link>
+      );
+    });
+
     const countries = ALL_WEATHER_COUNTRY_CODES.filter((it) => it !== country)
       .map((code) => ({
         name: locales.getCountryName(code),
