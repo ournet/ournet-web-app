@@ -8,6 +8,9 @@ export class WeatherHelpers {
   static iconUrl(id: number) {
     let iconId = id;
     switch (id) {
+      case 2:
+        iconId = 2;
+        break;
       case 3:
         iconId = 4;
         break;
