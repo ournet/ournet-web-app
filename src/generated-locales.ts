@@ -729,6 +729,10 @@ export class LocalizyLocales {
         return this.v('weekly_horoscope');
     }
 
+    weather_around_the_world() {
+        return this.v('weather_around_the_world');
+    }
+
     weekly() {
         return this.v('weekly');
     }
@@ -823,10 +827,6 @@ export class LocalizyLocales {
 
     portal_in_short_app_name() {
         return this.v('portal_in_short_app_name');
-    }
-
-    weather_around_the_world() {
-        return this.v('weather_around_the_world');
     }
 
     weather_in_app_name() {
@@ -1307,6 +1307,7 @@ export type LocalesKey = '24_hrs'
     | 'weekly_horoscope_details'
     | 'weekly_horoscope_format'
     | 'weekly_horoscope'
+    | 'weather_around_the_world'
     | 'weekly'
     | 'width'
     | 'love'
@@ -1331,7 +1332,6 @@ export type LocalesKey = '24_hrs'
     | 'news_in_short_app_name'
     | 'portal_in_app_name'
     | 'portal_in_short_app_name'
-    | 'weather_around_the_world'
     | 'weather_in_app_name'
     | 'weather_in_short_app_name'
     | 'weather_vn_app_name'
