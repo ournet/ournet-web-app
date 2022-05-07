@@ -22,6 +22,7 @@
     [1, 1, "a view"],
     [2, null, "%d lượt xem"]
   ],
+  "weather_around_the_world": "Thời tiết khắp thế giới",
   "country_al": "Albania",
   "country_bg": "Bulgaria",
   "country_cz": "Cộng hòa Séc",
