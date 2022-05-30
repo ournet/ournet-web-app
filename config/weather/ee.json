@@ -1,34 +1,27 @@
 {
-    "background_color": "#f2f0ea",
-    "theme_color": "#ca0000",
-    "languages": [
-        "ee"
-    ],
-    "timezone": "Europe/Rome",
-    "domain": "ournet.ee",
-    "host": "meteo.ournet.ee",
-    "email": "info@ournet-group.com",
-    "googleAnalyticsId": "UA-1490399-42",
-    "widgetGoogleAnalyticsId": "",
-    "projects": [
-        "weather"
-    ],
-    "shareServices": [
-        "facebook",
-        "twitter"
-    ],
-    "internationalIds": [
-        "lv",
-        "ro",
-        "cz",
-        "bg",
-        "hu",
-        "ru",
-        "al",
-        "in",
-        "tr",
-        "md"
-    ],
-    "capitalId": "588409",
-    "placesCount": 15000
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["ee"],
+  "timezone": "Europe/Rome",
+  "domain": "ournet.ee",
+  "host": "meteo.ournet.ee",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "UA-1490399-42",
+  "widgetGoogleAnalyticsId": "",
+  "projects": ["weather"],
+  "shareServices": ["facebook", "twitter"],
+  "internationalIds": [
+    "lv",
+    "ro",
+    "cz",
+    "bg",
+    "hu",
+    "ru",
+    "al",
+    "in",
+    "tr",
+    "md"
+  ],
+  "capitalId": "588409",
+  "placesCount": 15000
 }

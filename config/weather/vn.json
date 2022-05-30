@@ -13,5 +13,5 @@
   "internationalIds": ["in", "ru", "kz"],
   "capitalId": "1581130",
   "placesCount": 62000,
-  "disabledAds": true
+  "disabledAds": false
 }
