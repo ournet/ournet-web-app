@@ -15,12 +15,6 @@ export function PageHead({
 }: PageViewModel<OurnetAppConfig>) {
   let verificationMeta = null;
 
-  if (country === "ru") {
-    verificationMeta = (
-      <meta name="yandex-verification" content="669891f5130ce03b" />
-    );
-  }
-
   const hasAds = !config.disabledAds && showGoogleAds;
 
   return (

@@ -1,32 +1,15 @@
 {
-    "background_color": "#f2f0ea",
-    "theme_color": "#ca0000",
-    "languages": [
-        "en"
-    ],
-    "timezone": "Asia/Kolkata",
-    "domain": "ournet.in",
-    "host": "horoscope.ournet.in",
-    "email": "info@ournet-group.com",
-    "googleAnalyticsId": "UA-1490399-31",
-    "projects": [
-        "horoscope",
-        "news",
-        "weather"
-    ],
-    "shareServices": [
-        "facebook",
-        "twitter"
-    ],
-    "internationalIds": [
-        "ru",
-        "ro",
-        "md",
-        "bg",
-        "hu",
-        "cz",
-        "it"
-	],
-    "capitalId": "1261481",
-    "facebookAppId": "186954164753362"
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["en"],
+  "timezone": "Asia/Kolkata",
+  "domain": "ournet.in",
+  "host": "horoscope.ournet.in",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "UA-1490399-31",
+  "projects": ["horoscope", "news", "weather"],
+  "shareServices": ["facebook", "twitter"],
+  "internationalIds": ["ro", "md", "bg", "hu", "cz", "it"],
+  "capitalId": "1261481",
+  "facebookAppId": "186954164753362"
 }

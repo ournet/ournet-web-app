@@ -1,38 +1,20 @@
 {
-    "background_color": "#f2f0ea",
-    "theme_color": "#ca0000",
-    "languages": [
-        "ro"
-    ],
-    "timezone": "Europe/Bucharest",
-    "domain": "ournet.ro",
-    "host": "horoscop.ournet.ro",
-    "email": "info@ournet-group.com",
-    "googleAnalyticsId": "UA-1490399-11",
-    "projects": [
-        "horoscope",
-        "news",
-        "weather",
-        "exchange"
-    ],
-    "shareServices": [
-        "facebook",
-        "twitter"
-    ],
-    "internationalIds": [
-        "md",
-        "bg",
-        "cz",
-        "hu",
-        "it",
-        "in",
-		"ru"
-	],
-    "capitalId": "683506",
-    "facebookAppId": "120256281349646",
-    "oneSignal": {
-		"appId": "20d478b4-fb13-42db-a663-75516e67ba9a",
-		"safari_web_id": "web.onesignal.auto.3f550615-46c0-4fa5-9ee8-42953ece3d19"
-	},
-	"androidAppId": "com.ournet.horoscope"
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["ro"],
+  "timezone": "Europe/Bucharest",
+  "domain": "ournet.ro",
+  "host": "horoscop.ournet.ro",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "UA-1490399-11",
+  "projects": ["horoscope", "news", "weather", "exchange"],
+  "shareServices": ["facebook", "twitter"],
+  "internationalIds": ["md", "bg", "cz", "hu", "it", "in"],
+  "capitalId": "683506",
+  "facebookAppId": "120256281349646",
+  "oneSignal": {
+    "appId": "20d478b4-fb13-42db-a663-75516e67ba9a",
+    "safari_web_id": "web.onesignal.auto.3f550615-46c0-4fa5-9ee8-42953ece3d19"
+  },
+  "androidAppId": "com.ournet.horoscope"
 }

@@ -1,35 +1,15 @@
 {
-    "background_color": "#f2f0ea",
-    "theme_color": "#ca0000",
-    "languages": [
-        "ro",
-        "ru"
-    ],
-    "timezone": "Europe/Bucharest",
-    "domain": "click.md",
-    "host": "horoscop.click.md",
-    "email": "info@ournet-group.com",
-    "googleAnalyticsId": "UA-1490399-23",
-    "projects": [
-        "news",
-        "weather",
-        "horoscope",
-        "exchange"
-    ],
-    "shareServices": [
-        "facebook",
-        "okru",
-        "twitter"
-    ],
-    "internationalIds": [
-        "ro",
-        "bg",
-        "ru",
-        "hu",
-        "cz",
-        "it",
-        "in"
-    ],
-    "capitalId": "618426",
-    "facebookAppId": "111558655578824"
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["ro", "ru"],
+  "timezone": "Europe/Bucharest",
+  "domain": "click.md",
+  "host": "horoscop.click.md",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "UA-1490399-23",
+  "projects": ["news", "weather", "horoscope", "exchange"],
+  "shareServices": ["facebook", "okru", "twitter"],
+  "internationalIds": ["ro", "bg", "hu", "cz", "it", "in"],
+  "capitalId": "618426",
+  "facebookAppId": "111558655578824"
 }

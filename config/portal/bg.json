@@ -1,33 +1,16 @@
 {
-    "background_color": "#f2f0ea",
-    "theme_color": "#ca0000",
-    "languages": [
-        "bg"
-    ],
-    "disabledAds": true,
-    "timezone": "Europe/Sofia",
-    "domain": "our.bg",
-    "host": "horo.our.bg",
-    "email": "info@ournet-group.com",
-    "googleAnalyticsId": "UA-1490399-35",
-    "projects": [
-        "news",
-        "weather",
-        "horoscope"
-    ],
-    "shareServices": [
-        "facebook",
-        "twitter"
-    ],
-    "internationalIds": [
-        "ro",
-		"ru",
-		"it",
-		"md",
-		"hu",
-		"cz",
-		"in"
-    ],
-    "capitalId": "727011",
-    "facebookAppId": "178864255588739"
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["bg"],
+  "disabledAds": true,
+  "timezone": "Europe/Sofia",
+  "domain": "our.bg",
+  "host": "horo.our.bg",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "UA-1490399-35",
+  "projects": ["news", "weather", "horoscope"],
+  "shareServices": ["facebook", "twitter"],
+  "internationalIds": ["ro", "it", "md", "hu", "cz", "in"],
+  "capitalId": "727011",
+  "facebookAppId": "178864255588739"
 }

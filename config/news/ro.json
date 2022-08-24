@@ -9,7 +9,7 @@
   "googleAnalyticsId": "UA-1490399-11",
   "projects": ["news", "weather", "horoscope", "exchange"],
   "shareServices": ["facebook", "twitter"],
-  "internationalIds": ["md", "bg", "it", "ru", "hu", "cz", "in"],
+  "internationalIds": ["md", "bg", "it", "hu", "cz", "in"],
   "capitalId": "683506",
   "facebookAppId": "120256281349646"
 }

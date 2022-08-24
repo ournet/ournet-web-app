@@ -29,7 +29,6 @@ export const ALL_WEATHER_COUNTRY_CODES = [
   "pt",
   "ro",
   "rs",
-  "ru",
   "se",
   "th",
   "tr",

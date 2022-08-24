@@ -1,33 +1,16 @@
 {
-    "background_color": "#f2f0ea",
-    "theme_color": "#ca0000",
-    "languages": [
-        "hu"
-    ],
-    "disabledAds": true,
-    "timezone": "Europe/Budapest",
-    "domain": "ournet.hu",
-    "host": "www.ournet.hu",
-    "email": "info@ournet-group.com",
-    "googleAnalyticsId": "UA-1490399-34",
-    "projects": [
-        "news",
-        "weather",
-        "horoscope"
-    ],
-    "shareServices": [
-        "facebook",
-        "twitter"
-    ],
-    "internationalIds": [
-        "bg",
-        "ro",
-		"ru",
-		"it",
-		"md",
-		"cz",
-		"in"
-    ],
-    "capitalId": "3054643",
-    "facebookAppId": "636531216436420"
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["hu"],
+  "disabledAds": true,
+  "timezone": "Europe/Budapest",
+  "domain": "ournet.hu",
+  "host": "www.ournet.hu",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "UA-1490399-34",
+  "projects": ["news", "weather", "horoscope"],
+  "shareServices": ["facebook", "twitter"],
+  "internationalIds": ["bg", "ro", "it", "md", "cz", "in"],
+  "capitalId": "3054643",
+  "facebookAppId": "636531216436420"
 }
