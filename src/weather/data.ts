@@ -10,6 +10,7 @@ export const ALL_WEATHER_COUNTRY_CODES = [
   "ch",
   "cn",
   "cz",
+  "hr",
   "de",
   "dk",
   "es",

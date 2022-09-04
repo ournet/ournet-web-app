@@ -12,6 +12,7 @@
   "shareServices": ["facebook", "twitter"],
   "internationalIds": [
     "rs",
+    "hr",
     "ro",
     "cz",
     "it",

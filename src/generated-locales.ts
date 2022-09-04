@@ -797,6 +797,10 @@ export class LocalizyLocales {
         return this.v('country_vn');
     }
 
+    country_hr() {
+        return this.v('country_hr');
+    }
+
     horoscope_in_app_name() {
         return this.v('horoscope_in_app_name');
     }
@@ -809,8 +813,8 @@ export class LocalizyLocales {
         return this.v('in_country_in');
     }
 
-    in_country_vn() {
-        return this.v('in_country_vn');
+    in_country_hr() {
+        return this.v('in_country_hr');
     }
 
     news_in_app_name() {
@@ -837,12 +841,16 @@ export class LocalizyLocales {
         return this.v('weather_in_short_app_name');
     }
 
-    weather_vn_app_name() {
-        return this.v('weather_vn_app_name');
+    weather_hr_app_name() {
+        return this.v('weather_hr_app_name');
     }
 
-    weather_vn_short_app_name() {
-        return this.v('weather_vn_short_app_name');
+    weather_hr_short_app_name() {
+        return this.v('weather_hr_short_app_name');
+    }
+
+    in_country_vn() {
+        return this.v('in_country_vn');
     }
 
     horoscope_hu_app_name() {
@@ -1132,6 +1140,14 @@ export class LocalizyLocales {
     weather_tr_short_app_name() {
         return this.v('weather_tr_short_app_name');
     }
+
+    weather_vn_app_name() {
+        return this.v('weather_vn_app_name');
+    }
+
+    weather_vn_short_app_name() {
+        return this.v('weather_vn_short_app_name');
+    }
 }
 
 export type LocalesKey = '24_hrs'
@@ -1324,18 +1340,20 @@ export type LocalesKey = '24_hrs'
     | 'weather_cz_app_name'
     | 'weather_cz_short_app_name'
     | 'country_vn'
+    | 'country_hr'
     | 'horoscope_in_app_name'
     | 'horoscope_in_short_app_name'
     | 'in_country_in'
-    | 'in_country_vn'
+    | 'in_country_hr'
     | 'news_in_app_name'
     | 'news_in_short_app_name'
     | 'portal_in_app_name'
     | 'portal_in_short_app_name'
     | 'weather_in_app_name'
     | 'weather_in_short_app_name'
-    | 'weather_vn_app_name'
-    | 'weather_vn_short_app_name'
+    | 'weather_hr_app_name'
+    | 'weather_hr_short_app_name'
+    | 'in_country_vn'
     | 'horoscope_hu_app_name'
     | 'horoscope_hu_short_app_name'
     | 'in_country_hu'
@@ -1407,4 +1425,6 @@ export type LocalesKey = '24_hrs'
     | 'weather_rs_short_app_name'
     | 'in_country_tr'
     | 'weather_tr_app_name'
-    | 'weather_tr_short_app_name';
+    | 'weather_tr_short_app_name'
+    | 'weather_vn_app_name'
+    | 'weather_vn_short_app_name';
