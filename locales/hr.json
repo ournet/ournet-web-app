@@ -168,7 +168,7 @@
   "weather_hr_short_app_name": "Vrijeme",
   "weather_cright": "Vremensku prognozu donosi MET Norway",
   "weather_for_10days": "Vremenska prognoza za 10 dana",
-  "weather_home_title_format": "%(name)s, vrijeme za 10 dana",
+  "weather_home_title_format": "Vrijeme u %(name)s za 10 dana",
   "weather_in_cn_summary_format": "%(country)s - vrijeme u za 10 dana u bilo kojem gradu",
   "weather_in_format": "Vrijeme %(name)s",
   "weather_notifications_subscribe_for_place_format": "Pretplatite se na vremensku prognozu za %(name)s",
