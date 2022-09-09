@@ -1,7 +1,7 @@
 {
   "background_color": "#f2f0ea",
   "theme_color": "#ca0000",
-  "languages": ["en"],
+  "languages": ["hr"],
   "timezone": "Europe/Zagreb",
   "domain": "vrijeme.one",
   "host": "www.vrijeme.one",
