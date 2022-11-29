@@ -9,7 +9,6 @@ import * as moment from "moment-timezone";
 import { WeatherAppConfig } from "../../../config";
 import { PlaceDayReport } from "./place-day-report";
 import { AdTop } from "../ads/ad-top";
-import { SubscribeBar } from "../subscribe-bar";
 import { AdCenter } from "../ads/ad-center";
 import { OurnetLocales } from "../../../../locales";
 
@@ -87,7 +86,7 @@ export function PlaceDailyReport({
         );
       }
     } else if (index === 6) {
-      items.push(SubscribeBar({ locales, config, lang, place }));
+      // items.push(SubscribeBar({ locales, config, lang, place }));
     } else if (index === 5) {
       if (!config.disabledAds) {
         items.push(AdCenter());
