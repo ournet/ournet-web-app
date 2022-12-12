@@ -1,4 +1,3 @@
-
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
 import { QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
@@ -6,73 +5,110 @@ import { Moment } from "moment-timezone";
 import { Dictionary, uniq } from "@ournet/domain";
 import { LIST_EVENTS_FIEDLS } from "../config";
 
+export class ImportantViewModelBuilder extends NewsViewModelBuilder<
+  ImportantViewModel,
+  OurnetViewModelInput
+> {
+  async build() {
+    const { lang, links, locales, head, country, currentDate } = this.model;
 
-export class ImportantViewModelBuilder extends NewsViewModelBuilder<ImportantViewModel, OurnetViewModelInput> {
+    head.title = locales.important_news();
+    head.description = locales.most_important_news_in_last_7days_country_format(
+      { country: locales.getCountryName(country) }
+    );
 
-    async build() {
+    this.setCanonical(links.news.important({ ul: lang }));
 
-        const { lang, links, locales, head, country, currentDate } = this.model;
+    const ids = await this.getImportantEventsIds({
+      limit: 12,
+      lang,
+      country,
+      currentDate
+    });
 
-        head.title = locales.important_news();
-        head.description = locales.most_important_news_in_last_7days_country_format({ country: locales.getCountryName(country) });
+    if (ids.length) {
+      this.apiClient
+        .newsEventsByIds(
+          "importantEvents",
+          { fields: LIST_EVENTS_FIEDLS },
+          { ids }
+        )
+        .quotesLatest(
+          "latestQuotes",
+          { fields: QuoteStringFields },
+          { params: { lang, country, limit: 6 } }
+        );
+    }
 
-        this.setCanonical(links.news.important({ ul: lang }));
+    return super.build();
+  }
 
-        const ids = await this.getImportantEventsIds({ limit: 12, lang, country, currentDate });
+  async getImportantEventsIds(data: {
+    limit: number;
+    lang: string;
+    country: string;
+    currentDate: Moment;
+  }) {
+    const { lang, country, currentDate, limit } = data;
 
-        if (ids.length) {
-            this.apiClient.newsEventsByIds('importantEvents', { fields: LIST_EVENTS_FIEDLS }, { ids })
-                .quotesLatest('latestQuotes', { fields: QuoteStringFields }, { params: { lang, country, limit: 6 } });
+    const maxDate = currentDate.clone().add(1, "day");
+    const minDate = currentDate.clone();
+
+    const apiClient = this.data.createQueryApiClient<Dictionary<NewsEvent[]>>();
+
+    const countDays = 7;
+    for (let i = 0; i < countDays; i++) {
+      apiClient.newsEventsLatest(
+        `day${i}`,
+        { fields: "id countNews" },
+        {
+          params: {
+            limit: 100,
+            lang,
+            country,
+            maxDate: maxDate.format("YYYY-MM-DD"),
+            minDate: minDate.format("YYYY-MM-DD")
+          }
         }
-
-        return super.build();
+      );
+      maxDate.add(-1, "day");
+      minDate.add(-1, "day");
     }
 
-    async getImportantEventsIds(data: { limit: number, lang: string, country: string, currentDate: Moment }) {
-        const { lang, country, currentDate, limit } = data;
+    const result = await this.executeApiClient(apiClient);
 
-        const maxDate = currentDate.clone().add(1, 'day');
-        const minDate = currentDate.clone();
+    const allEvents: NewsEvent[] = Object.keys(result).reduce<NewsEvent[]>(
+      (list, key) => list.concat(result[key]),
+      []
+    );
 
-        const apiClient = this.data.createQueryApiClient<Dictionary<NewsEvent[]>>();
+    const mostPopularIds = uniq(
+      allEvents.sort((a, b) => b.countNews - a.countNews).map((item) => item.id)
+    ).slice(0, limit);
 
-        const countDays = 7;
-        for (let i = 0; i < countDays; i++) {
-            apiClient.newsEventsLatest(`day${i}`, { fields: 'id countNews' }, { params: { limit: 100, lang, country, maxDate: maxDate.format('YYYY-MM-DD'), minDate: minDate.format('YYYY-MM-DD') } })
-            maxDate.add(-1, 'day');
-            minDate.add(-1, 'day');
-        }
+    return mostPopularIds;
+  }
 
-        const result = await this.executeApiClient(apiClient);
+  protected formatModelData(data: ImportantViewModel) {
+    const model = super.formatModelData(data);
 
-        const allEvents: NewsEvent[] = Object.keys(result).reduce<NewsEvent[]>((list, key) => list.concat(result[key]), []);
+    model.importantEvents = (data.importantEvents || []).sort((a, b) => {
+      const aDate = a.createdAt.substr(0, 10);
+      const bDate = b.createdAt.substr(0, 10);
+      if (aDate === bDate) {
+        return b.countNews - a.countNews;
+      }
+      if (aDate < bDate) {
+        return 1;
+      }
+      return -1;
+    });
 
-        const mostPopularIds = uniq(allEvents.sort((a, b) => b.countNews - a.countNews).map(item => item.id)).slice(0, limit);
-
-        return mostPopularIds;
-    }
-
-    protected formatModelData(data: ImportantViewModel) {
-
-        const model = super.formatModelData(data);
-
-        model.importantEvents = (data.importantEvents || []).sort((a, b) => {
-            const aDate = a.createdAt.substr(0, 10);
-            const bDate = b.createdAt.substr(0, 10);
-            if (aDate === bDate) {
-                return b.countNews - a.countNews;
-            }
-            if (aDate < bDate) {
-                return 1;
-            }
-            return -1;
-        });
-
-        return model;
-    }
+    return model;
+  }
 }
 
 export interface ImportantViewModel extends NewsViewModel {
-    importantEvents: NewsEvent[]
-    latestQuotes: Quote[]
+  importantEvents: NewsEvent[];
+  latestQuotes: Quote[];
 }

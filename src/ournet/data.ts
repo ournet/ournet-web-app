@@ -9,6 +9,9 @@ import { badImplementation } from "boom";
 import { Dictionary } from "@ournet/domain";
 import ms = require("ms");
 
+if (!process.env.OURNET_API_HOST)
+  throw new Error(`OURNET_API_HOST is required!`);
+
 const cacheOptions: Dictionary<{ max: number; ttl: number }> = {};
 
 cacheOptions[OurnetQueryMethods.news_trendingTopics] = {
