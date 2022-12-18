@@ -6,8 +6,9 @@
   "domain": "meteo.ng",
   "host": "www.meteo.ng",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "G-Y01Z6HEPS6",
-  "widgetGoogleAnalyticsId": "G-Y01Z6HEPS6",
+  "googleAnalyticsId": "",
+  "widgetGoogleAnalyticsId": "",
+  "googleTagId": "G-Y01Z6HEPS6",
   "projects": ["weather"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": [
