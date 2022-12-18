@@ -1,0 +1,28 @@
+{
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["en"],
+  "timezone": "Africa/Abuja",
+  "domain": "meteo.ng",
+  "host": "www.meteo.ng",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "G-Y01Z6HEPS6",
+  "widgetGoogleAnalyticsId": "G-Y01Z6HEPS6",
+  "projects": ["weather"],
+  "shareServices": ["facebook", "twitter"],
+  "internationalIds": [
+    "cz",
+    "it",
+    "bg",
+    "hu",
+    "ro",
+    "al",
+    "md",
+    "tr",
+    "lv",
+    "kz",
+    "vn"
+  ],
+  "capitalId": "2352778",
+  "placesCount": 39000
+}

@@ -138,5 +138,9 @@
   "www.vrijeme.one": {
     "project": "weather",
     "country": "hr"
+  },
+  "www.meteo.ng": {
+    "project": "weather",
+    "country": "ng"
   }
 }

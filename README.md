@@ -12,3 +12,4 @@ Ournet web application:
 - [www.moti2.al](http://www.moti2.al)
 - [www.hava.one](http://www.hava.one)
 - [www.vremenska.rs](https://www.vremenska.rs)
+- [www.meteo.ng](https://www.meteo.ng)
