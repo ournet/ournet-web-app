@@ -10,7 +10,7 @@
   "widgetGoogleAnalyticsId": "UA-1490399-69",
   "projects": ["weather"],
   "shareServices": ["facebook", "twitter"],
-  "internationalIds": ["in", "kz"],
+  "internationalIds": ["in", "kz", "ng"],
   "capitalId": "1581130",
   "placesCount": 62000,
   "disabledAds": false
