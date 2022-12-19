@@ -32,8 +32,9 @@ export function PlacePage(props: PlaceViewModel) {
     items: [{ text: locales.weather(), url: links.weather.home(localeParams) }]
   };
 
+  const countryName = locales.getCountryName(place.countryCode);
+
   if (place.countryCode !== country) {
-    const countryName = locales.getCountryName(place.countryCode);
     breadcrumbData.items.push({
       text: countryName,
       url: links.weather.country(place.countryCode.toLowerCase())
@@ -58,7 +59,7 @@ export function PlacePage(props: PlaceViewModel) {
         {Breadcrumb(breadcrumbData)}
         {PageTitle({
           title,
-          subTitle: description,
+          subTitle: `${description}, ${countryName}.`,
           preSubTitle: Share({
             url: head.canonical,
             lang,
@@ -74,7 +75,7 @@ export function PlacePage(props: PlaceViewModel) {
           config,
           locales
         })}
-        <p className="c-seo-mute">{subTitle}</p>
+        <p className="c-seo-mute">{subTitle} {countryName}.</p>
       </main>
     </CommonLayout>
   );
