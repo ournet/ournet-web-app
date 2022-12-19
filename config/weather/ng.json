@@ -2,7 +2,7 @@
   "background_color": "#f2f0ea",
   "theme_color": "#ca0000",
   "languages": ["en"],
-  "timezone": "Africa/Abuja",
+  "timezone": "Africa/Lagos",
   "domain": "meteo.ng",
   "host": "www.meteo.ng",
   "email": "info@ournet-group.com",
