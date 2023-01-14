@@ -6,8 +6,9 @@
   "domain": "ournet.ro",
   "host": "meteo.ournet.ro",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-11",
+  "googleAnalyticsId": "",
   "widgetGoogleAnalyticsId": "UA-1490399-48",
+  "googleTagId": "G-DGEVV3YEW0",
   "projects": ["horoscope", "news", "weather", "exchange"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": [

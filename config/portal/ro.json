@@ -1,34 +1,16 @@
 {
-    "background_color": "#f2f0ea",
-    "theme_color": "#ca0000",
-    "languages": [
-        "ro"
-    ],
-    "disabledAds": true,
-    "timezone": "Europe/Bucharest",
-    "domain": "ournet.ro",
-    "host": "www.ournet.ro",
-    "email": "info@ournet-group.com",
-    "googleAnalyticsId": "UA-1490399-11",
-    "projects": [
-        "horoscope",
-        "news",
-        "weather",
-        "exchange"
-    ],
-    "shareServices": [
-        "facebook",
-        "twitter"
-    ],
-    "internationalIds": [
-		"md",
-		"bg",
-		"it",
-		"ro",
-		"hu",
-		"cz",
-		"in"
-	],
-    "capitalId": "683506",
-    "facebookAppId": "120256281349646"
+  "background_color": "#f2f0ea",
+  "theme_color": "#ca0000",
+  "languages": ["ro"],
+  "disabledAds": true,
+  "timezone": "Europe/Bucharest",
+  "domain": "ournet.ro",
+  "host": "www.ournet.ro",
+  "email": "info@ournet-group.com",
+  "googleAnalyticsId": "UA-1490399-11",
+  "projects": ["horoscope", "news", "weather", "exchange"],
+  "shareServices": ["facebook", "twitter"],
+  "internationalIds": ["md", "bg", "it", "ro", "hu", "cz", "in"],
+  "capitalId": "683506",
+  "facebookAppId": "120256281349646"
 }
