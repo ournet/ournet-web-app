@@ -24,6 +24,7 @@ import { ManifestRouter } from "../ournet/routers/manifest-router";
 import { VideoEmbedRouter } from "./routes/video-embed-router";
 import { QuoteRouter } from "./routes/quote-router";
 import { AdsRouter } from "../ournet/routers/ads-router";
+import { SourcesRouter } from "./routes/sources-router";
 
 export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
@@ -53,7 +54,8 @@ export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
         new RssStoriesRouter(),
         new RssTopicStoriesRouter(),
 
-        new VideoEmbedRouter()
+        new VideoEmbedRouter(),
+        new SourcesRouter()
       ],
       OurnetProjectName.NEWS
     );
