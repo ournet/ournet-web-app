@@ -23,7 +23,7 @@ export class SourcesViewModelBuilder<
       { fields: "id" },
       { params: { country, lang, limit: 100 } },
       (items) =>
-        items
+        (items || [])
           .map((it) => sources.find((n) => n.id === it.id))
           .filter((it) => !!it)
     );
