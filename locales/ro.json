@@ -110,6 +110,8 @@
     "news_site_description_format": "Toate știrile din %(country)s. Evenimente, declarații, tendințe.",
     "news_site_title_format": "Ultimele știri din %(country)s",
     "news_sources": "Surse de știri",
+    "news_sources_in_country_format": "Surse de știri din %(country)s",
+    "add_news_source": "Adaugă o sursă",
     "news_topic_description_format": "Ultimele știri și evenimente din presa despre %(name)s",
     "news_topic_page_title_format": "%(name)s - Ultimele știri",
     "news": "Știri",

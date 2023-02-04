@@ -134,6 +134,7 @@
     "micro": "^9.3.3",
     "moment-timezone": "^0.5.35",
     "ms": "^2.1.1",
+    "news-sources": "^0.1.6",
     "ournet.links": "^0.4.28",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

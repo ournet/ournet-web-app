@@ -1,0 +1,22 @@
+.c-source-it {
+  margin: 0px;
+  padding-bottom: $global-spacing-unit;
+  h6 {
+    line-height: 1;
+    margin: 0px;
+    padding: 0px 0px $global-spacing-unit-tiny 0px;
+    a {
+      color: $text-color;
+      text-decoration: underline;
+      text-decoration-color: $accent-color;
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+.c-source-it--a {
+  font-size: 75%;
+  color: $text-color !important;
+}

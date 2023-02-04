@@ -817,12 +817,24 @@ export class LocalizyLocales {
         return this.v('in_country_hr');
     }
 
+    in_country_ng() {
+        return this.v('in_country_ng');
+    }
+
     news_in_app_name() {
         return this.v('news_in_app_name');
     }
 
     news_in_short_app_name() {
         return this.v('news_in_short_app_name');
+    }
+
+    news_sources_in_country_format(_p1: { country: string }) {
+        return this.v('news_sources_in_country_format', Array.from(arguments));
+    }
+
+    add_news_source() {
+        return this.v('add_news_source');
     }
 
     portal_in_app_name() {
@@ -849,8 +861,12 @@ export class LocalizyLocales {
         return this.v('weather_hr_short_app_name');
     }
 
-    in_country_vn() {
-        return this.v('in_country_vn');
+    weather_ng_app_name() {
+        return this.v('weather_ng_app_name');
+    }
+
+    weather_ng_short_app_name() {
+        return this.v('weather_ng_short_app_name');
     }
 
     horoscope_hu_app_name() {
@@ -1141,6 +1157,10 @@ export class LocalizyLocales {
         return this.v('weather_tr_short_app_name');
     }
 
+    in_country_vn() {
+        return this.v('in_country_vn');
+    }
+
     weather_vn_app_name() {
         return this.v('weather_vn_app_name');
     }
@@ -1345,15 +1365,19 @@ export type LocalesKey = '24_hrs'
     | 'horoscope_in_short_app_name'
     | 'in_country_in'
     | 'in_country_hr'
+    | 'in_country_ng'
     | 'news_in_app_name'
     | 'news_in_short_app_name'
+    | 'news_sources_in_country_format'
+    | 'add_news_source'
     | 'portal_in_app_name'
     | 'portal_in_short_app_name'
     | 'weather_in_app_name'
     | 'weather_in_short_app_name'
     | 'weather_hr_app_name'
     | 'weather_hr_short_app_name'
-    | 'in_country_vn'
+    | 'weather_ng_app_name'
+    | 'weather_ng_short_app_name'
     | 'horoscope_hu_app_name'
     | 'horoscope_hu_short_app_name'
     | 'in_country_hu'
@@ -1426,5 +1450,6 @@ export type LocalesKey = '24_hrs'
     | 'in_country_tr'
     | 'weather_tr_app_name'
     | 'weather_tr_short_app_name'
+    | 'in_country_vn'
     | 'weather_vn_app_name'
     | 'weather_vn_short_app_name';

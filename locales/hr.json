@@ -115,6 +115,8 @@
   "news_site_description_format": "All news from %(country)s. Events, statements, trends.",
   "news_site_title_format": "%(country)s News",
   "news_sources": "News sources",
+  "news_sources_in_country_format": "News sources in %(country)s",
+  "add_news_source": "Add new source",
   "news_topic_description_format": "Latest news and events in the press about %(name)s",
   "news_topic_page_title_format": "%(name)s - Latest News",
   "news": "News",

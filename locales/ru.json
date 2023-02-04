@@ -122,6 +122,8 @@
   "news_site_description_format": "Все новости из %(country)s. События, заявления, тенденции.",
   "news_site_title_format": "Новости: %(country)s",
   "news_sources": "Источники новостей",
+  "news_sources_in_country_format": "Источники новостей - %(country)s",
+  "add_news_source": "Добавить новый источник",
   "news_topic_description_format": "%(name)s - Последние новости, события и дискуссии в прессе",
   "news_topic_page_title_format": "%(name)s - Последние новости",
   "news": "Новости",
