@@ -7,7 +7,7 @@ import { URL } from "url";
 
 export default class SourcesPage extends React.Component<SourcesViewModel> {
   render() {
-    const { head, links, title, subTitle, sources, locales } = this.props;
+    const { head, links, title, subTitle, sources, locales, lang } = this.props;
 
     return (
       <CommonLayout {...this.props}>
@@ -27,7 +27,9 @@ export default class SourcesPage extends React.Component<SourcesViewModel> {
                   >
                     <div className="c-source-it">
                       <h6>
-                        <a href={links.news.source(item.id)}>{item.name}</a>
+                        <a href={links.news.source(item.id, { ul: lang })}>
+                          {item.name}
+                        </a>
                       </h6>
                       <a
                         className="c-source-it--a"
