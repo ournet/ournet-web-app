@@ -1,7 +1,6 @@
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
-import { readSources } from "news-sources";
+import { NewsSource, getSources } from "news-sources";
 import { OurnetViewModelInput } from "../../ournet/view-model";
-import { NewsSource } from "news-sources/types/data";
 
 export class SourcesViewModelBuilder<
   T extends SourcesViewModel,
@@ -17,7 +16,7 @@ export class SourcesViewModelBuilder<
 
     this.setCanonical(links.news.sources({ ul: lang }));
 
-    const sources = await readSources(country);
+    const sources = await getSources(country);
 
     this.apiClient.newsTopSources(
       "sources",

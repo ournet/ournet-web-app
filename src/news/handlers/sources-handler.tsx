@@ -11,7 +11,7 @@ export class SourcesHandler extends NewsBaseHandler {
       data
     ).build();
 
-    this.setCacheControl(10);
+    this.setCacheControl(60);
     return this.render(<SourcesPage {...viewData} />);
   }
 }

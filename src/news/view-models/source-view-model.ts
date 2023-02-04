@@ -2,8 +2,7 @@ import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
 import { NewsItem, NewsItemStringFields } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { notFound } from "boom";
-import { NewsSource } from "news-sources/types/data";
-import { readSources } from "news-sources";
+import { NewsSource, getSource } from "news-sources";
 import { NewsEvent } from "@ournet/news-domain";
 import { LIST_EVENTS_FIEDLS } from "../config";
 
@@ -17,7 +16,7 @@ export class SourceViewModelBuilder<
     const { lang, country, locales, head, links } = model;
     let { slug } = this.input;
     slug = slug.toLowerCase().trim();
-    const source = (await readSources(country)).find((it) => it.id === slug);
+    const source = await getSource(country, slug);
 
     if (!source) throw notFound(`Not found source id=${slug}`);
 
