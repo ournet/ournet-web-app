@@ -132,7 +132,14 @@ export default class TopicPage extends React.Component<TopicViewModel> {
               <div className="o-layout__item u-2/5@tablet">
                 {quotes && quotes.length > 0 ? (
                   <div>
-                    {SectionHeader({ name: locales.quotes(), h: "h4" })}
+                    {SectionHeader({
+                      name: locales.quotes(),
+                      link:
+                        quotes.length >= 3
+                          ? links.news.topicQuotes(slug, { ul: lang })
+                          : undefined,
+                      h: "h4"
+                    })}
                     {quotes.map((item) =>
                       QuoteListItem({
                         lang,

@@ -122,6 +122,8 @@
   "add_news_source": "Add new source",
   "news_topic_description_format": "Latest news and events in the press about %(name)s",
   "news_topic_page_title_format": "%(name)s - Latest News",
+  "news_topic_quotes_description_format": "%(name)s - Latest statements from the press",
+  "news_topic_quotes_page_title_format": "%(name)s Statements",
   "news": "News",
   "no_days": "No. days",
   "no_thanks": "No, thanks",

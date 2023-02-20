@@ -26,6 +26,7 @@ import { QuoteRouter } from "./routes/quote-router";
 import { AdsRouter } from "../ournet/routers/ads-router";
 import { SourcesRouter } from "./routes/sources-router";
 import { SourceRouter } from "./routes/source-router";
+import { TopicQuotesRouter } from "./routes/topic-quotes-router";
 
 export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
@@ -38,6 +39,7 @@ export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
         new ImportantRouter(),
         new QuotesRouter(),
         new TopicRouter(),
+        new TopicQuotesRouter(),
         new EventRouter(),
         new ItemRouter(),
         new QuoteRouter(),

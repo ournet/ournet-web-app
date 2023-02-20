@@ -126,6 +126,8 @@
   "add_news_source": "Добавить новый источник",
   "news_topic_description_format": "%(name)s - Последние новости, события и дискуссии в прессе",
   "news_topic_page_title_format": "%(name)s - Последние новости",
+  "news_topic_quotes_description_format": "%(name)s - Последние заявления прессы",
+  "news_topic_quotes_page_title_format": "%(name)s - Заявления",
   "news": "Новости",
   "no_days": "Дни",
   "no_thanks": "Нет, спасибо",

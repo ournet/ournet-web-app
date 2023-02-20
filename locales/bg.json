@@ -118,6 +118,8 @@
   "add_news_source": "Добавете нов източник",
   "news_topic_description_format": "%(name)s - Последни новини, истории и дискусии от пресата",
   "news_topic_page_title_format": "%(name)s - Последни новини",
+  "news_topic_quotes_description_format": "%(name)s - Последни изявления от пресата",
+  "news_topic_quotes_page_title_format": "%(name)s Изявления",
   "news": "Новини",
   "no_days": "Брой дни",
   "no_thanks": "Не, благодаря",
