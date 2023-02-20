@@ -449,12 +449,28 @@ export class LocalizyLocales {
         return this.v('news_sources');
     }
 
+    news_sources_in_country_format(_p1: { country: string }) {
+        return this.v('news_sources_in_country_format', Array.from(arguments));
+    }
+
+    add_news_source() {
+        return this.v('add_news_source');
+    }
+
     news_topic_description_format(_p1: { name: string }) {
         return this.v('news_topic_description_format', Array.from(arguments));
     }
 
     news_topic_page_title_format(_p1: { name: string }) {
         return this.v('news_topic_page_title_format', Array.from(arguments));
+    }
+
+    news_topic_quotes_description_format(_p1: { name: string }) {
+        return this.v('news_topic_quotes_description_format', Array.from(arguments));
+    }
+
+    news_topic_quotes_page_title_format(_p1: { name: string }) {
+        return this.v('news_topic_quotes_page_title_format', Array.from(arguments));
     }
 
     news() {
@@ -827,14 +843,6 @@ export class LocalizyLocales {
 
     news_in_short_app_name() {
         return this.v('news_in_short_app_name');
-    }
-
-    news_sources_in_country_format(_p1: { country: string }) {
-        return this.v('news_sources_in_country_format', Array.from(arguments));
-    }
-
-    add_news_source() {
-        return this.v('add_news_source');
     }
 
     portal_in_app_name() {
@@ -1273,8 +1281,12 @@ export type LocalesKey = '24_hrs'
     | 'news_site_description_format'
     | 'news_site_title_format'
     | 'news_sources'
+    | 'news_sources_in_country_format'
+    | 'add_news_source'
     | 'news_topic_description_format'
     | 'news_topic_page_title_format'
+    | 'news_topic_quotes_description_format'
+    | 'news_topic_quotes_page_title_format'
     | 'news'
     | 'no_days'
     | 'no_thanks'
@@ -1368,8 +1380,6 @@ export type LocalesKey = '24_hrs'
     | 'in_country_ng'
     | 'news_in_app_name'
     | 'news_in_short_app_name'
-    | 'news_sources_in_country_format'
-    | 'add_news_source'
     | 'portal_in_app_name'
     | 'portal_in_short_app_name'
     | 'weather_in_app_name'

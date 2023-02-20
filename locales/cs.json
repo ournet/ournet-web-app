@@ -119,6 +119,8 @@
   "add_news_source": "Přidat nový zdroj",
   "news_topic_description_format": "Nejnovější zprávy a události v tisku - %(name)s",
   "news_topic_page_title_format": "%(name)s - Poslední zprávy",
+  "news_topic_quotes_description_format": "%(name)s - Nejnovější prohlášení z tisku",
+  "news_topic_quotes_page_title_format": "%(name)s Prohlášení",
   "news": "Zprávy",
   "no_days": "Počet dní",
   "no_thanks": "Ne, díky",

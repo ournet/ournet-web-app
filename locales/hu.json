@@ -119,6 +119,8 @@
   "add_news_source": "Új forrás hozzáadása",
   "news_topic_description_format": "Legfrissebb hírek és események a sajtóban - %(name)s",
   "news_topic_page_title_format": "%(name)s - Friss hírek",
+  "news_topic_quotes_description_format": "%(name)s - A legfrissebb sajtónyilatkozatok",
+  "news_topic_quotes_page_title_format": "%(name)s - Idézetek",
   "news": "Hírek",
   "no_days": "Nem napok",
   "no_thanks": "Nem köszönöm",

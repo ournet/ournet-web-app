@@ -119,6 +119,8 @@
   "add_news_source": "Aggiungi nuova fonte",
   "news_topic_description_format": "%(name)s: Ultime notizie ed eventi sulla stampa",
   "news_topic_page_title_format": "%(name)s - Ultime notizie",
+  "news_topic_quotes_description_format": "%(name)s - Le ultime dichiarazioni della stampa",
+  "news_topic_quotes_page_title_format": "%(name)s - Dichiarazioni",
   "news": "Notizie",
   "no_days": "Nm giorni",
   "no_thanks": "No, grazie",
