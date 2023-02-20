@@ -4,7 +4,6 @@ import { SignViewModel } from "../../view-models/sign-view-model";
 import { PageTitle } from "../../../views/components/page-title";
 import { HoroscopeDayReport } from "../components/horoscope-day-report";
 import { AdBottom } from "../components/ads/ad-bottom";
-import { FacebookScript } from "../../../views/components/facebook-script";
 import { HoroscopeSignsLine } from "../../../views/components/horoscope/horoscope-signs-line";
 import { Share } from "../../../views/components/share";
 
@@ -21,17 +20,6 @@ export function SignPage(props: SignViewModel) {
     report,
     currentDayPeriodText
   } = props;
-
-  props.head.elements.push(
-    <link
-      key="facebook-connect"
-      rel="dns-prefetch"
-      href="https://connect.facebook.net"
-    />
-  );
-  props.head.elements.push(
-    <link key="facebook-m" rel="dns-prefetch" href="https://m.facebook.com" />
-  );
 
   return (
     <CommonLayout {...props}>
@@ -104,8 +92,6 @@ OneSignal.push(['init', {
           ></script>
         </div>
       )}
-      {config.facebookAppId &&
-        FacebookScript(config.facebookAppId, lang, country)}
     </CommonLayout>
   );
 }
