@@ -7,15 +7,18 @@
     position: relative;
     border-bottom: 1px solid darken($bg-color, 5%);
     h3, h4 {
-        border-bottom: 1px solid darken($bg-color, 10%);
+        border-bottom: 2px solid darken($bg-color, 10%);
         display: inline-block;
         position: relative;
-        margin-bottom: -1px;
+        margin-bottom: -2px;
         padding-bottom: $global-spacing-unit-small;
         font-weight: 500;
         a {
             color: $text-color;
             text-decoration: none;
         }
+    }
+    h3:has(a),h4:has(a) {
+        border-bottom: 2px solid darken($accent-color, 10%);
     }
 }
