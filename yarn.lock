@@ -5832,10 +5832,10 @@ os-tmpdir@^1.0.1:
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
 
-ournet.links@^0.4.28:
-  version "0.4.28"
-  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.28.tgz#a351ae2d8b6d8b1762925968a32d11d4dde1abb1"
-  integrity sha512-1hxcQA7Tb7GbiLVPNJ41HPoVmeMZ8yoMIpvxdeLmAoBwtjEak0RERpJTyQcc+4IrzYvhzjKeYD59YWB6CWEy0w==
+ournet.links@^0.4.29:
+  version "0.4.29"
+  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.29.tgz#7ebec40d05bcf10a6ed6e171de3b51a33ba9f152"
+  integrity sha512-oMrymSIgqaL+5KhDFX+fnf2wdk3E6ZH8sfKeBZrBk8+auv7N+tBkMI97Tq4GPsCYK3wQcG8rVCdwLPtOPGK37w==
   dependencies:
     urlset "^0.6.1"
 
