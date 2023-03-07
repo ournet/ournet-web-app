@@ -67,6 +67,18 @@ export function PlacePage(props: PlaceViewModel) {
             align: "right"
           })
         })}
+        {country === "ro" ? (
+          <p style={{ margin: "0px 0px 6px" }}>
+            <a
+              href="https://xport.al/referral/72yoz0afwu"
+              target="_blank"
+              style={{ textDecoration: "underline" }}
+            >
+              Compania din Sibiu MultiversX lansează aplicația xPortal - un
+              portal în lumea crypto.
+            </a>
+          </p>
+        ) : null}
         {PlaceDailyReport({
           holidays,
           report: placeForecast && placeForecast.details,
@@ -75,7 +87,9 @@ export function PlacePage(props: PlaceViewModel) {
           config,
           locales
         })}
-        <p className="c-seo-mute">{subTitle} {countryName}.</p>
+        <p className="c-seo-mute">
+          {subTitle} {countryName}.
+        </p>
       </main>
     </CommonLayout>
   );
