@@ -69,6 +69,14 @@ export default class Layout extends React.Component<WeatherViewModel, any> {
       });
     }
 
+    if (country === "ro") {
+      utilLinks.push({
+        id: "youtube-channel",
+        text: "Youtube",
+        url: "https://www.youtube.com/@ournet_ro"
+      });
+    }
+
     return (
       <RootLayout {...this.props}>
         {AccentLine()}
