@@ -27,6 +27,7 @@ import { AdsRouter } from "../ournet/routers/ads-router";
 import { SourcesRouter } from "./routes/sources-router";
 import { SourceRouter } from "./routes/source-router";
 import { TopicQuotesRouter } from "./routes/topic-quotes-router";
+import { RssProxyRouter } from "./routes/rss-proxy/rss-proxy-router";
 
 export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
@@ -59,7 +60,9 @@ export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
 
         new VideoEmbedRouter(),
         new SourcesRouter(),
-        new SourceRouter()
+        new SourceRouter(),
+
+        new RssProxyRouter()
       ],
       OurnetProjectName.NEWS
     );
