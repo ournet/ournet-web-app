@@ -10,6 +10,7 @@ import { Handler } from "../../../base/handler";
 import { NewsAppConfig } from "../../config";
 import { AsyncViewModelBuilder } from "../../../ournet/async-view-model";
 import * as protvmd from "./protv_md";
+import * as tv8md from "./tv8_md";
 
 interface RssProxyRouterData extends NewsBaseRouterData {
   id: string;
@@ -69,6 +70,9 @@ class RssTopicViewModelBuilder extends AsyncViewModelBuilder<
     switch (this.input.id) {
       case "protv.md":
         this.model.feed = await protvmd.getRss();
+        break;
+      case "tv8.md":
+        this.model.feed = await tv8md.getRss();
         break;
     }
     return super.build();
