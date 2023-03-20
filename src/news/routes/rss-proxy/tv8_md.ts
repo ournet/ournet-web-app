@@ -37,15 +37,24 @@ export const getRss = async () => {
     ttl: 60 * 30
   });
 
-  data.forEach((it) => {
-    feed.item({
-      date: date,
-      title: it.title.trim(),
-      url: `https://www.tv8.md${it.url}`,
-      enclosure: { url: it.image },
-      description: it.name
+  data
+    .filter(
+      (it) =>
+        it.title &&
+        it.url &&
+        it.url.startsWith("/") &&
+        it.image &&
+        it.image.startsWith("https://")
+    )
+    .forEach((it) => {
+      feed.item({
+        date: date,
+        title: it.title.trim(),
+        url: `https://www.tv8.md${it.url}`,
+        enclosure: { url: it.image },
+        description: it.name
+      });
     });
-  });
 
   return feed;
 };
