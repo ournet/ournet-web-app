@@ -27,7 +27,7 @@ export const getRss = async () => {
     responseType: "json"
   });
 
-  console.log(response.data.items);
+  // console.log(response.data.items);
 
   const date = new Date();
 

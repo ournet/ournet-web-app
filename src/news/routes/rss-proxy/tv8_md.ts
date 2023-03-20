@@ -25,7 +25,7 @@ export const getRss = async () => {
     [{ url: "@href", title: "> img@alt", image: "> img@src" }]
   );
 
-  console.log(data);
+  // console.log(data);
 
   const date = new Date();
 

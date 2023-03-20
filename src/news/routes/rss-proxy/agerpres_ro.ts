@@ -26,7 +26,7 @@ export const getRss = async () => {
     [{ url: "@onclick", title: ".title_news h2", date: "time@datetime" }]
   );
 
-  console.log(data);
+  // console.log(data);
 
   const date = new Date();
 
