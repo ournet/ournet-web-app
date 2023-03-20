@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as Rss from "rss";
+import { URL } from "url";
 import * as Xray from "x-ray";
 
 const USER_AGENT =
@@ -8,11 +9,11 @@ const USER_AGENT =
 const x = Xray();
 
 export const getRss = async () => {
-  const { data: html } = await axios(`https://tv8.md`, {
+  const { data: html } = await axios(`https://www.agerpres.ro`, {
     method: "GET",
     headers: {
-      referer: `https://tv8.md`,
-      origin: `https://tv8.md`,
+      referer: `https://www.agerpres.ro`,
+      origin: `https://www.agerpres.ro`,
       "user-agent": USER_AGENT
     },
     timeout: 1000 * 10,
@@ -21,8 +22,8 @@ export const getRss = async () => {
 
   const data: any[] = await x(
     html,
-    `div:has(h1:contains("Ultimele știri TV8.md")) > a`,
-    [{ url: "@href", title: "> img@alt", image: "> img@src" }]
+    `.last_news:has(.title_box:contains("ULTIMELE STIRI")) .wrap_last_news article`,
+    [{ url: "@onclick", title: ".title_news h2", date: "time@datetime" }]
   );
 
   console.log(data);
@@ -38,21 +39,17 @@ export const getRss = async () => {
   });
 
   data
-    .filter(
-      (it) =>
-        it.title &&
-        it.url &&
-        it.url.startsWith("/") &&
-        it.image &&
-        it.image.startsWith("https://")
-    )
+    .filter((it) => it.title)
     .forEach((it) => {
+      const title = it.title.trim();
+      let url = /window.location.assign\('([^']+)/.exec(it.url)![1];
+      if (!url) return;
+      url = new URL(url, "https://www.agerpres.ro").toString();
       feed.item({
-        date: date,
-        title: it.title.trim(),
-        url: `https://www.tv8.md${it.url}`,
-        enclosure: { url: it.image },
-        description: it.title
+        date: it.date ? new Date(it.date) : date,
+        title,
+        url,
+        description: title
       });
     });
 
