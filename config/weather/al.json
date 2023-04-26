@@ -8,6 +8,7 @@
   "email": "info@ournet-group.com",
   "googleAnalyticsId": "UA-1490399-63",
   "widgetGoogleAnalyticsId": "UA-1490399-64",
+  "googleTagId":"G-HR9KQT83BF",
   "projects": ["weather"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": [

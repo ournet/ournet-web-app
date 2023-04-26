@@ -73,7 +73,7 @@ export function PageHead({
           __html: `window.CONSTANTS={lang:"${lang}",country:"${country}",domain:"${config.domain}"};`
         }}
       ></script>
-      {hasAds && (
+      {hasAds && !config.googleTagId && (
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
