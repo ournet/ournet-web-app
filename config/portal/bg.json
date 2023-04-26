@@ -7,7 +7,7 @@
   "domain": "our.bg",
   "host": "horo.our.bg",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-35",
+  "googleTagId": "G-5VPGJKZDSR",
   "projects": ["news", "weather", "horoscope"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": ["ro", "it", "md", "hu", "cz", "in"],
