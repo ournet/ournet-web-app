@@ -6,7 +6,7 @@
   "domain": "ournet.cz",
   "host": "horoskop.ournet.cz",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-39",
+  "googleTagId": "G-B89XEWMGL9",
   "projects": ["news", "weather", "horoscope"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": ["bg", "hu", "it", "md", "ro", "in"],

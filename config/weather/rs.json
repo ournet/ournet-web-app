@@ -6,8 +6,6 @@
   "domain": "vremenska.rs",
   "host": "www.vremenska.rs",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "",
-  "widgetGoogleAnalyticsId": "",
   "projects": ["weather"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": ["al", "hr", "bg", "hu", "cz", "it", "ro"],
