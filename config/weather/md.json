@@ -6,7 +6,7 @@
   "domain": "click.md",
   "host": "meteo.click.md",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-23",
+  "googleTagId": "G-Y2VVK255CQ",
   "widgetGoogleAnalyticsId": "UA-1490399-49",
   "projects": ["horoscope", "news", "weather", "exchange"],
   "shareServices": ["facebook", "twitter"],

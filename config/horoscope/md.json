@@ -6,7 +6,7 @@
   "domain": "click.md",
   "host": "horoscop.click.md",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-23",
+  "googleTagId": "G-Y2VVK255CQ",
   "projects": ["news", "weather", "horoscope", "exchange"],
   "shareServices": ["facebook", "okru", "twitter"],
   "internationalIds": ["ro", "bg", "hu", "cz", "it", "in"],

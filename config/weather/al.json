@@ -7,7 +7,7 @@
   "host": "www.moti2.al",
   "email": "info@ournet-group.com",
   "widgetGoogleAnalyticsId": "UA-1490399-64",
-  "googleTagId":"G-HR9KQT83BF",
+  "googleTagId": "G-HR9KQT83BF",
   "projects": ["weather"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": [
