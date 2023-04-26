@@ -7,7 +7,7 @@
   "domain": "ournet.in",
   "host": "horoscope.ournet.in",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-31",
+  "googleTagId": "G-JBTPGM8ZS5",
   "projects": ["horoscope", "news", "weather"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": ["bg", "it", "ro", "hu", "cz", "md"],
