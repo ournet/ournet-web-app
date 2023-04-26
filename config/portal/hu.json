@@ -7,7 +7,7 @@
   "domain": "ournet.hu",
   "host": "www.ournet.hu",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-34",
+  "googleTagId": "G-JRF5BGX2PG",
   "projects": ["news", "weather", "horoscope"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": ["bg", "ro", "it", "md", "cz", "in"],
