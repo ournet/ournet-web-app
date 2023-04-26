@@ -6,7 +6,7 @@
   "domain": "ournet.it",
   "host": "oroscopo.ournet.it",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-44",
+  "googleTagId": "G-FQFB93H03X",
   "projects": ["news", "weather", "horoscope"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": ["hu", "cz", "bg", "ro", "md", "in"],

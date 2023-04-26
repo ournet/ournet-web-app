@@ -6,7 +6,7 @@
   "domain": "ournet.it",
   "host": "meteo.ournet.it",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-44",
+  "googleTagId": "G-FQFB93H03X",
   "widgetGoogleAnalyticsId": "UA-1490399-55",
   "projects": ["news", "weather", "horoscope"],
   "shareServices": ["facebook", "twitter"],
