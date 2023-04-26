@@ -6,7 +6,7 @@
   "domain": "hava.one",
   "host": "www.hava.one",
   "email": "info@ournet-group.com",
-  "googleAnalyticsId": "UA-1490399-65",
+  "googleTagId": "G-RK3K5HZ3X3",
   "widgetGoogleAnalyticsId": "UA-1490399-67",
   "projects": ["weather"],
   "shareServices": ["facebook", "twitter"],
