@@ -21,3 +21,7 @@ certbot certonly --nginx --cert-name ournet -d meteo.ng -d www.meteo.ng -d vrije
 ```
 certbot certonly --nginx --preferred-challenges dns --cert-name click-md -d click.md -d *.click.md
 ```
+
+```
+certbot certonly --manual --preferred-challenges=dns --cert-name ournet-ro -d ournet.ro -d *.ournet.ro
+```
