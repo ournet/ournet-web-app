@@ -47,13 +47,22 @@ export function SignPage(props: SignViewModel) {
         {/* {HoroscopeAppAdCard({ lang })} */}
         {AdBottom()}
         <br />
-        <div
-          className="fb-comments"
-          data-href={head.canonical}
-          data-numposts="5"
-          data-width="100%"
-          data-order-by="reverse-time"
-        ></div>
+        {lang === "ro" && (
+          <div>
+            <h3>Abonațivă la canalul nostru Youtube!</h3>
+            <div>
+              <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/videoseries?controls=0&amp;list=PLw56mwcjS8i50lR3Ot_cIedKZ5OJgmf8t"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        )}
         <br />
         <br />
       </main>
