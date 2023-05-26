@@ -69,17 +69,18 @@ export function PlaceDailyReport({
       if (!config.disabledAds) {
         items.push(AdTop());
       }
-      // if (config.domain === "moti2.al") {
-      //   items.push(
-      //     <div key="moti2-div">
-      //       <div id="M454705ScriptRootC701831"></div>
-      //       <script
-      //         src="https://jsc.mgid.com/m/o/moti2.al.701831.js"
-      //         async
-      //       ></script>
-      //     </div>
-      //   );
-      // }
+    } else if (index === 3) {
+      if (config.domain === "moti2.al") {
+        items.push(
+          <div key="moti2-div">
+            <div id="M454705ScriptRootC701831"></div>
+            <script
+              src="https://jsc.mgid.com/m/o/moti2.al.701831.js"
+              async
+            ></script>
+          </div>
+        );
+      }
     } else if (index === 6) {
       // items.push(SubscribeBar({ locales, config, lang, place }));
     } else if (index === 5) {
