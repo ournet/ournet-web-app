@@ -20,12 +20,10 @@ const hosts: { [host: string]: HostInfo } = require("../data/hosts.json");
 export function getHostInfo(host: string): HostInfo {
   host = host.replace(/:\d+$/, "");
   const data = hosts[host];
-  if (data) {
-    return data;
-  }
-  if (!env.COUNTRY || !env.PROJECT) {
+  if (data) return data;
+
+  if (env.isProduction || !env.COUNTRY || !env.PROJECT)
     throw new Error(`DEFAULT_COUNTRY & DEFAULT_PROJECT required! ${host}`);
-  }
 
   return {
     project: env.PROJECT as OurnetProjectName,

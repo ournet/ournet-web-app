@@ -1,11 +1,11 @@
 export default {
   info(...meta: any[]) {
-    console.info(meta);
+    console.info(...meta);
   },
   warn(...meta: any[]) {
-    console.warn(meta);
+    console.warn(...meta);
   },
   error(...meta: any[]) {
-    console.error(meta);
+    console.error(...meta);
   }
 };
