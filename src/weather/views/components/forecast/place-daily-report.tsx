@@ -69,7 +69,7 @@ export function PlaceDailyReport({
       if (!config.disabledAds) {
         items.push(AdTop());
       }
-    } else if (index === 3) {
+    } else if (index === 2) {
       if (config.domain === "moti2.al") {
         items.push(
           <div key="moti2-div">
