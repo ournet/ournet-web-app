@@ -142,5 +142,17 @@
   "www.meteo.ng": {
     "project": "weather",
     "country": "ng"
+  },
+  "www.ournet.es": {
+    "project": "portal",
+    "country": "es"
+  },
+  "noticias.ournet.es": {
+    "project": "news",
+    "country": "es"
+  },
+  "tiempo.ournet.es": {
+    "project": "weather",
+    "country": "es"
   }
 }

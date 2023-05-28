@@ -25,3 +25,11 @@ certbot certonly --nginx --preferred-challenges dns --cert-name click-md -d clic
 ```
 certbot certonly --manual --preferred-challenges=dns --cert-name ournet-ro -d ournet.ro -d *.ournet.ro
 ```
+
+```
+certbot certonly --manual --preferred-challenges=dns --cert-name ournet-hu -d ournet.hu -d *.ournet.hu
+```
+
+```
+certbot certonly --manual --preferred-challenges=dns --cert-name ournet-es -d ournet.es -d *.ournet.es
+```

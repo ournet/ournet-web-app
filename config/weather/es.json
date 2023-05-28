@@ -1,17 +1,16 @@
 {
   "background_color": "#f2f0ea",
   "theme_color": "#ca0000",
-  "languages": ["it"],
-  "timezone": "Europe/Rome",
-  "domain": "ournet.it",
-  "host": "meteo.ournet.it",
+  "languages": ["es"],
+  "disabledAds": true,
+  "timezone": "Europe/Madrid",
+  "domain": "ournet.es",
+  "host": "tiempo.ournet.es",
   "email": "info@ournet-group.com",
   "googleTagId": "G-FQFB93H03X",
-  "widgetGoogleAnalyticsId": "UA-1490399-55",
-  "projects": ["news", "weather", "horoscope"],
+  "projects": ["news", "weather"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": [
-    "es",
     "hr",
     "ro",
     "cz",
@@ -19,14 +18,11 @@
     "hu",
     "rs",
     "al",
-    "in",
+    "it",
     "tr",
-    "md",
-    "lv",
-    "kz",
-    "ng"
+    "md"
   ],
-  "capitalId": "3169070",
+  "capitalId": "3117735",
   "facebookAppId": "501096683350238",
-  "placesCount": 12000
+  "placesCount": 42000
 }

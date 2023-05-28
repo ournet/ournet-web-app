@@ -11,6 +11,7 @@
   "projects": ["weather"],
   "shareServices": ["facebook", "twitter"],
   "internationalIds": [
+    "es",
     "rs",
     "hr",
     "ro",

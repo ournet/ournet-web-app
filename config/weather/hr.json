@@ -10,7 +10,7 @@
   "widgetGoogleAnalyticsId": "",
   "projects": ["weather"],
   "shareServices": ["facebook", "twitter"],
-  "internationalIds": ["rs", "al", "bg", "hu", "cz", "it", "ro"],
+  "internationalIds": ["es", "rs", "al", "bg", "hu", "cz", "it", "ro"],
   "capitalId": "3186886",
   "placesCount": 18000,
   "googleTagId": "G-EV975K6NWM",

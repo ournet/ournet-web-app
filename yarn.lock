@@ -5537,10 +5537,10 @@ methods@^1.1.1:
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==
 
-metno-symbols@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/metno-symbols/-/metno-symbols-0.1.6.tgz#a541b0dcc3ceae86c126abfd3a918568fff95619"
-  integrity sha512-iQYQuoENSFhysS5scVlfXtKwxy5RoLrlFy2LPb9nqlY8W2KpEUg7YvphaeUxnfVl1p5gjRGiq9NZmhz/45tBcw==
+metno-symbols@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/metno-symbols/-/metno-symbols-0.1.7.tgz#e36693d1cc5e687dc0fd56b9aad26d28ce8bf31a"
+  integrity sha512-iUbCNMpc9wit7iXDtH6L1Tq+6qofhB+VZRDtlkOkbRvco/Yrz6kg1pxtZ1sp/spGQCYuOWms1Lg3vh8U3byDmw==
 
 micro@^9.3.3:
   version "9.3.4"
@@ -6172,10 +6172,10 @@ os-tmpdir@^1.0.1:
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
 
-ournet.links@^0.4.29:
-  version "0.4.29"
-  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.29.tgz#7ebec40d05bcf10a6ed6e171de3b51a33ba9f152"
-  integrity sha512-oMrymSIgqaL+5KhDFX+fnf2wdk3E6ZH8sfKeBZrBk8+auv7N+tBkMI97Tq4GPsCYK3wQcG8rVCdwLPtOPGK37w==
+ournet.links@^0.4.30:
+  version "0.4.30"
+  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.30.tgz#5021fdca1e81dc0a1116ef0fcbc50c2da6e6b6ca"
+  integrity sha512-fuYUqmDx/X1bY843/sE0WYFwMOVCcA8ZGbUnNMZR93EofaHb743gxswehRo+9Exps4f6ubwyKkCzDo5FSzYcLg==
   dependencies:
     urlset "^0.6.1"
 
