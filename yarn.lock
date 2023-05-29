@@ -5813,10 +5813,10 @@ negotiator@0.6.3:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
-news-sources@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/news-sources/-/news-sources-0.1.7.tgz#ce5dc1c76e9336c6b8fc7c3f7a2078642bae8529"
-  integrity sha512-5rXKXGUWiAHzQM3Kh+CB4ZH6Hj+btu+wdmfckMhY3YsWDFN/TCWng8/aNtMrY144/T9NZpNhE2nHuyho3DDGtw==
+news-sources@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/news-sources/-/news-sources-0.1.10.tgz#9b6c69face4fecd758d50bcd13142c6d44dac5d9"
+  integrity sha512-WnG+W//k8o161KU21YXgwMmDTUybWEoi3kvI6jHDbEkxCkli0vNpI72n5zF8guW8dFYCfUmf3Cpb2u9X9f2Kwg==
 
 next-tick@~1.0.0:
   version "1.0.0"
