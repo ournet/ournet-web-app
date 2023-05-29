@@ -16,6 +16,7 @@ interface PageHeaderProps {
   capital: Place;
   capitalForecast: HourlyForecastDataPoint;
   project: OurnetProjectName;
+  containsProject: (project: OurnetProjectName) => boolean;
 }
 
 export function PageHeader(props: PageHeaderProps) {

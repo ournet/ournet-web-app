@@ -4,13 +4,14 @@ import Layout from "./layout";
 import { getAssetUrl } from "../../assets";
 import env from "../../env";
 import { HoroscopeSvg } from "../../views/components/horoscope/horoscope-svg";
+import { OurnetProjectName } from "../../ournet/data";
 
 export default class CommonLayout extends React.Component<NewsViewModel> {
   render() {
-    const { project, children, links } = this.props;
+    const { project, children, containsProject } = this.props;
     return (
       <Layout {...this.props}>
-        {links.horoscope && HoroscopeSvg()}
+        {containsProject(OurnetProjectName.HOROSCOPE) && HoroscopeSvg()}
         {children}
         <script
           async={true}
