@@ -893,6 +893,14 @@ export class LocalizyLocales {
         return this.v('in_country_es');
     }
 
+    news_es_app_name() {
+        return this.v('news_es_app_name');
+    }
+
+    news_es_short_app_name() {
+        return this.v('news_es_short_app_name');
+    }
+
     horoscope_hu_app_name() {
         return this.v('horoscope_hu_app_name');
     }
@@ -1408,6 +1416,8 @@ export type LocalesKey = '24_hrs'
     | 'horoscope_es_app_name'
     | 'horoscope_es_short_app_name'
     | 'in_country_es'
+    | 'news_es_app_name'
+    | 'news_es_short_app_name'
     | 'horoscope_hu_app_name'
     | 'horoscope_hu_short_app_name'
     | 'in_country_hu'
