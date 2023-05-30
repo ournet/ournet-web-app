@@ -192,7 +192,7 @@
   "weather_place_description_format": "Pronóstico del tiempo para %(name1)s, %(name2)s - hoy, mañana, 10 días, 7 días",
   "weather_place_details_info_format": "El tiempo en %(name1)s, clima de %(name2)s hoy, mañana, 3 días, 7 días, 10 días, 15 días, en estos días. Pronóstico para %(name3)s.",
   "weather_place_title_format_10days_format": "Pronóstico del tiempo en %(name2)s, %(name1)s, para 10 días",
-  "weather_place_title_format": "El tiempo en %(name2)s, %(name1)s clima",
+  "weather_place_title_format": "El tiempo en %(name1)s clima",
   "weather": "El tiempo",
   "weather2": "Clima",
   "weekly_horoscope_details_format": "Horóscopo semanal: %(date)s.",
