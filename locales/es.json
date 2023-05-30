@@ -164,7 +164,7 @@
   "tomorrow": "Mañana",
   "topic_events_title_format": "%(name)s - Eventos",
   "topic_latest_news_format": "%(name)s - Últimas noticias",
-  "topic_news_title_format": "Noticias sobre %(name)s",
+  "topic_news_title_format": "Noticias de %(name)s",
   "topic_quotes_title_format": "%(name)s - Declaraciones",
   "total_subscribers_format": "Suscriptores: %d",
   "trending": "Tendencias",
