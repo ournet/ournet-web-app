@@ -24,6 +24,8 @@ export default class IndexPage extends React.Component<IndexViewModel> {
       containsProject
     } = this.props;
 
+    const horo = containsProject(OurnetProjectName.HOROSCOPE);
+
     const newsSchema = getSchema(OurnetProjectName.NEWS, country);
     const newsHost = getHost(OurnetProjectName.NEWS, country);
 
@@ -50,7 +52,7 @@ export default class IndexPage extends React.Component<IndexViewModel> {
 
     return (
       <CommonLayout {...this.props}>
-        {containsProject(OurnetProjectName.HOROSCOPE) && HoroscopeSvg()}
+        {horo && HoroscopeSvg()}
         <main>
           <div className="o-layout">
             {latestEvents.slice(0, 4).map((item) => (
@@ -71,16 +73,18 @@ export default class IndexPage extends React.Component<IndexViewModel> {
             ))}
           </div>
           <div className="o-layout">
-            <div className="o-layout__item u-1/4@tablet u-1/2@mobile">
-              {containsProject(OurnetProjectName.HOROSCOPE) &&
-                HoroscopeCard({
+            {horo && (
+              <div className="o-layout__item u-1/4@tablet u-1/2@mobile">
+                {HoroscopeCard({
                   links,
                   lang,
                   country,
                   title: locales.horoscope()
                 })}
-            </div>
-            {latestEvents.slice(4, 7).map((item) => (
+              </div>
+            )}
+
+            {latestEvents.slice(4, horo ? 7 : 8).map((item) => (
               <div
                 key={item.id}
                 className="o-layout__item u-1/4@tablet u-1/2@mobile"
