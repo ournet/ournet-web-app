@@ -114,21 +114,23 @@ export default class IndexPage extends React.Component<IndexViewModel> {
               </div>
             </div>
             <div className="o-layout">
-              {latestEvents.slice(horo ? 7 : 8).map((item) => (
-                <div
-                  key={item.id}
-                  className="o-layout__item u-1/2@mobile u-1/4@tablet"
-                >
-                  {EventListItem({
-                    lang,
-                    country,
-                    item,
-                    links,
-                    timezone: config.timezone,
-                    view: "card"
-                  })}
-                </div>
-              ))}
+              {latestEvents
+                .slice(horo ? 7 : 8, (horo ? 7 : 8) + 8)
+                .map((item) => (
+                  <div
+                    key={item.id}
+                    className="o-layout__item u-1/2@mobile u-1/4@tablet"
+                  >
+                    {EventListItem({
+                      lang,
+                      country,
+                      item,
+                      links,
+                      timezone: config.timezone,
+                      view: "card"
+                    })}
+                  </div>
+                ))}
             </div>
           </PageContentSection>
         </main>
