@@ -10,7 +10,7 @@
   "googleTagId": "G-P9EJ06WJVQ",
   "projects": ["news", "weather"],
   "shareServices": ["facebook", "twitter"],
-  "internationalIds": ["ro", "cz", "bg", "hu", "it", "tr", "md"],
+  "internationalIds": ["ro", "cz", "bg", "hu", "it", "md"],
   "capitalId": "3117735",
   "facebookAppId": "501096683350238",
   "placesCount": 21000

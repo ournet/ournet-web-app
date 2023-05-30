@@ -10,7 +10,7 @@
   "googleTagId": "G-DGEVV3YEW0",
   "projects": ["horoscope", "news", "weather", "exchange"],
   "shareServices": ["facebook", "twitter"],
-  "internationalIds": ["md", "bg", "it", "ro", "hu", "cz", "in"],
+  "internationalIds": ["md", "bg", "it", "ro", "hu", "cz", "in", "es"],
   "capitalId": "683506",
   "facebookAppId": "120256281349646"
 }
