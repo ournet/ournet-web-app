@@ -16,6 +16,7 @@ import PageContentSection from "../../../views/components/page-content-section";
 import { HoroscopeCard } from "../../../views/components/horoscope/horoscope-card";
 import { AdCenter } from "../components/ads/ad-center";
 import { Share } from "../../../views/components/share";
+import { OurnetProjectName } from "../../../ournet/data";
 
 export default class EventPage extends React.Component<EventViewModel> {
   render() {
@@ -31,7 +32,8 @@ export default class EventPage extends React.Component<EventViewModel> {
       eventQuotes,
       similarEvents,
       country,
-      project
+      project,
+      containsProject
     } = this.props;
 
     const imageLargeUrl = ImageStorageHelper.eventUrl(
@@ -179,7 +181,8 @@ export default class EventPage extends React.Component<EventViewModel> {
                         </div>
                       ))}
                       <div className="o-layout__item u-1/2@mobile">
-                        {similarEvents.length === 1 &&
+                        {containsProject(OurnetProjectName.HOROSCOPE) &&
+                          similarEvents.length === 1 &&
                           HoroscopeCard({
                             title: locales.horoscope(),
                             links,
