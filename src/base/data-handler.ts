@@ -12,7 +12,11 @@ export class DataHandler<
   DATA extends AppData = AppData,
   INPUT extends DataHandlerInput = DataHandlerInput
 > extends Handler<DATA, INPUT> {
-  handle(): Promise<void> {
-    return this.send(this.input.data, this.input.code, this.input.headers);
+  async handle(): Promise<void> {
+    return this.send(
+      await Promise.resolve(this.input.data),
+      this.input.code,
+      this.input.headers
+    );
   }
 }

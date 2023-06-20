@@ -5,6 +5,7 @@ import { getPlaceName } from "../../../helpers";
 import * as util from "util";
 import { getHost } from "ournet.links";
 import { WeatherHelpers } from "../../helpers";
+import coinWebData from "../../../coin-web-data";
 
 export function Widget1Frame(props: Widget1ViewModel) {
   const { lang, textcolor, lcolor, config, project, country } = props;
@@ -147,12 +148,16 @@ function formatWidget(props: Widget1ViewModel) {
     ";border-top:0px;background:#" +
     bkcolor;
 
-  return util.format(
+  const div = util.format(
     '<div id="widget"><div class="head" style="%s">%s</div><div onclick="window.open(\'%s\', \'_blank\');" class="body" style="%s">%s</div></div>',
     headstyle,
     name,
     url,
     bodystyle,
     body
+  );
+
+  return (
+    div + (props.webDataFetch ? coinWebData.buildJS(props.webDataFetch) : "")
   );
 }

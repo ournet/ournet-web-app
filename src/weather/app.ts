@@ -45,6 +45,7 @@ import {
 import { AdsRouter } from "../ournet/routers/ads-router";
 import { NewsletterUnsubscribeRouter } from "./routes/newsletter-unsubscribe-router";
 import { CountryRouter } from "./routes/country-router";
+import { CoinWebDataRouter } from "./routes/coin-web-data-router";
 
 export class WeatherOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
@@ -90,7 +91,9 @@ export class WeatherOurnetApp extends OurnetApp<OurnetAppData> {
 
         new JsonFindPlaceRouter(),
 
-        new NewsletterUnsubscribeRouter()
+        new NewsletterUnsubscribeRouter(),
+
+        new CoinWebDataRouter()
       ],
       OurnetProjectName.WEATHER
     );

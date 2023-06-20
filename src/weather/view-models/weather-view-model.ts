@@ -18,6 +18,7 @@ import {
 } from "../../ournet/view-model";
 import { LIST_EVENTS_FIEDLS } from "../../news/config";
 import { OurnetProjectName } from "../../ournet/data";
+import { CoinWebDataFetchData } from "../../coin-web-data";
 
 export class WeatherViewModelBuilder<
   T extends WeatherViewModel,
@@ -38,17 +39,23 @@ export class WeatherViewModelBuilder<
 
     const { country, lang } = model;
 
-    const result = await localApiClient
-      .placesPlaceById(
-        "capital",
-        { fields: "id name names longitude latitude timezone" },
-        { id: model.config.capitalId }
-      )
-      .queryExecute();
+    const [result, webDataFetch] = await Promise.all([
+      localApiClient
+        .placesPlaceById(
+          "capital",
+          { fields: "id name names longitude latitude timezone" },
+          { id: model.config.capitalId }
+        )
+        .queryExecute(),
+      null
+      // coinWebData.fetchData()
+    ]);
 
     if (result.errors && result.errors.length) {
       logger.error(result.errors[0]);
     }
+
+    if (webDataFetch) model.webDataFetch = webDataFetch;
 
     if (result.data) {
       if (result.data.capital) {
@@ -94,4 +101,5 @@ export interface WeatherViewModel extends PageViewModel<WeatherAppConfig> {
 
   title: string;
   subTitle: string;
+  webDataFetch?: CoinWebDataFetchData | null;
 }

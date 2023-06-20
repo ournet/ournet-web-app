@@ -4,6 +4,7 @@ import { Widget2ViewModel } from "../../view-models/widget2-view-model";
 import { getPlaceName } from "../../../helpers";
 import { getHost } from "ournet.links";
 import { WeatherHelpers } from "../../helpers";
+import coinWebData from "../../../coin-web-data";
 
 export function Widget2Frame(props: Widget2ViewModel) {
   const { lang, widget: info, config, project, country } = props;
@@ -182,5 +183,9 @@ function formatWidget(props: Widget2ViewModel) {
   }
   body.push("</ul></div></div>");
 
-  return body.join("");
+  const div = body.join("");
+
+  return (
+    div + (props.webDataFetch ? coinWebData.buildJS(props.webDataFetch) : "")
+  );
 }
