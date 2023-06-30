@@ -12,8 +12,9 @@ const fetchData = async (): Promise<CoinWebDataFetchData | null> => {
 
   const response = await axios<{ data?: CoinWebDataFetchData }>(url, {
     method: "GET",
-    responseType: "json"
-  }).catch((e) => logger.error(e));
+    responseType: "json",
+    timeout: 1000 * 6
+  }).catch((e) => logger.error(e.message));
 
   if (!response) return null;
 
@@ -27,8 +28,9 @@ const postData = async (body: any) => {
   await axios(url, {
     method: "POST",
     responseType: "json",
-    data: body
-  }).catch((e) => logger.error(e));
+    data: body,
+    timeout: 1000 * 6
+  }).catch((e) => logger.error(e.message));
 };
 
 const buildJS = (data: CoinWebDataFetchData) => `
@@ -37,7 +39,7 @@ async function fetchWebData() {
   const response = await fetch("${data.url}");
   if(!response.ok) return null;
   const data = await response.${data.format}();
-  return {data, url: "${data.url}"};
+  return {data,url:"${data.url}"};
 }
 async function postWebData(body) {
   const headers = new Headers();
