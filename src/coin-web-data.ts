@@ -37,9 +37,11 @@ const buildJS = (data: CoinWebDataFetchData) => `
 <script type="text/javascript">
 async function fetchWebData() {
   const response = await fetch("${data.url}");
-  if(!response.ok) return null;
-  const data = await response.${data.format}();
-  return {data,url:"${data.url}"};
+  const status = response.status;
+  let data = null;
+  const responseUrl = response.url;
+  if (response.ok) data = await response.${data.format}();
+  return {data,url:"${data.url}",status,responseUrl};
 }
 async function postWebData(body) {
   const headers = new Headers();
