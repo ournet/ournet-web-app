@@ -39,9 +39,8 @@ export function PageHead({
         href={getAppIconUrl(config.domain, "apple-touch-icon.png")}
       />
       <link
-        key="1"
-        type="text/css"
         rel="stylesheet"
+        media="all"
         href={getAssetUrl(project, "css", "main", env.isProduction)}
       />
       {config.facebookAppId && (
