@@ -29,6 +29,8 @@ export function PageHead({
         <meta name="description" content={head.description} />
       )}
       {head.canonical && <link rel="canonical" href={head.canonical} />}
+      <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
+      <link rel="preconnect" href="//assets.ournetcdn.net" />
       <link
         rel="shortcut icon"
         href={getAppIconUrl(config.domain, "favicon.ico")}
@@ -48,8 +50,6 @@ export function PageHead({
       )}
       {verificationMeta}
       {head.elements}
-      <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
-      <link rel="preconnect" href="//assets.ournetcdn.net" />
       <script
         dangerouslySetInnerHTML={{
           __html: `window.CONSTANTS={lang:"${lang}",country:"${country}",domain:"${config.domain}"};`
