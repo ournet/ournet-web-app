@@ -50,39 +50,17 @@ export function PageHead({
       {verificationMeta}
       {head.elements}
       <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
-      <link rel="dns-prefetch" href="//news.ournetcdn.net" />
-      {config.googleAnalyticsId && (
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
-      )}
-      {hasAds && <link rel="dns-prefetch" href="//tpc.googlesyndication.com" />}
-      {hasAds && (
-        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
-      )}
-
       <link rel="preconnect" href="//assets.ournetcdn.net" />
-      <link rel="preconnect" href="//news.ournetcdn.net" />
-      {config.googleAnalyticsId && (
-        <link rel="preconnect" href="//www.google-analytics.com" />
-      )}
-      {hasAds && <link rel="preconnect" href="//tpc.googlesyndication.com" />}
-      {hasAds && (
-        <link rel="preconnect" href="//pagead2.googlesyndication.com" />
-      )}
       <script
         dangerouslySetInnerHTML={{
           __html: `window.CONSTANTS={lang:"${lang}",country:"${country}",domain:"${config.domain}"};`
         }}
       ></script>
-      {hasAds && (
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        ></script>
-      )}
-      {config.googleTagId && (
+      {config.googleTagId && hasAds && (
         <>
           <script
             async
+            defer
             src={`https://www.googletagmanager.com/gtag/js?id=${config.googleTagId}`}
           ></script>
           <script
