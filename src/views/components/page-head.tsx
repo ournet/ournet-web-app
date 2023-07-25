@@ -10,9 +10,12 @@ export function PageHead({
   head,
   lang,
   country,
-  project
+  project,
+  showGoogleAds
 }: PageViewModel<OurnetAppConfig>) {
   let verificationMeta = null;
+
+  const hasAds = !config.disabledAds && showGoogleAds;
 
   return (
     <head>
@@ -52,7 +55,7 @@ export function PageHead({
           __html: `window.CONSTANTS={lang:"${lang}",country:"${country}",domain:"${config.domain}"};`
         }}
       ></script>
-      {config.googleTagId && (
+      {config.googleTagId && hasAds && (
         <>
           <script
             async
