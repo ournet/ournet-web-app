@@ -27,13 +27,15 @@ export default class Layout extends React.Component<NewsViewModel, any> {
           id: "important",
           link: links.news.important({ ul: lang }),
           title: locales.important_news(),
-          text: locales.important()
+          text: locales.important(),
+          bold: true
         },
         {
           id: "quotes",
           link: links.news.quotes({ ul: lang }),
           title: locales.latest_quotes(),
-          text: locales.quotes()
+          text: locales.quotes(),
+          bold: true
         }
       ]
     };
