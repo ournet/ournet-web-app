@@ -58,7 +58,6 @@ export function PageHead({
       {hasAds && (
         <script
           async
-          defer
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         ></script>
       )}
