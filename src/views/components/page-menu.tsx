@@ -26,7 +26,11 @@ export default function PageMenu({ items, selectedId }: PageMenuProps) {
               }`}
             >
               <a href={item.link} title={item.title}>
-                {item.bold ? <strong>{item.text}</strong> : item.text}
+                {item.bold ? (
+                  <b style={{ fontWeight: 500 }}>{item.text}</b>
+                ) : (
+                  item.text
+                )}
               </a>
             </li>
           ))}
