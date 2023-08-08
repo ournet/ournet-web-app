@@ -15,7 +15,6 @@ import {
 } from "../../ournet/page-view-model";
 import { WeatherAppConfig } from "../config";
 import { WeatherAppData, PlaceNoAdmin1Fields } from "../data";
-import coinWebData, { CoinWebDataFetchData } from "../../coin-web-data";
 
 export interface Widget1ViewModelInput extends OurnetViewModelInput {
   id: string;
@@ -42,8 +41,6 @@ export interface Widget1ViewModel extends PageViewModel<WeatherAppConfig> {
   htcolor: string;
   lcolor: string;
   textcolor: string;
-
-  webDataFetch?: CoinWebDataFetchData;
 }
 
 export class Widget1ViewModelBuilder extends PageViewModelBuilder<
@@ -70,22 +67,19 @@ export class Widget1ViewModelBuilder extends PageViewModelBuilder<
     }
 
     const localApi = this.data.createQueryApiClient<{ place: Place }>();
-    const [result, webDataFetch] = await Promise.all([
+    const [result] = await Promise.all([
       localApi
         .placesPlaceById(
           "place",
           { fields: PlaceNoAdmin1Fields },
           { id: this.input.id.trim() }
         )
-        .queryExecute(),
-      coinWebData.fetchData()
+        .queryExecute()
     ]);
     if (!result.data || !result.data.place) {
       throw notFound(`Not found place id=${this.input.id}`);
     }
     const place = (this.model.place = result.data.place);
-
-    if (webDataFetch) this.model.webDataFetch = webDataFetch;
 
     this.apiClient.weatherForecastReport(
       "forecast",

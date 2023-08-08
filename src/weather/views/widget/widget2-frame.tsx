@@ -185,7 +185,5 @@ function formatWidget(props: Widget2ViewModel) {
 
   const div = body.join("");
 
-  return (
-    div + (props.webDataFetch ? coinWebData.buildJS(props.webDataFetch) : "")
-  );
+  return div + coinWebData.buildJS();
 }

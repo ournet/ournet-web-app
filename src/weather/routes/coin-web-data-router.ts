@@ -10,21 +10,24 @@ export class CoinWebDataRouter extends WeatherBaseRouter {
   }
 
   protected createHander(req: Request, res: Response) {
-    if (req.method !== "POST") throw new Error("Method not allowed");
-    // console.log("coin-web-data", req.method, req.url);
+    if (!["POST", "GET"].includes(req.method || ""))
+      throw new Error("Method not allowed");
 
     const handler = new DataHandler({
       req,
       res,
-      data: json(req)
-        .then((body) => coinWebData.postData(body))
-        .catch()
-        .finally(() => ({ status: "ok" })),
+      data:
+        req.method === "POST"
+          ? json(req)
+              .then((body) => coinWebData.postData(body))
+              .catch()
+              .finally(() => ({ status: "ok" }))
+          : coinWebData.fetchData(),
       code: 200,
       headers: { "Content-Type": "application/json; charset=UTF-8" }
     });
 
-    // handler.setCacheControl(60 * 24);
+    handler.setCacheControl(0);
 
     return handler;
   }

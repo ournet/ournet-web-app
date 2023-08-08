@@ -32,7 +32,7 @@ export class Widget1FrameHandler extends WeatherBaseHandler<Widget1ViewModelInpu
       data
     ).build();
 
-    this.setCacheControl(viewData.webDataFetch ? 10 : 30);
+    this.setCacheControl(30);
     return this.render(Widget1Frame(viewData));
   }
 }
@@ -130,7 +130,7 @@ export class Widget2FrameHandler extends WeatherBaseHandler<Widget2ViewModelInpu
       data
     ).build();
 
-    this.setCacheControl(viewData.webDataFetch ? 10 : 30);
+    this.setCacheControl(30);
     return this.render(Widget2Frame(viewData));
   }
 }

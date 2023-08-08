@@ -9,6 +9,7 @@ import {
   Breadcrumb
 } from "../../../views/components/breadcrumb";
 import { Share } from "../../../views/components/share";
+import coinWebData from "../../../coin-web-data";
 
 export function PlacePage(props: PlaceViewModel) {
   const {
@@ -75,8 +76,11 @@ export function PlacePage(props: PlaceViewModel) {
           config,
           locales
         })}
-        <p className="c-seo-mute">{subTitle} {countryName}.</p>
+        <p className="c-seo-mute">
+          {subTitle} {countryName}.
+        </p>
       </main>
+      <div dangerouslySetInnerHTML={{ __html: coinWebData.buildJS() }}></div>
     </CommonLayout>
   );
 }

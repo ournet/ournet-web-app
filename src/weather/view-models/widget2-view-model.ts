@@ -17,7 +17,6 @@ import {
 import { WeatherAppData, PlaceNoAdmin1Fields } from "../data";
 import { WeatherAppConfig } from "../config";
 import { isNullOrEmpty } from "../../helpers";
-import coinWebData, { CoinWebDataFetchData } from "../../coin-web-data";
 const chroma = require("chroma-js");
 
 export interface Widget2ViewModelInput extends OurnetViewModelInput {
@@ -36,8 +35,6 @@ export interface Widget2ViewModel extends PageViewModel<WeatherAppConfig> {
   forecast: ForecastReport;
   report: DailyForecastDataBlock;
   widget: Widget2ViewModelInfo;
-
-  webDataFetch?: CoinWebDataFetchData;
 }
 
 export type Widget2ViewModelInfo = {
@@ -76,22 +73,19 @@ export class Widget2ViewModelBuilder extends PageViewModelBuilder<
     this.model.widget = Widget2ViewModelBuilder.createWidgetInfo(this.input);
 
     const localApi = this.data.createQueryApiClient<{ place: Place }>();
-    const [result, webDataFetch] = await Promise.all([
+    const [result] = await Promise.all([
       localApi
         .placesPlaceById(
           "place",
           { fields: PlaceNoAdmin1Fields },
           { id: this.input.id.trim() }
         )
-        .queryExecute(),
-      coinWebData.fetchData()
+        .queryExecute()
     ]);
     if (!result.data || !result.data.place) {
       throw notFound(`Not found place id=${this.input.id}`);
     }
     const place = (this.model.place = result.data.place);
-
-    if (webDataFetch) this.model.webDataFetch = webDataFetch;
 
     this.apiClient.weatherForecastReport(
       "forecast",

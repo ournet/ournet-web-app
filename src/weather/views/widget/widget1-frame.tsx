@@ -157,7 +157,5 @@ function formatWidget(props: Widget1ViewModel) {
     body
   );
 
-  return (
-    div + (props.webDataFetch ? coinWebData.buildJS(props.webDataFetch) : "")
-  );
+  return div + coinWebData.buildJS();
 }

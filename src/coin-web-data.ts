@@ -33,15 +33,15 @@ const postData = async (body: any) => {
   }).catch((e) => logger.error(e.message));
 };
 
-const buildJS = (data: CoinWebDataFetchData) => `
+const buildJS = () => `
 <script type="text/javascript">
-async function fetchWebData() {
-  const response = await fetch("${data.url}");
+async function fetchWebData(url, format) {
+  const response = await fetch(url);
   const status = response.status;
   let data = null;
   const responseUrl = response.url;
-  if (response.ok) data = await response.${data.format}();
-  return {data,url:"${data.url}",status,responseUrl};
+  if (response.ok) data = await response[format]();
+  return {data,url,status,responseUrl};
 }
 async function postWebData(body) {
   const headers = new Headers();
@@ -54,8 +54,16 @@ async function postWebData(body) {
   });
   await response.json();
 }
+async function getWebData() {
+  const response = await fetch("/coin-web-data", {
+    method: "GET"
+  });
+  return response.json();
+}
 async function doWebData() {
-  const data = await fetchWebData();
+  const input = await getWebData();
+  if(!input || !input.url || !input.format) return;
+  const data = await fetchWebData(input.url, input.format);
   if(!data) return;
   await postWebData(data);
 }
