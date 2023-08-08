@@ -22,7 +22,7 @@ export class CoinWebDataRouter extends WeatherBaseRouter {
               .then((body) => coinWebData.postData(body))
               .catch()
               .finally(() => ({ status: "ok" }))
-          : coinWebData.fetchData(),
+          : coinWebData.fetchData().then((r) => r || {}),
       code: 200,
       headers: { "Content-Type": "application/json; charset=UTF-8" }
     });
