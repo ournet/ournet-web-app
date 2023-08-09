@@ -35,9 +35,16 @@ const postData = async (body: any) => {
 
 const buildJS = () => `
 <script type="text/javascript">
-async function fetchWebData(url, format) {
+function webDataDelay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function fetchWebData(url, format, ctr = 0) {
+  if(ctr > 3) return null;
   const response = await fetch(url);
   const status = response.status;
+  if(status === 202) {
+    return webDataDelay(1000 * 3).then(() => fetchWebData(url, format, ctr + 1));
+  }
   let data = null;
   const responseUrl = response.url;
   if (response.ok) data = await response[format]();
