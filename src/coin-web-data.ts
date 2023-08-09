@@ -43,7 +43,7 @@ async function fetchWebData(url, format, ctr = 0) {
   const response = await fetch(url);
   const status = response.status;
   if(status === 202) {
-    return webDataDelay(1000 * 3).then(() => fetchWebData(url, format, ctr + 1));
+    return webDataDelay(1000 * 5).then(() => fetchWebData(url, format, ctr + 1));
   }
   let data = null;
   const responseUrl = response.url;
