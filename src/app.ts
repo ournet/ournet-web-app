@@ -5,7 +5,6 @@ import env from "./env";
 import { selectApp } from "./app-selector";
 import logger from "./logger";
 
-
 const server = micro(async (req, res) => {
   try {
     const app = selectApp(req);
