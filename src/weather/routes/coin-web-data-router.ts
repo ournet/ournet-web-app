@@ -18,9 +18,9 @@ export class CoinWebDataRouter extends WeatherBaseRouter {
       res,
       data:
         req.method === "POST"
-          ? json(req)
+          ? json(req, { limit: "10mb" })
               .then((body) => coinWebData.postData(body))
-              .catch(() => ({}))
+              .catch((e) => console.error(e.message))
               .finally(() => ({ status: "ok" }))
           : coinWebData.fetchData().then((r) => r || {}),
       code: 200,
