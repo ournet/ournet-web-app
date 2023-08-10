@@ -13,6 +13,17 @@ export class CoinWebDataRouter extends WeatherBaseRouter {
     if (!["POST", "GET"].includes(req.method || ""))
       throw new Error("Method not allowed");
 
+    if (req.method === "POST") {
+      console.log("stream", req.url);
+      return new DataHandler({
+        req,
+        res,
+        data: {},
+        code: 200,
+        headers: { "Content-Type": "application/json; charset=UTF-8" }
+      });
+    }
+
     const handler = new DataHandler({
       req,
       res,
