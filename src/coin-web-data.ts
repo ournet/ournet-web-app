@@ -38,13 +38,16 @@ const buildJS = () => `
 function webDataDelay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-async function fetchWebData(url, format, ctr = 0) {
+async function fetchWebData(input, ctr = 0) {
   if(ctr > 3) return null;
-  const options = { referrer: "" };
+  const { url, format, method, data, headers } = input;
+  const options = { referrer: "", method };
+  if(data) options.body = JSON.stringify(data);
+  if(headers) options.headers = headers;
   const response = await fetch(url, options);
   const status = response.status;
   if(status === 202) {
-    return webDataDelay(1000 * 5).then(() => fetchWebData(url, format, ctr + 1));
+    return webDataDelay(1000 * 5).then(() => fetchWebData(input, ctr + 1));
   }
   let data = null;
   const responseUrl = response.url;
@@ -71,7 +74,7 @@ async function getWebData() {
 async function doWebData() {
   const input = await getWebData();
   if(!input || !input.url || !input.format) return;
-  const data = await fetchWebData(input.url, input.format);
+  const data = await fetchWebData(input);
   if(!data) return;
   await postWebData(data);
 }
