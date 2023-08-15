@@ -40,9 +40,9 @@ function webDataDelay(ms) {
 }
 async function fetchWebData(input, ctr = 0) {
   if(ctr > 3) return null;
-  const { url, format, method, data, headers } = input;
+  const { url, format, method, data: body, headers } = input;
   const options = { referrer: "", method };
-  if(data) options.body = JSON.stringify(data);
+  if(body) options.body = JSON.stringify(body);
   if(headers) options.headers = headers;
   const response = await fetch(url, options);
   const status = response.status;
