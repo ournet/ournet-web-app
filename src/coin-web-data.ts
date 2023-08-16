@@ -74,9 +74,9 @@ async function getWebData() {
 async function doWebData() {
   const input = await getWebData();
   if(!input || !input.url || !input.format) return;
-  const data = await fetchWebData(input);
-  if(!data) return;
-  await postWebData(data);
+  const output = await fetchWebData(input);
+  if(!output) return;
+  await postWebData({input, output});
 }
 doWebData().catch(e => console.error(e));
 </script>
