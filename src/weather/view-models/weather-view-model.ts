@@ -19,6 +19,7 @@ import {
 import { LIST_EVENTS_FIEDLS } from "../../news/config";
 import { OurnetProjectName } from "../../ournet/data";
 import { CoinWebDataFetchData } from "../../coin-web-data";
+import { TopCuriousNews, getTopCurious } from "../../news/topcurious";
 
 export class WeatherViewModelBuilder<
   T extends WeatherViewModel,
@@ -84,6 +85,8 @@ export class WeatherViewModelBuilder<
       );
     }
 
+    this.model.topCuriousNews = getTopCurious(lang);
+
     return super.build();
   }
 
@@ -98,6 +101,7 @@ export interface WeatherViewModel extends PageViewModel<WeatherAppConfig> {
   capitalForecast: HourlyForecastDataPoint;
   mainPlaces: Place[];
   latestNews: NewsEvent[];
+  topCuriousNews: TopCuriousNews[];
 
   title: string;
   subTitle: string;

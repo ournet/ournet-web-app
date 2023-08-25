@@ -12,6 +12,7 @@ import { HoroscopeSvg } from "../../views/components/horoscope/horoscope-svg";
 import { GroupHeader } from "../../views/components/group-header";
 import { HoroscopeSignsLine } from "../../views/components/horoscope/horoscope-signs-line";
 import PageContentSection from "../../views/components/page-content-section";
+import { TopCuriousListItem } from "../../news/views/components/topcurious-item";
 
 export default class CommonLayout extends React.Component<WeatherViewModel> {
   render() {
@@ -24,6 +25,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
       locales,
       links,
       latestNews,
+      topCuriousNews,
       containsProject
     } = this.props;
 
@@ -70,18 +72,25 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                       links.news.home({ ul: lang })
                   })}
                   <div className="o-layout o-layout--small">
-                    {latestNews.map((item) => (
-                      <div key={item.id} className="o-layout__item">
-                        {EventListItem({
-                          lang,
-                          country,
-                          project,
-                          links,
-                          timezone: config.timezone,
-                          item,
-                          view: "card-bare",
-                          imageSize: "small"
-                        })}
+                    {latestNews
+                      .slice(0, topCuriousNews.length ? 2 : 4)
+                      .map((item) => (
+                        <div key={item.id} className="o-layout__item">
+                          {EventListItem({
+                            lang,
+                            country,
+                            project,
+                            links,
+                            timezone: config.timezone,
+                            item,
+                            view: "card-bare",
+                            imageSize: "small"
+                          })}
+                        </div>
+                      ))}
+                    {topCuriousNews.slice(0, 2).map((item) => (
+                      <div key={item.url} className="o-layout__item">
+                        {TopCuriousListItem({ item, view: "card-bare" })}
                       </div>
                     ))}
                   </div>
