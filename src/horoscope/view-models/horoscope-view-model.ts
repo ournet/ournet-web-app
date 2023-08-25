@@ -14,6 +14,7 @@ import {
 import logger from "../../logger";
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { LIST_EVENTS_FIEDLS } from "../../news/config";
+import { TopCuriousNews, getTopCurious } from "../../news/topcurious";
 
 export class HoroscopeViewModelBuilder<
   T extends HoroscopeViewModel,
@@ -78,6 +79,8 @@ export class HoroscopeViewModelBuilder<
       { params: { country, lang, limit: 4 } }
     );
 
+    this.model.topCuriousNews = getTopCurious(lang);
+
     return super.build();
   }
 
@@ -100,6 +103,7 @@ export interface HoroscopeViewModel extends PageViewModel<HoroscopeAppConfig> {
   capital: Place;
   capitalForecast: HourlyForecastDataPoint;
   latestNews: NewsEvent[];
+  topCuriousNews: TopCuriousNews[];
 
   currentDayPeriod: string;
   currentWeekPeriod: string;
