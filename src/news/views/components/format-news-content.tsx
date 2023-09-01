@@ -1,23 +1,23 @@
 import * as React from "react";
 import { Sitemap } from "ournet.links";
-import { ArticleContent, NewsTopic } from "@ournet/api-client";
+import { NewsArticleContent, NewsTopic } from "@ournet/api-client";
 import { Dictionary } from "@ournet/domain";
 
-export type FormatArticleContentPorps = {
+export type FormatNewsContentPorps = {
   lang: string;
   links: Sitemap;
-  content: ArticleContent;
+  content: NewsArticleContent;
   topics: NewsTopic[];
   maxPhrases: number;
 };
 
-export function FormatArticleContent({
+export function FormatNewsContent({
   lang,
   links,
   content,
   topics,
   maxPhrases
-}: FormatArticleContentPorps) {
+}: FormatNewsContentPorps) {
   let initialPhrases = content.content.split(/\n+/);
 
   let phrases: string[] = [];

@@ -1,6 +1,6 @@
 
 import { NewsViewModel, NewsViewModelBuilder } from "./news-view-model";
-import { NewsItem, NewsItemStringFields, ArticleContent, ArticleContentStringFields, NewsEvent, NewsEventStringFields } from "@ournet/api-client";
+import { NewsItem, NewsItemStringFields, NewsArticleContent, NewsArticleContentStringFields, NewsEvent, NewsEventStringFields } from "@ournet/api-client";
 import { notFound } from "boom";
 import { ArticleContentBuilder } from '@ournet/news-domain';
 import { OurnetViewModelInput } from "../../ournet/view-model";
@@ -16,7 +16,7 @@ export interface ItemViewModel extends NewsViewModel {
     similarEvents: NewsEvent[]
     item: NewsItem
     event?: NewsEvent
-    articleContent?: ArticleContent
+    articleContent?: NewsArticleContent
 }
 
 export class ItemViewModelBuilder extends NewsViewModelBuilder<ItemViewModel, ItemViewModelInput> {
@@ -51,7 +51,7 @@ export class ItemViewModelBuilder extends NewsViewModelBuilder<ItemViewModel, It
         }
 
         if (newsItem.hasContent) {
-            this.apiClient.newsArticleContentById('articleContent', { fields: ArticleContentStringFields }, { id: ArticleContentBuilder.createId({ refId: id, refType: 'NEWS' }) });
+            this.apiClient.newsArticleContentById('articleContent', { fields: NewsArticleContentStringFields }, { id: ArticleContentBuilder.createId({ refId: id, refType: 'NEWS' }) });
         }
 
         if (newsItem.eventId) {

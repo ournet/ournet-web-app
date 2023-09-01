@@ -61,7 +61,7 @@ const executor = new CacheGraphQlQueryExecutor(
   cacheOptions
 );
 
-function createQueryApiClient<QT>(): OurnetQueryApi<QT> {
+export function createQueryApiClient<QT>(): OurnetQueryApi<QT> {
   return new OurnetQueryApi<QT>(executor);
 }
 
@@ -69,7 +69,7 @@ function createMutationApiClient<QT>(): OurnetMutationApi<QT> {
   return new OurnetMutationApi<QT>(executor);
 }
 
-async function executeApiClient<APIT>(client: OurnetQueryApi<APIT>) {
+export async function executeApiClient<APIT>(client: OurnetQueryApi<APIT>) {
   if (!client.queryHasItems()) {
     return {} as APIT;
   }

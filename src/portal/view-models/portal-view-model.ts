@@ -1,7 +1,7 @@
 import { IPortalAppConfig } from "../config";
 import {
   PageViewModelBuilder,
-  PageViewModel
+  PageViewModel,
 } from "../../ournet/page-view-model";
 import { IPortalAppData } from "../data";
 import moment = require("moment-timezone");
@@ -12,11 +12,13 @@ import {
   NewsTopItem,
   NewsTopItemStringFields,
   HourlyForecastDataPointStringFields,
-  TopicStringFields
+  TopicStringFields,
+  Article,
 } from "@ournet/api-client";
 import logger from "../../logger";
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { filterIrrelevantTopics } from "../../news/irrelevant-topics";
+import { fillGetArticles } from "../../news/articles";
 
 export class PortalViewModelBuilder<
   T extends PortalViewModel,
@@ -34,12 +36,13 @@ export class PortalViewModelBuilder<
     const localApiClient = this.data.createQueryApiClient<{
       capital: Place;
       trendingTopics: NewsTopItem[];
+      latestArticles: Article[];
     }>();
 
     const model = this.model;
     const { country, lang } = model;
 
-    const result = await localApiClient
+    localApiClient
       .placesPlaceById(
         "capital",
         { fields: "id name names longitude latitude timezone" },
@@ -49,8 +52,15 @@ export class PortalViewModelBuilder<
         "trendingTopics",
         { fields: NewsTopItemStringFields },
         { params: { country, lang, limit: 20, period: "24h" } }
-      )
-      .queryExecute();
+      );
+
+    fillGetArticles(localApiClient, "latestArticles", {
+      lang,
+      country,
+      limit: 4,
+    });
+
+    const result = await localApiClient.queryExecute();
 
     if (result.errors && result.errors.length) {
       logger.error(result.errors[0]);
@@ -95,6 +105,7 @@ export interface PortalViewModel extends PageViewModel<IPortalAppConfig> {
 
   title: string;
   subTitle: string;
+  latestArticles: Article[];
 }
 
 export interface TrendingTopic extends Topic {

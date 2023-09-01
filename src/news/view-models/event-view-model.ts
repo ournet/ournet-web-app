@@ -1,6 +1,6 @@
 
 import { NewsViewModel, NewsViewModelBuilder } from "./news-view-model";
-import { NewsEvent, ArticleContent, ArticleContentStringFields, Quote, QuoteStringFields } from "@ournet/api-client";
+import { NewsEvent, NewsArticleContent, NewsArticleContentStringFields, Quote, QuoteStringFields } from "@ournet/api-client";
 import { notFound } from "boom";
 import { ArticleContentBuilder } from '@ournet/news-domain';
 import { OurnetViewModelInput } from "../../ournet/view-model";
@@ -15,7 +15,7 @@ export interface EventViewModel extends NewsViewModel {
     latestEvents: NewsEvent[]
     similarEvents: NewsEvent[]
     event: NewsEvent
-    eventContent?: ArticleContent
+    eventContent?: NewsArticleContent
     eventQuotes?: Quote[]
 }
 
@@ -49,7 +49,7 @@ export class EventViewModelBuilder extends NewsViewModelBuilder<EventViewModel, 
             .newsSimilarEventsByTopics('similarEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 2, topicIds: relevaltTopicsIds.slice(0, 2), exceptId: event.id } });
 
         if (event.hasContent) {
-            this.apiClient.newsArticleContentById('eventContent', { fields: ArticleContentStringFields }, { id: ArticleContentBuilder.createId({ refId: id, refType: 'EVENT' }) });
+            this.apiClient.newsArticleContentById('eventContent', { fields: NewsArticleContentStringFields }, { id: ArticleContentBuilder.createId({ refId: id, refType: 'EVENT' }) });
         }
         if (event.quotesIds && event.quotesIds.length) {
             this.apiClient.quotesQuotesByIds('eventQuotes', { fields: QuoteStringFields }, { ids: event.quotesIds });

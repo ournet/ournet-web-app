@@ -77,10 +77,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@ournet/api-client@~0.x.x":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@ournet/api-client/-/api-client-0.3.1.tgz#6487de20ce85087882b877397d27894cc915a610"
-  integrity sha512-d5TRAK8MvExVdeoTxvcip3l5CKhC3UTBMS23PWpi/HPVJ/V6VBKNqXYF6vEwKdkJ9ib8he05vquHFRJwxPJNWg==
+"@ournet/api-client@~0.4.x":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@ournet/api-client/-/api-client-0.4.0.tgz#723112a002e763508c547f369af74ccbb6feba9a"
+  integrity sha512-8whtOjL1+RleSQqdkkCaL6jsZFjCCUrtrIc8n5hDuzJ8eVhOCe0OHLKkSOfHLyonz4wqTRYOWUCaorGrbHPahA==
   dependencies:
     lru-cache "^5.1.1"
     node-fetch "^2.3.0"

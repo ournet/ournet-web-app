@@ -3,7 +3,7 @@ import * as React from 'react';
 import CommonLayout from '../common-layout';
 import { ImageStorageHelper } from '@ournet/images-domain';
 import { ItemViewModel } from '../../view-models/item-view-model';
-import { FormatArticleContent } from '../components/format-article-content';
+import { FormatNewsContent } from '../components/format-news-content';
 import * as moment from 'moment-timezone';
 import { ItemMedia } from './item-media';
 import { OutReadMoreLink } from '../components/out-read-more';
@@ -37,7 +37,7 @@ export default class ItemPage extends React.Component<ItemViewModel> {
 
         const link = links.news.item(item.id, { ul: lang });
 
-        const paragraphs = articleContent && FormatArticleContent({ lang, content: articleContent, links, topics: item.topics || [], maxPhrases: 2 })
+        const paragraphs = articleContent && FormatNewsContent({ lang, content: articleContent, links, topics: item.topics || [], maxPhrases: 2 })
             || item.summary.split(/\n+/).map((item, index) => <p key={`phrase-s-${index}`}>{item}</p>);
 
         const createdAt = moment(item.publishedAt).tz(config.timezone).locale(lang);
