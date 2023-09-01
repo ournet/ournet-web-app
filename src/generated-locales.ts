@@ -809,6 +809,14 @@ export class LocalizyLocales {
         return this.v('weather_cz_short_app_name');
     }
 
+    add_article() {
+        return this.v('add_article');
+    }
+
+    advertising() {
+        return this.v('advertising');
+    }
+
     country_vn() {
         return this.v('country_vn');
     }
@@ -1403,6 +1411,8 @@ export type LocalesKey = '24_hrs'
     | 'portal_cz_short_app_name'
     | 'weather_cz_app_name'
     | 'weather_cz_short_app_name'
+    | 'add_article'
+    | 'advertising'
     | 'country_vn'
     | 'country_hr'
     | 'horoscope_in_app_name'

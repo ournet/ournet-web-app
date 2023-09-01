@@ -47,6 +47,9 @@ cacheOptions[OurnetQueryMethods.topics_topicsByIds] = {
 };
 cacheOptions[OurnetQueryMethods.topics_topicById] = { max: 100, ttl: ms("1h") };
 
+cacheOptions[OurnetQueryMethods.articleById] = { max: 10, ttl: ms("1h") };
+cacheOptions[OurnetQueryMethods.findArticle] = { max: 10, ttl: ms("30m") };
+
 const headers = {
   authorization: `Key ${process.env.OURNET_API_KEY}`,
   "Content-Type": "application/json"
@@ -71,6 +74,7 @@ function createMutationApiClient<QT>(): OurnetMutationApi<QT> {
 
 export async function executeApiClient<APIT>(client: OurnetQueryApi<APIT>) {
   if (!client.queryHasItems()) {
+    console.log("No query items");
     return {} as APIT;
   }
   const apiResult = await client.queryExecute();

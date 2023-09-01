@@ -10,7 +10,7 @@ export default class ErrorPage extends React.Component<ErrorViewModel> {
     const {
       locales,
       error,
-      latestEvents,
+      latestEvents = [],
       head,
       lang,
       country,
@@ -39,23 +39,22 @@ export default class ErrorPage extends React.Component<ErrorViewModel> {
 
           <div className="c-section">
             <div className="o-layout">
-              {latestEvents &&
-                latestEvents.map((item) => (
-                  <div
-                    key={item.id}
-                    className="o-layout__item u-1/2@mobile u-1/4@tablet"
-                  >
-                    {EventListItem({
-                      lang,
-                      country,
-                      links,
-                      timezone: config.timezone,
-                      item,
-                      view: "card",
-                      project
-                    })}
-                  </div>
-                ))}
+              {latestEvents.map((item) => (
+                <div
+                  key={item.id}
+                  className="o-layout__item u-1/2@mobile u-1/4@tablet"
+                >
+                  {EventListItem({
+                    lang,
+                    country,
+                    links,
+                    timezone: config.timezone,
+                    item,
+                    view: "card",
+                    project
+                  })}
+                </div>
+              ))}
             </div>
           </div>
         </main>
