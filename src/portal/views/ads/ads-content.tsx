@@ -7,7 +7,8 @@ const PRICES: Record<string, { price: number; currency: string }> = {
   bg: { price: 20, currency: "EUR" },
   hu: { price: 20, currency: "EUR" },
   cz: { price: 20, currency: "EUR" },
-  es: { price: 20, currency: "EUR" }
+  es: { price: 20, currency: "EUR" },
+  it: { price: 20, currency: "EUR" },
 };
 
 export default (language: string, country: string) => {
