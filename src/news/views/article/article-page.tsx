@@ -67,7 +67,6 @@ export default class ArticlePage extends React.Component<ArticleViewModel> {
     }
 
     const content = marked(article.content?.content || "", {
-      gfm: true,
       renderer
     });
 
