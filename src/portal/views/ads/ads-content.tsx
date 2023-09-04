@@ -85,7 +85,7 @@ export default (language: string, country: string) => {
         <h4>Contact</h4>
         <p>
           Pentru a plasa un articol publicitar, vă rugăm să ne contactați pe
-          email: <a href="mailto:info@urnet-group.com">info@urnet-group.com</a>.
+          email: <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
         </p>
         <p>
           La moment, plățile se fac doar prin PayPal. Vă vom trimite factura
@@ -161,7 +161,7 @@ export default (language: string, country: string) => {
         <h4>Contact</h4>
         <p>
           To place an advertising article, please contact us via email:{" "}
-          <a href="mailto:info@urnet-group.com">info@urnet-group.com</a>.
+          <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
         </p>
         <p>
           Currently, payments are only accepted through PayPal. We will send you
@@ -237,7 +237,7 @@ export default (language: string, country: string) => {
         <p>
           Для размещения рекламной статьи, пожалуйста, свяжитесь с нами по
           адресу электронной почты:{" "}
-          <a href="mailto:info@urnet-group.com">info@urnet-group.com</a>.
+          <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
         </p>
         <p>
           В настоящее время оплаты принимаются только через PayPal. Мы вышлем
@@ -312,7 +312,7 @@ export default (language: string, country: string) => {
         <h4>Контакт</h4>
         <p>
           За да поставите рекламна статия, моля, свържете се с нас на имейл:{" "}
-          <a href="mailto:info@urnet-group.com">info@urnet-group.com</a>.
+          <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
         </p>
         <p>
           В момента плащанията се приемат само чрез PayPal. Ще ви изпратим
@@ -388,7 +388,7 @@ export default (language: string, country: string) => {
         <p>
           Hirdetési cikk elhelyezéséhez kérjük, lépjen kapcsolatba velünk az
           alábbi e-mail címen:{" "}
-          <a href="mailto:info@urnet-group.com">info@urnet-group.com</a>.
+          <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
         </p>
         <p>
           Jelenleg csak PayPal-on keresztül fogadjuk el a fizetéseket. Elküldjük
@@ -462,7 +462,7 @@ export default (language: string, country: string) => {
         <h4>Kontakt</h4>
         <p>
           Pro umístění reklamního článku nás prosím kontaktujte e-mailem na
-          adrese: <a href="mailto:info@urnet-group.com">info@urnet-group.com</a>
+          adrese: <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>
           .
         </p>
         <p>
@@ -539,7 +539,7 @@ export default (language: string, country: string) => {
         <p>
           Para colocar un artículo publicitario, por favor contáctenos por
           correo electrónico:{" "}
-          <a href="mailto:info@urnet-group.com">info@urnet-group.com</a>.
+          <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
         </p>
         <p>
           Actualmente, solo aceptamos pagos a través de PayPal. Le enviaremos la
@@ -616,7 +616,7 @@ export default (language: string, country: string) => {
         <p>
           Per pubblicare un articolo pubblicitario, vi preghiamo di contattarci
           via email:{" "}
-          <a href="mailto:info@urnet-group.com">info@urnet-group.com</a>.
+          <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
         </p>
         <p>
           Al momento, accettiamo solo pagamenti tramite PayPal. Vi invieremo la
