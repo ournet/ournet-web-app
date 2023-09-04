@@ -1,7 +1,6 @@
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
-import { QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
+import { QuoteStringFields, Quote } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
-import { LIST_EVENTS_FIEDLS } from "../config";
 
 export class QuotesViewModelBuilder<
   T extends QuotesViewModel,
@@ -20,23 +19,16 @@ export class QuotesViewModelBuilder<
 
     this.setCanonical(links.news.quotes({ ul: lang }));
 
-    this.apiClient
-      .newsEventsLatest(
-        "latestEvents",
-        { fields: LIST_EVENTS_FIEDLS },
-        { params: { lang, country, limit: 4 } }
-      )
-      .quotesLatest(
-        "latestQuotes",
-        { fields: QuoteStringFields },
-        { params: { lang, country, limit: 12 } }
-      );
+    this.apiClient.quotesLatest(
+      "latestQuotes",
+      { fields: QuoteStringFields },
+      { params: { lang, country, limit: 12 } }
+    );
 
     return super.build();
   }
 }
 
 export interface QuotesViewModel extends NewsViewModel {
-  latestEvents: NewsEvent[];
   latestQuotes: Quote[];
 }

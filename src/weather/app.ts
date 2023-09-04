@@ -42,7 +42,7 @@ import {
   SitemapRegionIndexRouter,
   SitemapRegionPlacesRouter
 } from "./routes/sitemap-router";
-import { AdsRouter } from "../ournet/routers/ads-router";
+import { AdsTxtRouter } from "../ournet/routers/ads-txt-router";
 import { NewsletterUnsubscribeRouter } from "./routes/newsletter-unsubscribe-router";
 import { CountryRouter } from "./routes/country-router";
 import { CoinWebDataRouter } from "./routes/coin-web-data-router";
@@ -51,7 +51,7 @@ export class WeatherOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
     super(
       [
-        new AdsRouter(),
+        new AdsTxtRouter(),
         new RobotsRouter(),
         new SitemapRegionIndexRouter(),
         new SitemapRegionPlacesRouter(),

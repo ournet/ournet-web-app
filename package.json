@@ -112,7 +112,7 @@
     "xhr": "^2.5.0"
   },
   "dependencies": {
-    "@ournet/api-client": "~0.4.x",
+    "@ournet/api-client": "~0.4.1",
     "@ournet/domain": "~0.x.x",
     "@ournet/horoscopes-domain": "~0.x.x",
     "@ournet/images-domain": "~0.x.x",
@@ -135,7 +135,7 @@
     "moment-timezone": "^0.5.35",
     "ms": "^2.1.1",
     "news-sources": "^0.1.10",
-    "ournet.links": "^0.4.35",
+    "ournet.links": "^0.4.39",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "rss": "^1.2.2",

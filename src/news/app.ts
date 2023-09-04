@@ -23,7 +23,7 @@ import { RobotsRouter } from "./routes/static-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
 import { VideoEmbedRouter } from "./routes/video-embed-router";
 import { QuoteRouter } from "./routes/quote-router";
-import { AdsRouter } from "../ournet/routers/ads-router";
+import { AdsTxtRouter } from "../ournet/routers/ads-txt-router";
 import { SourcesRouter } from "./routes/sources-router";
 import { SourceRouter } from "./routes/source-router";
 import { TopicQuotesRouter } from "./routes/topic-quotes-router";
@@ -33,7 +33,7 @@ export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
     super(
       [
-        new AdsRouter(),
+        new AdsTxtRouter(),
         new RobotsRouter(),
 
         new IndexRouter(),

@@ -1,7 +1,6 @@
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
 import {
   QuoteStringFields,
-  NewsEvent,
   Quote,
   Topic,
   TopicStringFields
@@ -9,7 +8,6 @@ import {
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { TopicHelper } from "@ournet/topics-domain";
 import { notFound } from "boom";
-import { LIST_EVENTS_FIEDLS } from "../config";
 import { topicDisplayName } from "../helpers";
 
 export class TopicQuotesViewModelBuilder<
@@ -47,17 +45,11 @@ export class TopicQuotesViewModelBuilder<
 
     this.setCanonical(links.news.topicQuotes(slug, { ul: lang }));
 
-    this.apiClient
-      .newsEventsLatest(
-        "latestEvents",
-        { fields: LIST_EVENTS_FIEDLS },
-        { params: { lang, country, limit: 4 } }
-      )
-      .quotesLatestByTopic(
-        "aboutQuotes",
-        { fields: QuoteStringFields },
-        { params: { country, lang, limit: 12, topicId: topic.id } }
-      );
+    this.apiClient.quotesLatestByTopic(
+      "aboutQuotes",
+      { fields: QuoteStringFields },
+      { params: { country, lang, limit: 12, topicId: topic.id } }
+    );
 
     if (topic.type === "PERSON") {
       this.apiClient.quotesLatestByAuthor(
@@ -75,7 +67,6 @@ export interface TopicQuotesViewModelInput extends OurnetViewModelInput {
 }
 
 export interface TopicQuotesViewModel extends NewsViewModel {
-  latestEvents: NewsEvent[];
   topic: Topic;
   aboutQuotes: Quote[];
   byQuotes?: Quote[];

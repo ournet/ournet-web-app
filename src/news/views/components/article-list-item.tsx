@@ -3,7 +3,7 @@ import { Article } from "@ournet/api-client";
 import { ImageSizeName } from "@ournet/images-domain";
 import moment = require("moment-timezone");
 import { truncateAt } from "../../../helpers";
-import { Sitemap, getSchema, getHost } from "ournet.links";
+import { Sitemap, getSchema, getHost, toFullUrl } from "ournet.links";
 import { OurnetProjectName } from "../../../ournet/data";
 import { OurnetLocales } from "../../../locales";
 import { EventListItemViewName } from "./event-list-item";
@@ -138,11 +138,11 @@ function cardItemView({
           <a
             className="c-event-it__topic"
             title={locales.add_article()}
-            href={
-              "//" +
-              getHost(OurnetProjectName.PORTAL, country) +
-              links.portal.business({ ul: lang })
-            }
+            href={toFullUrl(
+              OurnetProjectName.PORTAL,
+              country,
+              links.portal.ads({ ul: lang })
+            )}
           >
             {locales.add_article()}
           </a>

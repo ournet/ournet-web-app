@@ -50,11 +50,6 @@ export class TopicViewModelBuilder<
     this.setCanonical(links.news.topic(slug, { ul: lang }));
 
     this.apiClient
-      .newsEventsLatest(
-        "latestEvents",
-        { fields: LIST_EVENTS_FIEDLS },
-        { params: { lang, country, limit: 4 } }
-      )
       .newsEventsLatestByTopic(
         "topicEvents",
         { fields: LIST_EVENTS_FIEDLS },

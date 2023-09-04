@@ -7,6 +7,7 @@ import {
   ArticleStatus,
   HourlyForecastDataPoint,
   HourlyForecastDataPointStringFields,
+  NewsEvent,
   NewsTopItem,
   NewsTopItemStringFields,
   Place,
@@ -16,7 +17,7 @@ import { TrendingTopic } from "../news/view-models/news-view-model";
 import moment = require("moment");
 import logger from "../logger";
 import { filterIrrelevantTopics } from "../news/irrelevant-topics";
-import { LIST_ARTICLES_FIEDLS } from "../news/config";
+import { LIST_ARTICLES_FIEDLS, LIST_EVENTS_FIEDLS } from "../news/config";
 
 export abstract class OurnetPageViewModelBuilder<
   DATA extends OurnetAppData,
@@ -54,11 +55,17 @@ export abstract class OurnetPageViewModelBuilder<
         { params: { country, lang, limit: 20, period: "24h" } }
       );
 
-      this.apiClient.findArticle(
-        "latestArticles",
-        { fields: LIST_ARTICLES_FIEDLS },
-        { lang, country, status: ArticleStatus.ACTIVE, limit: 4 }
-      );
+      this.apiClient
+        .findArticle(
+          "latestArticles",
+          { fields: LIST_ARTICLES_FIEDLS },
+          { lang, country, status: ArticleStatus.ACTIVE, limit: 4 }
+        )
+        .newsEventsLatest(
+          "latestEvents",
+          { fields: LIST_EVENTS_FIEDLS },
+          { params: { lang, country, limit: 4 } }
+        );
     }
 
     const result = await localApiClient.queryExecute();
@@ -108,4 +115,5 @@ export interface OurnetPageViewModel<CONFIG extends OurnetAppConfig>
   title: string;
   subTitle: string;
   latestArticles: Article[];
+  latestEvents: NewsEvent[];
 }

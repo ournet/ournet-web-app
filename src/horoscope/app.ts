@@ -19,13 +19,13 @@ import { ManifestRouter } from "../ournet/routers/manifest-router";
 import { AssetlinksRouter } from "./routes/assetlinks";
 import { Widget1Router } from "./routes/widget1-router";
 import { WidgetsRouter } from "./routes/widgets-router";
-import { AdsRouter } from "../ournet/routers/ads-router";
+import { AdsTxtRouter } from "../ournet/routers/ads-txt-router";
 
 export class HoroscopeOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
     super(
       [
-        new AdsRouter(),
+        new AdsTxtRouter(),
         new RobotsRouter(),
         new AssetlinksRouter(),
         new OneSignalSDKWorkerRouter(),

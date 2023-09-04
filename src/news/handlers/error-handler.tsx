@@ -1,16 +1,18 @@
-
-import * as React from 'react';
+import * as React from "react";
 import { NewsBaseHandler } from "./handler";
 import { NewsAppData } from "../data";
-import { ErrorViewModelInput, ErrorViewModelBuilder } from '../view-models/error-view-model';
-import ErrorPage from '../views/error-page';
+import {
+  ErrorViewModelInput,
+  ErrorViewModelBuilder
+} from "../view-models/error-view-model";
+import ErrorPage from "../views/error-page";
 
-export class ErrorHandler extends NewsBaseHandler<ErrorViewModelInput>{
-    async handle(data: NewsAppData) {
-        const viewData = await new ErrorViewModelBuilder(this.input, data).build();
+export class ErrorHandler extends NewsBaseHandler<ErrorViewModelInput> {
+  async handle(data: NewsAppData) {
+    const viewData = await new ErrorViewModelBuilder(this.input, data).build();
 
-        this.setCacheControl(2);
+    this.setCacheControl(2);
 
-        return this.render(<ErrorPage {...viewData} />, this.input.error);
-    }
+    return this.render(<ErrorPage {...viewData} />, this.input.error);
+  }
 }
