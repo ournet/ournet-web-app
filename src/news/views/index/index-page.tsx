@@ -7,6 +7,7 @@ import { QuoteListItem } from "../components/quote-list-item";
 import { GroupHeader } from "../../../views/components/group-header";
 import PageContentSection from "../../../views/components/page-content-section";
 import { OurnetProjectName } from "../../../ournet/data";
+import { ArticleListItem } from "../components/article-list-item";
 
 export default class IndexPage extends React.Component<IndexViewModel> {
   render() {
@@ -16,12 +17,15 @@ export default class IndexPage extends React.Component<IndexViewModel> {
       locales,
       links,
       latestEvents,
+      latestArticles = [],
       country,
       latestQuotes,
       config,
+      project,
       containsProject
     } = this.props;
     const horo = containsProject(OurnetProjectName.HOROSCOPE);
+    const articles = latestArticles.slice(0, 4);
 
     head.elements.push(
       <link
@@ -114,8 +118,25 @@ export default class IndexPage extends React.Component<IndexViewModel> {
               </div>
             </div>
             <div className="o-layout">
+              {articles.map((item) => (
+                <div
+                  key={item.id}
+                  className="o-layout__item u-1/2@mobile u-1/4@tablet"
+                >
+                  {ArticleListItem({
+                    lang,
+                    country,
+                    item,
+                    links,
+                    timezone: config.timezone,
+                    view: "card",
+                    project,
+                    locales
+                  })}
+                </div>
+              ))}
               {latestEvents
-                .slice(horo ? 7 : 8, (horo ? 7 : 8) + 8)
+                .slice(horo ? 7 : 8, (horo ? 7 : 8) + 8 - articles.length)
                 .map((item) => (
                   <div
                     key={item.id}
