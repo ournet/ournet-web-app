@@ -3,8 +3,6 @@ import { NewsItem, NewsItemStringFields } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { notFound } from "boom";
 import { NewsSource, getSource } from "news-sources";
-import { NewsEvent } from "@ournet/news-domain";
-import { LIST_EVENTS_FIEDLS } from "../config";
 
 export class SourceViewModelBuilder<
   T extends SourceViewModel,
@@ -27,17 +25,11 @@ export class SourceViewModelBuilder<
 
     this.setCanonical(links.news.source(slug, { ul: lang }));
 
-    this.apiClient
-      .newsItemsLatestBySource(
-        "news",
-        { fields: NewsItemStringFields },
-        { params: { lang, country, limit: 15, sourceId: slug } }
-      )
-      .newsEventsLatest(
-        "latestEvents",
-        { fields: LIST_EVENTS_FIEDLS },
-        { params: { lang, country, limit: 4 } }
-      );
+    this.apiClient.newsItemsLatestBySource(
+      "news",
+      { fields: NewsItemStringFields },
+      { params: { lang, country, limit: 15, sourceId: slug } }
+    );
 
     return super.build();
   }
@@ -50,5 +42,4 @@ export interface SourceViewModelInput extends OurnetViewModelInput {
 export interface SourceViewModel extends NewsViewModel {
   news: NewsItem[];
   source: NewsSource;
-  latestEvents: NewsEvent[];
 }

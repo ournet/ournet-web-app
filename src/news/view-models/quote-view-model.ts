@@ -37,20 +37,11 @@ export class QuoteViewModelBuilder<
 
     this.setCanonical(links.news.quote(id, { ul: lang }));
 
-    this.apiClient
-      .newsEventsLatest(
-        "latestEvents",
-        { fields: LIST_EVENTS_FIEDLS },
-        { params: { lang, country, limit: 4 } }
-      )
-      .quotesLatestByAuthor(
-        "byQuotes",
-        { fields: QuoteStringFields },
-        { params: { country, lang, limit: 3, authorId: quote.author.id } }
-      );
-    // .newsEventsLatestByTopic('topicEvents', { fields: LIST_EVENTS_FIEDLS }, { params: { lang, country, limit: 4, topicId: topic.id } })
-    // .newsItemsLatestByTopic('topicNews', { fields: NewsItemStringFields }, { params: { lang, country, limit: 5, topicId: topic.id } })
-    // .quotesLatestByTopic('aboutQuotes', { fields: QuoteStringFields }, { params: { country, lang, limit: 3, topicId: topic.id } });
+    this.apiClient.quotesLatestByAuthor(
+      "byQuotes",
+      { fields: QuoteStringFields },
+      { params: { country, lang, limit: 3, authorId: quote.author.id } }
+    );
 
     if (quote.events && quote.events.length) {
       this.apiClient.newsEventById(
@@ -69,7 +60,6 @@ export interface QuoteViewModelInput extends OurnetViewModelInput {
 
 export interface QuoteViewModel extends NewsViewModel {
   quote: Quote;
-  latestEvents: NewsEvent[];
   byQuotes: Quote[];
   event?: NewsEvent;
   authorDisplayName: string;

@@ -93,8 +93,8 @@ export class ImportantViewModelBuilder extends NewsViewModelBuilder<
     const model = super.formatModelData(data);
 
     model.importantEvents = (data.importantEvents || []).sort((a, b) => {
-      const aDate = a.createdAt.substr(0, 10);
-      const bDate = b.createdAt.substr(0, 10);
+      const aDate = a.createdAt.substring(0, 10);
+      const bDate = b.createdAt.substring(0, 10);
       if (aDate === bDate) {
         return b.countNews - a.countNews;
       }

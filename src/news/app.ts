@@ -23,18 +23,24 @@ import { RobotsRouter } from "./routes/static-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
 import { VideoEmbedRouter } from "./routes/video-embed-router";
 import { QuoteRouter } from "./routes/quote-router";
-import { AdsRouter } from "../ournet/routers/ads-router";
+import { AdsTxtRouter } from "../ournet/routers/ads-txt-router";
 import { SourcesRouter } from "./routes/sources-router";
 import { SourceRouter } from "./routes/source-router";
 import { TopicQuotesRouter } from "./routes/topic-quotes-router";
 import { RssProxyRouter } from "./routes/rss-proxy/rss-proxy-router";
+import { BusinessRouter } from "./routes/business-router";
+import { ArticleRouter } from "./routes/article-router";
+import { ViewArticleRouter } from "./routes/view-article-router";
 
 export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
     super(
       [
-        new AdsRouter(),
+        new ArticleRouter(),
+        new BusinessRouter(),
+        new AdsTxtRouter(),
         new RobotsRouter(),
+        new ViewArticleRouter(),
 
         new IndexRouter(),
         new ImportantRouter(),

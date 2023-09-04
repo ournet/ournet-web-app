@@ -8,16 +8,18 @@ import { Request, Response } from "../base/types";
 import { ErrorHandler } from "./handlers/error-handler";
 import { parse } from "url";
 import { getHostInfo } from "../hosts";
-import { RobotsRouter } from "./routes/static-router";
+import { RobotsRouter } from "./routes/robots-router";
 import { PrefixOldWidgetRedirectRouter } from "./routes/redirect-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
-import { AdsRouter } from "../ournet/routers/ads-router";
+import { AdsTxtRouter } from "../ournet/routers/ads-txt-router";
+import { AdsRouter } from "./routes/ads-router";
 
 export class PortalOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
     super(
       [
         new AdsRouter(),
+        new AdsTxtRouter(),
         new RobotsRouter(),
         new IndexRouter(),
         new FaviconRouter(),

@@ -56,8 +56,9 @@ export interface OurnetViewModelInput extends ViewModelInput {
   project: OurnetProjectName;
 }
 
-export interface OurnetViewModel<CONFIG extends OurnetAppConfig>
-  extends ViewModel {
+export interface OurnetViewModel<
+  CONFIG extends OurnetAppConfig = OurnetAppConfig
+> extends ViewModel {
   config: CONFIG;
   links: Sitemap;
   locales: OurnetLocales;

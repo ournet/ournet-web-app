@@ -5,7 +5,7 @@ import { ImageStorageHelper } from "@ournet/images-domain";
 import * as moment from "moment-timezone";
 import { OutReadMoreLink } from "../components/out-read-more";
 import { startWithUpperCase } from "../../../helpers";
-import { FormatArticleContent } from "../components/format-article-content";
+import { FormatNewsContent } from "../components/format-news-content";
 import { SectionHeader } from "../../../views/components/section-header";
 import { AdAside } from "../components/ads/ad-aside";
 import { EventMedia } from "./event-media";
@@ -72,7 +72,7 @@ export default class EventPage extends React.Component<EventViewModel> {
 
     const paragraphs =
       (eventContent &&
-        FormatArticleContent({
+        FormatNewsContent({
           lang,
           content: eventContent,
           links,

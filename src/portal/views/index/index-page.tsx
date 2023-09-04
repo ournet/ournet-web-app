@@ -8,6 +8,7 @@ import { getSchema, getHost } from "ournet.links";
 import { OurnetProjectName } from "../../../ournet/data";
 import { EventListItem } from "../../../news/views/components/event-list-item";
 import { QuoteListItem } from "../../../news/views/components/quote-list-item";
+import { ArticleListItem } from "../../../news/views/components/article-list-item";
 
 export default class IndexPage extends React.Component<IndexViewModel> {
   render() {
@@ -16,9 +17,10 @@ export default class IndexPage extends React.Component<IndexViewModel> {
       head,
       locales,
       links,
-      latestEvents,
+      latestEvents = [],
       country,
-      latestQuotes,
+      latestQuotes = [],
+      latestArticles = [],
       config,
       project,
       containsProject
@@ -30,6 +32,8 @@ export default class IndexPage extends React.Component<IndexViewModel> {
     const newsHost = getHost(OurnetProjectName.NEWS, country);
 
     const newsUrl = newsSchema + "//" + newsHost;
+
+    const articles = latestArticles.slice(0, 4);
 
     head.elements.push(
       <link
@@ -108,25 +112,41 @@ export default class IndexPage extends React.Component<IndexViewModel> {
               type: "important"
             })}
             <div className="o-layout">
-              {latestQuotes &&
-                latestQuotes.map((item) => (
-                  <div key={item.id} className="o-layout__item u-1/3@tablet">
-                    {QuoteListItem({
-                      lang,
-                      country,
-                      links,
-                      timezone: config.timezone,
-                      view: "card",
-                      item,
-                      project
-                    })}
-                  </div>
-                ))}
+              {latestQuotes.map((item) => (
+                <div key={item.id} className="o-layout__item u-1/3@tablet">
+                  {QuoteListItem({
+                    lang,
+                    country,
+                    links,
+                    timezone: config.timezone,
+                    view: "card",
+                    item,
+                    project
+                  })}
+                </div>
+              ))}
             </div>
           </div>
           <div className="o-layout">
+            {articles.map((item) => (
+              <div
+                key={item.id}
+                className="o-layout__item u-1/2@mobile u-1/4@tablet"
+              >
+                {ArticleListItem({
+                  lang,
+                  country,
+                  item,
+                  links,
+                  timezone: config.timezone,
+                  view: "card",
+                  project,
+                  locales
+                })}
+              </div>
+            ))}
             {latestEvents
-              .slice(horo ? 7 : 8, (horo ? 7 : 8) + 8)
+              .slice(horo ? 7 : 8, (horo ? 7 : 8) + 8 - articles.length)
               .map((item) => (
                 <div
                   key={item.id}

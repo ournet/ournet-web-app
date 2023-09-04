@@ -1,10 +1,13 @@
 {
   "24_hrs": "24 hrs",
   "accept_notifications": "Accept notifications",
+  "add_article": "Add article",
+  "advertising": "Advertising",
   "ads": "Ads",
   "back_color": "Back color",
   "base_color": "Base color",
   "border_color": "Border color",
+  "business": "Business",
   "configuration": "Configuration",
   "contact": "Contact",
   "count_news_format": [

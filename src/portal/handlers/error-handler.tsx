@@ -1,16 +1,18 @@
-
-import * as React from 'react';
+import * as React from "react";
 import { PortalBaseHandler } from "./handler";
 import { IPortalAppData } from "../data";
-import { ErrorViewModelInput, ErrorViewModelBuilder } from '../view-models/error-view-model';
-import ErrorPage from '../views/error-page';
+import {
+  ErrorViewModelInput,
+  ErrorViewModelBuilder
+} from "../view-models/error-view-model";
+import ErrorPage from "../views/error-page";
 
-export class ErrorHandler extends PortalBaseHandler<ErrorViewModelInput>{
-    async handle(data: IPortalAppData) {
-        const viewData = await new ErrorViewModelBuilder(this.input, data).build();
+export class ErrorHandler extends PortalBaseHandler<ErrorViewModelInput> {
+  async handle(data: IPortalAppData) {
+    const viewData = await new ErrorViewModelBuilder(this.input, data).build();
 
-        this.setCacheControl(2);
+    this.setCacheControl(2);
 
-        return this.render(<ErrorPage {...viewData} />, this.input.error);
-    }
+    return this.render(<ErrorPage {...viewData} />, this.input.error);
+  }
 }

@@ -1,5 +1,5 @@
 import { NewsViewModelBuilder, NewsViewModel } from "./news-view-model";
-import { QuoteStringFields, NewsEvent, Quote } from "@ournet/api-client";
+import { QuoteStringFields, Quote } from "@ournet/api-client";
 import { OurnetViewModelInput } from "../../ournet/view-model";
 import { LIST_EVENTS_FIEDLS } from "../config";
 
@@ -36,6 +36,5 @@ export class IndexViewModelBuilder<
 }
 
 export interface IndexViewModel extends NewsViewModel {
-  latestEvents: NewsEvent[];
   latestQuotes: Quote[];
 }

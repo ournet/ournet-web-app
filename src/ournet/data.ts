@@ -47,6 +47,9 @@ cacheOptions[OurnetQueryMethods.topics_topicsByIds] = {
 };
 cacheOptions[OurnetQueryMethods.topics_topicById] = { max: 100, ttl: ms("1h") };
 
+cacheOptions[OurnetQueryMethods.articleById] = { max: 10, ttl: ms("1h") };
+cacheOptions[OurnetQueryMethods.findArticle] = { max: 10, ttl: ms("30m") };
+
 const headers = {
   authorization: `Key ${process.env.OURNET_API_KEY}`,
   "Content-Type": "application/json"
@@ -61,7 +64,7 @@ const executor = new CacheGraphQlQueryExecutor(
   cacheOptions
 );
 
-function createQueryApiClient<QT>(): OurnetQueryApi<QT> {
+export function createQueryApiClient<QT>(): OurnetQueryApi<QT> {
   return new OurnetQueryApi<QT>(executor);
 }
 
@@ -69,8 +72,9 @@ function createMutationApiClient<QT>(): OurnetMutationApi<QT> {
   return new OurnetMutationApi<QT>(executor);
 }
 
-async function executeApiClient<APIT>(client: OurnetQueryApi<APIT>) {
+export async function executeApiClient<APIT>(client: OurnetQueryApi<APIT>) {
   if (!client.queryHasItems()) {
+    console.log("No query items");
     return {} as APIT;
   }
   const apiResult = await client.queryExecute();
