@@ -137,14 +137,13 @@ function cardItemView({
           <time dateTime={item.createdAt}>{createdAt.fromNow(true)}</time>
           <a
             className="c-event-it__topic"
-            title={locales.add_article()}
             href={toFullUrl(
-              OurnetProjectName.PORTAL,
+              OurnetProjectName.NEWS,
               country,
-              links.portal.ads({ ul: lang })
+              links.news.page("business", { ul: lang })
             )}
           >
-            {locales.add_article()}
+            {locales.business()}
           </a>
         </div>
       )}

@@ -75,6 +75,11 @@ export default class Layout extends React.Component<NewsViewModel, any> {
           ...this.props,
           utilLinks: [
             {
+              id: "business",
+              text: locales.business(),
+              url: links.news.page("business", { ul: lang })
+            },
+            {
               id: "sources",
               text: locales.news_sources(),
               url: links.news.sources({ ul: lang })

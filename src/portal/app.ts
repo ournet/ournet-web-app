@@ -12,11 +12,13 @@ import { RobotsRouter } from "./routes/robots-router";
 import { PrefixOldWidgetRedirectRouter } from "./routes/redirect-router";
 import { ManifestRouter } from "../ournet/routers/manifest-router";
 import { AdsTxtRouter } from "../ournet/routers/ads-txt-router";
+import { AdsRouter } from "./routes/ads-router";
 
 export class PortalOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
     super(
       [
+        new AdsRouter(),
         new AdsTxtRouter(),
         new RobotsRouter(),
         new IndexRouter(),
