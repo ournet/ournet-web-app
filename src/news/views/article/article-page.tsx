@@ -54,10 +54,17 @@ export default class ArticlePage extends React.Component<ArticleViewModel> {
 
     const renderer = new marked.Renderer();
     const linkRenderer = renderer.link;
-    renderer.link = (href, title, text) => {
-      const html = linkRenderer.call(renderer, href, title, text);
-      return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ');
-    };
+    if (article.doFollowLinks === true) {
+      renderer.link = (href, title, text) => {
+        const html = linkRenderer.call(renderer, href, title, text);
+        return html.replace(/^<a /, '<a target="_blank" ');
+      };
+    } else {
+      renderer.link = (href, title, text) => {
+        const html = linkRenderer.call(renderer, href, title, text);
+        return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ');
+      };
+    }
 
     const content = marked(article.content?.content || "", {
       gfm: true,
