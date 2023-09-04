@@ -547,6 +547,83 @@ export default (language: string, country: string) => {
       </>
     );
   }
+  if (language === "it") {
+    return (
+      <>
+        <p>
+          Vi invitiamo a pubblicare articoli pubblicitari sul nostro sito. Gli
+          articoli devono rispettare alcune semplici regole.
+        </p>
+        <h4>Regole per la Pubblicazione degli Articoli Pubblicitari</h4>
+        <ul>
+          <li>
+            L'agente pubblicitario è l'unico responsabile del contenuto dei
+            materiali e della loro conformità alle leggi vigenti.
+          </li>
+          <li>
+            L'articolo deve essere in formato notizia. La redazione si riserva
+            il diritto di respingere gli articoli che non rispettano la politica
+            editoriale.
+          </li>
+          <li>
+            L'articolo deve essere scritto in lingua italiana e non deve
+            contenere errori grammaticali. Il titolo deve contenere:{" "}
+            <strong>Ⓟ</strong> alla fine.
+          </li>
+          <li>
+            Elementi obbligatori: titolo (breve e chiaro), testo, un'immagine
+            (minimo 800x600px). L'articolo non può contenere più di 3 link, 10
+            immagini e 2 video. I video devono essere ospitati su YouTube o
+            altre piattaforme simili.
+          </li>
+          <li>
+            La redazione riceverà l'articolo via email in formato documento o un
+            link all'articolo pubblicato su altri siti web.
+          </li>
+        </ul>
+        <h4>Prezzi</h4>
+        <p>
+          L'articolo viene pubblicato per un tempo illimitato. I prezzi sono in{" "}
+          {price.currency}.
+        </p>
+        <ul>
+          <li>
+            Prezzo dell'articolo:{" "}
+            <strong>
+              {price.price}
+              {price.currency}
+            </strong>
+          </li>
+          <li>
+            Prezzo per link attivo (dofollow):{" "}
+            <strong>
+              {activeLinkPrice}
+              {price.currency}
+            </strong>
+          </li>
+        </ul>
+        <p>
+          Esempio: Pubblicazione di un articolo con 2 link attivi (dofollow):{" "}
+          <code>
+            {price.price} + {activeLinkPrice} * 2 ={" "}
+            {price.price + activeLinkPrice * 2}
+            {price.currency}
+          </code>
+          .
+        </p>
+        <h4>Contatto</h4>
+        <p>
+          Per pubblicare un articolo pubblicitario, vi preghiamo di contattarci
+          via email:{" "}
+          <a href="mailto:info@urnet-group.com">info@urnet-group.com</a>.
+        </p>
+        <p>
+          Al momento, accettiamo solo pagamenti tramite PayPal. Vi invieremo la
+          fattura per il pagamento dei servizi.
+        </p>
+      </>
+    );
+  }
 
   return null;
 };

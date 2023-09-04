@@ -6,6 +6,7 @@ export default (language: string) => {
   if (language === "hu") return "Hirdetési cikkek közzététele Ⓟ";
   if (language === "cs") return "Zveřejnění reklamních článků Ⓟ";
   if (language === "es") return "Publicación de artículos publicitarios Ⓟ";
+  if (language === "it") return "Pubblicazione di articoli pubblicitari Ⓟ";
 
   return null;
 };
