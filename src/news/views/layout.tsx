@@ -7,6 +7,8 @@ import PageMenu, { PageMenuProps } from "../../views/components/page-menu";
 import { TopicHelper } from "@ournet/topics-domain";
 import { PageFooter } from "../../views/components/page-footer";
 import { topicDisplayName } from "../helpers";
+import { toFullUrl } from "ournet.links";
+import { OurnetProjectName } from "../../ournet/data";
 
 export default class Layout extends React.Component<NewsViewModel, any> {
   render() {
@@ -78,6 +80,15 @@ export default class Layout extends React.Component<NewsViewModel, any> {
               id: "business",
               text: locales.business(),
               url: links.news.page("business", { ul: lang })
+            },
+            {
+              id: "ads",
+              text: locales.advertising(),
+              url: toFullUrl(
+                OurnetProjectName.PORTAL,
+                country,
+                links.portal.ads({ ul: lang })
+              )
             },
             {
               id: "sources",

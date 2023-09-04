@@ -28,13 +28,19 @@ import { SourcesRouter } from "./routes/sources-router";
 import { SourceRouter } from "./routes/source-router";
 import { TopicQuotesRouter } from "./routes/topic-quotes-router";
 import { RssProxyRouter } from "./routes/rss-proxy/rss-proxy-router";
+import { BusinessRouter } from "./routes/business-router";
+import { ArticleRouter } from "./routes/article-router";
+import { ViewArticleRouter } from "./routes/view-article-router";
 
 export class NewsOurnetApp extends OurnetApp<OurnetAppData> {
   constructor() {
     super(
       [
+        new ArticleRouter(),
+        new BusinessRouter(),
         new AdsTxtRouter(),
         new RobotsRouter(),
+        new ViewArticleRouter(),
 
         new IndexRouter(),
         new ImportantRouter(),

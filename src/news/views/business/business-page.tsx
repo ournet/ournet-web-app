@@ -32,7 +32,7 @@ export default class BusinessPage extends React.Component<NewsViewModel> {
               {latestArticles.map((item) => (
                 <div
                   key={item.id}
-                  className="o-layout__item u-1/2@mobile u-1/3@desktop"
+                  className="o-layout__item u-1/4@tablet u-1/2@mobile"
                 >
                   {ArticleListItem({
                     lang,

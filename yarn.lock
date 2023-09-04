@@ -5420,6 +5420,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+marked@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-8.0.0.tgz#e808c02daf9d72485477d3ff9a4e193fec94a4db"
+  integrity sha512-RI/D5csFVreNrFchdKFSdV38GDHJdD7OdmbNWYzGvApPb0A9pyypgfHC/FBH4ugmRE8cr7yg/TH7tu8585eMhA==
+
 matchdep@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/matchdep/-/matchdep-2.0.0.tgz#c6f34834a0d8dbc3b37c27ee8bbcb27c7775582e"
@@ -6172,10 +6177,10 @@ os-tmpdir@^1.0.1:
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
 
-ournet.links@^0.4.39:
-  version "0.4.39"
-  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.39.tgz#14c0acd883cb8857179fa2c3fc79986fd9dca739"
-  integrity sha512-I1492xwPttSWdcHd5fVgS9FimB++IClzK3wWI2bUeOtPTB6WBt4DcccytX6wwBCi7J1RivrbSrXncQVGGg4qeQ==
+ournet.links@^0.4.40:
+  version "0.4.40"
+  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.40.tgz#d538ee7c5159f3c07caedc27ca074c8aa1e6a336"
+  integrity sha512-wA6DidsXDyi+oHWKu7EXswV1rglJI2mlyAsZxz84+ogW/b7EyL4duGQyC6gyxERAfm9F/ZTto9K5mN/v31sIKg==
   dependencies:
     urlset "^0.6.1"
 
