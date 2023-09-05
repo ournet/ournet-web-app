@@ -26,6 +26,7 @@
     "assets:watch": "gulp --gulpfile ./assets/gulpfile.js watch",
     "assets:upload:img": "gulp --gulpfile ./assets/gulpfile.js upload:img",
     "assets:upload": "gulp --gulpfile ./assets/gulpfile.js upload",
+    "assets:server": "set NODE_ENV=production&& gulp --gulpfile ./assets/gulpfile.js sass",
     "generate-locales": "localizy -d locales -o src/generated-locales.ts"
   },
   "watch": {
