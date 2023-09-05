@@ -21,13 +21,13 @@ export default class AdsPage extends React.Component<PortalViewModel> {
         <main>
           <div className="o-layout">
             <div className="o-layout__item u-4/6@desktop">
-              <article className="c-event">
+              <article>
                 <div style={{ padding: "12px 12px 24px 12px" }}>
                   <div className="o-layout o-layout--small">
                     <div className="o-layout__item u-1/6@tablet"></div>
                     <div className="o-layout__item u-5/6@tablet">
-                      <h1 className="c-event__title">{adsTitle(lang)}</h1>
-                      <div className="c-event__text">
+                      <h1>{adsTitle(lang)}</h1>
+                      <div>
                         {adsContent(lang, country)}
                       </div>
                       <hr />

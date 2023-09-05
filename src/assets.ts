@@ -1,14 +1,5 @@
-// import { OurnetProjectName } from "./ournet/app-data";
-
-// export class AppAssets<KEYS extends string> {
-//     constructor(private project: OurnetProjectName, private production: boolean) { }
-
-//     getUrl(type: 'css' | 'js', key: KEYS, production?: boolean) {
-//         production = production === undefined ? this.production : production;
-
-//         return getAssetUrl(this.project, type, key, production);
-//     }
-// }
+import { readFileSync } from "fs";
+import { join } from "path";
 
 const assets: { [type: string]: { [key: string]: string } } = {};
 
@@ -36,4 +27,23 @@ export function getAssetUrl(
   }
 
   return `http://localhost:8080/${type}/${project}/${key}.${type}`;
+}
+
+const ASSET_CONTENT: Record<string, string> = {};
+
+export function getAssetContent(
+  project: string,
+  type: "css" | "js",
+  key: string,
+  production: boolean
+) {
+  const name = production ? "." + getAssetName(project, type, key) : "";
+  const id = `${type}/${project}/${key}${name}.${type}`;
+  if (!ASSET_CONTENT[id]) {
+    ASSET_CONTENT[id] = readFileSync(
+      join(__dirname, `../public/static/${id}`),
+      "utf8"
+    );
+  }
+  return ASSET_CONTENT[id];
 }

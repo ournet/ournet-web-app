@@ -8,7 +8,8 @@ const path = require("path");
 const gulp = require("gulp");
 const gulpif = require("gulp-if");
 const imagemin = require("gulp-imagemin");
-const sass = require('gulp-sass')(require('sass'));
+const webp = require("gulp-webp");
+const sass = require("gulp-sass")(require("sass"));
 const cleanCSS = require("gulp-clean-css");
 const rev = require("gulp-rev-all");
 const connect = require("gulp-connect");
@@ -37,6 +38,10 @@ const isProduction = process.env.NODE_ENV === "production";
 
 const imgDest = "../public/static/img/";
 
+gulp.task("imagewebp", () =>
+  gulp.src("./img/**").pipe(webp()).pipe(gulp.dest(imgDest))
+);
+
 gulp.task("imagemin", () =>
   gulp
     .src("./img/**")
@@ -50,7 +55,7 @@ gulp.task("imagemin", () =>
     .pipe(gulp.dest(imgDest))
 );
 
-gulp.task("img", gulp.series(["imagemin"]));
+gulp.task("img", gulp.series(["imagewebp", "imagemin"]));
 
 gulp.task("upload:img", () =>
   gulp
@@ -80,6 +85,8 @@ gulp.task("sass", function () {
           "./scss/news/main.scss",
           "./scss/news/gallery.scss",
           "./scss/news/video-embed.scss",
+          "./scss/portal/critical.scss",
+          "./scss/portal/async.scss",
           "./scss/portal/main.scss"
         ],
         { base: "./scss" }
@@ -109,11 +116,7 @@ gulp.task("upload:css", () =>
         p.dirname = path.join("ournet", "css", p.dirname);
       })
     )
-    .pipe(
-      gzip({
-        append: false
-      })
-    )
+    .pipe(gzip({ append: false }))
     .pipe(
       s3Publisher.publish({
         CacheControl: "public,max-age=" + 86400 * 14 + ",immutable",

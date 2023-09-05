@@ -2,7 +2,7 @@ import * as React from "react";
 import { OurnetAppConfig } from "../../ournet/config";
 import { PageViewModel } from "../../ournet/page-view-model";
 import env from "../../env";
-import { getAssetUrl } from "../../assets";
+import { getAssetContent, getAssetUrl } from "../../assets";
 import { getAppIconUrl } from "../../helpers";
 
 export function PageHead({
@@ -10,19 +10,18 @@ export function PageHead({
   head,
   lang,
   country,
-  project,
-  showGoogleAds
+  project
 }: PageViewModel<OurnetAppConfig>) {
   let verificationMeta = null;
 
-  const hasAds = !config.disabledAds && showGoogleAds;
+  // const hasAds = !config.disabledAds && showGoogleAds;
 
   return (
     <head>
       <meta charSet="utf-8" />
       <meta
         name="viewport"
-        content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui"
+        content="width=device-width,initial-scale=1,maximum-scale=2,minimal-ui"
       />
       <title>{head.title}</title>
       {head.description && (
@@ -40,11 +39,34 @@ export function PageHead({
         rel="apple-touch-icon"
         href={getAppIconUrl(config.domain, "apple-touch-icon.png")}
       />
-      <link
+      {/* <link
         rel="stylesheet"
         media="all"
-        href={getAssetUrl(project, "css", "main", env.isProduction)}
+        href={getAssetUrl(project, "css", "critical", env.isProduction)}
+      /> */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: getAssetContent(project, "css", "critical", env.isProduction)
+        }}
+      ></style>
+      <link
+        id="async-css"
+        rel="stylesheet"
+        media="all"
+        href={getAssetUrl(project, "css", "async", env.isProduction)}
       />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.getElementById("async-css").onload = function(el){el.target.onload=null;el.target.rel='stylesheet';}`
+        }}
+      ></script>
+      <noscript>
+        <link
+          rel="stylesheet"
+          media="all"
+          href={getAssetUrl(project, "css", "async", env.isProduction)}
+        />
+      </noscript>
       {config.facebookAppId && (
         <meta property="fb:app_id" content={config.facebookAppId} />
       )}
@@ -55,12 +77,12 @@ export function PageHead({
           __html: `window.CONSTANTS={lang:"${lang}",country:"${country}",domain:"${config.domain}"};`
         }}
       ></script>
-      {hasAds && (
+      {/* {hasAds && (
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         ></script>
-      )}
+      )} */}
       {config.googleTagId && (
         <>
           <script
