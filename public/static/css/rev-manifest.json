@@ -1,9 +1,11 @@
 {
-  "weather/main.css": "weather/main.ddd21c77.css",
+  "weather/main.css": "weather/main.dfac596f.css",
   "weather/page-widget.css": "weather/page-widget.0bfdb938.css",
-  "horoscope/main.css": "horoscope/main.463cbeab.css",
-  "news/main.css": "news/main.dffc8b83.css",
+  "horoscope/main.css": "horoscope/main.7c9c5335.css",
+  "news/main.css": "news/main.72598402.css",
   "news/gallery.css": "news/gallery.f8165924.css",
   "news/video-embed.css": "news/video-embed.0248b657.css",
-  "portal/main.css": "portal/main.32c7a458.css"
+  "portal/critical.css": "portal/critical.1c2882e0.css",
+  "portal/async.css": "portal/async.159a4157.css",
+  "portal/main.css": "portal/main.b2f5ee38.css"
 }

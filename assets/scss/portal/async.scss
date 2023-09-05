@@ -15,6 +15,18 @@
 @import "../../../node_modules/inuitcss/elements/elements.headings";
 
 // COMPONENTS
+@import "../base/components/components.aline";
+@import "../base/components/components.logo";
+@import "../base/components/components.header";
+@import "../base/components/components.capital-forecast";
+@import "../base/components/components.group";
+
+@import "../base/components/components.header-menu";
+@import "../base/components/components.page-menu";
+@import "../base/components/components.page-content-section";
+
+@import "../news/components/components.page-title";
+@import "../weather/components/components.weather-icons";
 
 @import "../base/components/components.ad";
 @import "../base/components/components.footer";
