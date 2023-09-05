@@ -95,7 +95,7 @@
 
 // GENERIC
 @import "../../../node_modules/inuitcss/generic/generic.box-sizing";
-@import "../../../node_modules/inuitcss/generic/generic.normalize";
+// @import "../../../node_modules/inuitcss/generic/generic.normalize";
 @import "../../../node_modules/inuitcss/generic/generic.reset";
 @import "../../../node_modules/inuitcss/generic/generic.shared";
 
@@ -106,7 +106,7 @@
 // ELEMENTS
 @import "../base/elements";
 @import "../../../node_modules/inuitcss/elements/elements.page";
-@import "../../../node_modules/inuitcss/elements/elements.headings";
+// @import "../../../node_modules/inuitcss/elements/elements.headings";
 @import "../../../node_modules/inuitcss/elements/elements.images";
 // @import "../../../node_modules/inuitcss/elements/elements.tables";
 
@@ -119,7 +119,7 @@
 // Uncomment and add to this section as necessary.
 @import "../../../node_modules/inuitcss/objects/objects.wrapper";
 @import "../../../node_modules/inuitcss/objects/objects.layout";
-@import "../../../node_modules/inuitcss/objects/objects.media";
+// @import "../../../node_modules/inuitcss/objects/objects.media";
 // @import "../../../node_modules/inuitcss/objects/objects.flag";
 // @import "../../../node_modules/inuitcss/objects/objects.list-bare";
 // @import "../../../node_modules/inuitcss/objects/objects.list-inline";
@@ -167,7 +167,7 @@
 @import "../news/components/components.horo-card";
 
 @import "../news/components/components.page-title";
-@import "../news/components/components.event";
+// @import "../news/components/components.event";
 
 
 // UTILITIES
@@ -179,7 +179,7 @@
 
 @import "../../../node_modules/inuitcss/utilities/utilities.widths";
 @import "../../../node_modules/inuitcss/utilities/utilities.headings";
-@import "../../../node_modules/inuitcss/utilities/utilities.spacings";
-@import "../../../node_modules/inuitcss/utilities/utilities.responsive-spacings";
+// @import "../../../node_modules/inuitcss/utilities/utilities.spacings";
+// @import "../../../node_modules/inuitcss/utilities/utilities.responsive-spacings";
 @import "../../../node_modules/inuitcss/utilities/utilities.print";
 @import "../../../node_modules/inuitcss/utilities/utilities.hide";
