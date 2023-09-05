@@ -2,9 +2,8 @@ import * as React from "react";
 import { OurnetAppConfig } from "../../ournet/config";
 import { PageViewModel } from "../../ournet/page-view-model";
 import env from "../../env";
-import { getAssetContent, getAssetUrl } from "../../assets";
+import { getAssetContent } from "../../assets";
 import { getAppIconUrl } from "../../helpers";
-import { OurnetProjectName } from "../../ournet/data";
 
 export function PageHead({
   config,
@@ -40,47 +39,11 @@ export function PageHead({
         rel="apple-touch-icon"
         href={getAppIconUrl(config.domain, "apple-touch-icon.png")}
       />
-      {project !== OurnetProjectName.PORTAL && (
-        <>
-          <link
-            rel="stylesheet"
-            media="all"
-            href={getAssetUrl(project, "css", "main", env.isProduction)}
-          />
-        </>
-      )}
-      {project === OurnetProjectName.PORTAL && (
-        <>
-          <style
-            dangerouslySetInnerHTML={{
-              __html: getAssetContent(
-                project,
-                "css",
-                "critical",
-                env.isProduction
-              )
-            }}
-          ></style>
-          <link
-            id="async-css"
-            rel="preload"
-            as="style"
-            href={getAssetUrl(project, "css", "async", env.isProduction)}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `document.getElementById("async-css").onload = function(el){el.target.onload=null;el.target.rel='stylesheet';}`
-            }}
-          ></script>
-          <noscript>
-            <link
-              rel="stylesheet"
-              media="all"
-              href={getAssetUrl(project, "css", "async", env.isProduction)}
-            />
-          </noscript>
-        </>
-      )}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: getAssetContent(project, "css", "main", env.isProduction)
+        }}
+      ></style>
       {config.facebookAppId && (
         <meta property="fb:app_id" content={config.facebookAppId} />
       )}
