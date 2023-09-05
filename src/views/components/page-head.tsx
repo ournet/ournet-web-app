@@ -63,8 +63,8 @@ export function PageHead({
           ></style>
           <link
             id="async-css"
-            rel="stylesheet"
-            media="all"
+            rel="preload"
+            as="style"
             href={getAssetUrl(project, "css", "async", env.isProduction)}
           />
           <script
