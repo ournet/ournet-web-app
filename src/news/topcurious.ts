@@ -8,7 +8,8 @@ export type TopCuriousNews = {
 };
 
 const cache: { [lang: string]: { news: TopCuriousNews[]; date: Date } } = {};
-const languages = ["ro", "en", "es", "it"];
+// const languages = ["ro", "en", "es", "it"];
+const languages = ["xx"];
 
 export const getTopCurious = (lang: string): TopCuriousNews[] => {
   if (!languages.includes(lang)) return [];
