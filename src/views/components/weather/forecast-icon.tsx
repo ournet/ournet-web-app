@@ -10,7 +10,12 @@ export function ForecastIcon({ lang, icon }: ForecastIconProps) {
   const title = WeatherHelpers.iconName(icon, lang);
   return (
     <i className={`w-icon wi-${icon}`} title={title}>
-      <img alt={title} src={WeatherHelpers.iconUrl(icon)} />
+      <img
+        alt={title}
+        src={WeatherHelpers.iconUrl(icon)}
+        width={"100%"}
+        height={"100%"}
+      />
     </i>
   );
 }
