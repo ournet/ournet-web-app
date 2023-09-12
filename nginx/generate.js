@@ -34,15 +34,15 @@ const generateConfig = async (hosts) => {
 const generateReadme = async (hosts) => {
   hosts = [...hosts, "curs.click.md", "curs.ournet.ro"];
   const domains = uniq(hosts.map((host) => host.replace(/^\w+\./, "")));
-  const all = domains.concat(hosts);
+  const all = uniq(domains.concat(domains.map((d) => `*.${d}`)));
   const output = `# Ournet nginx config
 
 ## SSL
 
 \`\`\`bash
-certbot certonly --manual --cert-name ournet -d ${all.join(
+certbot certonly --cert-name ournet --dns-route53 -m info@ournet-group.com --agree-tos --non-interactive --post-hook "sudo service nginx reload" -d ${all.join(
     " -d "
-  )} --email info@ournet-group.com
+  )}
 \`\`\`
 `;
   await writeFile(join(__dirname, "README.md"), output);
