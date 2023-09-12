@@ -4,7 +4,7 @@
   "languages": ["en"],
   "timezone": "Asia/Kolkata",
   "domain": "ournet.in",
-  "host": "horoscope.ournet.in",
+  "host": "weather.ournet.in",
   "email": "info@ournet-group.com",
   "googleTagId": "G-JBTPGM8ZS5",
   "widgetGoogleAnalyticsId": "UA-1490399-54",

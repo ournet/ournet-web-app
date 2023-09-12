@@ -7,7 +7,11 @@ const uniq = (arr) => [...new Set(arr)];
 
 const getAllHosts = async () => {
   const files = await glob(join(__dirname, "../config/**/*.json"));
-  return uniq(files.map((file) => require(file).host)).sort();
+  return uniq(files.map((file) => require(file).host))
+    .sort()
+    .filter((it) =>
+      [".ournet.ee", ".ournet.pl", ".meteo2.lv"].every((d) => !it.endsWith(d))
+    );
 };
 
 const generateConfig = async (hosts) => {
@@ -29,12 +33,16 @@ const generateConfig = async (hosts) => {
 
 const generateReadme = async (hosts) => {
   hosts = [...hosts, "curs.click.md", "curs.ournet.ro"];
+  const domains = uniq(hosts.map((host) => host.replace(/^\w+\./, "")));
+  const all = domains.concat(hosts);
   const output = `# Ournet nginx config
 
 ## SSL
 
 \`\`\`bash
-certbot certonly --nginx --cert-name ournet -d ${hosts.join(" -d ")} --email info@ournet-group.com
+certbot certonly --manual --cert-name ournet -d ${all.join(
+    " -d "
+  )} --email info@ournet-group.com
 \`\`\`
 `;
   await writeFile(join(__dirname, "README.md"), output);

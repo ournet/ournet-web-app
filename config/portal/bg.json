@@ -5,7 +5,7 @@
   "disabledAds": true,
   "timezone": "Europe/Sofia",
   "domain": "our.bg",
-  "host": "horo.our.bg",
+  "host": "www.our.bg",
   "email": "info@ournet-group.com",
   "googleTagId": "G-5VPGJKZDSR",
   "projects": ["news", "weather", "horoscope"],

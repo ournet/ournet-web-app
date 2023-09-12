@@ -5,7 +5,7 @@
   "disabledAds": true,
   "timezone": "Asia/Kolkata",
   "domain": "ournet.in",
-  "host": "horoscope.ournet.in",
+  "host": "www.ournet.in",
   "email": "info@ournet-group.com",
   "googleTagId": "G-JBTPGM8ZS5",
   "projects": ["horoscope", "news", "weather"],
