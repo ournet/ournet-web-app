@@ -6,7 +6,6 @@ import { AdAside } from "../components/ads/ad-aside";
 import { EventListItem } from "../components/event-list-item";
 import PageContentSection from "../../../views/components/page-content-section";
 import { AdCenter } from "../components/ads/ad-center";
-import { Share } from "../../../views/components/share";
 import { ArticleViewModel } from "../../view-models/article-view-model";
 import { cdn } from "ournet.links";
 import { marked } from "marked";
@@ -26,7 +25,8 @@ export default class ArticlePage extends React.Component<ArticleViewModel> {
     } = this.props;
 
     const imageLargeUrl = cdn.media.image(article.imageId || "", {
-      size: "large"
+      size: "large",
+      ext: "webp"
     });
 
     head.elements.push(
@@ -110,12 +110,16 @@ export default class ArticlePage extends React.Component<ArticleViewModel> {
                           className="c-event__text"
                           dangerouslySetInnerHTML={{ __html: content }}
                         ></div>
-                        {Share({
-                          lang,
-                          url: head.canonical,
-                          align: "right",
-                          services: config.shareServices
-                        })}
+                        <style>
+                          {`
+                            .c-event__text img {
+                              max-width: 100%;
+                            }
+                            .c-event__text a {
+                              font-weight: bold;
+                            }
+                          `}
+                        </style>
                         <br />
                         <hr />
                         {AdCenter()}
