@@ -117,6 +117,7 @@ export default class ArticlePage extends React.Component<ArticleViewModel> {
                             }
                             .c-event__text a {
                               font-weight: bold;
+                              color: #ca0000;
                             }
                           `}
                         </style>
