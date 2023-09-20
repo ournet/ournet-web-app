@@ -22,7 +22,7 @@ export default class AdsPage extends React.Component<PortalViewModel> {
     const imageId = "01harq9yv3j25whrmsh7mfx8hzj";
 
     const imageLargeUrl =
-      "https://" +
+      "https:" +
       cdn.media.image(imageId, {
         size: "large",
         ext: "webp"

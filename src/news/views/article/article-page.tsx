@@ -27,7 +27,7 @@ export default class ArticlePage extends React.Component<ArticleViewModel> {
     } = this.props;
 
     const imageLargeUrl =
-      "https://" +
+      "https:" +
       cdn.media.image(article.imageId || "", {
         size: "large",
         ext: "webp"
