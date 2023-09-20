@@ -18,6 +18,8 @@ import { AdCenter } from "../components/ads/ad-center";
 import { Share } from "../../../views/components/share";
 import { OurnetProjectName } from "../../../ournet/data";
 import { ArticleListItem } from "../components/article-list-item";
+import { AdListItem } from "../components/ad-list-item";
+import { toFullUrl } from "ournet.links";
 
 export default class EventPage extends React.Component<EventViewModel> {
   render() {
@@ -239,6 +241,26 @@ export default class EventPage extends React.Component<EventViewModel> {
                           })}
                         </div>
                       ))}
+                    <div
+                      key={"ads"}
+                      className="o-layout__item u-1/2@tablet u-1/1@desktop"
+                    >
+                      {AdListItem({
+                        lang,
+                        country,
+                        title: locales.publish_advertorials(),
+                        imageId: "01harq9yv3j25whrmsh7mfx8hzj",
+                        url: toFullUrl(
+                          OurnetProjectName.PORTAL,
+                          country,
+                          links.portal.ads({ ul: lang })
+                        ),
+                        links,
+                        timezone: config.timezone,
+                        view: "card-bare",
+                        locales
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>

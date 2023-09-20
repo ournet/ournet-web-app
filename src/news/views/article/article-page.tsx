@@ -7,8 +7,10 @@ import { EventListItem } from "../components/event-list-item";
 import PageContentSection from "../../../views/components/page-content-section";
 import { AdCenter } from "../components/ads/ad-center";
 import { ArticleViewModel } from "../../view-models/article-view-model";
-import { cdn } from "ournet.links";
+import { cdn, toFullUrl } from "ournet.links";
 import { marked } from "marked";
+import { OurnetProjectName } from "../../../ournet/data";
+import { AdListItem } from "../components/ad-list-item";
 
 export default class ArticlePage extends React.Component<ArticleViewModel> {
   render() {
@@ -152,6 +154,23 @@ export default class ArticlePage extends React.Component<ArticleViewModel> {
                         })}
                       </div>
                     ))}
+                    <div className="o-layout__item u-1/2@tablet u-1/1@desktop">
+                      {AdListItem({
+                        lang,
+                        country,
+                        title: locales.publish_advertorials(),
+                        imageId: "01harq9yv3j25whrmsh7mfx8hzj",
+                        url: toFullUrl(
+                          OurnetProjectName.PORTAL,
+                          country,
+                          links.portal.ads({ ul: lang })
+                        ),
+                        links,
+                        timezone: config.timezone,
+                        view: "card-bare",
+                        locales
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>

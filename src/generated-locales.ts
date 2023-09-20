@@ -49,6 +49,14 @@ export class LocalizyLocales {
         return this.v('ads');
     }
 
+    advertising() {
+        return this.v('advertising');
+    }
+
+    publish_advertorials() {
+        return this.v('publish_advertorials');
+    }
+
     back_color() {
         return this.v('back_color');
     }
@@ -59,6 +67,10 @@ export class LocalizyLocales {
 
     border_color() {
         return this.v('border_color');
+    }
+
+    business() {
+        return this.v('business');
     }
 
     configuration() {
@@ -813,14 +825,6 @@ export class LocalizyLocales {
         return this.v('add_article');
     }
 
-    advertising() {
-        return this.v('advertising');
-    }
-
-    business() {
-        return this.v('business');
-    }
-
     country_vn() {
         return this.v('country_vn');
     }
@@ -1225,9 +1229,12 @@ export class LocalizyLocales {
 export type LocalesKey = '24_hrs'
     | 'accept_notifications'
     | 'ads'
+    | 'advertising'
+    | 'publish_advertorials'
     | 'back_color'
     | 'base_color'
     | 'border_color'
+    | 'business'
     | 'configuration'
     | 'contact'
     | 'count_news_format'
@@ -1416,8 +1423,6 @@ export type LocalesKey = '24_hrs'
     | 'weather_cz_app_name'
     | 'weather_cz_short_app_name'
     | 'add_article'
-    | 'advertising'
-    | 'business'
     | 'country_vn'
     | 'country_hr'
     | 'horoscope_in_app_name'

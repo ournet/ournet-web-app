@@ -4,7 +4,7 @@ import Layout from "./layout";
 import { getAssetUrl } from "../../assets";
 import env from "../../env";
 import { AdAside } from "./components/ads/ad-aside";
-import { getSchema, getHost } from "ournet.links";
+import { getSchema, getHost, toFullUrl } from "ournet.links";
 import { OurnetProjectName } from "../../ournet/data";
 import { EventListItem } from "../../news/views/components/event-list-item";
 import { SectionHeader } from "../../views/components/section-header";
@@ -13,6 +13,7 @@ import { GroupHeader } from "../../views/components/group-header";
 import { HoroscopeSignsLine } from "../../views/components/horoscope/horoscope-signs-line";
 import PageContentSection from "../../views/components/page-content-section";
 import { TopCuriousListItem } from "../../news/views/components/topcurious-item";
+import { AdListItem } from "../../news/views/components/ad-list-item";
 
 export default class CommonLayout extends React.Component<WeatherViewModel> {
   render() {
@@ -88,6 +89,23 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                           })}
                         </div>
                       ))}
+                    <div className="layout__item">
+                      {AdListItem({
+                        lang,
+                        country,
+                        title: locales.publish_advertorials(),
+                        imageId: "01harq9yv3j25whrmsh7mfx8hzj",
+                        url: toFullUrl(
+                          OurnetProjectName.PORTAL,
+                          country,
+                          links.portal.ads({ ul: lang })
+                        ),
+                        links,
+                        timezone: config.timezone,
+                        view: "card-bare",
+                        locales
+                      })}
+                    </div>
                     {topCuriousNews.slice(0, 2).map((item) => (
                       <div key={item.url} className="o-layout__item">
                         {TopCuriousListItem({ item, view: "card-bare" })}
