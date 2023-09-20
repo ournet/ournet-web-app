@@ -89,7 +89,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                           })}
                         </div>
                       ))}
-                    <div className="layout__item">
+                    <div className="o-layout__item">
                       {AdListItem({
                         lang,
                         country,
