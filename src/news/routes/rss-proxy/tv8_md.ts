@@ -8,11 +8,12 @@ const USER_AGENT =
 
 const x = Xray();
 
-export const getRss = async () => {
-  const { data: html } = await axios(`https://tv8.md`, {
+export const getRss = async (lang = "ro") => {
+  const ul = lang === "ru" ? `/ru` : "";
+  const { data: html } = await axios(`https://tv8.md${ul}`, {
     method: "GET",
     headers: {
-      referer: `https://tv8.md`,
+      referer: `https://tv8.md${ul}`,
       origin: `https://tv8.md`,
       "user-agent": USER_AGENT
     },
@@ -20,19 +21,19 @@ export const getRss = async () => {
     responseType: "text"
   });
 
-  const data: any[] = await x(
-    html,
-    `div:has(h1:contains("Ultimele știri TV8.md")) > a`,
-    [{ url: "@href", title: "> img@alt", image: "> img@src" }]
-  );
+  const data: any[] = await x(html, `a.jss88`, [
+    { url: "@href", title: "> img@alt", image: "> img@src" }
+  ]);
 
   // console.log(data);
 
   const date = new Date();
 
   const feed = new Rss({
-    feed_url: `https://news.ournet.ro/rss-proxy/tv8.md.xml`,
-    site_url: "https://www.tv8.md",
+    feed_url: `https://news.ournet.ro/rss-proxy/tv8.md${
+      ul ? `-${lang}` : ""
+    }.xml`,
+    site_url: `https://www.tv8.md${ul}`,
     title: "Tv8.md rss",
     pubDate: date,
     ttl: 60 * 30

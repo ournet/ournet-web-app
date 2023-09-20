@@ -75,6 +75,9 @@ class RssTopicViewModelBuilder extends AsyncViewModelBuilder<
       case "tv8.md":
         this.model.feed = await tv8md.getRss();
         break;
+      case "tv8.md-ru":
+        this.model.feed = await tv8md.getRss("ru");
+        break;
       case "agerpres.ro":
         this.model.feed = await agerpresro.getRss();
         break;
