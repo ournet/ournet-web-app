@@ -21,10 +21,12 @@ export default class AdsPage extends React.Component<PortalViewModel> {
     const title = adsTitle(lang);
     const imageId = "01harq9yv3j25whrmsh7mfx8hzj";
 
-    const imageLargeUrl = cdn.media.image(imageId, {
-      size: "large",
-      ext: "webp"
-    });
+    const imageLargeUrl =
+      "https://" +
+      cdn.media.image(imageId, {
+        size: "large",
+        ext: "webp"
+      });
 
     head.elements.push(
       <meta key="og_type" property="og:type" content="article" />

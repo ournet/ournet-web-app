@@ -26,10 +26,12 @@ export default class ArticlePage extends React.Component<ArticleViewModel> {
       project
     } = this.props;
 
-    const imageLargeUrl = cdn.media.image(article.imageId || "", {
-      size: "large",
-      ext: "webp"
-    });
+    const imageLargeUrl =
+      "https://" +
+      cdn.media.image(article.imageId || "", {
+        size: "large",
+        ext: "webp"
+      });
 
     head.elements.push(
       <meta key="og_type" property="og:type" content="article" />
