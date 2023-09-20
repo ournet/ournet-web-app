@@ -4,7 +4,7 @@ import { EventViewModel } from "../../view-models/event-view-model";
 import { ImageStorageHelper } from "@ournet/images-domain";
 import * as moment from "moment-timezone";
 import { OutReadMoreLink } from "../components/out-read-more";
-import { startWithUpperCase } from "../../../helpers";
+import { addDate, startWithUpperCase } from "../../../helpers";
 import { FormatNewsContent } from "../components/format-news-content";
 import { SectionHeader } from "../../../views/components/section-header";
 import { AdAside } from "../components/ads/ad-aside";
@@ -17,6 +17,7 @@ import { HoroscopeCard } from "../../../views/components/horoscope/horoscope-car
 import { AdCenter } from "../components/ads/ad-center";
 import { Share } from "../../../views/components/share";
 import { OurnetProjectName } from "../../../ournet/data";
+import { ArticleListItem } from "../components/article-list-item";
 
 export default class EventPage extends React.Component<EventViewModel> {
   render() {
@@ -26,6 +27,7 @@ export default class EventPage extends React.Component<EventViewModel> {
       locales,
       links,
       latestEvents,
+      latestArticles,
       event,
       config,
       eventContent,
@@ -84,6 +86,7 @@ export default class EventPage extends React.Component<EventViewModel> {
         .map((item, index) => <p key={`phrase-s-${index}`}>{item}</p>);
 
     const createdAt = moment(event.createdAt).tz(config.timezone).locale(lang);
+    const articleNewDateString = addDate(-7).toISOString();
 
     return (
       <CommonLayout {...this.props}>
@@ -217,6 +220,25 @@ export default class EventPage extends React.Component<EventViewModel> {
                         })}
                       </div>
                     ))}
+                    {latestArticles
+                      .filter((it) => it.createdAt > articleNewDateString)
+                      .slice(0, 2)
+                      .map((item) => (
+                        <div
+                          key={item.id}
+                          className="o-layout__item u-1/2@tablet u-1/1@desktop"
+                        >
+                          {ArticleListItem({
+                            lang,
+                            country,
+                            item,
+                            links,
+                            timezone: config.timezone,
+                            view: "card-bare",
+                            locales
+                          })}
+                        </div>
+                      ))}
                   </div>
                 </div>
               </div>
