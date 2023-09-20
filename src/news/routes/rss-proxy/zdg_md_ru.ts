@@ -20,7 +20,7 @@ export const getRss = async () => {
     responseType: "text"
   });
 
-  const data: any[] = await x(html, `.tab1-content .item-post`, [
+  const data: any[] = await x(html, `#tab1-content .item-post`, [
     {
       url: ".post-right h5 a@href",
       title: ".post-right h5 a"
