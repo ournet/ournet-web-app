@@ -8,7 +8,7 @@ const PRICES: Record<string, { price: number; currency: string }> = {
   hu: { price: 20, currency: "EUR" },
   cz: { price: 20, currency: "EUR" },
   es: { price: 20, currency: "EUR" },
-  it: { price: 20, currency: "EUR" },
+  it: { price: 20, currency: "EUR" }
 };
 
 export default (language: string, country: string) => {
@@ -16,7 +16,7 @@ export default (language: string, country: string) => {
   if (!price) return null;
 
   const activeLinkPrice =
-    Math.floor(price.price / 5) < 2 ? 2 : Math.floor(price.price / 5);
+    Math.floor(price.price / 4) < 2 ? 2 : Math.floor(price.price / 4);
 
   if (language === "ro") {
     return (
@@ -38,8 +38,7 @@ export default (language: string, country: string) => {
           </li>
           <li>
             Articolul trebuie să fie scris în limba română și să nu conțină
-            greșeli gramaticale. Titlul va conține: <strong>Ⓟ</strong> la
-            sfârșit.
+            greșeli gramaticale.
           </li>
           <li>
             Elemente obligatorii: titlu (scurt și clar), text, o imagine (minim
@@ -85,7 +84,8 @@ export default (language: string, country: string) => {
         <h4>Contact</h4>
         <p>
           Pentru a plasa un articol publicitar, vă rugăm să ne contactați pe
-          email: <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
+          email:{" "}
+          <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
         </p>
         <p>
           La moment, plățile se fac doar prin PayPal. Vă vom trimite factura
@@ -114,8 +114,7 @@ export default (language: string, country: string) => {
           </li>
           <li>
             The article must be written in English and must not contain
-            grammatical errors. The title should include: <strong>Ⓟ</strong> at
-            the end.
+            grammatical errors.
           </li>
           <li>
             Mandatory elements: title (short and clear), text, one image
@@ -189,8 +188,7 @@ export default (language: string, country: string) => {
           </li>
           <li>
             Статья должна быть написана на русском языке и не должна содержать
-            грамматических ошибок. В заголовке должен быть символ:{" "}
-            <strong>Ⓟ</strong>в конце.
+            грамматических ошибок.
           </li>
           <li>
             Обязательные элементы: заголовок (краткий и ясный), текст, одно
@@ -265,8 +263,7 @@ export default (language: string, country: string) => {
           </li>
           <li>
             Статията трябва да бъде написана на български език и да не съдържа
-            граматически грешки. Заглавието трябва да съдържа:{" "}
-            <strong>Ⓟ</strong> в края.
+            граматически грешки.
           </li>
           <li>
             Задължителни елементи: заглавие (кратко и ясно), текст, една снимка
@@ -341,7 +338,7 @@ export default (language: string, country: string) => {
           </li>
           <li>
             A cikket magyar nyelven kell írni, és nem tartalmazhat nyelvtani
-            hibákat. A cím végén legyen: <strong>Ⓟ</strong>.
+            hibákat.
           </li>
           <li>
             Kötelező elemek: cím (rövid és világos), szöveg, egy kép (legalább
@@ -416,7 +413,6 @@ export default (language: string, country: string) => {
           </li>
           <li>
             Článek musí být psán v češtině a nesmí obsahovat gramatické chyby.
-            Název bude obsahovat: <strong>Ⓟ</strong> na konci.
           </li>
           <li>
             Povinné prvky: název (krátký a jasný), text, jedna fotografie
@@ -462,8 +458,8 @@ export default (language: string, country: string) => {
         <h4>Kontakt</h4>
         <p>
           Pro umístění reklamního článku nás prosím kontaktujte e-mailem na
-          adrese: <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>
-          .
+          adrese:{" "}
+          <a href="mailto:info@ournet-group.com">info@ournet-group.com</a>.
         </p>
         <p>
           V současné době přijímáme platby pouze přes PayPal. Pošleme vám
@@ -492,7 +488,7 @@ export default (language: string, country: string) => {
           </li>
           <li>
             El artículo debe estar escrito en español y no debe contener errores
-            gramaticales. El título debe incluir: <strong>Ⓟ</strong> al final.
+            gramaticales.
           </li>
           <li>
             Elementos obligatorios: título (corto y claro), texto, una imagen
@@ -568,8 +564,7 @@ export default (language: string, country: string) => {
           </li>
           <li>
             L'articolo deve essere scritto in lingua italiana e non deve
-            contenere errori grammaticali. Il titolo deve contenere:{" "}
-            <strong>Ⓟ</strong> alla fine.
+            contenere errori grammaticali.
           </li>
           <li>
             Elementi obbligatori: titolo (breve e chiaro), testo, un'immagine
