@@ -12,6 +12,7 @@ import { AsyncViewModelBuilder } from "../../../ournet/async-view-model";
 import * as protvmd from "./protv_md";
 import * as tv8md from "./tv8_md";
 import * as agerpresro from "./agerpres_ro";
+import * as jurnalmd from "./jurnal_md_ru";
 
 interface RssProxyRouterData extends NewsBaseRouterData {
   id: string;
@@ -80,6 +81,9 @@ class RssTopicViewModelBuilder extends AsyncViewModelBuilder<
         break;
       case "agerpres.ro":
         this.model.feed = await agerpresro.getRss();
+        break;
+      case "jurnal.md-ru":
+        this.model.feed = await jurnalmd.getRss();
         break;
     }
     return super.build();
