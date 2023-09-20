@@ -14,10 +14,24 @@ export default class AdsPage extends React.Component<PortalViewModel> {
       latestEvents = [],
       country,
       config,
-      project
+      project,
+      head
     } = this.props;
 
     const title = adsTitle(lang);
+    const imageId = "01harq9yv3j25whrmsh7mfx8hzj";
+
+    const imageLargeUrl = cdn.media.image(imageId, {
+      size: "large",
+      ext: "webp"
+    });
+
+    head.elements.push(
+      <meta key="og_type" property="og:type" content="article" />
+    );
+    head.elements.push(
+      <meta key="og_image" property="og:image" content={imageLargeUrl} />
+    );
 
     return (
       <CommonLayout {...this.props}>
@@ -29,7 +43,7 @@ export default class AdsPage extends React.Component<PortalViewModel> {
                   <img
                     className="c-event-media__pic"
                     alt={title}
-                    src={cdn.media.image("01harq9yv3j25whrmsh7mfx8hzj", {
+                    src={cdn.media.image(imageId, {
                       size: "large",
                       ext: "webp"
                     })}
