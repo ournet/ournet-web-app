@@ -24,39 +24,31 @@ export default class AdsPage extends React.Component<PortalViewModel> {
         <main>
           <div className="o-layout">
             <div className="o-layout__item u-4/6@desktop">
-              <article>
-                <div style={{ padding: "12px 12px 24px 12px" }}>
+              <article className="c-event">
+                <div className={`c-event-media`}>
+                  <img
+                    className="c-event-media__pic"
+                    alt={title}
+                    src={cdn.media.image("01harq9yv3j25whrmsh7mfx8hzj", {
+                      size: "large",
+                      ext: "webp"
+                    })}
+                  />
+                </div>
+                <div className="c-event__body">
                   <div className="o-layout o-layout--small">
                     <div className="o-layout__item u-1/6@tablet"></div>
                     <div className="o-layout__item u-5/6@tablet">
-                      <article className="c-event">
-                        <div className={`c-event-media`}>
-                          <img
-                            className="c-event-media__pic"
-                            alt={title}
-                            src={cdn.media.image(
-                              "01harq9yv3j25whrmsh7mfx8hzj",
-                              { size: "large", ext: "webp" }
-                            )}
-                          />
-                        </div>
-                        <div className="c-event__body">
-                          <div className="o-layout o-layout--small">
-                            <div className="o-layout__item u-1/6@tablet"></div>
-                            <div className="o-layout__item u-5/6@tablet">
-                              <h1 className="c-event__title">
-                                <a
-                                  href={links.portal.ads({ ul: lang })}
-                                  title={title}
-                                >
-                                  {title}
-                                </a>
-                              </h1>
-                              <div className="c-event__text">
-                                {adsContent(lang, country)}
-                              </div>
-                              <style>
-                                {`
+                      <h1 className="c-event__title">
+                        <a href={links.portal.ads({ ul: lang })} title={title}>
+                          {title}
+                        </a>
+                      </h1>
+                      <div className="c-event__text">
+                        {adsContent(lang, country)}
+                      </div>
+                      <style>
+                        {`
                             .c-event__text img {
                               max-width: 100%;
                             }
@@ -72,19 +64,16 @@ export default class AdsPage extends React.Component<PortalViewModel> {
                             }
                             .c-event-media__pic {
                               position: absolute;
-                              top: 0;
-                              left: 0;
                               min-height: 100%;
                               min-width: 100%;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
                             }
                             .c-event-media__pic img { min-width: 100%; }
                           `}
-                              </style>
-                              <br />
-                            </div>
-                          </div>
-                        </div>
-                      </article>
+                      </style>
+                      <br />
                     </div>
                   </div>
                 </div>
