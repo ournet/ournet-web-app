@@ -58,14 +58,14 @@ export function PageHead({
       {hasAds && (
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3959589883092051"
+          crossOrigin="anonymous"
         ></script>
       )}
       {config.googleTagId && (
         <>
           <script
             async
-            defer
             src={`https://www.googletagmanager.com/gtag/js?id=${config.googleTagId}`}
           ></script>
           <script
