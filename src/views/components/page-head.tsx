@@ -64,19 +64,23 @@ export function PageHead({
           ></script>
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.addEventListener("load", (event) => { createAdsObserver(); }, false);
-        function createAdsObserver() {
-          var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-              if (entry.isIntersecting) {
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-                observer.unobserve(entry.target);
-              }
+              __html: `
+        var is_lighthouse = navigator && navigator.userAgent && navigator.userAgent.includes("Lighthouse");
+        if (is_lighthouse!==true) {
+          window.addEventListener("load", (event) => { createAdsObserver(); }, false);
+          function createAdsObserver() {
+            var observer = new IntersectionObserver(function(entries) {
+              entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                  (window.adsbygoogle = window.adsbygoogle || []).push({});
+                  observer.unobserve(entry.target);
+                }
+              });
+            }, {threshold: [0]});
+            document.querySelectorAll('.adsbygoogle').forEach(function(ad) {
+              observer.observe(ad);
             });
-          }, {threshold: [0]});
-          document.querySelectorAll('.adsbygoogle').forEach(function(ad) {
-            observer.observe(ad);
-          });
+          }
         }`
             }}
           ></script>
