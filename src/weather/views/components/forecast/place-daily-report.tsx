@@ -65,11 +65,15 @@ export function PlaceDailyReport({
   const items: (JSX.Element | null)[] = [];
 
   daysData.forEach((dayData, index) => {
-    if (index === 1) {
+    // if (index === 1) {
+    //   if (!config.disabledAds) {
+    //     items.push(AdTop());
+    //   }
+    // } else
+    if (index === 2) {
       if (!config.disabledAds) {
         items.push(AdTop());
       }
-    } else if (index === 2) {
       if (config.domain === "moti2.al") {
         items.push(
           <div key="moti2-div">
