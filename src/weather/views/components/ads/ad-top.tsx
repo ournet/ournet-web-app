@@ -13,11 +13,11 @@ export function AdTop() {
         data-ad-format="auto"
         className="adsbygoogle"
       ></ins>
-      {/* <script
+      <script
         dangerouslySetInnerHTML={{
           __html: "(adsbygoogle = window.adsbygoogle || []).push({});"
         }}
-      ></script> */}
+      ></script>
     </div>
   );
 }

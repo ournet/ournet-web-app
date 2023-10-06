@@ -56,31 +56,11 @@ export function PageHead({
         }}
       ></script>
       {hasAds && (
-        <>
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3959589883092051"
-            crossOrigin="anonymous"
-          ></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.addEventListener("load", (event) => { createAdsObserver(); }, false);
-        function createAdsObserver() {
-          var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-              if (entry.isIntersecting) {
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-                observer.unobserve(entry.target);
-              }
-            });
-          }, {threshold: [0]});
-          document.querySelectorAll('.adsbygoogle').forEach(function(ad) {
-            observer.observe(ad);
-          });
-        }`
-            }}
-          ></script>
-        </>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3959589883092051"
+          crossOrigin="anonymous"
+        ></script>
       )}
       {config.googleTagId && (
         <>
