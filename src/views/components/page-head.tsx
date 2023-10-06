@@ -30,6 +30,9 @@ export function PageHead({
       )}
       {head.canonical && <link rel="canonical" href={head.canonical} />}
       <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
+      {hasAds && (
+        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+      )}
       <link rel="preconnect" href="//assets.ournetcdn.net" />
       <link
         rel="shortcut icon"
@@ -55,13 +58,6 @@ export function PageHead({
           __html: `window.CONSTANTS={lang:"${lang}",country:"${country}",domain:"${config.domain}"};`
         }}
       ></script>
-      {hasAds && (
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3959589883092051"
-          crossOrigin="anonymous"
-        ></script>
-      )}
       {config.googleTagId && (
         <>
           <script
