@@ -2,8 +2,8 @@ import React = require("react");
 
 const PRICES: Record<string, { price: number; currency: string }> = {
   ro: { price: 20, currency: "EUR" },
-  md: { price: 10, currency: "EUR" },
-  in: { price: 10, currency: "USD" },
+  md: { price: 20, currency: "EUR" },
+  in: { price: 20, currency: "USD" },
   bg: { price: 20, currency: "EUR" },
   hu: { price: 20, currency: "EUR" },
   cz: { price: 20, currency: "EUR" },
