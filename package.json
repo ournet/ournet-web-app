@@ -125,7 +125,7 @@
     "@ournet/topics-domain": "~0.x.x",
     "@ournet/videos-domain": "~0.x.x",
     "@ournet/weather-domain": "~0.x.x",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "boom": "^7.2.2",
     "chroma-js": "^2.0.2",
     "dotenv": "^6.1.0",
