@@ -94,6 +94,7 @@ export function PlaceDailyReport({
               src="https://nobun.ro/assets/ads/page.html"
               width="100%"
               height="250"
+              loading="lazy"
               style={{ border: "none", overflow: "hidden" }}
             ></iframe>
           );
