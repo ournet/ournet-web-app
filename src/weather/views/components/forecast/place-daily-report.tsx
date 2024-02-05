@@ -14,6 +14,7 @@ import { OurnetLocales } from "../../../../locales";
 
 export type PlaceDailyReportPorps = {
   lang: string;
+  country: string;
   locales: OurnetLocales;
   config: WeatherAppConfig;
   place: Place;
@@ -27,7 +28,8 @@ export function PlaceDailyReport({
   locales,
   lang,
   config,
-  holidays
+  holidays,
+  country
 }: PlaceDailyReportPorps) {
   const daysData: HoursForecastDataPoint[][] = [];
 
@@ -85,7 +87,17 @@ export function PlaceDailyReport({
       // items.push(SubscribeBar({ locales, config, lang, place }));
     } else if (index === 5) {
       if (!config.disabledAds) {
-        items.push(AdCenter());
+        if (country === "ro") {
+          items.push(
+            <iframe
+              key="ad-iframe"
+              src="https://nobun.ro/assets/ads/page.html"
+              width="100%"
+              height="250"
+              style={{ border: "none", overflow: "hidden" }}
+            ></iframe>
+          );
+        } else items.push(AdCenter());
       }
     }
     items.push(

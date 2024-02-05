@@ -74,7 +74,8 @@ export function PlacePage(props: PlaceViewModel) {
           place,
           lang,
           config,
-          locales
+          locales,
+          country
         })}
         <p className="c-seo-mute">
           {subTitle} {countryName}.
