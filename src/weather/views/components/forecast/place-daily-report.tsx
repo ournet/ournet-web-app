@@ -75,9 +75,12 @@ export function PlaceDailyReport({
               key="ad-iframe"
               src="https://nobun.ro/assets/ads/page.html?utm_source=ournet&utm_medium=banner&utm_campaign=weather-top"
               width="100%"
-              height="250"
               loading="lazy"
-              style={{ border: "none", overflow: "hidden" }}
+              style={{
+                border: "none",
+                overflow: "hidden",
+                aspectRatio: "16 / 9"
+              }}
             ></iframe>
           );
         } else items.push(AdTop());
@@ -104,9 +107,12 @@ export function PlaceDailyReport({
               key="ad-iframe"
               src="https://nobun.ro/assets/ads/page.html?utm_source=ournet&utm_medium=banner&utm_campaign=weather-center"
               width="100%"
-              height="250"
               loading="lazy"
-              style={{ border: "none", overflow: "hidden" }}
+              style={{
+                border: "none",
+                overflow: "hidden",
+                aspectRatio: "16 / 9"
+              }}
             ></iframe>
           );
         } else items.push(AdCenter());
