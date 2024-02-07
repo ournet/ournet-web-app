@@ -69,7 +69,18 @@ export function PlaceDailyReport({
   daysData.forEach((dayData, index) => {
     if (index === 1) {
       if (!config.disabledAds) {
-        items.push(AdTop());
+        if (country === "ro") {
+          items.push(
+            <iframe
+              key="ad-iframe"
+              src="https://nobun.ro/assets/ads/page.html?utm_source=ournet&utm_medium=banner&utm_campaign=weather-top"
+              width="100%"
+              height="250"
+              loading="lazy"
+              style={{ border: "none", overflow: "hidden" }}
+            ></iframe>
+          );
+        } else items.push(AdTop());
       }
     } else if (index === 2) {
       if (config.domain === "moti2.al") {
@@ -91,7 +102,7 @@ export function PlaceDailyReport({
           items.push(
             <iframe
               key="ad-iframe"
-              src="https://nobun.ro/assets/ads/page.html"
+              src="https://nobun.ro/assets/ads/page.html?utm_source=ournet&utm_medium=banner&utm_campaign=weather-center"
               width="100%"
               height="250"
               loading="lazy"
