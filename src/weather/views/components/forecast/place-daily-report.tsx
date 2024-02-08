@@ -28,8 +28,7 @@ export function PlaceDailyReport({
   locales,
   lang,
   config,
-  holidays,
-  country
+  holidays
 }: PlaceDailyReportPorps) {
   const daysData: HoursForecastDataPoint[][] = [];
 
@@ -69,21 +68,7 @@ export function PlaceDailyReport({
   daysData.forEach((dayData, index) => {
     if (index === 1) {
       if (!config.disabledAds) {
-        if (country === "ro") {
-          items.push(
-            <iframe
-              key="ad-iframe"
-              src="https://nobun.ro/assets/ads/page.html?utm_source=ournet&utm_medium=banner&utm_campaign=weather-top"
-              width="100%"
-              loading="lazy"
-              style={{
-                border: "none",
-                overflow: "hidden",
-                aspectRatio: "16 / 9"
-              }}
-            ></iframe>
-          );
-        } else items.push(AdTop());
+        items.push(AdTop());
       }
     } else if (index === 2) {
       if (config.domain === "moti2.al") {
@@ -101,21 +86,7 @@ export function PlaceDailyReport({
       // items.push(SubscribeBar({ locales, config, lang, place }));
     } else if (index === 5) {
       if (!config.disabledAds) {
-        if (country === "ro") {
-          items.push(
-            <iframe
-              key="ad-iframe"
-              src="https://nobun.ro/assets/ads/page.html?utm_source=ournet&utm_medium=banner&utm_campaign=weather-center"
-              width="100%"
-              loading="lazy"
-              style={{
-                border: "none",
-                overflow: "hidden",
-                aspectRatio: "16 / 9"
-              }}
-            ></iframe>
-          );
-        } else items.push(AdCenter());
+        items.push(AdCenter());
       }
     }
     items.push(
