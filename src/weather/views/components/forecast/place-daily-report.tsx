@@ -79,7 +79,7 @@ export function PlaceDailyReport({
               style={{
                 border: "none",
                 overflow: "hidden",
-                aspectRatio: "5 / 3"
+                aspectRatio: "6 / 4"
               }}
             ></iframe>
           );
@@ -111,7 +111,7 @@ export function PlaceDailyReport({
               style={{
                 border: "none",
                 overflow: "hidden",
-                aspectRatio: "5 / 3"
+                aspectRatio: "6 / 4"
               }}
             ></iframe>
           );
