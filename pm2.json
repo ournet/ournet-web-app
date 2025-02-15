@@ -2,6 +2,6 @@
     "script": "./lib/index.js",
     "max_memory_restart": "600M",
     "name": "ournet-web-app",
-    "instances": 2,
+    "instances": 1,
     "exec_mode": "cluster"
 }
