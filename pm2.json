@@ -1,7 +1,5 @@
 {
-    "script": "./lib/index.js",
-    "max_memory_restart": "600M",
-    "name": "ournet-web-app",
-    "instances": 1,
-    "exec_mode": "cluster"
+  "script": "./lib/index.js",
+  "max_memory_restart": "600M",
+  "name": "ournet-web-app"
 }

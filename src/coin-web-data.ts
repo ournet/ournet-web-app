@@ -15,7 +15,7 @@ const addWebDataRequest = (data: Omit<WebDataRequestData, "date">) => {
   const { url } = data;
   const response = RESPONSE_MAP.get(url);
   if (response) return response;
-  if (REQUEST_QUEUE.has(url)) return REQUEST_QUEUE.get(url);
+  if (REQUEST_QUEUE.has(url)) return null;
   else REQUEST_QUEUE.set(url, { date: Date.now(), ...data });
   return null;
 };
