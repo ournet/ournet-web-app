@@ -10,13 +10,15 @@ export type WebDataResponseData = {
 
 const RESPONSE_MAP = new Map<string, WebDataResponseData>();
 
-const addWebDataRequest = (data: Omit<WebDataRequestData, "date">) => {
+const addWebDataRequest = (
+  data: Omit<WebDataRequestData, "date" | "format">
+) => {
   // return response from RESPONSE_MAP by url or add to REQUEST_QUEUE by url:
   const { url } = data;
   const response = RESPONSE_MAP.get(url);
   if (response) return response;
   if (REQUEST_QUEUE.has(url)) return null;
-  else REQUEST_QUEUE.set(url, { date: Date.now(), ...data });
+  else REQUEST_QUEUE.set(url, { date: Date.now(), format: "json", ...data });
   return null;
 };
 

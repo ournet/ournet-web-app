@@ -33,13 +33,11 @@ const getData = async (req: Request) => {
 
   const key = req.headers["x-coin-web-data-key"];
   const url = new URL(req.url || "/", "http://localhost");
-  console.log(`url ${url}`);
   const action = url.searchParams.get("action");
   if (req.method === "POST") {
     const input = await json(req, { limit: "1mb" });
 
     if (action === "ADD") {
-      console.log(`action ${action}`);
       if (key !== process.env.COIN_WEB_DATA_KEY) {
         throw new Error("Unauthorized");
       }
