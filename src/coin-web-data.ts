@@ -33,11 +33,8 @@ const postData = async (body: WebDataResponseData) => {
   // remove from REQUEST_QUEUE by url then add to RESPONSE_MAP by url:
 
   const { url } = body;
-  const request = REQUEST_QUEUE.get(url);
-  if (request) {
-    REQUEST_QUEUE.delete(url);
-    RESPONSE_MAP.set(url, body);
-  }
+  RESPONSE_MAP.set(url, body);
+  REQUEST_QUEUE.delete(url);
 };
 
 const buildJS = () => `

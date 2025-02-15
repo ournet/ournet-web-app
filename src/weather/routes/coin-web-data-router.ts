@@ -35,18 +35,18 @@ const getData = async (req: Request) => {
   const url = new URL(req.url || "/", "http://localhost");
   const action = url.searchParams.get("action");
   if (req.method === "POST") {
-    const input = await json(req, { limit: "1mb" });
+    const body = await json(req, { limit: "1mb" });
 
     if (action === "ADD") {
       if (key !== process.env.COIN_WEB_DATA_KEY) {
         throw new Error("Unauthorized");
       }
-      if (!input) return { error: "No data provided" };
+      if (!body) return { error: "No data provided" };
 
-      return coinWebData.addWebDataRequest(input as never);
+      return coinWebData.addWebDataRequest(body as never);
     } else {
       return coinWebData
-        .postData(input as never)
+        .postData((body as any).output as never)
         .catch((e) => console.error(e.message))
         .then(() => ({ status: "ok" }));
     }
