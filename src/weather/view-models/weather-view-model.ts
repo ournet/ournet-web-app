@@ -18,7 +18,7 @@ import {
 } from "../../ournet/view-model";
 import { LIST_EVENTS_FIEDLS } from "../../news/config";
 import { OurnetProjectName } from "../../ournet/data";
-import { CoinWebDataFetchData } from "../../coin-web-data";
+import coinWebData, { WebDataRequestData } from "../../coin-web-data";
 import { TopCuriousNews, getTopCurious } from "../../news/topcurious";
 
 export class WeatherViewModelBuilder<
@@ -48,8 +48,7 @@ export class WeatherViewModelBuilder<
           { id: model.config.capitalId }
         )
         .queryExecute(),
-      null
-      // coinWebData.fetchData()
+      coinWebData.fetchData()
     ]);
 
     if (result.errors && result.errors.length) {
@@ -105,5 +104,5 @@ export interface WeatherViewModel extends PageViewModel<WeatherAppConfig> {
 
   title: string;
   subTitle: string;
-  webDataFetch?: CoinWebDataFetchData | null;
+  webDataFetch?: WebDataRequestData | null;
 }

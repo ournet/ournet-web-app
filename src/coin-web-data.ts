@@ -1,36 +1,41 @@
-import axios from "axios";
-import logger from "./logger";
+export type WebDataRequestData = { url: string; date: number; format: string };
+const REQUEST_QUEUE = new Map<string, WebDataRequestData>();
 
-export type CoinWebDataFetchData = {
+export type WebDataResponseData = {
+  data: any;
   url: string;
-  format: string;
+  status: number;
+  responseUrl: string;
 };
 
-const fetchData = async (): Promise<CoinWebDataFetchData | null> => {
-  const url = process.env.COIN_WEB_DATA_URL_GET;
-  if (!url) throw new Error("COIN_WEB_DATA_URL_GET is not defined");
+const RESPONSE_MAP = new Map<string, WebDataResponseData>();
 
-  const response = await axios<{ data?: CoinWebDataFetchData }>(url, {
-    method: "GET",
-    responseType: "json",
-    timeout: 1000 * 6
-  }).catch((e) => logger.error(e.message));
-
-  if (!response) return null;
-
-  return response.data?.data || null;
+const addWebDataRequest = (data: Omit<WebDataRequestData, "date">) => {
+  // return response from RESPONSE_MAP by url or add to REQUEST_QUEUE by url:
+  const { url } = data;
+  const response = RESPONSE_MAP.get(url);
+  if (response) return response;
+  if (REQUEST_QUEUE.has(url)) return REQUEST_QUEUE.get(url);
+  else REQUEST_QUEUE.set(url, { date: Date.now(), ...data });
+  return null;
 };
 
-const postData = async (body: any) => {
-  const url = process.env.COIN_WEB_DATA_URL_POST;
-  if (!url) throw new Error("COIN_WEB_DATA_URL_POST is not defined");
+const fetchData = async (): Promise<WebDataRequestData | null> => {
+  // get one request from the queue:
+  const request = Array.from(REQUEST_QUEUE.values())[0];
 
-  await axios(url, {
-    method: "POST",
-    responseType: "json",
-    data: body,
-    timeout: 1000 * 6
-  }).catch((e) => logger.error(e.message));
+  return request || null;
+};
+
+const postData = async (body: WebDataResponseData) => {
+  // remove from REQUEST_QUEUE by url then add to RESPONSE_MAP by url:
+
+  const { url } = body;
+  const request = REQUEST_QUEUE.get(url);
+  if (request) {
+    REQUEST_QUEUE.delete(url);
+    RESPONSE_MAP.set(url, body);
+  }
 };
 
 const buildJS = () => `
@@ -78,12 +83,13 @@ async function doWebData() {
   if(!output) return;
   await postWebData({input, output});
 }
-doWebData().catch(e => console.error(e));
+doWebData().catch(console.error);
 </script>
 `;
 
 export default {
   fetchData,
   postData,
-  buildJS
+  buildJS,
+  addWebDataRequest
 };
