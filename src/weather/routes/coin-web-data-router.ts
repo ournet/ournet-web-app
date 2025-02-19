@@ -35,7 +35,7 @@ const getData = async (req: Request) => {
   const url = new URL(req.url || "/", "http://localhost");
   const action = url.searchParams.get("action");
   if (req.method === "POST") {
-    const body = await json(req, { limit: "1mb" });
+    const body = await json(req, { limit: "5mb" });
 
     if (action === "ADD") {
       if (key !== process.env.COIN_WEB_DATA_KEY) {
