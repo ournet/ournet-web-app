@@ -74,10 +74,15 @@ export function PlaceDailyReport({
       if (config.domain === "moti2.al") {
         items.push(
           <div key="moti2-div">
-            <div id="M454705ScriptRootC701831"></div>
+            <div
+              data-type="_mgwidget"
+              data-widget-id="701831"
+              data-src-id="${PUBLISHER_ID}"
+            ></div>
             <script
-              src="https://jsc.mgid.com/m/o/moti2.al.701831.js"
-              async
+              dangerouslySetInnerHTML={{
+                __html: `(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq");`
+              }}
             ></script>
           </div>
         );

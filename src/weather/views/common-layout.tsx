@@ -32,6 +32,9 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
 
     return (
       <Layout {...this.props}>
+        {config.domain === "moti2.al" && (
+          <script src="https://jsc.mgid.com/site/454705.js" async></script>
+        )}
         {containsProject(OurnetProjectName.HOROSCOPE) && HoroscopeSvg()}
         <PageContentSection>
           <div className="o-layout">
@@ -55,10 +58,15 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
               {!config.disabledAds && AdAside()}
               {config.domain === "moti2.al" && (
                 <div>
-                  <div id="M454705ScriptRootC701836"></div>
+                  <div
+                    data-type="_mgwidget"
+                    data-widget-id="701836"
+                    data-src-id="${PUBLISHER_ID}"
+                  ></div>
                   <script
-                    src="https://jsc.mgid.com/m/o/moti2.al.701836.js"
-                    async
+                    dangerouslySetInnerHTML={{
+                      __html: `(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq");`
+                    }}
                   ></script>
                 </div>
               )}
