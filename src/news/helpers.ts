@@ -1,3 +1,5 @@
+import { Locale } from "../locales";
+
 export function topicDisplayName(
   topic: { name: string; commonName?: string; lang?: string; type?: string },
   language?: string
@@ -33,3 +35,10 @@ export function getPersonDisplayName(name: string, lang: string) {
 
   return name;
 }
+
+export const getLocaleFromStoryId = (id: string): Locale => {
+  const country = id.substring(id.length - 4, id.length - 2);
+  const lang = id.substring(id.length - 2);
+
+  return { country, lang };
+};
