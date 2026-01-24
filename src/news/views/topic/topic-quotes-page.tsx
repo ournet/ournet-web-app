@@ -51,10 +51,11 @@ export default class TopicQuotesPage extends React.Component<TopicQuotesViewMode
               <div className="o-media c-topic-h">
                 <div className="o-media__img">
                   <img
-                    className="c-topic-h__img o-lazy"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    data-src={entipicUrl(topic.name, "b", lang, country)}
+                    className="c-topic-h__img"
+                    src={entipicUrl(topic.name, "c", lang, country)}
                     alt={topic.name}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="o-media__body">

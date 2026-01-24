@@ -71,10 +71,13 @@ function cardItemView({
           size: "tiny"
         })}
       <div className="c-quote-it__media">
-        <div
-          className="c-quote-it__icon o-lazy"
-          data-src={entipicUrl(author.name, "a", lang, country)}
-        ></div>
+        <img
+          className="c-quote-it__icon"
+          src={entipicUrl(author.name, "c", lang, country)}
+          alt={author.name}
+          loading="lazy"
+          decoding="async"
+        />
         <div className="c-quote-it__body">
           <a
             className="c-quote-it__name"
@@ -127,10 +130,13 @@ function mainItemView({
           align: "right"
         })}
       <div className="c-quote-it__media">
-        <div
-          className="c-quote-it__icon o-lazy"
-          data-src={entipicUrl(author.name, "a", lang, country)}
-        ></div>
+        <img
+          className="c-quote-it__icon"
+          src={entipicUrl(author.name, "c", lang, country)}
+          alt={author.name}
+          loading="lazy"
+          decoding="async"
+        />
         <div className="c-quote-it__body">
           <a
             className="c-quote-it__name"

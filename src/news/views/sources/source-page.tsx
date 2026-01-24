@@ -35,10 +35,11 @@ export default class SourcePage extends React.Component<SourceViewModel> {
                   <div className="o-media c-topic-h">
                     <div className="o-media__img">
                       <img
-                        className="c-topic-h__img o-lazy"
-                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                        data-src={entipicUrl(source.name, "b", lang, country)}
+                        className="c-topic-h__img"
+                        src={entipicUrl(source.name, "c", lang, country)}
                         alt={source.name}
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <div className="o-media__body">
