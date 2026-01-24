@@ -13,7 +13,7 @@ export function entipicUrl(
   lang?: string,
   country?: string
 ): string {
-  return entipicUrlFn(name, size, lang, country);
+  return entipicUrlFn(name, size, lang, country).replace(/\.jpg$/, ".webp");
 }
 
 export function truncateAt(text: string, maxLength: number): string {
