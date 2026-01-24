@@ -4,10 +4,11 @@ import { PageTitle } from "../../../views/components/page-title";
 import PageContentSection from "../../../views/components/page-content-section";
 import { SourcesViewModel } from "../../view-models/sources-view-model";
 import { URL } from "url";
+import { addUtmSource } from "../../../helpers";
 
 export default class SourcesPage extends React.Component<SourcesViewModel> {
   render() {
-    const { head, links, title, subTitle, sources, locales, lang } = this.props;
+    const { head, links, title, subTitle, sources, locales, lang, config } = this.props;
 
     return (
       <CommonLayout {...this.props}>
@@ -34,7 +35,8 @@ export default class SourcesPage extends React.Component<SourcesViewModel> {
                       <a
                         className="c-source-it--a"
                         target="_blank"
-                        href={item.url}
+                        rel="noopener noreferrer"
+                        href={addUtmSource(item.url, config.domain)}
                       >
                         {new URL(item.url).hostname.replace("www.", "")} &gt;
                       </a>
@@ -42,7 +44,7 @@ export default class SourcesPage extends React.Component<SourcesViewModel> {
                   </div>
                 ))}
               </div>
-              <a href="https://github.com/ournet/news-sources" target="_blank">
+              <a href="https://github.com/ournet/news-sources" target="_blank" rel="noopener noreferrer">
                 + <strong>{locales.add_news_source()}</strong>
               </a>
             </div>

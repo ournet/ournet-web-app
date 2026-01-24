@@ -66,7 +66,7 @@ export default class CommonLayout extends React.Component<HoroscopeViewModel> {
                         key={item.url}
                         className="o-layout__item u-1/2@tablet u-1/1@desktop"
                       >
-                        {TopCuriousListItem({ item, view: "card-bare" })}
+                        {TopCuriousListItem({ item, view: "card-bare", domain: config.domain })}
                       </div>
                     ))}
                   </div>

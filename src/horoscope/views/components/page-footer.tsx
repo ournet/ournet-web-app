@@ -23,7 +23,7 @@ export function PageFooter({ project, locales, lang, config, country, version }:
                         {/* <div><a href={links.horoscope.sign('api', { ul: lang })}>{translate(HoroscopeLocaleNames.export_horoscope)}</a></div> */}
                         {config.projects.map(item => <div key={item}><a href={getSchema(item, country) + '//' + getHost(item, country)}>{locales.getProjectName(item)}</a></div>)}
                         <div>
-                            <a href='https://play.google.com/store/apps/details?id=com.ournet.horoscope' target="_blank">
+                            <a href='https://play.google.com/store/apps/details?id=com.ournet.horoscope' target="_blank" rel="noopener noreferrer">
                                 <img alt='Google Play' style={{ width: '140px' }} src={`https://play.google.com/intl/en_us/badges/images/generic/${lang}_badge_web_generic.png`} />
                             </a>
                         </div>

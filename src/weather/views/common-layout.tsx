@@ -116,7 +116,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                     </div>
                     {topCuriousNews.slice(0, 2).map((item) => (
                       <div key={item.url} className="o-layout__item">
-                        {TopCuriousListItem({ item, view: "card-bare" })}
+                        {TopCuriousListItem({ item, view: "card-bare", domain: config.domain })}
                       </div>
                     ))}
                   </div>

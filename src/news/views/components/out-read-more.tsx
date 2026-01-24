@@ -17,7 +17,7 @@ export function OutReadMoreLink({
 }: OutReadMoreProps) {
   return (
     <div className="c-out">
-      <a target="_blank" rel="nofollow noindex" href={links.news.url({ url })}>
+      <a target="_blank" rel="nofollow noindex noopener noreferrer" href={links.news.url({ url })}>
         {locales.read_more_on_source_format({ name: source })} ›
       </a>
     </div>

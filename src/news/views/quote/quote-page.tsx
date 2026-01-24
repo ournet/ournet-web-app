@@ -45,7 +45,8 @@ export default class QuotePage extends React.Component<QuoteViewModel> {
                   timezone: config.timezone,
                   view: "main",
                   item: quote,
-                  shareServices: config.shareServices
+                  shareServices: config.shareServices,
+                  domain: config.domain
                 })}
                 {event &&
                   EventListItem({

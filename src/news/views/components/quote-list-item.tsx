@@ -2,7 +2,7 @@ import * as React from "react";
 import { Quote } from "@ournet/api-client";
 import moment = require("moment-timezone");
 import { Sitemap, getSchema, getHost } from "ournet.links";
-import { truncateAt, entipicUrl } from "../../../helpers";
+import { truncateAt, entipicUrl, addUtmSource } from "../../../helpers";
 import { OurnetProjectName } from "../../../ournet/data";
 import { getPersonDisplayName } from "../../helpers";
 import { Share } from "../../../views/components/share";
@@ -17,6 +17,7 @@ export type QuoteListItemProps = {
   maxLength?: number;
   project?: OurnetProjectName;
   shareServices?: string[];
+  domain?: string;
 };
 
 export type QuoteListItemViewName = "card" | "main";
@@ -106,7 +107,8 @@ function mainItemView({
   lang,
   country,
   links,
-  shareServices
+  shareServices,
+  domain
 }: QuoteListItemProps) {
   const createdAt = moment(item.createdAt).tz(timezone).locale(lang);
   const author = item.author;
@@ -116,6 +118,9 @@ function mainItemView({
     "//" +
     getHost(OurnetProjectName.NEWS, country) +
     link;
+
+  const sourceUrl = "http://" + item.source.host + item.source.path;
+  const externalUrl = domain ? addUtmSource(sourceUrl, domain) : sourceUrl;
 
   return (
     <div className="c-quote-it c-quote-it--card">
@@ -152,9 +157,9 @@ function mainItemView({
           </time>
           <div className="c-quote-it__ctx">
             <a
-              rel="nofollow"
+              rel="nofollow noopener noreferrer"
               target="_blank"
-              href={"http://" + item.source.host + item.source.path}
+              href={externalUrl}
             >
               {truncateAt(item.source.title, 70)}
             </a>

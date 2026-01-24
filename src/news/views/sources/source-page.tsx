@@ -1,6 +1,6 @@
 import * as React from "react";
 import CommonLayout from "../common-layout";
-import { entipicUrl } from "../../../helpers";
+import { entipicUrl, addUtmSource } from "../../../helpers";
 import { SectionHeader } from "../../../views/components/section-header";
 import { EventListItem } from "../components/event-list-item";
 import { NewsItemListItem } from "../components/item-list-item";
@@ -44,7 +44,7 @@ export default class SourcePage extends React.Component<SourceViewModel> {
                     </div>
                     <div className="o-media__body">
                       <h2>
-                        <a href={source.url} target="_blank">
+                        <a href={addUtmSource(source.url, config.domain)} target="_blank" rel="noopener noreferrer">
                           {head.description}
                         </a>
                       </h2>

@@ -176,3 +176,22 @@ export const addDate = (days: number, date: Date = new Date()) => {
   result.setDate(result.getDate() + days);
   return result;
 };
+
+/**
+ * Adds utm_source query parameter to a URL for tracking external link clicks.
+ * @param url - The URL to add utm_source to
+ * @param domain - The domain to use as utm_source value
+ * @returns The URL with utm_source parameter added
+ */
+export function addUtmSource(url: string, domain: string): string {
+  if (!url || !domain) return url;
+  try {
+    const urlObj = new URL(url);
+    urlObj.searchParams.set("utm_source", domain);
+    return urlObj.toString();
+  } catch {
+    // If URL parsing fails, try simple string concatenation
+    const separator = url.includes("?") ? "&" : "?";
+    return `${url}${separator}utm_source=${encodeURIComponent(domain)}`;
+  }
+}

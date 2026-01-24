@@ -1,10 +1,11 @@
 import * as React from "react";
-import { truncateAt } from "../../../helpers";
+import { truncateAt, addUtmSource } from "../../../helpers";
 import { TopCuriousNews } from "../../topcurious";
 
 export type TopCuriousListItemProps = {
   item: TopCuriousNews;
   view: EventListItemViewName;
+  domain?: string;
 };
 
 export type EventListItemViewName =
@@ -27,7 +28,8 @@ export function TopCuriousListItem(props: TopCuriousListItemProps) {
   return null;
 }
 
-function mediaItemView({ item, view }: TopCuriousListItemProps) {
+function mediaItemView({ item, view, domain }: TopCuriousListItemProps) {
+  const url = domain ? addUtmSource(item.url, domain) : item.url;
   return (
     <div
       className={
@@ -39,7 +41,7 @@ function mediaItemView({ item, view }: TopCuriousListItemProps) {
         <span className="c-event-it__img o-lazy" data-src={item.image}></span>
       </div>
       <div className="c-event-it__info o-media__body">
-        <a target="_blank" className="c-event-it__title" href={item.url} title={item.title}>
+        <a target="_blank" rel="noopener noreferrer" className="c-event-it__title" href={url} title={item.title}>
           {truncateAt(item.title, 80)}
         </a>
       </div>
@@ -47,7 +49,8 @@ function mediaItemView({ item, view }: TopCuriousListItemProps) {
   );
 }
 
-function cardItemView({ item, view }: TopCuriousListItemProps) {
+function cardItemView({ item, view, domain }: TopCuriousListItemProps) {
+  const url = domain ? addUtmSource(item.url, domain) : item.url;
   return (
     <div
       className={"c-event-it v--card" + (view !== "card" ? " v--" + view : "")}
@@ -57,7 +60,7 @@ function cardItemView({ item, view }: TopCuriousListItemProps) {
       </div>
       <div className="c-event-it__hover"></div>
 
-      <a target="_blank" className="c-event-it__doc" title={item.title} href={item.url}>
+      <a target="_blank" rel="noopener noreferrer" className="c-event-it__doc" title={item.title} href={url}>
         <div className="c-event-it__inner">
           <h3 className="c-event-it__title">{truncateAt(item.title, 100)}</h3>
         </div>
