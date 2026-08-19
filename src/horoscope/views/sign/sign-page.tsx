@@ -67,41 +67,6 @@ export function SignPage(props: SignViewModel) {
         <br />
         <br />
       </main>
-      {config.oneSignal && (
-        <div>
-          <div
-            className="u-hidden js-subscribe-box"
-            data-category="notifications-horo"
-            data-tags={JSON.stringify({
-              "zodiac-sign": report.sign.toString()
-            })}
-            data-type="force"
-          ></div>
-          <script
-            src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
-            async
-          ></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `var OneSignal = window.OneSignal || [];
-OneSignal.push(['init', {
-    appId: "${config.oneSignal.appId}",
-    autoRegister: false,
-    persistNotification: false,
-    notifyButton: {
-    enable: true,
-    showCredit: false,
-    prenotify: true
-    },
-    welcomeNotification: {
-    disable: true
-    },
-    safari_web_id: "${config.oneSignal.safari_web_id}"
-}]);`
-            }}
-          ></script>
-        </div>
-      )}
     </CommonLayout>
   );
 }
