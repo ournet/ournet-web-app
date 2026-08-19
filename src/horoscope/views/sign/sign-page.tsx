@@ -4,13 +4,11 @@ import { SignViewModel } from "../../view-models/sign-view-model";
 import { PageTitle } from "../../../views/components/page-title";
 import { HoroscopeDayReport } from "../components/horoscope-day-report";
 import { AdBottom } from "../components/ads/ad-bottom";
-import { HoroscopeSignsLine } from "../../../views/components/horoscope/horoscope-signs-line";
 import { Share } from "../../../views/components/share";
 
 export function SignPage(props: SignViewModel) {
   const {
     lang,
-    country,
     head,
     locales,
     links,
@@ -60,7 +58,6 @@ export function SignPage(props: SignViewModel) {
             ></iframe>
           </div>
         )}
-        {HoroscopeSignsLine({ lang, country, links })}
         {/* {HoroscopeAppAdCard({ lang })} */}
         {AdBottom()}
         <br />
