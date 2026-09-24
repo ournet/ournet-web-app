@@ -41,23 +41,7 @@ export function SignPage(props: SignViewModel) {
           links,
           locales
         })}
-        {lang === "ro" && (
-          <div style={{ maxWidth: 320, margin: "24px auto" }}>
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/videoseries?list=UUSHXwLOah513BCDrSgxVX7Mbg&rel=0&playsinline=1"
-              title="Horoscopul zilei în video"
-              loading="lazy"
-              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              style={{
-                display: "block",
-                width: "100%",
-                aspectRatio: "9 / 16",
-                border: 0
-              }}
-            ></iframe>
-          </div>
-        )}
+        {/* {HoroscopeSignsLine({ lang, country, links })} */}
         {/* {HoroscopeAppAdCard({ lang })} */}
         {AdBottom()}
         <br />
