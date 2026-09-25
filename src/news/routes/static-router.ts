@@ -1,6 +1,7 @@
 import { NewsBaseRouter } from "../router";
 import { Request, Response } from "../../base/types";
 import { DataHandler } from "../../base/data-handler";
+import { AI_TRAINING_BOTS_ROBOTS } from "../../base/robots";
 
 export class RobotsRouter extends NewsBaseRouter {
     constructor() {
@@ -14,7 +15,8 @@ Disallow: /controls
 Disallow: /actions
 Disallow: /video_embed
 Disallow: /item
-`,
+
+${AI_TRAINING_BOTS_ROBOTS}`,
             code: 200,
             headers: { 'Content-Type': 'text/plain; charset=UTF-8' },
         });

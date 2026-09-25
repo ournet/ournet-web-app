@@ -1,6 +1,7 @@
 import { PortalBaseRouter } from "../router";
 import { Request, Response } from "../../base/types";
 import { DataHandler } from "../../base/data-handler";
+import { AI_TRAINING_BOTS_ROBOTS } from "../../base/robots";
 
 export class RobotsRouter extends PortalBaseRouter {
   constructor() {
@@ -13,7 +14,8 @@ export class RobotsRouter extends PortalBaseRouter {
       data: `User-agent: *
 Disallow: /controls
 Disallow: /actions
-`,
+
+${AI_TRAINING_BOTS_ROBOTS}`,
       code: 200,
       headers: { "Content-Type": "text/plain; charset=UTF-8" }
     });

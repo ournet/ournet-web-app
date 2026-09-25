@@ -1,6 +1,7 @@
 import { WeatherBaseRouter } from "../router";
 import { Request, Response } from "../../base/types";
 import { DataHandler } from "../../base/data-handler";
+import { AI_TRAINING_BOTS_ROBOTS } from "../../base/robots";
 import { OurnetProjectName } from "../../ournet/data";
 import { sitemap, getSchema, getHost } from "ournet.links";
 
@@ -28,6 +29,7 @@ Disallow: /widget2/widget_frame
 Disallow: /widget/widgetframe
 Disallow: /widget2/widgetframe
 
+${AI_TRAINING_BOTS_ROBOTS}
 ${config.languages.map(lang => sitemapUrl(lang)).join("\n")}
 `,
       code: 200,
